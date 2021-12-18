@@ -22,7 +22,7 @@ Example Data Science, Analytics, and Business Intelligence Portfolio
 
 # Project 6: Power BI KPI Dashboard
 
-# Project 7: Classification and Regression Trees (CART) Machine learning
+# Project 7: Classification and Regression Trees (CART) Machine Learning
 
 # Project 8: Exploratatory Data Analysis in R
 
