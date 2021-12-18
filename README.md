@@ -1,7 +1,7 @@
 # Ted Dickey Project Portfolio
 Example Data Science, Analytics, and Business Intelligence Portfolio
 
-# Project 1: Data Cleaning in SQL (ETL)
+# [Project 1: Data Cleaning in SQL (ETL)](https://github.com/analyticsbyted/PortfolioProjects)
 * Extracted data from csv file from server.
 * Standardized date format.
 * Populatated some missing PropertyAddress fields.
