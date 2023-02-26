@@ -86,14 +86,36 @@
 						<!-- Machine Learning -->
 						<article id="ml">
 							<h2 class="major">Machine Learning</h2>
+							<p><a href="https://rpubs.com/dickeyt/wearabletech">Comparative Sentiment Analysis<br />
+							</a></p>
+							<span class="image main"><img src="images/sentAnalysis_wearables.png" alt="" /></span>
+							<p>This 2020 project was conducted after Apple launched its lasted iteration of an Apple Watch.  We were interested to see how this new product offering might fare against its competition from Samsung and Fitbit.<br></p>
+							<p>Data for the study was gathered using the Rtweet package in R to scrape data from Twitter related to Apple, Samsung, and Fitbit.  Duplicates and retweets were removed. Tweet data was analyzed detect patterns such as the time of day or day of the week. a Few notable observations were discovered and presented in this study.<br></p>
+							<p>Overall, with regard to user's positivity associated with each of the brands, Apple appeared to have the highest positivity score with 0.42 during the study period.<br></p>
+
+							<ul class="actions special">
+								<li><a href="https://rpubs.com/dickeyt/wearabletech" class="button">View the full Wearable Technology Study</a></li>
+							</ul>
+							<p><br></p>
+
 							<p>Multivariate Analysis</p>
 							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-							<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-							<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laorat tincidunt. Vivamus et sagittis libero.empus.</p>
+							<p>Coming Soon! Placeholders to keep track of which of the many sample-types to include</p>
+							<p><br></p>
+
 							<p>Customer Segmentation</p>
 							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-							<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-							<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laorat tincidunt. Vivamus et sagittis libero. Maurgiat tempus.</p>
+							<p>I will be uploading this soon.  Check back again!</p>
+							<p></p>
+
+							<p><br></p>
+
+							<p>Classification Model</p>
+							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+							<p>I will be uploading this soon.  Check back again!</p>
+							<p></p>
+							<p><br></p>
+								
 						</article>
 
 						<!-- Vizzes -->
@@ -162,12 +184,41 @@
 											<label for="message">Message</label>
 											<textarea name="message" id="message" rows="4"></textarea>
 										</div>
+										<!-- Honey pot field -->
+										<div class="field">
+											<label for="comment">Will respond soon to submitted forms</label>
+											<input type="hidden" name="comment" id="comment" class="honey-pot" />
+										</div>
 									</div>
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
+
+								<script>
+									// Check whether the honey pot field is empty
+									var honeyPot = document.querySelector('.honey-pot');
+									if (honeyPot.value !== '') {
+									  // Reject the form submission
+									  alert('Sorry, your message could not be sent.');
+									  return false;
+									}
+								</script>
+
+								<form action="https://formsubmit.co/dickeyted84@gmail.com" method="POST">
+									<input type="hidden" name="_subject" value="New Contact Form Submission!">
+									<input type="text" placeholder = "Name" name="name" required>
+									<input type="email" placeholder ="Email Address" name="email" required>
+									<input type="hidden" name="_next" value="https://www.teddickey.com/pages/thanks.html">
+									<input type="text" name="message" placeholder="Write your message here" required>
+									<button type="submit">Send</button>
+								</form>
+
+
+
+ 
+
 								<ul class="icons">
 									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
