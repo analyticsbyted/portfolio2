@@ -15,6 +15,7 @@
 
   			gtag('config', 'G-Q90PKLY7DK');
 		</script>
+		<script src="js/analytics.js"></script>
 		
 		<title>Data Science Portfolio</title>
 		<meta charset="utf-8" />
@@ -84,7 +85,7 @@
 								<ul class="actions special">
 									<li><a href="https://github.com/analyticsbyted/PortfolioProjects/blob/main/DataCleaninginSQL.sql" class="button">View Project</a></li>
 								</ul>
-								<p><br></p>
+								<p></p>
 								<p><a href="https://rpubs.com/dickeyt/contributions"><b>Exploratory Data Analysis in R</b>
 								</a></p>
 								<span class="image main"><img src="images/politicalmoney.PNG" alt="" /></span>
@@ -94,6 +95,10 @@
 								<ul class="actions special">
 									<li><a href="https://rpubs.com/dickeyt/contributions" class="button">View Project</a></li>
 								</ul>
+
+								<div id="rmd-output"></div>
+
+
 							</article>
 
 						<!-- Machine Learning -->
@@ -542,6 +547,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'politicalContributions.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('rmd-output').appendChild(iframe);
+				</script>
 
 	</body>
 </html>
