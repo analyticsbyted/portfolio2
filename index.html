@@ -17,7 +17,7 @@
 		</script>
 		<script src="js/analytics.js"></script>
 		
-		<title>Data Science Portfolio</title>
+		<title>Ted Dickey</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -105,8 +105,35 @@
 						<article id="ml">
 							<h2 class="major">Machine Learning</h2>
 							<p>
-								Welcome to my Analytics page! Here you will find examples of my work in advanced analytics, including sentiment analysis, customer segmentation, and various machine learning models such as classification, linear and logistic regression, and random forest. These projects demonstrate my ability to extract insights and make data-driven decisions through advanced statistical analysis and modeling techniques. I look forward to sharing my work with you and hope it gives you an idea of the value I can bring to your organization.
+								Welcome to my Machine Learning page! Here you will find examples of my work in advanced analytics, including sentiment analysis, customer segmentation, and various machine learning models such as classification, linear and logistic regression, and random forest. These projects demonstrate my ability to extract insights and make data-driven decisions through advanced statistical analysis and modeling techniques. I look forward to sharing my work with you and hope it gives you an idea of the value I can bring to your organization.
 							</p>
+							<p><a href="https://rpubs.com/dickeyt/wearabletech"><b>Classification Model using KNN</b>
+							</a></p>
+							<span class="image main"><img src="images/predict1.pnf.png" alt="" /></span>
+							<p>This Python script uses a KNN classification model to predict customer purchase behavior based on gender, age, salary, product ID, price, and prior purchase behavior. The model is trained on a dataset of customer details and whether they made a purchase or not. The script includes steps for analyzing historical purchase data, feature engineering, model training, testing, and prediction.</p>
+							<p>Businesses can use this model to optimize their marketing strategies and increase revenue.</p>
+
+							<ul class="actions special">
+								<li><a href="#knnpart1" class="button">View Jupyter Notebook Script</a></li>
+							</ul>
+							
+							<p><br></p>
+							<p><a href="https://rpubs.com/dickeyt/wearabletech"><b>Predicting Customer Behavior using KNN - New Customer Predictions</b>
+							</a></p>
+							<span class="image main"><img src="images/predict2.png" alt="" /></span>
+							<p>This Python code uses the pickle module to load a pre-trained k-Nearest Neighbors (KNN) machine learning model (saved in 'knn_model.pickle') and a scaler object (saved in 'scaler.pickle'). The model and scaler will be used to predict whether new customers will make a purchase or not based on their age, salary, and the price of the item they are considering.</p>
+							<p>The code then loads a new dataset containing information for the new customers into a Pandas DataFrame using the read_csv function. One-hot encoding is applied to the Gender column using pd.get_dummies with drop_first=True to avoid the dummy variable trap.</p>
+							<p>After encoding the gender column, the required features are selected from the new DataFrame and stored as a NumPy array. The scaler loaded from the pickle file is used to scale the data. Finally, the model loaded from the pickle file is used to predict whether each new customer will make a purchase or not based on the scaled data.</p>
+							<p>The predictions are added as a new column to the original DataFrame, and the resulting DataFrame is saved as a csv file using the to_csv method with index=False.</p>
+
+							<ul class="actions special">
+								<li><a href="#knnpart2" class="button">View Predictions Script</a></li>
+							</ul>
+							
+							<p><br></p>
+
+
+
 							<p><a href="https://rpubs.com/dickeyt/wearabletech"><b>Comparative Sentiment Analysis</b>
 							</a></p>
 							<span class="image main"><img src="images/sentAnalysis_wearables.png" alt="" /></span>
@@ -128,18 +155,6 @@
 								<li><a href="https://github.com/analyticsbyted/customer_segmentation/blob/main/Project2.ipynb" class="button">View Sample Project</a></li>
 							</ul>
 
-							<p><br></p>
-
-							<p>Multivariate Analysis</p>
-							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-							<p>Coming Soon! Placeholders to keep track of which of the many sample-types to include</p>
-							<p><br></p>
-
-							
-							<p>Classification Model</p>
-							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-							<p>I will be uploading this soon.  Check back again!</p>
-							<p></p>
 							<p><br></p>
 								
 						</article>
@@ -211,6 +226,22 @@
 							<span class="image main"><img src="images/thanksthankscard2.png" alt="" /></span>
 							<p>Your message has been successfully sent. I appreciate your interest and will get back to you as soon as possible.</p>
 							<p></p>
+							<p>If you would like to buy me a coffee, well thank you very much that is most kind!:  <a href="https://www.buymeacoffee.com/dickeyted84">https://www.buymeacoffee.com/dickeyted84</a></p>
+						</article>
+
+						<!-- KNNpart1 -->
+						<article id="knnpart1">
+							<h2 class="major">Classification Model Creation</h2>
+							<p></p>
+							<div id="jupyter1-output"></div>
+						</article>
+
+						<!-- KNNpart2 -->
+						<article id="knnpart2">
+							<h2 class="major">Predictions</h2>
+							<p></p>
+							<div id="jupyter2-output"></div>
+					
 							<p>If you would like to buy me a coffee, well thank you very much that is most kind!:  <a href="https://www.buymeacoffee.com/dickeyted84">https://www.buymeacoffee.com/dickeyted84</a></p>
 						</article>
 
@@ -553,6 +584,22 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				iframe.style.width = '100%';
 				iframe.style.height = '800px';
 				document.getElementById('rmd-output').appendChild(iframe);
+				</script>
+
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'infer.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('jupyter1-output').appendChild(iframe);
+				</script>
+
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'infer.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('jupyter2-output').appendChild(iframe);
 				</script>
 
 	</body>
