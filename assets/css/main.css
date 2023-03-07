@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1497,6 +1500,38 @@ input, select, textarea {
 				}
 
 		}
+
+
+/* style for the speech button */
+.button-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 2em;
+  }
+
+/* CSS for speech button */
+#speech-button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+  }
+  
+  #speech-button:hover {
+	background-color: #3e8e41;
+  }
+
+  
+
+
 
 /* Main */
 
