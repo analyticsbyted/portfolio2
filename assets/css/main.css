@@ -1502,6 +1502,7 @@ input, select, textarea {
 		}
 
 
+
 /* style for the speech button */
 .button-container {
 	display: flex;
@@ -1511,7 +1512,7 @@ input, select, textarea {
 
 /* CSS for speech button */
 #speech-button {
-	background-color: #4CAF50;
+	background-color: transparent;
 	border: none;
 	color: white;
 	padding: 10px 20px;
@@ -1526,8 +1527,9 @@ input, select, textarea {
   }
   
   #speech-button:hover {
-	background-color: #3e8e41;
+	background-color: #5a3e8e;
   }
+
 
   
 
