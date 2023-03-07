@@ -59,9 +59,16 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">Intro</h2>
+								<div class="button-container">
+									<button id="speech-button" class=""speech-button>Listen</button>							  
+									  
+								  </div>
+								<h2 class="major">Intro </h2>
 								<!-- <span class="image main"><img src="images/pic01.jpg" alt="" /></span> -->
-								<p>Hello and welcome to my digital portfolio! My name is Ted Dickey and I am a Data Scientist with over 7 years of experience in SQL, noSQL, Tableau, and Power BI. I am also proficient in Python and R.  I am excited to share my expertise in data analytics, machine learning, NLP, and data visualizations with you.</p>
+
+								
+								<p></p>
+								<p>Hello and welcome to my digital portfolio! My name is Ted Dickey and I am a Data Scientist with over 7 years of experience in SQL, Tableau, and Power BI. I am also proficient in Python and R.  I am excited to share my expertise in data analytics, machine learning, NLP, and data visualizations with you.</p>
 								<p>I hold a Master of Science in Customer Analytics and a Master of Business Administration in Business Intelligence degrees from Xavier University, where I further developed and gained extensive knowledge in data analytics and business intelligence. I also hold a Bachelor of Business Administration in Finance from the University of Cincinnati.</p>
 								<p>Throughout my career, I have been fortunate enough to work on a range of exciting projects in various industries, from conducting market research in the real estate industry to developing predictive models for container fleet voyages to optimize routes and reduce costs. Currently, as a Data Scientist - Advanced Analytics professional, I work on implementing advanced analytical models to improve business outcomes for clients.</p>
 
@@ -70,6 +77,9 @@
 								<p>I believe that data has the power to transform organizations and industries, and my goal is to leverage my expertise to drive positive change. Whether you're a potential employer, collaborator, or simply curious about the world of data science, I hope you find this portfolio informative and inspiring. By the way, check out my <a href="#work">awesome work</a></p>
 									
 								<p>Thank you for visiting, and please don't hesitate to reach out with any questions or feedback!</p>
+							
+								
+							
 							</article>
 
 						<!-- ETL EDA -->
@@ -601,6 +611,45 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				iframe.style.width = '100%';
 				iframe.style.height = '800px';
 				document.getElementById('jupyter2-output').appendChild(iframe);
+				</script>
+
+			<script>
+				// get the HTML element by its ID
+				const introText = document.getElementById("intro").textContent;
+
+				// create a new instance of the SpeechSynthesis API
+				const synth = window.speechSynthesis;
+
+				// create a new speech object with the text content
+				const speech = new SpeechSynthesisUtterance(introText);
+
+				// set the speech parameters, such as the voice and rate
+				speech.lang = 'en-US';
+				speech.voiceURI = 'Google US English';
+				speech.voice = speechSynthesis.getVoices().find(voice => voice.name === 'Google US English Male');
+				speech.rate = 1.1;
+
+				// variable to keep track of whether speech is being spoken
+  				let isSpeaking = false;
+
+				// function to start or stop the speech
+				function speakIntro() {
+  				if (isSpeaking) {
+					// speech is currently being spoken, so stop it
+					synth.cancel();
+					isSpeaking = false;
+					speechButton.textContent = "Listen";
+  				} else {
+					// speech is not being spoken, so start it
+					synth.speak(speech);
+					isSpeaking = true;
+					speechButton.textContent = "Stop";
+				  }
+				}
+
+				// add event listener to the button to start or stop the speech
+				const speechButton = document.getElementById("speech-button");
+				speechButton.addEventListener("click", speakIntro);
 				</script>
 
 	</body>
