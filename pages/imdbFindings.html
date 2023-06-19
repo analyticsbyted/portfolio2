@@ -10,7 +10,7 @@
 
   			gtag('config', 'G-Q90PKLY7DK');
 		</script>
-		<script src="js/analytics.js"></script>
+		<script src="../assets/js/main.js"></script>
 		
 		<title>Findings Report</title>
 		<meta charset="utf-8" />
@@ -40,6 +40,12 @@
                 margin-bottom: 100px;
             }
         
+            /* Add custom background */
+        body {
+            background-image: url('../images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
         </style>
 	</head>
   
@@ -62,7 +68,7 @@
     <div style="word-wrap: break-word;">
         <h2 style="color: darkgoldenrod">IMDb Movies and Shows Findings</h2>
         <p></p>
-        <p><font color="white">The analysis project focuses on exploring and visualizing the IMDb movies dataset sourced from Kaggle. The dataset, which can be found at: <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" style="color:darkgoldenrod"> Kaggle IMDb Dataset</a>, provides information about the top 1000 movies and TV shows on IMDb.</font></p>      
+        <p><font color="white">The analysis project focuses on exploring and visualizing the IMDb movies dataset sourced from Kaggle. The dataset, which can be found at: <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" style="color:yellow"> Kaggle IMDb Dataset</a>, provides information about the top 1000 movies and TV shows on IMDb.</font></p>      
         <p><font color="white">The goal of the project was to gain insights into various aspects of the dataset using Tableau reporting tool. By leveraging the provided dataset, the analysis project aimed to provide a comprehensive understanding of the top 1000 movies and TV shows based on IMDb ratings.</font></p>
       
         <p><font color="white">The analysis project included several key visualizations and KPI cards that provided valuable information about the movies. Users could select a specific movie title from a dropdown menu, which dynamically filtered the KPI cards to display relevant information about the selected movie. This information encompassed details such as the year of release, genre, duration, IMDb rating, number of votes received, gross sales, meta score, and a film description.</font></p>
@@ -79,10 +85,22 @@
           <li><font color="white">Box Plots of Meta Score by Top 10 Genres: Analyzing meta scores for the top 10 genres through box plots, showcasing outliers such as "7 Pounds" and "I am Sam" in the Drama category with scores below the lower whisker.</font></li>
         </ol>
         <p><font color="white">By leveraging the IMDb movies dataset from Kaggle, this analysis project provided a comprehensive exploration of the top 1000 movies and TV shows, aiming to uncover valuable insights and trends within the dataset.</font></p>
-        <p><br></p>
-        <p><font color="white">Click here to <font color="yellow"><a href="../moviedashboard.html">return to the dashboard</a></font> or use the navigation menu above.</font></p>
-    </div>
-    </div>     
+        <p></p>
+        <div style="text-align: center;">
+            <p>
+                <font color="white">
+                    Click here to return to the
+                    <a href="../moviedashboard.html" style="color: yellow;">IMDB Dashboard</a>
+                    or use the navigation menu above.
+                </font>
+            </p>
+        </div>
         
+    </div>
+      <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright" style="color:white;">&copy; Ted Dickey II 2023</p>
+        </footer>  
   </body> 
+  
   </html>

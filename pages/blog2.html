@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q90PKLY7DK"></script>
+		<script>
+  			window.dataLayer = window.dataLayer || [];
+  			function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+
+  			gtag('config', 'G-Q90PKLY7DK');
+		</script>
+		<script src="../assets/js/main.js"></script>
+		
+		<title>Blog 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+        <style>
+            /* Add the following CSS styles */
+            .horizontal-nav {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .horizontal-nav li {
+                margin-right: 10px;
+            }
+    
+            .horizontal-nav li a {
+                text-decoration: none;
+            }
+
+            /* Add separation between nav and page content */
+            nav {
+                margin-bottom: 100px;
+            }
+        
+            /* Add custom background */
+        body {
+            background-image: url('../images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        </style>
+	</head>
+  
+  <body class="is-preload">
+
+    <nav>
+        <ul class="horizontal-nav">
+            <li><button><a href="../index.html#intro">Intro</a></button></li>
+            <li><button><a href="../index.html#work">ETL/EDA</a></button></li>
+            <li><button><a href="../index.html#ml">ML</a></button></li>
+            <li><button><a href="../index.html#vizzes">Dashboards</a></button></li>
+            <li><button><a href="../index.html#certs">Certs</a></button></li>
+            <li><button><a href="../index.html#blog">Blog</a></button></li>
+            <li><button><a href="../index.html#contact">Contact</a></button></li>
+            <!--<li><button><a href="#elements">Elements</a></button></li>-->
+        </ul>
+    </nav>
+
+    <div style="margin: 100px;">
+        <div style="word-wrap: break-word;">
+            <header>
+                <h3>Security and Governance in Tableau and Power BI</h3>
+                <p>By Ted Dickey | June 19, 2023</p>
+            </header>
+            <article id="blog2">
+                
+                <p>As an experienced data professional with over 3 years of professional experience in utilizing both Power BI and Tableau, along with completing certifications in both platforms, I understand the critical importance of security and governance in today's data-driven world. In this blog post, I'll delve into the significance of security and governance within Tableau and Power BI, providing concrete examples of how these platforms enable secure data handling and access control.</p>
+                
+                <h3>Role-Based Access Control (RBAC)</h3>
+                
+                <p>Tableau and Power BI offer robust role-based access control mechanisms, empowering administrators to define user roles and permissions. This ensures that only authorized individuals can access specific data and perform actions based on their assigned roles. For instance, organizations can create roles such as "Administrator," "Analyst," and "Viewer," each with different levels of data access and functionality.</p>
+                
+                <h3>Data Encryption</h3>
+                
+                <p>Data encryption serves as a fundamental pillar of data security. Both Tableau and Power BI provide support for data encryption at rest and in transit. This means that data is safeguarded when stored on servers or during communication between clients and servers. By leveraging encryption algorithms, organizations can ensure that sensitive data remains secure and unreadable to unauthorized parties.</p>
+                
+                <h3>Single Sign-On (SSO)</h3>
+                
+                <p>Tableau and Power BI seamlessly integrate with various single sign-on (SSO) providers, enabling organizations to enforce centralized authentication and access control policies. With SSO, users can conveniently log in once using their corporate credentials, gaining access to Tableau or Power BI without the need for additional usernames and passwords. This enhances security by reducing the risk of password-related vulnerabilities and simplifying user management.</p>
+                
+                <h3>Data-Level Security</h3>
+
+                    <p>Data-level security is a crucial aspect of maintaining data integrity and protecting sensitive information. In Power BI, one powerful feature for implementing data-level security is Row-Level Security (RLS). RLS allows you to define security rules that filter data based on user attributes or roles, ensuring that each user can only access the data they are authorized to see.</p>
+
+                    <p>What makes RLS in Power BI particularly powerful is its dynamic nature. Instead of manually defining static rules for each user or role, RLS can dynamically apply filters to the data based on the user accessing the report or dashboard.</p>
+
+                    <p>Here's how dynamic RLS can be implemented in Power BI:</p>
+
+                    <p><strong>1. Define User Attributes:</strong> Start by identifying the user attributes that will drive the dynamic security rules. These attributes can be user roles, departments, regions, or any other relevant criteria.</p>
+
+                    <p><strong>2. Create a Security Table:</strong> In Power BI, create a separate table that contains the user attributes and the corresponding filter values. This table will serve as the basis for defining the security rules.</p>
+
+                    <p><strong>3. Define Security Rules:</strong> Using Power BI Desktop or the Power BI service, you can define the security rules by creating relationships between the security table and the data tables. These relationships will determine how the data is filtered based on the user attributes.</p>
+
+                    <p><strong>4. Test and Validate:</strong> It is crucial to thoroughly test and validate the security rules to ensure they are functioning as expected. Test the data visibility for different user roles and attributes to confirm that the data is appropriately filtered.</p>
+
+                    <p><strong>5. Publish and Maintain:</strong> Once you are satisfied with the security rules, publish the Power BI report or dashboard. From this point forward, whenever a user accesses the report, the dynamic RLS rules will be applied, ensuring that they can only view the authorized data based on their attributes or roles.</p>
+
+                    <p>With dynamic RLS, Power BI empowers organizations to enforce fine-grained data-level security without the need for manual maintenance of static security rules. This flexibility ensures that data remains secure and accessible to authorized users, while minimizing the risk of data breaches or unauthorized access.</p>
+              
+                <h3>Auditing and Monitoring</h3>
+                
+                    <p>Effective governance requires continuous monitoring and auditing of user activities. Tableau and Power BI provide robust auditing capabilities, enabling organizations to track user interactions, data access, and system events. By closely monitoring user activities, organizations can identify any suspicious behavior, ensure compliance with regulations, and swiftly respond to security incidents.</p>
+            
+                    <hr />
+                    <h3>Other Blog Posts</h3>
+                    <ul class="alt">
+                      <li><a href="../index.html#blog">Why Data Visualization Matter</a></li>
+                    </ul>
+                </article>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy; Ted Dickey II 2023</p>
+    </footer>
+  </body>
+  <!-- Footer -->
+  <footer id="footer">
+    <p class="copyright">&copy; Ted Dickey II 2023</p>
+</footer>
