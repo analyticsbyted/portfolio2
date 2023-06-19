@@ -17,20 +17,56 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+        <style>
+            /* Add the following CSS styles */
+            .horizontal-nav {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .horizontal-nav li {
+                margin-right: 10px;
+            }
+    
+            .horizontal-nav li a {
+                text-decoration: none;
+            }
+
+            /* Add separation between nav and page content */
+            nav {
+                margin-bottom: 100px;
+            }
+        
+        </style>
 	</head>
   
   <body class="is-preload">
-    <font color="white">
-    <h1 style="color:darkgoldenrod">IMDb Movies Dashboard</h1>
-    <p>Using a Kaggle dataset, IMDb movie ratings and other film-related information are captured in the embedded dashboard below.</p>
-    <p>Click here to </font><font color="yellow"> <a href="index.html">return to the homepage</a>.</font></p>
 
-    <div class='tableauPlaceholder' id='viz1687142736879' style='position: relative'><noscript><a href='#'>
-        <img alt='IMDB Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1_rss.png' style='border: none' /></a></noscript>
-        <object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IMDBMovies_16871427180720&#47;IMDBDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div> 
-                       <script type='text/javascript'>                   
-                        var divElement = document.getElementById('viz1687142736879');                   
-                         var vizElement = divElement.getElementsByTagName('object')[0];                    
-                         if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1880px';vizElement.style.height='977px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1880px';vizElement.style.height='1077px';} else { vizElement.style.width='100%';vizElement.style.height='2927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-  </body>
+    <nav>
+        <ul class="horizontal-nav">
+            <li><button><a href="index.html#intro">Intro</a></button></li>
+            <li><button><a href="index.html#work">ETL/EDA</a></button></li>
+            <li><button><a href="index.html#ml">ML</a></button></li>
+            <li><button><a href="index.html#vizzes">Vizzes</a></button></li>
+            <li><button><a href="index.html#certs">Certs</a></button></li>
+            <li><button><a href="index.html#blog">Blog</a></button></li>
+            <li><button><a href="index.html#contact">Contact</a></button></li>
+            <!--<li><button><a href="#elements">Elements</a></button></li>-->
+        </ul>
+    </nav>
+
+
+
+    <font color="white">
+        <h1 style="color: darkgoldenrod">IMDb Movies Dashboard</h1>
+        <p>Using a Kaggle dataset, IMDb movie ratings and other film-related information are captured in the embedded dashboard below.</p>
+        <p>Click here to <font color="yellow"><a href="index.html#vizzes">return to Vizzes section</a></font> or use the navigation menu above.</p>
+    
+        <div id="dashboardContainer"></div>
+    
+        <div class='tableauPlaceholder' id='viz1687195227849' style='position: relative'><noscript><a href='#'><img alt='IMDB Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IMDBMovies_16871427180720&#47;IMDBDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1687195227849');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='1207px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='771px';} else { vizElement.style.width='100%';vizElement.style.height='2927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>    </body>
+    
 </html>
