@@ -1,6 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q90PKLY7DK"></script>
 		<script>
@@ -15,8 +20,11 @@
 		<title>Ted Dickey</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="author" content="Ted Dickey" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
         <style>
             /* Add the following CSS styles */
@@ -75,21 +83,54 @@
         
 
         <font color="white">
-            <h1 style="color: darkgoldenrod">IMDb Movies Dashboard</h1>
+            <h1 style="color: rgb(249, 247, 244)">Amazon Reviews Sentiment Analysis using NLP</h1>
             <p>Using a Kaggle dataset, IMDb movie ratings and other film-related information are captured in the embedded dashboard below.</p>
             <p>Click the link to return to the <font color="yellow"><a href="index.html#vizzes">Dashboards tab</a></font> or use the navigation menu above.</p>
         </font>
     </div>
 
-        <div id="dashboardContainer"></div>
-    
-        <div class='tableauPlaceholder' id='viz1687195227849' style='position: relative'><noscript><a href='#'><img alt='IMDB Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IMDBMovies_16871427180720&#47;IMDBDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IM&#47;IMDBMovies_16871427180720&#47;IMDBDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1687195227849');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='1207px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='771px';} else { vizElement.style.width='100%';vizElement.style.height='2927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>   
-        <!-- Footer -->
-			<footer>
-                <p><br></p>
-                <p class="copyright">&copy; Ted Dickey II 2023</p>
-        </footer>
-    </body>
+        </div>
+        	<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Ted Dickey II 2023</p>
+					</footer>
 
-        
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'politicalContributions.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('rmd-output').appendChild(iframe);
+				</script>
+
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'infer.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('jupyter1-output').appendChild(iframe);
+				</script>
+
+			<script>
+				var iframe = document.createElement('iframe');
+				iframe.src = 'infer.html';
+				iframe.style.width = '100%';
+				iframe.style.height = '800px';
+				document.getElementById('jupyter2-output').appendChild(iframe);
+				</script>
+    </body>
 </html>
+
+
+                
