@@ -1,0 +1,5 @@
+pvenv
+.pvenv
+pvenv/
+pvenv.bak/
+notes.txt
