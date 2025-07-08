@@ -1,33 +1,12 @@
-# Ted Dickey Project Portfolio
-Example Data Science, Analytics, and Business Intelligence Portfolio
+# React + Vite
 
-# [Project 1: Data Cleaning in SQL (ETL): Overview](https://github.com/analyticsbyted/PortfolioProjects)
-* Extracted data from csv file from server.
-* Standardized date format.
-* Populatated some missing PropertyAddress fields.
-* Split Address field into Address, City and State features.
-* Changed 'Y' and 'N' to 'Yes' and 'No' in 'Sold as Vacant' field.
-* Removed clearly duplicated records.
-* Removed unused columns.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Project 2: Data Exploration in R
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Project 3: Market Segmentation in Python
+## Expanding the ESLint configuration
 
-
-# Project 4:  Tableau Data Visualizations
-
-# Project 5: Webscraping with R
-
-# Project 6: Power BI KPI Dashboard
-
-# Project 7: Classification and Regression Trees (CART) Machine Learning
-
-# Project 8: Exploratatory Data Analysis in R
-
-# (Project 9: Sentiment Analysis in R)
-
-# (Project 10: Logistic Regression in R, Supervised ML for Predictive Analytics)
-
-# (Project 11: Multivariate Linear Regression for Predictive Analytics)
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
