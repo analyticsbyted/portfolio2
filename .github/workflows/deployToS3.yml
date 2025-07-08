@@ -43,12 +43,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
 
-      - name: Configure S3 for SPA routing
+      - name: Deployment notification
         run: |
-          aws s3 website s3://${{ secrets.AWS_S3_BUCKET }} --index-document index.html --error-document index.html
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          echo "✅ Build and deployment completed successfully"
+          echo "🔧 MANUAL STEP REQUIRED for SPA routing:"
+          echo "To fix page refresh issues, you need to configure CloudFront:"
+          echo ""
+          echo "Option 1 (Recommended): CloudFront Functions"
+          echo "1. Go to CloudFront Console → Your Distribution → Functions"
+          echo "2. Create a new function with the code from cloudfront-spa-function.js"
+          echo "3. Associate it with the 'viewer-request' event"
+          echo ""
+          echo "Option 2: CloudFront Custom Error Pages"
+          echo "1. Go to CloudFront Console → Your Distribution → Error Pages"
+          echo "2. Add custom error response for 403: /index.html with 200 response code"
+          echo "3. Add custom error response for 404: /index.html with 200 response code"
+          echo ""
+          echo "See SPA-ROUTING-SETUP.md for detailed instructions"
 
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
