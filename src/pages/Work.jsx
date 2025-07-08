@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import PageTitle from '../components/PageTitle';
-import PageSubtitle from '../components/PageSubtitle';
 import Button from '../components/Button';
 
 // Import images for project visuals
@@ -257,88 +255,172 @@ function Work() {
 
   // General CTA text and link
   const generalCTA = {
-    text: 'Contact to discuss consulting, collaboration, or custom analytics solutions.',
+    text: 'Ready to discuss how these solutions can transform your business? Let\'s explore custom analytics solutions tailored to your needs.',
     link: '/contact',
-    label: 'Contact Now'
+    label: 'Start Your Project'
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-4">
-      <PageTitle>Work</PageTitle>
-      <PageSubtitle>Explore projects in Data Science, Data Analysis, Business Intelligence, and NLP/Text Analytics</PageSubtitle>
-      <div className="flex gap-2 md:gap-4 overflow-x-auto no-scrollbar mb-8 py-2" style={{ WebkitOverflowScrolling: 'touch' }} role="tablist" aria-label="Project categories">
-        {tabs.map(tab => (
-          <button
-            key={tab.key}
-            className={`min-w-[8rem] px-4 py-2 rounded-full font-medium transition border text-base md:text-sm ${activeTab === tab.key ? 'bg-blue-600 text-white border-blue-600 dark:bg-blue-700' : 'bg-[#F8F7F4] text-blue-600 border-blue-200 hover:bg-blue-50 dark:bg-gray-900 dark:text-blue-300 dark:border-gray-700 dark:hover:bg-gray-800'}`}
-            onClick={() => { setActiveTab(tab.key); setExpandedIdx(null); }}
-            style={{ fontSize: '1rem' }}
-            role="tab"
-            aria-selected={activeTab === tab.key}
-            aria-controls={`tabpanel-${tab.key}`}
-            id={`tab-${tab.key}`}
-            tabIndex={activeTab === tab.key ? 0 : -1}
-          >
-            {tab.name}
-          </button>
-        ))}
-      </div>
-      <div className="space-y-4" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
-        {projects.map((proj, idx) => (
-          <div
-            key={idx}
-            className={`p-6 rounded-lg border bg-[#F8F7F4] shadow-sm dark:bg-gray-900 dark:border-gray-700 flex flex-col md:flex-row gap-4 items-center transition-all duration-200 cursor-pointer hover:shadow-md ${expandedIdx === idx ? 'ring-2 ring-blue-400' : ''}`}
-            onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
-            tabIndex={0}
-            role="button"
-            aria-label={`Expand details for ${proj.title}`}
-            aria-expanded={expandedIdx === idx}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setExpandedIdx(expandedIdx === idx ? null : idx);
-              }
-            }}
-          >
-            <img src={proj.img} alt={proj.title} className="w-32 h-32 object-contain rounded mb-2 md:mb-0 md:mr-4 border flex-shrink-0" />
-            <div className="flex-1 text-left">
-              {/* Skill/tool badges */}
-              <div className="flex flex-wrap gap-2 mb-2">
-                {proj.skills && proj.skills.map((skill, i) => (
-                  <span key={i} className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold border border-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:border-blue-700">
-                    {skill}
-                  </span>
-                ))}
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section className="text-center mb-16">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+          Portfolio of
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            Data Solutions
+          </span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+          Explore real-world projects spanning Data Science, Analytics, Business Intelligence, and AI/ML solutions that drive measurable business impact.
+        </p>
+      </section>
+      {/* Modern Tab Navigation */}
+      <section className="mb-16">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {tabs.map(tab => (
+            <button
+              key={tab.key}
+              className={`px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 border-2 ${
+                activeTab === tab.key 
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-blue-600 shadow-lg transform hover:scale-105' 
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:shadow-md hover:bg-blue-50 dark:hover:bg-gray-700'
+              }`}
+              onClick={() => { setActiveTab(tab.key); setExpandedIdx(null); }}
+              role="tab"
+              aria-selected={activeTab === tab.key}
+              aria-controls={`tabpanel-${tab.key}`}
+              id={`tab-${tab.key}`}
+            >
+              {tab.name}
+            </button>
+          ))}
+        </div>
+      </section>
+      {/* Modern Project Grid */}
+      <section className="mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
+          {projects.map((proj, idx) => (
+            <div
+              key={idx}
+              className={`bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer ${
+                expandedIdx === idx ? 'ring-4 ring-blue-400 shadow-2xl' : 'hover:border-blue-300 dark:hover:border-blue-600'
+              }`}
+              onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+              tabIndex={0}
+              role="button"
+              aria-label={`Expand details for ${proj.title}`}
+              aria-expanded={expandedIdx === idx}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setExpandedIdx(expandedIdx === idx ? null : idx);
+                }
+              }}
+            >
+              {/* Project Image */}
+              <div className="relative h-48 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-4">
+                <img 
+                  src={proj.img} 
+                  alt={proj.title} 
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300" 
+                />
               </div>
-              <h2 className="text-lg font-semibold mb-1 dark:text-gray-100">{proj.title}</h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-1"><span className="font-semibold">Problem:</span> {proj.problem}</p>
-              <p className="text-gray-700 dark:text-gray-300 mb-1"><span className="font-semibold">Approach:</span> {proj.approach}</p>
-              {proj.result && <p className="text-gray-700 dark:text-gray-300 mb-1"><span className="font-semibold">Result or Impact:</span> {proj.result}</p>}
-              <a
-                href={proj.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-2 px-4 py-2 rounded bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
-                onClick={e => e.stopPropagation()}
-                aria-label={`Open project: ${proj.title}`}
-              >
-                {proj.linkLabel}
-              </a>
-              {expandedIdx === idx && proj.details && (
-                <div className="mt-3 p-3 bg-blue-50 dark:bg-gray-800 rounded border border-blue-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">
-                  {proj.details}
+
+              {/* Project Content */}
+              <div className="p-6">
+                {/* Skill Badges */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {proj.skills && proj.skills.map((skill, i) => (
+                    <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-              )}
+
+                {/* Project Title */}
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{proj.title}</h3>
+
+                {/* Problem Statement */}
+                <div className="mb-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Challenge</h4>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.problem}</p>
+                </div>
+
+                {/* Approach */}
+                <div className="mb-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Solution</h4>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.approach}</p>
+                </div>
+
+                {/* Result */}
+                {proj.result && (
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Impact</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.result}</p>
+                  </div>
+                )}
+
+                {/* Project Link and Expand Button */}
+                <div className="flex justify-between items-center">
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    onClick={e => e.stopPropagation()}
+                    aria-label={`Open project: ${proj.title}`}
+                  >
+                    {proj.linkLabel}
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  
+                  {proj.details && (
+                    <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                      <span className="mr-2">{expandedIdx === idx ? 'Hide Details' : 'Show Details'}</span>
+                      <svg className={`w-5 h-5 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                {/* Expanded Details */}
+                {expandedIdx === idx && proj.details && (
+                  <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Technical Details</h4>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{proj.details}</p>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="flex justify-center mt-8">
-        <Button href={generalCTA.link} ariaLabel={generalCTA.label}>
-          {generalCTA.label}
-        </Button>
-      </div>
-      <p className="text-center text-gray-600 dark:text-gray-300 mt-2 text-base">{generalCTA.text}</p>
-    </section>
+          ))}
+        </div>
+      </section>
+      {/* Modern CTA Section */}
+      <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl">
+        <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+        <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
+          {generalCTA.text}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            href={generalCTA.link} 
+            className="bg-white text-blue-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold"
+            ariaLabel={generalCTA.label}
+          >
+            {generalCTA.label}
+          </Button>
+          <Button 
+            href="/about" 
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
+            ariaLabel="Learn more about Ted's experience"
+          >
+            Learn More About Me
+          </Button>
+        </div>
+      </section>
+    </div>
   );
 }
 
