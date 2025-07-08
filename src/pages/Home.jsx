@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import CTASection from '../components/CTASection';
 import { useState, useEffect } from 'react';
 
 const heroStats = [
@@ -217,28 +218,20 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl">
-        <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-        <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-          Let's discuss how data science, AI, and cloud solutions can accelerate your growth and drive measurable results.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            href="/contact" 
-            className="bg-white text-blue-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold"
-            ariaLabel="Contact Ted for consulting"
-          >
-            Get Started Today
-          </Button>
-          <Button 
-            href="/certifications" 
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
-            ariaLabel="View Ted's certifications"
-          >
-            View Credentials
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Transform Your Business?"
+        description="Let's discuss how data science, AI, and cloud solutions can accelerate your growth and drive measurable results."
+        primaryButton={{
+          href: "/contact",
+          text: "Get Started Today",
+          ariaLabel: "Contact Ted for consulting"
+        }}
+        secondaryButton={{
+          href: "/certifications",
+          text: "View Credentials",
+          ariaLabel: "View Ted's certifications"
+        }}
+      />
     </div>
   );
 }

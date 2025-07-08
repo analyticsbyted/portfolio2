@@ -96,13 +96,13 @@ function App() {
           </div>
           {/* Nav links */}
           <div className={`flex-col md:flex-row md:flex items-center space-y-4 md:space-y-0 md:space-x-6 w-full md:w-auto mt-4 md:mt-0 ${mobileOpen ? 'flex' : 'hidden'} md:flex`}>
-            <Link to="/work" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Work</Link>
-            <Link to="/publications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Publications</Link>
-            <Link to="/newsletter" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Newsletter</Link>
-            <Link to="/certifications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Certifications</Link>
-            <Link to="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>About</Link>
-            <Link to="/education" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Education</Link>
-            <Link to="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }}>Contact</Link>
+            <Link to="/work" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Work</Link>
+            <Link to="/publications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Publications</Link>
+            <Link to="/newsletter" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Newsletter</Link>
+            <Link to="/certifications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Certifications</Link>
+            <Link to="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>About</Link>
+            <Link to="/education" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Education</Link>
+            <Link to="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Contact</Link>
             {/* Theme toggle */}
             <button
               className="ml-0 md:ml-4 p-2 rounded-full border border-transparent hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-blue-100 dark:bg-gray-800"

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CTASection from '../components/CTASection';
 
 const contactMethods = [
   {
@@ -263,26 +264,20 @@ function Contact() {
       </div>
 
       {/* Final CTA Section */}
-      <section className="mt-20 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl">
-        <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-        <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-          Whether you need strategic consulting, custom analytics solutions, or want to explore a partnership, I'm here to help turn your data into actionable insights.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/work"
-            className="inline-block bg-white text-blue-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg"
-          >
-            View My Work
-          </a>
-          <a
-            href="/about"
-            className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg"
-          >
-            Learn More
-          </a>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Get Started?"
+        description="Whether you need strategic consulting, custom analytics solutions, or want to explore a partnership, I'm here to help turn your data into actionable insights."
+        primaryButton={{
+          href: "/work",
+          text: "View My Work",
+          ariaLabel: "View Ted's portfolio projects"
+        }}
+        secondaryButton={{
+          href: "/about",
+          text: "Learn More",
+          ariaLabel: "Learn more about Ted"
+        }}
+      />
     </div>
   );
 }

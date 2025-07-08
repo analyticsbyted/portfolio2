@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import CTASection from '../components/CTASection';
 import { useState } from 'react';
 
 const stats = [
@@ -177,28 +178,20 @@ function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl">
-        <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Data Strategy?</h2>
-        <p className="text-xl mb-8 opacity-90">
-          Let's discuss how data science and cloud solutions can accelerate your business growth.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            href="/contact" 
-            className="bg-white text-blue-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-            ariaLabel="Contact Ted for consulting"
-          >
-            Start a Conversation
-          </Button>
-          <Button 
-            href="/work" 
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600"
-            ariaLabel="View Ted's portfolio"
-          >
-            View My Work
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Transform Your Data Strategy?"
+        description="Let's discuss how data science and cloud solutions can accelerate your business growth."
+        primaryButton={{
+          href: "/contact",
+          text: "Start a Conversation",
+          ariaLabel: "Contact Ted for consulting"
+        }}
+        secondaryButton={{
+          href: "/work",
+          text: "View My Work",
+          ariaLabel: "View Ted's portfolio"
+        }}
+      />
     </div>
   );
 }

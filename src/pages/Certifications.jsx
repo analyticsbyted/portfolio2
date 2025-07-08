@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { AcademicCapIcon, StarIcon, TrophyIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import CTASection from '../components/CTASection';
 import agileExplorer from '../assets/certifications/agile-explorer.png';
 import alteryxFoundational from '../assets/certifications/alteryx-foundational-micro-credential.png';
 import ibmMlSpecialist from '../assets/certifications/ibm-ml-specialist-associate.png';
@@ -28,8 +30,6 @@ import garageEssentials from '../assets/certifications/ibm-garage-essentials.png
 import garageFoundation from '../assets/certifications/ibm-garage-foundation.png';
 import logoTableau from '../assets/certifications/logo-tableau.png';
 import harvardBusiness from '../assets/certifications/hbs.png';
-import PageTitle from '../components/PageTitle';
-import PageSubtitle from '../components/PageSubtitle';
 import React from 'react'; // Added for useEffect
 
 const certificationsData = [
@@ -296,6 +296,13 @@ const certificationsData = [
   },
 ];
 
+const certificationStats = [
+  { label: 'Active Certifications', value: '29', icon: '🏆' },
+  { label: 'Cloud Platforms', value: '3', icon: '☁️' },
+  { label: 'Programming Languages', value: '3', icon: '💻' },
+  { label: 'Data Science Tools', value: '10+', icon: '📊' }
+];
+
 function Certifications() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -317,91 +324,193 @@ function Certifications() {
   });
 
   return (
-    <section className="max-w-5xl mx-auto">
-      <PageTitle>Certifications</PageTitle>
-      <PageSubtitle>Explore the certifications I've earned in various fields. Click a badge for details and verification.</PageSubtitle>
-      <div className="flex flex-col md:flex-row md:space-x-4 mb-8 items-center justify-center">
-        <input
-          type="text"
-          placeholder="Search certifications..."
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-          className="px-4 py-2 border rounded-lg w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-200 mb-2 md:mb-0"
-          aria-label="Search certifications"
-        />
-        <select
-          value={selectedCategory}
-          onChange={e => setSelectedCategory(e.target.value)}
-          className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 mb-2 md:mb-0"
-          aria-label="Filter by category"
-        >
-          <option value="All">All Categories</option>
-          {categories.map(category => (
-            <option key={category} value={category}>{category}</option>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section className="text-center mb-16">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+          Professional
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            Certifications
+          </span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+          A comprehensive collection of industry-recognized certifications spanning Data Science, Cloud Computing, Analytics, and emerging technologies.
+        </p>
+      </section>
+
+      {/* Stats Grid */}
+      <section className="mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {certificationStats.map((stat, index) => (
+            <div 
+              key={index} 
+              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div className="text-4xl mb-3">{stat.icon}</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+            </div>
           ))}
-        </select>
-        <select
-          value={selectedIssuer}
-          onChange={e => setSelectedIssuer(e.target.value)}
-          className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
-          aria-label="Filter by issuer"
-        >
-          <option value="All">All Issuers</option>
-          {issuers.map(issuer => (
-            <option key={issuer} value={issuer}>{issuer}</option>
-          ))}
-        </select>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredCertifications.map(cert => (
-          <div
-            key={cert.id}
-            className="bg-[#F8F7F4] border rounded-lg shadow-sm p-4 flex flex-col items-center cursor-pointer hover:shadow-md transition dark:bg-gray-900 dark:border-gray-700"
-            onClick={() => setSelectedCertification(cert)}
-            tabIndex={0}
-            role="button"
-            aria-label={`View details for ${cert.name}`}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setSelectedCertification(cert);
-              }
-            }}
-          >
-            <img src={cert.badgeImage} alt={cert.name} className="w-20 h-20 object-contain mb-3" />
-            <h3 className="font-semibold text-lg mb-1 text-center dark:text-gray-100">{cert.name}</h3>
-            <p className="text-gray-500 text-sm text-center dark:text-gray-300">{cert.issuingOrganization}</p>
+        </div>
+      </section>
+
+      {/* Search and Filter Section */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Explore Certifications</h2>
+        <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 items-center justify-center bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex-1 max-w-md">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search</label>
+            <input
+              type="text"
+              placeholder="Search certifications..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
+              aria-label="Search certifications"
+            />
           </div>
-        ))}
-      </div>
+          <div className="flex-1 max-w-md">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Category</label>
+            <select
+              value={selectedCategory}
+              onChange={e => setSelectedCategory(e.target.value)}
+              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
+              aria-label="Filter by category"
+            >
+              <option value="All">All Categories</option>
+              {categories.map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+          </div>
+          <div className="flex-1 max-w-md">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Issuer</label>
+            <select
+              value={selectedIssuer}
+              onChange={e => setSelectedIssuer(e.target.value)}
+              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
+              aria-label="Filter by issuer"
+            >
+              <option value="All">All Issuers</option>
+              {issuers.map(issuer => (
+                <option key={issuer} value={issuer}>{issuer}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Grid */}
+      <section className="mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredCertifications.map(cert => (
+            <div
+              key={cert.id}
+              className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg p-6 flex flex-col items-center cursor-pointer hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-600 group"
+              onClick={() => setSelectedCertification(cert)}
+              tabIndex={0}
+              role="button"
+              aria-label={`View details for ${cert.name}`}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setSelectedCertification(cert);
+                }
+              }}
+            >
+              <div className="w-24 h-24 mb-4 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-2xl p-2 group-hover:scale-110 transition-transform duration-300">
+                <img src={cert.badgeImage} alt={cert.name} className="w-full h-full object-contain" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 text-center text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">{cert.name}</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm text-center font-medium">{cert.issuingOrganization}</p>
+              
+              {/* Category tags */}
+              <div className="flex flex-wrap gap-1 mt-3 justify-center">
+                {cert.categories.slice(0, 2).map((category, i) => (
+                  <span key={i} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
+                    {category}
+                  </span>
+                ))}
+                {cert.categories.length > 2 && (
+                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs font-medium">
+                    +{cert.categories.length - 2}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
       {/* Modal */}
       {selectedCertification && (
         <Modal onClose={() => setSelectedCertification(null)}>
-          <div className="bg-[#F8F7F4] rounded-lg shadow-lg p-8 max-w-md w-full relative dark:bg-gray-900">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative border-2 border-gray-200 dark:border-gray-700">
             <button
-              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold dark:hover:text-gray-200"
+              className="absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
               onClick={() => setSelectedCertification(null)}
               aria-label="Close"
             >
-              &times;
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
-            <img src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-24 h-24 object-contain mx-auto mb-4" />
-            <h2 className="text-xl font-bold mb-2 text-center dark:text-gray-100">{selectedCertification.name}</h2>
-            <p className="text-gray-600 text-center mb-2 dark:text-gray-300"><strong>Issued by:</strong> {selectedCertification.issuingOrganization}</p>
-            <p className="text-gray-700 text-center mb-4 dark:text-gray-300">{selectedCertification.description}</p>
-            <div className="flex justify-center">
+            
+            <div className="text-center">
+              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-2xl p-4">
+                <img src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-full h-full object-contain" />
+              </div>
+              
+              <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">{selectedCertification.name}</h2>
+              
+              <div className="mb-6">
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
+                  <span className="font-semibold text-gray-900 dark:text-white">Issued by:</span> {selectedCertification.issuingOrganization}
+                </p>
+                
+                {/* Category badges */}
+                <div className="flex flex-wrap gap-2 justify-center mb-4">
+                  {selectedCertification.categories.map((category, i) => (
+                    <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                      {category}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed text-left">{selectedCertification.description}</p>
+              
               <a
                 href={selectedCertification.verificationLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-medium dark:bg-blue-700 dark:hover:bg-blue-800"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
+                <TrophyIcon className="w-5 h-5 mr-2" />
                 Verify Certification
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             </div>
           </div>
         </Modal>
       )}
-    </section>
+
+      {/* CTA Section */}
+      <CTASection
+        title="Ready to Leverage Expertise?"
+        description="These certifications represent continuous learning and proven expertise across data science, cloud computing, and analytics technologies."
+        primaryButton={{
+          href: "/work",
+          text: "See My Work",
+          ariaLabel: "View Ted's portfolio projects"
+        }}
+        secondaryButton={{
+          href: "/contact",
+          text: "Let's Connect",
+          ariaLabel: "Contact Ted"
+        }}
+      />
+    </div>
   );
 }
 

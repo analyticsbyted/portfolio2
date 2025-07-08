@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../components/Button';
+import CTASection from '../components/CTASection';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.png';
@@ -398,28 +399,20 @@ function Work() {
         </div>
       </section>
       {/* Modern CTA Section */}
-      <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl">
-        <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-        <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-          {generalCTA.text}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            href={generalCTA.link} 
-            className="bg-white text-blue-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold"
-            ariaLabel={generalCTA.label}
-          >
-            {generalCTA.label}
-          </Button>
-          <Button 
-            href="/about" 
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
-            ariaLabel="Learn more about Ted's experience"
-          >
-            Learn More About Me
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Transform Your Business?"
+        description={generalCTA.text}
+        primaryButton={{
+          href: generalCTA.link,
+          text: generalCTA.label,
+          ariaLabel: generalCTA.label
+        }}
+        secondaryButton={{
+          href: "/about",
+          text: "Learn More About Me",
+          ariaLabel: "Learn more about Ted's experience"
+        }}
+      />
     </div>
   );
 }
