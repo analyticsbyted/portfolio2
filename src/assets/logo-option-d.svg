@@ -1,0 +1,30 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradientD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="48" height="48" rx="12" fill="url(#bgGradientD)"/>
+  
+  <!-- Modern "TD" with data elements -->
+  <g>
+    <!-- T -->
+    <rect x="12" y="14" width="10" height="3" rx="1.5" fill="#ffffff"/>
+    <rect x="15.5" y="14" width="3" height="18" rx="1.5" fill="#ffffff"/>
+    
+    <!-- D -->
+    <path d="M26 14 L26 32 L32 32 C35 32 37 29 37 23 C37 17 35 14 32 14 L26 14 Z" fill="#ffffff"/>
+    <path d="M29 17 L32 17 C33.5 17 34.5 18.5 34.5 23 C34.5 27.5 33.5 29 32 29 L29 29 Z" fill="url(#bgGradientD)"/>
+    
+    <!-- Subtle data visualization accent -->
+    <g opacity="0.8">
+      <rect x="12" y="36" width="2" height="4" rx="1" fill="#ffffff"/>
+      <rect x="15" y="34" width="2" height="6" rx="1" fill="#ffffff"/>
+      <rect x="18" y="32" width="2" height="8" rx="1" fill="#ffffff"/>
+      <rect x="21" y="35" width="2" height="5" rx="1" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

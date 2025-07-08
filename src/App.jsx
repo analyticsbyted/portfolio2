@@ -9,7 +9,7 @@ import Newsletter from './pages/Newsletter';
 import Certifications from './pages/Certifications';
 import Publications from './pages/Publications';
 import Footer from './components/Footer';
-import logo from './assets/logo1.svg';
+import logo from './assets/logo-enhanced.svg';
 import NotFound from './pages/NotFound';
 
 // Simple SVG icons

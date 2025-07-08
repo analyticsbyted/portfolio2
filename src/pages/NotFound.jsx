@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo1.svg";
+import logo from "../assets/logo-enhanced.svg";
 import Button from "../components/Button";
 
 const NotFound = () => (
