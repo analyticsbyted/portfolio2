@@ -1,13 +1,13 @@
-import { AcademicCapIcon, BuildingOfficeIcon, ChartBarIcon, PresentationChartBarIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, BuildingOfficeIcon, ChartBarIcon, PresentationChartBarIcon, BookOpenIcon, ClockIcon, BeakerIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 
 const educationStats = [
-  { label: 'Degrees Earned', value: '3', icon: '🎓' },
-  { label: 'Currently Pursuing', value: '2', icon: '📚' },
-  { label: 'Years of Study', value: '15+', icon: '⏱️' },
-  { label: 'Research Projects', value: '8+', icon: '🔬' }
+  { label: 'Degrees Earned', value: '3', icon: <AcademicCapIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" /> },
+  { label: 'Currently Pursuing', value: '2', icon: <BookOpenIcon className="w-8 h-8 text-green-600 dark:text-green-400" /> },
+  { label: 'Years of Study', value: '15+', icon: <ClockIcon className="w-8 h-8 text-purple-600 dark:text-purple-400" /> },
+  { label: 'Research Projects', value: '8+', icon: <BeakerIcon className="w-8 h-8 text-orange-600 dark:text-orange-400" /> }
 ];
 
 function Education() {
@@ -36,7 +36,7 @@ function Education() {
               key={index} 
               className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="text-4xl mb-3">{stat.icon}</div>
+              <div className="text-4xl mb-3 flex justify-center">{stat.icon}</div>
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
             </div>
