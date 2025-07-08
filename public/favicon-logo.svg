@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solid blue background -->
+  <rect width="32" height="32" rx="6" fill="#3B82F6"/>
+  
+  <!-- Simplified data bars in white -->
+  <g>
+    <rect x="8" y="20" width="3" height="6" rx="1.5" fill="#ffffff"/>
+    <rect x="14" y="16" width="3" height="10" rx="1.5" fill="#ffffff"/>
+    <rect x="20" y="12" width="3" height="14" rx="1.5" fill="#ffffff"/>
+    
+    <!-- Simple trend line -->
+    <path d="M8 24C12 16 24 14 24 24" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+    
+    <!-- Data points -->
+    <circle cx="9.5" cy="23" r="1" fill="#ffffff" opacity="0.9"/>
+    <circle cx="15.5" cy="21" r="1" fill="#ffffff" opacity="0.9"/>
+    <circle cx="21.5" cy="19" r="1" fill="#ffffff" opacity="0.9"/>
+  </g>
+</svg>

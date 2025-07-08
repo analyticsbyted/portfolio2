@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue gradient background matching existing logo -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with rounded corners -->
+  <rect width="48" height="48" rx="12" fill="url(#bgGradient)"/>
+  
+  <!-- Thicker rectangular border around letters with white -->
+  <rect x="6" y="12" width="36" height="24" rx="4" fill="none" stroke="#ffffff" stroke-width="3"/>
+  
+  <!-- TD Letters with bold serif font and white fill -->
+  <g font-family="Times, serif" font-weight="900" font-size="18" text-anchor="middle" dominant-baseline="middle">
+    <!-- T -->
+    <text x="18" y="25" fill="#ffffff">T</text>
+    <!-- D -->
+    <text x="30" y="25" fill="#ffffff">D</text>
+  </g>
+</svg>

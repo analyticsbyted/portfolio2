@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background with rounded corners -->
+  <rect width="32" height="32" rx="6" fill="#ffffff"/>
+  
+  <!-- Black rectangular border around letters -->
+  <rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#000000" stroke-width="2"/>
+  
+  <!-- TD Letters with bold serif font and black fill -->
+  <g font-family="Times, serif" font-weight="900" font-size="13" text-anchor="middle" dominant-baseline="middle">
+    <!-- T -->
+    <text x="12" y="17" fill="#000000">T</text>
+    <!-- D -->
+    <text x="20" y="17" fill="#000000">D</text>
+  </g>
+</svg>
