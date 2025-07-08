@@ -79,40 +79,73 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-[#F8F7F4] dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
-        <nav className="flex flex-wrap items-center justify-between px-4 md:px-8 py-4 shadow-sm bg-[#F8F7F4] dark:bg-gray-900 sticky top-0 z-10">
-          <Link to="/" className="flex items-center text-2xl font-bold tracking-tight" style={{ fontSize: '1.5rem' }} aria-label="Home">
-            <img src={logo} alt="Site logo" width={36} height={36} className="mr-2" />
-            Ted Dickey
-          </Link>
-          {/* Mobile menu button */}
-          <div className="md:hidden ml-auto">
-            <button
-              onClick={() => setMobileOpen(v => !v)}
-              className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-              aria-label="Open navigation menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-            </button>
-          </div>
-          {/* Nav links */}
-          <div className={`flex-col md:flex-row md:flex items-center space-y-4 md:space-y-0 md:space-x-6 w-full md:w-auto mt-4 md:mt-0 ${mobileOpen ? 'flex' : 'hidden'} md:flex`}>
-            <Link to="/work" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Work</Link>
-            <Link to="/publications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Publications</Link>
-            <Link to="/newsletter" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Newsletter</Link>
-            <Link to="/certifications" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Certifications</Link>
-            <Link to="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>About</Link>
-            <Link to="/education" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Education</Link>
-            <Link to="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition text-base md:text-sm" style={{ fontSize: '1rem' }} onClick={() => setMobileOpen(false)}>Contact</Link>
-            {/* Theme toggle */}
-            <button
-              className="ml-0 md:ml-4 p-2 rounded-full border border-transparent hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-blue-100 dark:bg-gray-800"
-              aria-label={`Theme: ${currentTheme.label}`}
-              title={`Theme: ${currentTheme.label}`}
-              onClick={handleThemeToggle}
-              style={{ fontSize: '1rem' }}
-            >
-              {currentTheme.icon}
-            </button>
+        <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+            <div className="flex items-center justify-between">
+              <Link to="/" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Home">
+                <img src={logo} alt="Site logo" width={40} height={40} className="mr-3" />
+                <span className="text-xl md:text-2xl">Ted Dickey</span>
+              </Link>
+              
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-8">
+                <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Work</Link>
+                <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Publications</Link>
+                <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Newsletter</Link>
+                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
+                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
+                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
+                <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
+                
+                {/* Theme toggle */}
+                <button
+                  className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  aria-label={`Theme: ${currentTheme.label}`}
+                  title={`Theme: ${currentTheme.label}`}
+                  onClick={handleThemeToggle}
+                >
+                  {currentTheme.icon}
+                </button>
+              </div>
+
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setMobileOpen(v => !v)}
+                  className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                  aria-label="Toggle navigation menu"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            {mobileOpen && (
+              <div className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+                <div className="flex flex-col space-y-3">
+                  <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Work</Link>
+                  <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Publications</Link>
+                  <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Newsletter</Link>
+                  <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
+                  <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
+                  <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
+                  <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Contact</Link>
+                  
+                  <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                    <button
+                      className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                      onClick={handleThemeToggle}
+                    >
+                      {currentTheme.icon}
+                      <span>Theme: {currentTheme.label}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </nav>
         <main className="max-w-4xl mx-auto px-4 py-8">
