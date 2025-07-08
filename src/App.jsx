@@ -25,7 +25,6 @@ const AutoIcon = () => (
 
 const THEME_KEY = 'theme-preference';
 const themeOptions = [
-  { value: 'auto', icon: <AutoIcon />, label: 'Auto (System)' },
   { value: 'light', icon: <SunIcon />, label: 'Light' },
   { value: 'dark', icon: <MoonIcon />, label: 'Dark' },
 ];
@@ -48,17 +47,12 @@ function setHtmlTheme(theme) {
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem(THEME_KEY) || 'auto';
+    return localStorage.getItem(THEME_KEY) || 'light';
   });
 
   // Apply theme on mount and when theme changes
   useEffect(() => {
     setHtmlTheme(theme);
-    if (theme === 'auto') {
-      const listener = () => setHtmlTheme('auto');
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener);
-      return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', listener);
-    }
   }, [theme]);
 
   // Persist theme
@@ -66,11 +60,9 @@ function App() {
     localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
-  // Cycle through theme options
+  // Toggle between light and dark
   const handleThemeToggle = () => {
-    const idx = themeOptions.findIndex(opt => opt.value === theme);
-    const next = themeOptions[(idx + 1) % themeOptions.length];
-    setTheme(next.value);
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
   const currentTheme = themeOptions.find(opt => opt.value === theme) || themeOptions[0];
 
@@ -88,13 +80,13 @@ function App() {
               </Link>
               
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden lg:flex items-center space-x-8">
+                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
                 <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Work</Link>
+                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
+                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
                 <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Publications</Link>
                 <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
-                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
-                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
                 <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
                 
                 {/* Theme toggle */}
@@ -109,7 +101,7 @@ function App() {
               </div>
 
               {/* Mobile menu button */}
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <button
                   onClick={() => setMobileOpen(v => !v)}
                   className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
@@ -124,14 +116,14 @@ function App() {
 
             {/* Mobile Navigation */}
             {mobileOpen && (
-              <div className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+              <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
                 <div className="flex flex-col space-y-3">
+                  <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
                   <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Work</Link>
+                  <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
+                  <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
                   <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Publications</Link>
                   <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-                  <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
-                  <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
-                  <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
                   <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Contact</Link>
                   
                   <div className="pt-3 border-t border-gray-200 dark:border-gray-700">

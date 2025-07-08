@@ -4,6 +4,11 @@ import logo from "../assets/logo-enhanced.svg";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white mt-16" role="contentinfo" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
@@ -62,10 +67,10 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link to="/work" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
-                <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Me</Link></li>
-                <li><Link to="/certifications" className="text-gray-300 hover:text-white transition-colors">Certifications</Link></li>
-                <li><Link to="/education" className="text-gray-300 hover:text-white transition-colors">Education</Link></li>
+                <li><Link to="/work" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
+                <li><Link to="/about" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">About Me</Link></li>
+                <li><Link to="/certifications" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Certifications</Link></li>
+                <li><Link to="/education" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Education</Link></li>
               </ul>
             </div>
 
@@ -73,9 +78,9 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
-                <li><Link to="/publications" className="text-gray-300 hover:text-white transition-colors">Publications</Link></li>
-                <li><Link to="/newsletter" className="text-gray-300 hover:text-white transition-colors">Newsletter</Link></li>
-                <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/publications" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Publications</Link></li>
+                <li><Link to="/newsletter" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Newsletter</Link></li>
+                <li><Link to="/contact" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>
