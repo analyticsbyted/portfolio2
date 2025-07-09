@@ -3,18 +3,18 @@ import { useContactForm } from '../hooks/useContactForm'; // <-- Import the new 
 
 const contactMethods = [
   // ... (Your contactMethods array is unchanged)
-  {
-    title: 'Email',
-    description: 'Send me a message directly',
-    icon: '📧',
-    link: 'mailto:your.email@example.com',
-    label: 'your.email@example.com'
+    {
+    title: 'My Resume',
+    description: 'Download a PDF copy of my resume',
+    icon: '📄',
+    link: '',
+    label: 'Download Resume'
   },
-  {
+    {
     title: 'LinkedIn',
     description: 'Connect professionally',
     icon: '💼',
-    link: 'https://linkedin.com/in/yourprofile',
+    link: 'https://linkedin.com/in/teddickey',
     label: 'View LinkedIn Profile'
   },
   {
