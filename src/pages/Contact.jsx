@@ -30,6 +30,9 @@ function Contact() {
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [error, setError] = useState('');
 
+  // Get API URL from environment variables
+  const apiUrl = import.meta.env.VITE_AWS_API_INVOKE_URL;
+
   const handleChange = e => {
     const { name, value } = e.target;
     setForm(f => ({ ...f, [name]: value }));
@@ -55,24 +58,61 @@ function Contact() {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validate()) return;
+    
     setStatus('sending');
+    setError('');
+    
     try {
-      // TODO: Replace with your API endpoint
-      const res = await fetch('/api/contact', {
+      // Check if API URL is configured
+      if (!apiUrl) {
+        throw new Error('API URL is not configured');
+      }
+
+      // Prepare the payload
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        message: form.message.trim(),
+        timestamp: new Date().toISOString(),
+        source: 'contact-form'
+      };
+
+      console.log('Submitting to:', apiUrl);
+      console.log('Payload:', payload);
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, email: form.email, message: form.message })
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload)
       });
-      if (res.ok) {
+
+      const responseData = await response.json();
+
+      if (response.ok) {
         setStatus('success');
         setForm({ name: '', email: '', message: '', honey: '' });
       } else {
+        // Handle specific error messages from the API
+        const errorMessage = responseData.message || responseData.error || 'Failed to send message. Please try again later.';
+        setError(errorMessage);
         setStatus('error');
-        setError('Failed to send message. Please try again later.');
       }
-    } catch {
+    } catch (err) {
+      console.error('Form submission error:', err);
+      
+      // Handle different types of errors
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError('Unable to connect to the server. Please check your internet connection and try again.');
+      } else if (err.message === 'API URL is not configured') {
+        setError('Contact form is not properly configured. Please try again later.');
+      } else {
+        setError('An unexpected error occurred. Please try again later.');
+      }
+      
       setStatus('error');
-      setError('Failed to send message. Please try again later.');
     }
   };
 
