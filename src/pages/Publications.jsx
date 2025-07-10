@@ -1,6 +1,7 @@
-import { BookOpenIcon, DocumentTextIcon, PresentationChartBarIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+import { BookOpenIcon, DocumentTextIcon, PresentationChartBarIcon, AcademicCapIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
+import articleImage from '../assets/robot_businessperson.png'; // Corrected relative image path
 
 const publicationStats = [
   { label: 'Book in Progress', value: '1', icon: '📖' },
@@ -9,7 +10,30 @@ const publicationStats = [
   { label: 'Target Journals', value: '5+', icon: '🎯' }
 ];
 
+// Data for the new Published Articles section. Add new articles here in the future.
+const publishedArticles = [
+  {
+    title: "Your Next Employee Isn't Human: A Leader’s Guide to the Agentic Workforce",
+    publication: 'Medium',
+    href: 'https://medium.com/@dickeyted84/your-next-employee-isnt-human-a-leader-s-guide-to-the-agentic-workforce-9781336377fe',
+    description: 'An exploration of how AI agents are transforming the workforce and what leaders need to know to prepare for a new era of productivity.',
+    tags: ['Leadership', 'Future of Work', 'Technology', 'Management', 'Artificial Intelligence'],
+    imageSrc: articleImage, // Use the imported image variable
+    imageAlt: 'A human businessperson shaking hands with a robot, representing the agentic workforce.'
+  },
+  {
+    title: "Placeholder: The Future of Data-Driven Decision Making",
+    publication: 'Upcoming Feature',
+    href: '#',
+    description: 'This is a placeholder for an upcoming article. It will delve into advanced analytics and how they are shaping the next generation of business strategy.',
+    tags: ['Data Science', 'Strategy', 'Analytics'],
+    imageSrc: 'https://placehold.co/600x400/374151/FFFFFF?text=Future+Article', // Placeholder image
+    imageAlt: 'Abstract image representing data analytics and charts.'
+  }
+];
+
 function Publications() {
+  console.log('Published Articles:', publishedArticles); // Debug: log articles to console
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
@@ -44,7 +68,6 @@ function Publications() {
       {/* Publications Section */}
       <section className="mb-16">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Current Publications</h2>
-        
         <div className="space-y-8">
           {/* Book */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
@@ -86,6 +109,53 @@ function Publications() {
             </div>
           </div>
           
+          {/* === START: PUBLISHED ARTICLES & FEATURES === */}
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Published Articles & Features (Debug: Section Rendered)</h3>
+            {publishedArticles.length === 0 && (
+              <div className="text-center text-red-500">No published articles found. (Debug)</div>
+            )}
+            <div className="grid md:grid-cols-2 gap-6">
+              {publishedArticles.map((article) => (
+                <a
+                  key={article.title}
+                  href={article.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                >
+                  <img 
+                    src={article.imageSrc} 
+                    alt={article.imageAlt} 
+                    className="w-full h-48 object-cover"
+                    onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/374151/FFFFFF?text=Image+Not+Found'; }}
+                  />
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium mb-4">
+                        {article.publication}
+                      </span>
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {article.title}
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        {article.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {article.tags.map(tag => (
+                        <span key={tag} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          {/* === END: PUBLISHED ARTICLES & FEATURES === */}
+
           {/* Upcoming Articles Grid */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Upcoming Research & Articles</h3>
