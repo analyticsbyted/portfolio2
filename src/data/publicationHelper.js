@@ -1,5 +1,5 @@
 // Use a public path for the image
-const articleImage = '/robot_businessman_landscape.png';
+const articleImage = '/robot_and_bro.png';
 
 export const publishedArticles = [
   {
