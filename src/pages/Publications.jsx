@@ -1,7 +1,7 @@
 import { BookOpenIcon, DocumentTextIcon, PresentationChartBarIcon, AcademicCapIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
-import articleImage from '../assets/robot_businessperson.png'; // Corrected relative image path
+import { publishedArticles } from '../data/publicationHelper';
 
 const publicationStats = [
   { label: 'Book in Progress', value: '1', icon: '📖' },
@@ -10,30 +10,7 @@ const publicationStats = [
   { label: 'Target Journals', value: '5+', icon: '🎯' }
 ];
 
-// Data for the new Published Articles section. Add new articles here in the future.
-const publishedArticles = [
-  {
-    title: "Your Next Employee Isn't Human: A Leader’s Guide to the Agentic Workforce",
-    publication: 'Medium',
-    href: 'https://medium.com/@dickeyted84/your-next-employee-isnt-human-a-leader-s-guide-to-the-agentic-workforce-9781336377fe',
-    description: 'An exploration of how AI agents are transforming the workforce and what leaders need to know to prepare for a new era of productivity.',
-    tags: ['Leadership', 'Future of Work', 'Technology', 'Management', 'Artificial Intelligence'],
-    imageSrc: articleImage, // Use the imported image variable
-    imageAlt: 'A human businessperson shaking hands with a robot, representing the agentic workforce.'
-  },
-  {
-    title: "Placeholder: The Future of Data-Driven Decision Making",
-    publication: 'Upcoming Feature',
-    href: '#',
-    description: 'This is a placeholder for an upcoming article. It will delve into advanced analytics and how they are shaping the next generation of business strategy.',
-    tags: ['Data Science', 'Strategy', 'Analytics'],
-    imageSrc: 'https://placehold.co/600x400/374151/FFFFFF?text=Future+Article', // Placeholder image
-    imageAlt: 'Abstract image representing data analytics and charts.'
-  }
-];
-
 function Publications() {
-  console.log('Published Articles:', publishedArticles); // Debug: log articles to console
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
@@ -110,50 +87,62 @@ function Publications() {
           </div>
           
           {/* === START: PUBLISHED ARTICLES & FEATURES === */}
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Published Articles & Features (Debug: Section Rendered)</h3>
-            {publishedArticles.length === 0 && (
-              <div className="text-center text-red-500">No published articles found. (Debug)</div>
-            )}
-            <div className="grid md:grid-cols-2 gap-6">
-              {publishedArticles.map((article) => (
-                <a
-                  key={article.title}
-                  href={article.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
-                >
-                  <img 
-                    src={article.imageSrc} 
-                    alt={article.imageAlt} 
-                    className="w-full h-48 object-cover"
-                    onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/374151/FFFFFF?text=Image+Not+Found'; }}
-                  />
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium mb-4">
-                        {article.publication}
-                      </span>
-                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {article.title}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                        {article.description}
-                      </p>
+          <section className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-800" aria-labelledby="published-articles-heading">
+            <header>
+              <h3 id="published-articles-heading" className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Published Articles & Features</h3>
+            </header>
+            {/* Loading State (if needed in future) */}
+            {/* <div className="text-center text-blue-500">Loading articles...</div> */}
+            {publishedArticles.length === 0 ? (
+              <div className="text-center text-gray-500 italic" role="status">No published articles found.</div>
+            ) : (
+              <div className="flex flex-col gap-6">
+                {publishedArticles.map((article) => (
+                  <article
+                    key={article.title}
+                    className="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group md:items-center"
+                  >
+                    <div className="bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded-t-xl md:rounded-t-none md:rounded-l-xl overflow-hidden md:ml-4 p-2 md:p-3">
+                      <img 
+                        src={article.imageSrc} 
+                        alt={article.imageAlt} 
+                        className="w-full h-auto object-contain object-center max-w-sm max-h-60"
+                        onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x400/374151/FFFFFF?text=Image+Not+Found'; }}
+                      />
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {article.tags.map(tag => (
-                        <span key={tag} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
-                          {tag}
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div>
+                        <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium mb-4">
+                          {article.publication}
                         </span>
-                      ))}
+                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          <a href={article.href} target="_blank" rel="noopener noreferrer" aria-label={`Read article: ${article.title} (${article.publication})`} className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                            {article.title}
+                          </a>
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                          {article.description}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {article.tags.map(tag => {
+                          let tagColor = '';
+                          if (tag === 'Leadership') tagColor = 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+                          else if (tag === 'Management') tagColor = 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
+                          else if (tag === 'Organizational Development') tagColor = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+                          else if (tag === 'Data Science') tagColor = 'bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200';
+                          else tagColor = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200';
+                          return (
+                            <span key={tag} className={`px-2 py-1 rounded-full text-xs font-medium ${tagColor}`}>{tag}</span>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
           {/* === END: PUBLISHED ARTICLES & FEATURES === */}
 
           {/* Upcoming Articles Grid */}
@@ -174,8 +163,16 @@ function Publications() {
                 <h4 className="font-bold text-gray-900 dark:text-white mb-2">AI Ethics in Organizational Decision Making</h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">Exploring frameworks for ethical AI implementation in business contexts.</p>
                 <div className="flex flex-wrap gap-1">
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">AI Ethics</span>
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">Leadership</span>
+                  {['AI Ethics', 'Leadership'].map(tag => {
+                    let tagColor = '';
+                    if (tag === 'Leadership') tagColor = 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+                    else if (tag === 'Management') tagColor = 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
+                    else if (tag === 'Organizational Development') tagColor = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+                    else tagColor = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200';
+                    return (
+                      <span key={tag} className={`px-2 py-1 rounded text-xs font-medium ${tagColor}`}>{tag}</span>
+                    );
+                  })}
                 </div>
               </div>
               
@@ -192,8 +189,17 @@ function Publications() {
                 <h4 className="font-bold text-gray-900 dark:text-white mb-2">Data-Driven Leadership in Digital Transformation</h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">How leaders can leverage analytics for strategic decision-making during organizational change.</p>
                 <div className="flex flex-wrap gap-1">
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">Data Science</span>
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">Digital Transformation</span>
+                  {['Data Science', 'Digital Transformation'].map(tag => {
+                    let tagColor = '';
+                    if (tag === 'Leadership') tagColor = 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+                    else if (tag === 'Management') tagColor = 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
+                    else if (tag === 'Organizational Development') tagColor = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+                    else if (tag === 'Data Science') tagColor = 'bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200';
+                    else tagColor = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200';
+                    return (
+                      <span key={tag} className={`px-2 py-1 rounded text-xs font-medium ${tagColor}`}>{tag}</span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -215,31 +221,31 @@ function Publications() {
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
                   <AcademicCapIcon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Data Leadership</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Analytics-driven management</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Data Science</h4>
+                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Analytics for decision-making</p>
               </div>
-              
+
               <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                  <BookOpenIcon className="w-6 h-6 text-white" />
+                  <PresentationChartBarIcon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Organizational Change</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Digital transformation</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Organizational Development</h4>
+                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Transforming organizations for the future</p>
               </div>
-              
+
               <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                  <DocumentTextIcon className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
+                  <PresentationChartBarIcon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Leadership Theory</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Values-based leadership</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Leadership</h4>
+                <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Leading with impact and purpose</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Call to Action Section */}
       <CTASection
         title="Stay Updated on Research"
         description="Follow my journey as I bridge academic research with practical business applications in data science and leadership."

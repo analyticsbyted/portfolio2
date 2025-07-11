@@ -48,7 +48,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <p className="text-gray-400 text-xs">Built with React & Tailwind CSS</p>
           </div>
         </div>
 
@@ -96,15 +95,10 @@ const Footer = () => {
 
           {/* Bottom Bar (Unchanged) */}
           <div className="border-t border-gray-700 pt-8 mt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center text-gray-300">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center text-gray-300 justify-center">
                 <img src={logo} alt="Site logo" width={24} height={24} className="mr-2" />
                 <span className="text-sm">© {year} Ted Dickey II. All rights reserved.</span>
-              </div>
-              <div className="mt-4 md:mt-0">
-                <p className="text-gray-400 text-sm">
-                  Built with React & Tailwind CSS
-                </p>
               </div>
             </div>
           </div>
