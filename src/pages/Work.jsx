@@ -7,6 +7,7 @@ import customerSegmentsImg from '../assets/certifications/customerSegments.png';
 import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.png';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.png';
 import randomforestImg from '../assets/certifications/randomforest.png';
+import cifar10Img from '../assets/certifications/cifar10.png';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.png';
 import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.png';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.png';
@@ -65,17 +66,20 @@ const dataScienceProjects = [
     skills: ['R', 'caret', 'KNN']
   },
   {
-    title: 'Deep Learning Project (Placeholder)',
-    problem: 'Coming soon: A deep learning project in image classification or NLP.',
-    approach: 'Stay tuned for updates!',
-    result: '',
-    img: randomforestImg,
-    link: '#',
-    linkLabel: 'Coming Soon',
-    details: '',
-    skills: ['Deep Learning']
+    title: 'CIFAR-10 Image Classification using CNNs',
+    problem: 'How to accurately classify images from the CIFAR-10 dataset into one of 10 classes?',
+    approach: 'Designed and trained a Convolutional Neural Network (CNN) using TensorFlow and Keras. The model incorporates data augmentation to prevent overfitting.',
+    result: 'Achieved approximately 79% accuracy on the test set, demonstrating the model\'s effectiveness in image classification.',
+    img: cifar10Img,
+    link: 'https://github.com/analyticsbyted/CNN-Image-Classification-CIFAR10',
+    linkLabel: 'View on GitHub',
+    details: 'Tools: Python, TensorFlow, Keras, Scikit-learn, NumPy, Matplotlib. Challenge: Optimizing the CNN architecture and tuning hyperparameters for better performance.',
+    skills: ['Python', 'TensorFlow', 'Keras', 'CNN', 'Deep Learning', 'Scikit-learn']
   }
 ];
+
+
+
 
 const dataAnalysisProjects = [
   {
