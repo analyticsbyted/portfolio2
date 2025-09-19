@@ -7,6 +7,7 @@ import customerSegmentsImg from '../assets/certifications/customerSegments.png';
 import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.png';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.png';
 import randomforestImg from '../assets/certifications/randomforest.png';
+import confusionMatrixImg from '../assets/confusion_matrix.png';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.png';
 import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.png';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.png';
@@ -23,7 +24,7 @@ import handsOnEssentialsDataApplicationsImg from '../assets/certifications/hands
 import ibmConsultingCommunicatingValueImg from '../assets/certifications/ibm-consulting-communicating-value.png';
 
 const tabs = [
-  { name: 'Data Science', key: 'ds' },
+  { name: 'Predictive Modeling & ML', key: 'ds' },
   { name: 'Data Analysis / Operations', key: 'da' },
   { name: 'Business Intelligence / Dashboards', key: 'bi' },
   { name: 'NLP & Text Analytics', key: 'nlp' },
@@ -65,13 +66,13 @@ const dataScienceProjects = [
     skills: ['R', 'caret', 'KNN']
   },
   {
-    title: 'Deep Learning Project (Placeholder)',
-    problem: 'Coming soon: A deep learning project in image classification or NLP.',
-    approach: 'Stay tuned for updates!',
-    result: '',
-    img: randomforestImg,
-    link: '#',
-    linkLabel: 'Coming Soon',
+    title: 'Image Classification using CNN',
+    problem: 'How can we build a model to accurately classify images from the CIFAR-10 dataset while addressing the common challenge of overfitting?',
+    approach: 'Designed and trained a Convolutional Neural Network (CNN) using TensorFlow and Keras. The model incorporates data augmentation techniques including random flips, rotations, and zooms to improve generalization.',
+    result: 'Achieved approximately 79% accuracy on the test set, demonstrating the model\'s effectiveness in image classification and providing a solid baseline for further tuning.',
+    img: confusionMatrixImg,
+    link: 'https://huggingface.co/spaces/analyticsbyted/CIFAR10-Classifier',
+    linkLabel: 'View on Hugging Face',
     details: '',
     skills: ['Deep Learning']
   }
