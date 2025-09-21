@@ -3,25 +3,25 @@ import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 
 // Import images for project visuals
-import customerSegmentsImg from '../assets/certifications/customerSegments.png';
-import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.png';
-import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.png';
-import randomforestImg from '../assets/certifications/randomforest.png';
-import confusionMatrixImg from '../assets/confusion_matrix.png';
-import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.png';
-import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.png';
-import weeklyDemandImg from '../assets/certifications/weeklyDemand.png';
-import procCapacity1Img from '../assets/certifications/procCapacity1.png';
-import flowtime6Img from '../assets/certifications/flowtime6.png';
-import procDistributionImg from '../assets/certifications/procDistribution.png';
-import imdbTableauImg from '../assets/certifications/imdbTableau.png';
-import logoTableauImg from '../assets/certifications/logo-tableau.png';
-import vaderImg from '../assets/certifications/vader.png';
-import robertaImg from '../assets/certifications/roberta.png';
-import pythonForDataScienceImg from '../assets/certifications/python-for-data-science.png';
-import ibmCloudPakDataScienceImg from '../assets/certifications/ibm-cloud-pak-data-science.png';
-import handsOnEssentialsDataApplicationsImg from '../assets/certifications/hands-on-essentials-data-applications.png';
-import ibmConsultingCommunicatingValueImg from '../assets/certifications/ibm-consulting-communicating-value.png';
+import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
+import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.webp';
+import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
+import randomforestImg from '../assets/certifications/randomforest.webp';
+import confusionMatrixImg from '../assets/confusion_matrix.webp';
+import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.webp';
+import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.webp';
+import weeklyDemandImg from '../assets/certifications/weeklyDemand.webp';
+import procCapacity1Img from '../assets/certifications/procCapacity1.webp';
+import flowtime6Img from '../assets/certifications/flowtime6.webp';
+import procDistributionImg from '../assets/certifications/procDistribution.webp';
+import imdbTableauImg from '../assets/certifications/imdbTableau.webp';
+import logoTableauImg from '../assets/certifications/logo-tableau.webp';
+import vaderImg from '../assets/certifications/vader.webp';
+import robertaImg from '../assets/certifications/roberta.webp';
+import pythonForDataScienceImg from '../assets/certifications/python-for-data-science.webp';
+import ibmCloudPakDataScienceImg from '../assets/certifications/ibm-cloud-pak-data-science.webp';
+import handsOnEssentialsDataApplicationsImg from '../assets/certifications/hands-on-essentials-data-applications.webp';
+import ibmConsultingCommunicatingValueImg from '../assets/certifications/ibm-consulting-communicating-value.webp';
 
 const tabs = [
   { name: 'Predictive Modeling & ML', key: 'ds' },
