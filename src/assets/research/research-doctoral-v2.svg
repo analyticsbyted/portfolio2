@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <!-- Soft vignette -->
+  <radialGradient id="v" cx="50%" cy="40%" r="70%">
+    <stop offset="0%" stop-color="#0b1220" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0b1220" stop-opacity="0.6"/>
+  </radialGradient>
+  <rect width="1200" height="900" fill="url(#v)"/>
+  <!-- Decorative grid -->
+  <g opacity="0.06" stroke="#93c5fd">
+    <path d="M0 120 H1200"/><path d="M0 240 H1200"/><path d="M0 360 H1200"/><path d="M0 480 H1200"/><path d="M0 600 H1200"/><path d="M0 720 H1200"/>
+    <path d="M120 0 V900"/><path d="M300 0 V900"/><path d="M480 0 V900"/><path d="M660 0 V900"/><path d="M840 0 V900"/><path d="M1020 0 V900"/>
+  </g>
+  <!-- Open thesis book -->
+  <g transform="translate(170,150)">
+    <rect x="0" y="0" rx="18" ry="18" width="420" height="540" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <rect x="460" y="0" rx="18" ry="18" width="420" height="540" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <rect x="430" y="-12" width="20" height="564" rx="10" fill="url(#accent)"/>
+    <!-- left page lines -->
+    <g fill="#e5e7eb" opacity="0.22">
+      <rect x="36" y="48" width="340" height="12" rx="6"/>
+      <rect x="36" y="88" width="300" height="10" rx="5"/>
+      <rect x="36" y="118" width="360" height="10" rx="5" opacity="0.7"/>
+      <rect x="36" y="148" width="320" height="10" rx="5" opacity="0.6"/>
+      <rect x="36" y="178" width="350" height="10" rx="5" opacity="0.45"/>
+    </g>
+    <!-- right page lines -->
+    <g fill="#e5e7eb" opacity="0.22" transform="translate(460,0)">
+      <rect x="36" y="48" width="340" height="12" rx="6"/>
+      <rect x="36" y="88" width="300" height="10" rx="5"/>
+      <rect x="36" y="118" width="360" height="10" rx="5" opacity="0.7"/>
+      <rect x="36" y="148" width="320" height="10" rx="5" opacity="0.6"/>
+      <rect x="36" y="178" width="350" height="10" rx= "5" opacity="0.45"/>
+    </g>
+    <!-- pen icon -->
+    <g transform="translate(300,380)">
+      <rect x="-8" y="-8" width="16" height="160" rx="8" fill="#1f2937" stroke="#64748b" stroke-width="2"/>
+      <polygon points="0,-28 -14,-8 14,-8" fill="#f59e0b"/>
+      <rect x="-20" y="120" width="40" height="18" rx="4" fill="#334155"/>
+    </g>
+  </g>
+  <!-- Footer label -->
+  <g transform="translate(80,800)">
+    <rect x="0" y="-10" width="640" height="56" rx="12" fill="url(#accent)" opacity="0.22"/>
+    <text x="12" y="26" fill="#E5E7EB" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">
+      Doctoral Research • In Progress
+    </text>
+  </g>
+</svg>
+
+

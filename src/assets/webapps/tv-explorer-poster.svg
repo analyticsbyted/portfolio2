@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <g transform="translate(0,0)">
+    <rect x="80" y="120" width="260" height="160" rx="12" fill="#22c55e" opacity="0.18"/>
+    <rect x="360" y="120" width="260" height="160" rx="12" fill="#ef4444" opacity="0.18"/>
+    <rect x="640" y="120" width="260" height="160" rx="12" fill="#f59e0b" opacity="0.18"/>
+    <rect x="920" y="120" width="260" height="160" rx="12" fill="#6366f1" opacity="0.18"/>
+    <rect x="80" y="320" width="1100" height="18" rx="6" fill="#ffffff" opacity="0.2"/>
+    <rect x="80" y="360" width="840" height="16" rx="6" fill="#ffffff" opacity="0.15"/>
+    <rect x="80" y="400" width="920" height="16" rx="6" fill="#ffffff" opacity="0.15"/>
+    <rect x="80" y="460" width="260" height="40" rx="10" fill="#3b82f6" opacity="0.6"/>
+  </g>
+  <text x="80" y="72" fill="#e5e7eb" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="36" font-weight="700">TV Explorer</text>
+  <text x="80" y="108" fill="#9ca3af" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18">Web app to discover and explore TV series with live data</text>
+</svg>
+
+

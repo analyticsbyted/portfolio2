@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
+import moviePoster from '../assets/webapps/movie-explorer-poster.svg';
+import tvPoster from '../assets/webapps/tv-explorer-poster.svg';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
@@ -24,12 +25,19 @@ import pythonForDataScienceImg from '../assets/certifications/python-for-data-sc
 import ibmCloudPakDataScienceImg from '../assets/certifications/ibm-cloud-pak-data-science.webp';
 import handsOnEssentialsDataApplicationsImg from '../assets/certifications/hands-on-essentials-data-applications.webp';
 import ibmConsultingCommunicatingValueImg from '../assets/certifications/ibm-consulting-communicating-value.webp';
+import researchDoctoralPoster from '../assets/research/research-doctoral-v2.svg';
+import researchAiEthicsPoster from '../assets/research/research-ai-ethics.svg';
+import researchExplainableHealthcarePoster from '../assets/research/research-explainable-healthcare.svg';
+import researchEmployeeEngagementPoster from '../assets/research/research-employee-engagement.svg';
+import powerBiPoster from '../assets/bi/power-bi-dashboard.svg';
+import textMiningPoster from '../assets/nlp/text-mining.svg';
 
 const tabs = [
   { name: 'Predictive Modeling & ML', key: 'ds' },
   { name: 'Data Analysis / Operations', key: 'da' },
   { name: 'Business Intelligence / Dashboards', key: 'bi' },
   { name: 'NLP & Text Analytics', key: 'nlp' },
+  { name: 'Web Development', key: 'web' },
   { name: 'Research', key: 'research' },
 ];
 
@@ -68,15 +76,20 @@ const dataScienceProjects = [
     skills: ['R', 'caret', 'KNN']
   },
   {
-    title: 'Image Classification using CNN',
-    problem: 'How can we build a model to accurately classify images from the CIFAR-10 dataset while addressing the common challenge of overfitting?',
-    approach: 'Designed and trained a Convolutional Neural Network (CNN) using TensorFlow and Keras. The model incorporates data augmentation techniques including random flips, rotations, and zooms to improve generalization.',
-    result: 'Achieved approximately 79% accuracy on the test set, demonstrating the model\'s effectiveness in image classification and providing a solid baseline for further tuning.',
+    title: 'CIFAR‑10 Image Classification (CNN, TensorFlow/Keras)',
+    problem: 'How can we build a robust CNN to classify images across 10 object categories while mitigating overfitting?',
+    approach: 'Implemented a TensorFlow/Keras CNN with data augmentation (RandomFlip/Rotation/Zoom), batch normalization, and max‑pooling to improve generalization and stabilize training.',
+    result: 'Achieved ~79% test accuracy with detailed classification report and confusion matrix analysis for model diagnostics.',
     img: confusionMatrixImg,
-    link: 'https://huggingface.co/spaces/analyticsbyted/CIFAR10-Classifier',
-    linkLabel: 'View on Hugging Face',
-    details: '',
-    skills: ['Deep Learning']
+    link: 'https://github.com/analyticsbyted/CNN-Image-Classification-CIFAR10',
+    linkLabel: 'View Repo',
+    demoLink: 'https://huggingface.co/spaces/analyticsbyted/CIFAR10-Classifier',
+    demoLabel: 'Live Demo',
+    details: 'CNN with image augmentation (RandomFlip/Rotation/Zoom), BatchNorm + MaxPool; ~79% test accuracy with full classification report and confusion matrix.',
+    skills: ['Python', 'TensorFlow', 'Keras', 'Deep Learning'],
+    // Make the confusion matrix fully visible by enlarging the image frame (responsive) and reducing padding
+    imageHeight: 'h-72 sm:h-80 md:h-96',
+    imagePadding: 'p-2 sm:p-3'
   }
 ];
 
@@ -166,7 +179,7 @@ const biProjects = [
     problem: 'A Power BI dashboard project will be added here soon.',
     approach: 'For now, see my Tableau public profile for examples.',
     result: '',
-    img: logoTableauImg,
+    img: powerBiPoster,
     link: '#',
     linkLabel: 'Coming Soon',
     details: '',
@@ -191,7 +204,7 @@ const nlpProjects = [
     problem: 'A web scraping or text mining project will be added here soon.',
     approach: 'Stay tuned for updates!',
     result: '',
-    img: robertaImg,
+    img: textMiningPoster,
     link: '#',
     linkLabel: 'Coming Soon',
     details: '',
@@ -205,7 +218,7 @@ const researchProjects = [
     problem: 'Original research in the field of organizational leadership and analytics.',
     approach: 'Details will be shared after defense and publication.',
     result: '',
-    img: pythonForDataScienceImg,
+    img: researchDoctoralPoster,
     link: '#',
     linkLabel: 'In Progress',
     details: 'Tools: Python, pandas, scikit-learn. Challenge: Conducting comprehensive research and analyzing complex data.',
@@ -216,7 +229,7 @@ const researchProjects = [
     problem: 'How can organizations deploy AI ethically and responsibly?',
     approach: 'Researching frameworks and best practices for ethical AI deployment.',
     result: 'Focus on bias mitigation and transparency.',
-    img: ibmCloudPakDataScienceImg,
+    img: researchAiEthicsPoster,
     link: '#',
     linkLabel: 'Coming Soon',
     details: 'Tools: Python, pandas, scikit-learn. Challenge: Identifying ethical AI frameworks and best practices.',
@@ -227,7 +240,7 @@ const researchProjects = [
     problem: 'How can we make deep learning models interpretable for clinical decision support?',
     approach: 'Developing interpretable models for transparency and trust in medical AI.',
     result: '',
-    img: handsOnEssentialsDataApplicationsImg,
+    img: researchExplainableHealthcarePoster,
     link: '#',
     linkLabel: 'Coming Soon',
     details: 'Tools: Python, pandas, scikit-learn. Challenge: Developing interpretable models for medical AI.',
@@ -238,12 +251,44 @@ const researchProjects = [
     problem: 'How can machine learning improve employee engagement and organizational performance?',
     approach: 'Exploring analytics and ML for measuring and predicting engagement.',
     result: '',
-    img: ibmConsultingCommunicatingValueImg,
+    img: researchEmployeeEngagementPoster,
     link: '#',
     linkLabel: 'Coming Soon',
     details: 'Tools: Python, pandas, scikit-learn. Challenge: Measuring and predicting employee engagement in a large organization.',
     skills: ['Python', 'pandas', 'scikit-learn']
   }
+];
+
+// Web Development (app-focused cards)
+const webDevProjects = [
+  {
+    title: 'Movie Explorer',
+    tagline: 'Web app to discover movies with rich details and recommendations.',
+    features: [
+      'Browse trending and popular movies',
+      'Search and discover new titles',
+      'Movie details with cast and similar titles'
+    ],
+    stack: ['React', 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
+    img: moviePoster,
+    alt: 'Movie Explorer web app screenshot',
+    link: 'https://moviez-explorer.netlify.app/',
+    linkLabel: 'Live App',
+  },
+  {
+    title: 'TV Explorer',
+    tagline: 'Web app to discover and explore TV series with live data.',
+    features: [
+      'Browse trending and popular series',
+      'Search and filter by title',
+      'Series details with cast and recommendations'
+    ],
+    stack: ['React', 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
+    img: tvPoster,
+    alt: 'TV Explorer web app screenshot',
+    link: 'https://tvexplorer.netlify.app/',
+    linkLabel: 'Live App',
+  },
 ];
 
 function Work() {
@@ -256,6 +301,7 @@ function Work() {
   else if (activeTab === 'bi') projects = biProjects;
   else if (activeTab === 'nlp') projects = nlpProjects;
   else if (activeTab === 'research') projects = researchProjects;
+  // web tab uses distinct renderer
 
   // General CTA text and link
   const generalCTA = {
@@ -300,105 +346,168 @@ function Work() {
           ))}
         </div>
       </section>
-      {/* Modern Project Grid */}
-      <section className="mb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
-          {projects.map((proj, idx) => (
-            <Card
-              key={idx}
-              className="cursor-pointer"
-              onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
-              tabIndex={0}
-              role="button"
-              aria-label={`Expand details for ${proj.title}`}
-              aria-expanded={expandedIdx === idx}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setExpandedIdx(expandedIdx === idx ? null : idx);
-                }
-              }}
-            >
-              {/* Project Image */}
-              <div className="relative h-48 bg-muted/40 flex items-center justify-center p-4">
-                <ImageWithSkeleton
-                  src={proj.img}
-                  alt={proj.title}
-                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                {/* Skill Badges */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {proj.skills && proj.skills.map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-                      {skill}
-                    </span>
-                  ))}
+      {/* Project Grid */}
+      {activeTab !== 'web' ? (
+        <section className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
+            {projects.map((proj, idx) => (
+              <Card
+                key={idx}
+                className="cursor-pointer"
+                onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                tabIndex={0}
+                role="button"
+                aria-label={`Expand details for ${proj.title}`}
+                aria-expanded={expandedIdx === idx}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setExpandedIdx(expandedIdx === idx ? null : idx);
+                  }
+                }}
+              >
+                {/* Project Image */}
+                <div className={`relative ${proj.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center ${proj.imagePadding || 'p-4'} mt-3`}>
+                  <ImageWithSkeleton
+                    src={proj.img}
+                    alt={proj.title}
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
 
-                {/* Project Title */}
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{proj.title}</h3>
-
-                {/* Problem Statement */}
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Challenge</h4>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.problem}</p>
-                </div>
-
-                {/* Approach */}
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Solution</h4>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.approach}</p>
-                </div>
-
-                {/* Result */}
-                {proj.result && (
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Impact</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.result}</p>
+                {/* Project Content */}
+                <div className="p-6">
+                  {/* Skill Badges */}
+                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                    {proj.skills && proj.skills.map((skill, i) => (
+                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                )}
 
-                {/* Project Link and Expand Button */}
-                <div className="flex justify-between items-center">
+                  {/* Project Title */}
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{proj.title}</h3>
+
+                  {/* Problem Statement */}
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Challenge</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.problem}</p>
+                  </div>
+
+                  {/* Approach */}
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Solution</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.approach}</p>
+                  </div>
+
+                  {/* Result */}
+                  {proj.result && (
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Impact</h4>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.result}</p>
+                    </div>
+                  )}
+
+                  {/* Project Link and Expand Button */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        onClick={e => e.stopPropagation()}
+                        aria-label={`Open project: ${proj.title} repository`}
+                      >
+                        {/* Repo CTA */}{proj.linkLabel}
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      {proj.demoLink && (
+                        <a
+                          href={proj.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300"
+                          onClick={e => e.stopPropagation()}
+                          aria-label={`Open ${proj.title} live demo`}
+                        >
+                          {proj.demoLabel}
+                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                    {proj.details && (
+                      <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                        <span className="mr-2">{expandedIdx === idx ? 'Hide Details' : 'Show Details'}</span>
+                        <svg className={`w-5 h-5 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Expanded Details */}
+                  {expandedIdx === idx && proj.details && (
+                    <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Technical Details</h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{proj.details}</p>
+                    </div>
+                  )}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {webDevProjects.map((app, idx) => (
+              <Card key={idx}>
+                {/* Poster */}
+                <div className={`relative ${app.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3`}>
+                  <ImageWithSkeleton
+                    src={app.img}
+                    alt={app.alt}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                {/* Content */}
+                <div className="p-6">
+                  {/* Stack badges (consistent placement and color with other tabs) */}
+                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                    {app.stack.map((s, i) => (
+                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{app.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{app.tagline}</p>
+                  <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 mb-4">
+                    {app.features.map((f, i) => (<li key={i}>{f}</li>))}
+                  </ul>
                   <a
-                    href={proj.link}
+                    href={app.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    onClick={e => e.stopPropagation()}
-                    aria-label={`Open project: ${proj.title}`}
+                    aria-label={`Open ${app.title}`}
                   >
-                    {proj.linkLabel}
+                    {app.linkLabel}
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>
-                  
-                  {proj.details && (
-                    <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                      <span className="mr-2">{expandedIdx === idx ? 'Hide Details' : 'Show Details'}</span>
-                      <svg className={`w-5 h-5 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  )}
                 </div>
-
-                {/* Expanded Details */}
-                {expandedIdx === idx && proj.details && (
-                  <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Technical Details</h4>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{proj.details}</p>
-                  </div>
-                )}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
       {/* Modern CTA Section */}
       <CTASection
         title="Ready to Transform Your Business?"

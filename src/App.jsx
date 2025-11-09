@@ -140,7 +140,7 @@ function App() {
             )}
           </div>
         </nav>
-        <main className="max-w-4xl mx-auto px-4 py-8">
+        <main className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/work" element={

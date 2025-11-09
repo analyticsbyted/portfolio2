@@ -4,35 +4,31 @@ import Card from '../components/Card';
 import { useState, useEffect } from 'react';
 
 const heroStats = [
-  { value: '10+', label: 'Years Experience', icon: '🎯' },
-  { value: '50+', label: 'Projects Delivered', icon: '🚀' },
-  { value: '25+', label: 'Certifications', icon: '🏆' },
-  { value: '8+', label: 'Industries', icon: '🌐' }
+  { value: '10+', label: 'Years Experience' },
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '25+', label: 'Certifications' },
+  { value: '8+', label: 'Industries' }
 ];
 
 const services = [
   {
     title: 'Data Science & Analytics',
     description: 'Turn your data into competitive advantage with predictive modeling and advanced analytics',
-    icon: '🧠',
     color: 'blue'
   },
   {
     title: 'Cloud Solutions',
     description: 'Scalable cloud architecture and migration strategies that reduce costs and improve performance',
-    icon: '☁️',
     color: 'purple'
   },
   {
     title: 'AI & Machine Learning',
     description: 'Custom AI solutions that automate processes and unlock new business opportunities',
-    icon: '🤖',
     color: 'green'
   },
   {
     title: 'Business Intelligence',
     description: 'Interactive dashboards and reporting systems that drive data-informed decisions',
-    icon: '📊',
     color: 'orange'
   }
 ];
@@ -71,18 +67,10 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const getColorClasses = (color) => {
-    const colors = {
-      blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/30',
-      purple: 'bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800 hover:bg-purple-100 dark:hover:bg-purple-900/30',
-      green: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 hover:bg-green-100 dark:hover:bg-green-900/30',
-      orange: 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800 hover:bg-orange-100 dark:hover:bg-orange-900/30'
-    };
-    return colors[color] || colors.blue;
-  };
+  // Icons removed for a more professional, minimalist presentation
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
       {/* Hero Section */}
       <section className="relative mb-20">
         <div className="text-center mb-16">
@@ -122,10 +110,9 @@ function Home() {
           {heroStats.map((stat, index) => (
             <div 
               key={index} 
-              className={`text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`text-center p-6 bg-card rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-4xl mb-3">{stat.icon}</div>
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
             </div>
@@ -146,14 +133,8 @@ function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card
-              key={index}
-              className={`p-8 cursor-pointer ${getColorClasses(service.color)}`}
-            >
-              <div className="flex items-center mb-6">
-                <div className="text-5xl mr-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{service.title}</h3>
-              </div>
+            <Card key={index} className="p-8 cursor-pointer">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                 {service.description}
               </p>

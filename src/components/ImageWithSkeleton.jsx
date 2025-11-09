@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ImageWithSkeleton({ src, alt, className = '', ...rest }) {
+function ImageWithSkeleton({ src, alt, className = '', onLoad, ...rest }) {
   const [loaded, setLoaded] = useState(false);
   return (
     <div className="relative">
@@ -11,7 +11,12 @@ function ImageWithSkeleton({ src, alt, className = '', ...rest }) {
         src={src}
         alt={alt}
         className={`${className} ${loaded ? '' : 'opacity-0'}`}
-        onLoad={() => setLoaded(true)}
+        onLoad={(e) => {
+          setLoaded(true);
+          if (typeof onLoad === 'function') {
+            onLoad(e);
+          }
+        }}
         {...rest}
       />
     </div>
