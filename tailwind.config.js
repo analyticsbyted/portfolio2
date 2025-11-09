@@ -6,7 +6,13 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        // Substitute pure white globally with preferred off-white token.
+        // Supports alpha utilities like bg-white/80 via <alpha-value> placeholder.
+        white: 'rgb(var(--color-white) / <alpha-value>)',
+      },
+    },
   },
   plugins: [],
 }
