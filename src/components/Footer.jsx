@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="block md:hidden text-center">
           <div className="flex flex-col items-center space-y-4">
             <div className="flex items-center">
-              <img src={logo} alt="Site logo" width={32} height={32} className="mr-2" />
+              <img src={logo} alt="Ted Dickey logo" width={32} height={32} className="mr-2" />
               <span className="text-xl font-bold">Ted Dickey II</span>
             </div>
             <p className="text-gray-300 text-sm">© {year} Ted Dickey II. All rights reserved.</p>
@@ -56,7 +56,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img src={logo} alt="Site logo" width={40} height={40} className="mr-3" />
+                <img src={logo} alt="Ted Dickey logo" width={40} height={40} className="mr-3" />
                 <span className="text-2xl font-bold">Ted Dickey II</span>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
@@ -97,7 +97,7 @@ const Footer = () => {
           <div className="border-t border-gray-700 pt-8 mt-8">
             <div className="flex flex-col items-center">
               <div className="flex items-center text-gray-300 justify-center">
-                <img src={logo} alt="Site logo" width={24} height={24} className="mr-2" />
+                <img src={logo} alt="Ted Dickey logo" width={24} height={24} className="mr-2" />
                 <span className="text-sm">© {year} Ted Dickey II. All rights reserved.</span>
               </div>
             </div>

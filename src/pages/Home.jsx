@@ -1,5 +1,6 @@
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
+import Card from '../components/Card';
 import { useState, useEffect } from 'react';
 
 const heroStats = [
@@ -145,9 +146,9 @@ function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div 
+            <Card
               key={index}
-              className={`p-8 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer ${getColorClasses(service.color)}`}
+              className={`p-8 cursor-pointer ${getColorClasses(service.color)}`}
             >
               <div className="flex items-center mb-6">
                 <div className="text-5xl mr-4">{service.icon}</div>
@@ -156,7 +157,7 @@ function Home() {
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </Card>
           ))}
         </div>
       </section>

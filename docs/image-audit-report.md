@@ -1,0 +1,187 @@
+# Image Audit Report
+Generated: 2025-11-09T03:15:30.941Z
+
+## Totals
+- Images: 162
+- By root: public=12, assets=150
+- Total size: 10.1 MB
+- By extension: .png:57, .jpg:1, .svg:14, .webp:90
+
+## Unused Images (49)
+- src/assets/certifications/MWhconsumption.png.webp (39.4 KB) [src/assets]
+- src/assets/certifications/cifar10.png.webp (47.0 KB) [src/assets]
+- src/assets/certifications/credly.png.webp (51.0 KB) [src/assets]
+- src/assets/certifications/credly2.png.webp (28.9 KB) [src/assets]
+- src/assets/certifications/customerSegments.png.webp (13.8 KB) [src/assets]
+- src/assets/certifications/dalle2mail.png.webp (29.6 KB) [src/assets]
+- src/assets/certifications/dataModel.png.webp (35.5 KB) [src/assets]
+- src/assets/certifications/draft.png.webp (38.6 KB) [src/assets]
+- src/assets/certifications/featureImportanceRF.png.webp (15.5 KB) [src/assets]
+- src/assets/certifications/flowtime.png.webp (4.0 KB) [src/assets]
+- src/assets/certifications/flowtime3.png.webp (18.5 KB) [src/assets]
+- src/assets/certifications/flowtime4.png.webp (13.8 KB) [src/assets]
+- src/assets/certifications/flowtime5.png.webp (18.7 KB) [src/assets]
+- src/assets/certifications/flowtime6.png.webp (15.3 KB) [src/assets]
+- src/assets/certifications/flowtime7.png.webp (21.8 KB) [src/assets]
+- src/assets/certifications/flyingMail.png.webp (2.1 KB) [src/assets]
+- src/assets/certifications/halloweenCandy.png.webp (64.3 KB) [src/assets]
+- src/assets/certifications/imdb draft.png.webp (70.2 KB) [src/assets]
+- src/assets/certifications/imdbTableau.png.webp (160.3 KB) [src/assets]
+- src/assets/certifications/imdbTableau2.png.webp (142.8 KB) [src/assets]
+- src/assets/certifications/inventoryFlow2.png.webp (14.6 KB) [src/assets]
+- src/assets/certifications/linkedinpeople.png.webp (17.0 KB) [src/assets]
+- src/assets/certifications/looker1.png.webp (56.8 KB) [src/assets]
+- src/assets/certifications/overlay.png.webp (10.1 KB) [src/assets]
+- src/assets/certifications/portfolio-3.png.webp (12.9 KB) [src/assets]
+- src/assets/certifications/portfolio-4.png.webp (7.4 KB) [src/assets]
+- src/assets/certifications/portfolio-5.png.webp (14.2 KB) [src/assets]
+- src/assets/certifications/portfolio-6.png.webp (16.6 KB) [src/assets]
+- src/assets/certifications/predict1.pnf.png.webp (11.9 KB) [src/assets]
+- src/assets/certifications/predict2.png.webp (15.2 KB) [src/assets]
+- src/assets/certifications/procCapacity1.png.webp (8.2 KB) [src/assets]
+- src/assets/certifications/procDistribution.png.webp (19.7 KB) [src/assets]
+- src/assets/certifications/randomforest.png.webp (7.9 KB) [src/assets]
+- src/assets/certifications/roberta.png.webp (15.0 KB) [src/assets]
+- src/assets/certifications/scatterplot.png.webp (15.0 KB) [src/assets]
+- src/assets/certifications/sentAnalysis_wearables.png.webp (13.1 KB) [src/assets]
+- src/assets/certifications/stepData.png.webp (11.9 KB) [src/assets]
+- src/assets/certifications/thanksthankscard.png.webp (49.7 KB) [src/assets]
+- src/assets/certifications/thanksthankscard2.png (459.1 KB) [src/assets]
+- src/assets/certifications/thanksthankscard2.png.webp (21.0 KB) [src/assets]
+- src/assets/certifications/top10byemployer.png.webp (12.8 KB) [src/assets]
+- src/assets/certifications/vader.png.webp (14.5 KB) [src/assets]
+- src/assets/certifications/weeklyDemand.png.webp (39.8 KB) [src/assets]
+- src/assets/confusion_matrix.png (55.7 KB) [src/assets]
+- src/assets/logo.svg (602.0 B) [src/assets]
+- src/assets/logo2.svg (534.0 B) [src/assets]
+- src/assets/logo3.svg (344.0 B) [src/assets]
+- src/assets/logo4.svg (275.0 B) [src/assets]
+- src/assets/react.svg (4.0 KB) [src/assets]
+
+## Duplicates by Content Hash (24 groups)
+- Hash: 6c12b947fc7bb72fbd52f2c4eca09173
+  - public/MWhconsumption.png (88.1 KB) [public]
+  - src/assets/certifications/MWhconsumption.png (88.1 KB) [src/assets]
+- Hash: 7c9c11d305c9400c515eb4d3d633f753
+  - public/cifar10.png (369.8 KB) [public]
+  - src/assets/certifications/cifar10.png (369.8 KB) [src/assets]
+- Hash: 913614ec14e2ce50c540d6527d228bad
+  - public/credly.png (143.0 KB) [public]
+  - src/assets/certifications/credly.png (143.0 KB) [src/assets]
+- Hash: 830ed24040b7b68f4033a0a08aaeaf25
+  - public/customerSegments.png (37.0 KB) [public]
+  - src/assets/certifications/customerSegments.png (37.0 KB) [src/assets]
+- Hash: dc53b2183051f50fc4fa7e1a51693bb9
+  - public/draft.png (306.6 KB) [public]
+  - src/assets/certifications/draft.png (306.6 KB) [src/assets]
+- Hash: cb3aaa98c8d316bcac3a7e26127af443
+  - public/imdb draft.png (144.3 KB) [public]
+  - src/assets/certifications/imdb draft.png (144.3 KB) [src/assets]
+- Hash: 227f24e81e3debb6e601952ff03f7779
+  - public/imdbTableau2.png (244.8 KB) [public]
+  - src/assets/certifications/imdbTableau2.png (244.8 KB) [src/assets]
+- Hash: da5468448514f83fc9789cbe17b7914a
+  - public/weeklyDemand.png (100.8 KB) [public]
+  - src/assets/certifications/weeklyDemand.png (100.8 KB) [src/assets]
+- Hash: 08b79abeeaae0983ae87e2fecc5ba48e
+  - src/assets/certifications/customerSegments.png.webp (13.8 KB) [src/assets]
+  - src/assets/certifications/customerSegments.webp (13.8 KB) [src/assets]
+- Hash: 5e3ee6ca86bdea4c9f77a47a87999d8d
+  - src/assets/certifications/data-analysis-python.png.webp (28.8 KB) [src/assets]
+  - src/assets/certifications/data-analysis-python.webp (28.8 KB) [src/assets]
+- Hash: 19fc3e3c69d1ba5be8f12fffdb17a323
+  - src/assets/certifications/data-visualization-python.png.webp (29.5 KB) [src/assets]
+  - src/assets/certifications/data-visualization-python.webp (29.5 KB) [src/assets]
+- Hash: 2c847a373ae911bef4d89f0cd3126b84
+  - src/assets/certifications/featureImportanceRF.png.webp (15.5 KB) [src/assets]
+  - src/assets/certifications/featureImportanceRF.webp (15.5 KB) [src/assets]
+- Hash: 97c860e81c23dcd51c50cb8aeb876edf
+  - src/assets/certifications/flowtime6.png.webp (15.3 KB) [src/assets]
+  - src/assets/certifications/flowtime6.webp (15.3 KB) [src/assets]
+- Hash: 11fc40ab4879f8578ccce4cacdb736c3
+  - src/assets/certifications/hands-on-essentials-data-applications.png.webp (23.6 KB) [src/assets]
+  - src/assets/certifications/hands-on-essentials-data-applications.webp (23.6 KB) [src/assets]
+- Hash: 05085d331abf25c998484cb2a9151339
+  - src/assets/certifications/ibm-cloud-pak-data-science.png.webp (14.7 KB) [src/assets]
+  - src/assets/certifications/ibm-cloud-pak-data-science.webp (14.7 KB) [src/assets]
+- Hash: 1482dff639cd1afb1305981fc2544afb
+  - src/assets/certifications/ibm-consulting-communicating-value.png.webp (15.1 KB) [src/assets]
+  - src/assets/certifications/ibm-consulting-communicating-value.webp (15.1 KB) [src/assets]
+- Hash: 587ecf2b9665cbb564761e979b116b39
+  - src/assets/certifications/imdbTableau.png.webp (160.3 KB) [src/assets]
+  - src/assets/certifications/imdbTableau.webp (160.3 KB) [src/assets]
+- Hash: 2ee135c4b688a10d1c00aba1c2bb42ba
+  - src/assets/certifications/procCapacity1.png.webp (8.2 KB) [src/assets]
+  - src/assets/certifications/procCapacity1.webp (8.2 KB) [src/assets]
+- Hash: 15c6b9dc845470613de7a71ff46c9a52
+  - src/assets/certifications/procDistribution.png.webp (19.7 KB) [src/assets]
+  - src/assets/certifications/procDistribution.webp (19.7 KB) [src/assets]
+- Hash: 8293ef5079b42d117441c6c4ef78a39e
+  - src/assets/certifications/randomforest.png.webp (7.9 KB) [src/assets]
+  - src/assets/certifications/randomforest.webp (7.9 KB) [src/assets]
+- Hash: 85fd9a9e7433a147014f9e6f0fcd1776
+  - src/assets/certifications/roberta.png.webp (15.0 KB) [src/assets]
+  - src/assets/certifications/roberta.webp (15.0 KB) [src/assets]
+- Hash: c9e08adf41bc053eb98ad51c438b2da9
+  - src/assets/certifications/sentAnalysis_wearables.png.webp (13.1 KB) [src/assets]
+  - src/assets/certifications/sentAnalysis_wearables.webp (13.1 KB) [src/assets]
+- Hash: a372996618f0de296d5fc25b55bf69b9
+  - src/assets/certifications/vader.png.webp (14.5 KB) [src/assets]
+  - src/assets/certifications/vader.webp (14.5 KB) [src/assets]
+- Hash: fa133a99048fdd2278cfd44393575562
+  - src/assets/certifications/weeklyDemand.png.webp (39.8 KB) [src/assets]
+  - src/assets/certifications/weeklyDemand.webp (39.8 KB) [src/assets]
+
+## Cross-root Duplicates (same content in public and assets) (8 groups)
+- Hash: 6c12b947fc7bb72fbd52f2c4eca09173
+  - public/MWhconsumption.png [public]
+  - src/assets/certifications/MWhconsumption.png [src/assets]
+- Hash: 7c9c11d305c9400c515eb4d3d633f753
+  - public/cifar10.png [public]
+  - src/assets/certifications/cifar10.png [src/assets]
+- Hash: 913614ec14e2ce50c540d6527d228bad
+  - public/credly.png [public]
+  - src/assets/certifications/credly.png [src/assets]
+- Hash: 830ed24040b7b68f4033a0a08aaeaf25
+  - public/customerSegments.png [public]
+  - src/assets/certifications/customerSegments.png [src/assets]
+- Hash: dc53b2183051f50fc4fa7e1a51693bb9
+  - public/draft.png [public]
+  - src/assets/certifications/draft.png [src/assets]
+- Hash: cb3aaa98c8d316bcac3a7e26127af443
+  - public/imdb draft.png [public]
+  - src/assets/certifications/imdb draft.png [src/assets]
+- Hash: 227f24e81e3debb6e601952ff03f7779
+  - public/imdbTableau2.png [public]
+  - src/assets/certifications/imdbTableau2.png [src/assets]
+- Hash: da5468448514f83fc9789cbe17b7914a
+  - public/weeklyDemand.png [public]
+  - src/assets/certifications/weeklyDemand.png [src/assets]
+
+## Same Basename in Both Trees (8 groups)
+- MWhconsumption.png
+  - public/MWhconsumption.png [public]
+  - src/assets/certifications/MWhconsumption.png [src/assets]
+- cifar10.png
+  - public/cifar10.png [public]
+  - src/assets/certifications/cifar10.png [src/assets]
+- credly.png
+  - public/credly.png [public]
+  - src/assets/certifications/credly.png [src/assets]
+- customerSegments.png
+  - public/customerSegments.png [public]
+  - src/assets/certifications/customerSegments.png [src/assets]
+- draft.png
+  - public/draft.png [public]
+  - src/assets/certifications/draft.png [src/assets]
+- imdb draft.png
+  - public/imdb draft.png [public]
+  - src/assets/certifications/imdb draft.png [src/assets]
+- imdbTableau2.png
+  - public/imdbTableau2.png [public]
+  - src/assets/certifications/imdbTableau2.png [src/assets]
+- weeklyDemand.png
+  - public/weeklyDemand.png [public]
+  - src/assets/certifications/weeklyDemand.png [src/assets]
+
+> Note: Reference detection is heuristic. Manually verify before deletion or moves.

@@ -1,35 +1,37 @@
 import { useState } from 'react';
 import { AcademicCapIcon, StarIcon, TrophyIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import CTASection from '../components/CTASection';
-import agileExplorer from '../assets/certifications/agile-explorer.png';
-import alteryxFoundational from '../assets/certifications/alteryx-foundational-micro-credential.png';
-import ibmMlSpecialist from '../assets/certifications/ibm-ml-specialist-associate.png';
-import awsSAAssociate from '../assets/certifications/aws-sa-associate.png';
-import msAzureDataFundamentals from '../assets/certifications/ms-azure-data-fundamentals.png';
-import snowflakeDW from '../assets/certifications/snowflake-dw.png';
-import pythonDataScience from '../assets/certifications/python-for-data-science.png';
-import appliedDataSciencePython from '../assets/certifications/applied-data-science-with-python-level-2.png';
-import deliveringBusinessValue from '../assets/certifications/delivering-business-value.png';
-import awsCloudPractitioner from '../assets/certifications/aws-certified-cloud-practitioner.png';
-import msCertifiedAzureFundamentals from '../assets/certifications/microsoft-certified-azure-fundamentals.png';
-import msCertifiedAzureAIFundamentals from '../assets/certifications/microsoft-certified-azure-ai-fundamentals.png';
-import sasProgramming1 from '../assets/certifications/sas-programming-1-essentials.png';
-import awsPartnerTechnical from '../assets/certifications/aws-partner-technical-accredited.png';
-import dataVizPython from '../assets/certifications/data-visualization-python.png';
-import dataAnalysisPython from '../assets/certifications/data-analysis-python.png';
-import cloudPakData35 from '../assets/certifications/ibm-cloud-pak-for-data.png';
-import communicatingValue from '../assets/certifications/ibm-consulting-communicating-value.png';
-import ibmAgileExplorer from '../assets/certifications/ibm-agile-explorer.png';
-import cloudPakDataScientist from '../assets/certifications/ibm-cloud-pak-data-scientist.png';
-import alteryxDesignerCore from '../assets/certifications/alteryx-designer-core.png';
-import enterpriseDesign from '../assets/certifications/enterprise-design-thinking-practitioner.png';
-import handsOnEssentials from '../assets/certifications/hands-on-essentials-data-applications.png';
-import dataSharing from '../assets/certifications/hands-on-essentials-data-sharing.png';
-import cloudPakDataScience from '../assets/certifications/ibm-cloud-pak-data-science.png';
-import garageEssentials from '../assets/certifications/ibm-garage-essentials.png';
-import garageFoundation from '../assets/certifications/ibm-garage-foundation.png';
-import logoTableau from '../assets/certifications/logo-tableau.png';
-import harvardBusiness from '../assets/certifications/hbs.png';
+import Card from '../components/Card';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
+import agileExplorer from '../assets/certifications/agile-explorer.png.webp';
+import alteryxFoundational from '../assets/certifications/alteryx-foundational-micro-credential.png.webp';
+import ibmMlSpecialist from '../assets/certifications/ibm-ml-specialist-associate.png.webp';
+import awsSAAssociate from '../assets/certifications/aws-sa-associate.png.webp';
+import msAzureDataFundamentals from '../assets/certifications/ms-azure-data-fundamentals.png.webp';
+import snowflakeDW from '../assets/certifications/snowflake-dw.png.webp';
+import pythonDataScience from '../assets/certifications/python-for-data-science.png.webp';
+import appliedDataSciencePython from '../assets/certifications/applied-data-science-with-python-level-2.png.webp';
+import deliveringBusinessValue from '../assets/certifications/delivering-business-value.png.webp';
+import awsCloudPractitioner from '../assets/certifications/aws-certified-cloud-practitioner.png.webp';
+import msCertifiedAzureFundamentals from '../assets/certifications/microsoft-certified-azure-fundamentals.png.webp';
+import msCertifiedAzureAIFundamentals from '../assets/certifications/microsoft-certified-azure-ai-fundamentals.png.webp';
+import sasProgramming1 from '../assets/certifications/sas-programming-1-essentials.png.webp';
+import awsPartnerTechnical from '../assets/certifications/aws-partner-technical-accredited.png.webp';
+import dataVizPython from '../assets/certifications/data-visualization-python.png.webp';
+import dataAnalysisPython from '../assets/certifications/data-analysis-python.png.webp';
+import cloudPakData35 from '../assets/certifications/ibm-cloud-pak-for-data.png.webp';
+import communicatingValue from '../assets/certifications/ibm-consulting-communicating-value.png.webp';
+import ibmAgileExplorer from '../assets/certifications/ibm-agile-explorer.png.webp';
+import cloudPakDataScientist from '../assets/certifications/ibm-cloud-pak-data-scientist.png.webp';
+import alteryxDesignerCore from '../assets/certifications/alteryx-designer-core.png.webp';
+import enterpriseDesign from '../assets/certifications/enterprise-design-thinking-practitioner.png.webp';
+import handsOnEssentials from '../assets/certifications/hands-on-essentials-data-applications.png.webp';
+import dataSharing from '../assets/certifications/hands-on-essentials-data-sharing.png.webp';
+import cloudPakDataScience from '../assets/certifications/ibm-cloud-pak-data-science.png.webp';
+import garageEssentials from '../assets/certifications/ibm-garage-essentials.png.webp';
+import garageFoundation from '../assets/certifications/ibm-garage-foundation.png.webp';
+import logoTableau from '../assets/certifications/logo-tableau.png.webp';
+import harvardBusiness from '../assets/certifications/hbs.png.webp';
 import React from 'react'; // Added for useEffect
 
 const certificationsData = [
@@ -404,9 +406,9 @@ function Certifications() {
       <section className="mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredCertifications.map(cert => (
-            <div
+            <Card
               key={cert.id}
-              className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg p-6 flex flex-col items-center cursor-pointer hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-600 group"
+              className="shadow-lg p-6 flex flex-col items-center group"
               onClick={() => setSelectedCertification(cert)}
               tabIndex={0}
               role="button"
@@ -417,8 +419,8 @@ function Certifications() {
                 }
               }}
             >
-              <div className="w-24 h-24 mb-4 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-2xl p-2 group-hover:scale-110 transition-transform duration-300">
-                <img src={cert.badgeImage} alt={cert.name} className="w-full h-full object-contain" />
+              <div className="w-24 h-24 mb-4 flex items-center justify-center bg-muted rounded-2xl p-2 group-hover:scale-110 transition-transform duration-300">
+                <ImageWithSkeleton src={cert.badgeImage} alt={cert.name} className="w-full h-full object-contain" />
               </div>
               <h3 className="font-bold text-lg mb-2 text-center text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">{cert.name}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm text-center font-medium">{cert.issuingOrganization}</p>
@@ -436,14 +438,14 @@ function Certifications() {
                   </span>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
       {/* Modal */}
       {selectedCertification && (
         <Modal onClose={() => setSelectedCertification(null)}>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative border-2 border-gray-200 dark:border-gray-700">
+          <div className="bg-card rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative border-2 border-border">
             <button
               className="absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
               onClick={() => setSelectedCertification(null)}
@@ -455,8 +457,8 @@ function Certifications() {
             </button>
             
             <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-2xl p-4">
-                <img src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-full h-full object-contain" />
+              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center bg-muted rounded-2xl p-4">
+                <ImageWithSkeleton src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-full h-full object-contain" />
               </div>
               
               <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">{selectedCertification.name}</h2>

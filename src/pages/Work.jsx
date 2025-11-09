@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
+import Card from '../components/Card';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
@@ -302,11 +304,9 @@ function Work() {
       <section className="mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
           {projects.map((proj, idx) => (
-            <div
+            <Card
               key={idx}
-              className={`bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer ${
-                expandedIdx === idx ? 'ring-4 ring-blue-400 shadow-2xl' : 'hover:border-blue-300 dark:hover:border-blue-600'
-              }`}
+              className="cursor-pointer"
               onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
               tabIndex={0}
               role="button"
@@ -319,11 +319,11 @@ function Work() {
               }}
             >
               {/* Project Image */}
-              <div className="relative h-48 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-4">
-                <img 
-                  src={proj.img} 
-                  alt={proj.title} 
-                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300" 
+              <div className="relative h-48 bg-muted/40 flex items-center justify-center p-4">
+                <ImageWithSkeleton
+                  src={proj.img}
+                  alt={proj.title}
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
@@ -395,7 +395,7 @@ function Work() {
                   </div>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>

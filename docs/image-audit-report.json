@@ -1,0 +1,936 @@
+{
+  "generatedAt": "2025-11-09T03:15:30.941Z",
+  "totals": {
+    "count": 162,
+    "byRoot": {
+      "public": 12,
+      "assets": 150
+    },
+    "byExt": {
+      ".png": 57,
+      ".jpg": 1,
+      ".svg": 14,
+      ".webp": 90
+    },
+    "sizeTotal": 10582745,
+    "sizeTotalHuman": "10.1 MB"
+  },
+  "unused": [
+    {
+      "path": "src/assets/certifications/MWhconsumption.png.webp",
+      "root": "src/assets",
+      "size": 40348,
+      "sizeHuman": "39.4 KB"
+    },
+    {
+      "path": "src/assets/certifications/cifar10.png.webp",
+      "root": "src/assets",
+      "size": 48110,
+      "sizeHuman": "47.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/credly.png.webp",
+      "root": "src/assets",
+      "size": 52256,
+      "sizeHuman": "51.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/credly2.png.webp",
+      "root": "src/assets",
+      "size": 29552,
+      "sizeHuman": "28.9 KB"
+    },
+    {
+      "path": "src/assets/certifications/customerSegments.png.webp",
+      "root": "src/assets",
+      "size": 14182,
+      "sizeHuman": "13.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/dalle2mail.png.webp",
+      "root": "src/assets",
+      "size": 30266,
+      "sizeHuman": "29.6 KB"
+    },
+    {
+      "path": "src/assets/certifications/dataModel.png.webp",
+      "root": "src/assets",
+      "size": 36372,
+      "sizeHuman": "35.5 KB"
+    },
+    {
+      "path": "src/assets/certifications/draft.png.webp",
+      "root": "src/assets",
+      "size": 39558,
+      "sizeHuman": "38.6 KB"
+    },
+    {
+      "path": "src/assets/certifications/featureImportanceRF.png.webp",
+      "root": "src/assets",
+      "size": 15834,
+      "sizeHuman": "15.5 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime.png.webp",
+      "root": "src/assets",
+      "size": 4074,
+      "sizeHuman": "4.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime3.png.webp",
+      "root": "src/assets",
+      "size": 18960,
+      "sizeHuman": "18.5 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime4.png.webp",
+      "root": "src/assets",
+      "size": 14120,
+      "sizeHuman": "13.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime5.png.webp",
+      "root": "src/assets",
+      "size": 19130,
+      "sizeHuman": "18.7 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime6.png.webp",
+      "root": "src/assets",
+      "size": 15688,
+      "sizeHuman": "15.3 KB"
+    },
+    {
+      "path": "src/assets/certifications/flowtime7.png.webp",
+      "root": "src/assets",
+      "size": 22300,
+      "sizeHuman": "21.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/flyingMail.png.webp",
+      "root": "src/assets",
+      "size": 2118,
+      "sizeHuman": "2.1 KB"
+    },
+    {
+      "path": "src/assets/certifications/halloweenCandy.png.webp",
+      "root": "src/assets",
+      "size": 65812,
+      "sizeHuman": "64.3 KB"
+    },
+    {
+      "path": "src/assets/certifications/imdb draft.png.webp",
+      "root": "src/assets",
+      "size": 71838,
+      "sizeHuman": "70.2 KB"
+    },
+    {
+      "path": "src/assets/certifications/imdbTableau.png.webp",
+      "root": "src/assets",
+      "size": 164182,
+      "sizeHuman": "160.3 KB"
+    },
+    {
+      "path": "src/assets/certifications/imdbTableau2.png.webp",
+      "root": "src/assets",
+      "size": 146246,
+      "sizeHuman": "142.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/inventoryFlow2.png.webp",
+      "root": "src/assets",
+      "size": 14984,
+      "sizeHuman": "14.6 KB"
+    },
+    {
+      "path": "src/assets/certifications/linkedinpeople.png.webp",
+      "root": "src/assets",
+      "size": 17446,
+      "sizeHuman": "17.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/looker1.png.webp",
+      "root": "src/assets",
+      "size": 58192,
+      "sizeHuman": "56.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/overlay.png.webp",
+      "root": "src/assets",
+      "size": 10332,
+      "sizeHuman": "10.1 KB"
+    },
+    {
+      "path": "src/assets/certifications/portfolio-3.png.webp",
+      "root": "src/assets",
+      "size": 13210,
+      "sizeHuman": "12.9 KB"
+    },
+    {
+      "path": "src/assets/certifications/portfolio-4.png.webp",
+      "root": "src/assets",
+      "size": 7622,
+      "sizeHuman": "7.4 KB"
+    },
+    {
+      "path": "src/assets/certifications/portfolio-5.png.webp",
+      "root": "src/assets",
+      "size": 14584,
+      "sizeHuman": "14.2 KB"
+    },
+    {
+      "path": "src/assets/certifications/portfolio-6.png.webp",
+      "root": "src/assets",
+      "size": 17034,
+      "sizeHuman": "16.6 KB"
+    },
+    {
+      "path": "src/assets/certifications/predict1.pnf.png.webp",
+      "root": "src/assets",
+      "size": 12194,
+      "sizeHuman": "11.9 KB"
+    },
+    {
+      "path": "src/assets/certifications/predict2.png.webp",
+      "root": "src/assets",
+      "size": 15602,
+      "sizeHuman": "15.2 KB"
+    },
+    {
+      "path": "src/assets/certifications/procCapacity1.png.webp",
+      "root": "src/assets",
+      "size": 8414,
+      "sizeHuman": "8.2 KB"
+    },
+    {
+      "path": "src/assets/certifications/procDistribution.png.webp",
+      "root": "src/assets",
+      "size": 20162,
+      "sizeHuman": "19.7 KB"
+    },
+    {
+      "path": "src/assets/certifications/randomforest.png.webp",
+      "root": "src/assets",
+      "size": 8082,
+      "sizeHuman": "7.9 KB"
+    },
+    {
+      "path": "src/assets/certifications/roberta.png.webp",
+      "root": "src/assets",
+      "size": 15390,
+      "sizeHuman": "15.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/scatterplot.png.webp",
+      "root": "src/assets",
+      "size": 15344,
+      "sizeHuman": "15.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/sentAnalysis_wearables.png.webp",
+      "root": "src/assets",
+      "size": 13390,
+      "sizeHuman": "13.1 KB"
+    },
+    {
+      "path": "src/assets/certifications/stepData.png.webp",
+      "root": "src/assets",
+      "size": 12196,
+      "sizeHuman": "11.9 KB"
+    },
+    {
+      "path": "src/assets/certifications/thanksthankscard.png.webp",
+      "root": "src/assets",
+      "size": 50918,
+      "sizeHuman": "49.7 KB"
+    },
+    {
+      "path": "src/assets/certifications/thanksthankscard2.png",
+      "root": "src/assets",
+      "size": 470156,
+      "sizeHuman": "459.1 KB"
+    },
+    {
+      "path": "src/assets/certifications/thanksthankscard2.png.webp",
+      "root": "src/assets",
+      "size": 21498,
+      "sizeHuman": "21.0 KB"
+    },
+    {
+      "path": "src/assets/certifications/top10byemployer.png.webp",
+      "root": "src/assets",
+      "size": 13146,
+      "sizeHuman": "12.8 KB"
+    },
+    {
+      "path": "src/assets/certifications/vader.png.webp",
+      "root": "src/assets",
+      "size": 14836,
+      "sizeHuman": "14.5 KB"
+    },
+    {
+      "path": "src/assets/certifications/weeklyDemand.png.webp",
+      "root": "src/assets",
+      "size": 40802,
+      "sizeHuman": "39.8 KB"
+    },
+    {
+      "path": "src/assets/confusion_matrix.png",
+      "root": "src/assets",
+      "size": 57038,
+      "sizeHuman": "55.7 KB"
+    },
+    {
+      "path": "src/assets/logo.svg",
+      "root": "src/assets",
+      "size": 602,
+      "sizeHuman": "602.0 B"
+    },
+    {
+      "path": "src/assets/logo2.svg",
+      "root": "src/assets",
+      "size": 534,
+      "sizeHuman": "534.0 B"
+    },
+    {
+      "path": "src/assets/logo3.svg",
+      "root": "src/assets",
+      "size": 344,
+      "sizeHuman": "344.0 B"
+    },
+    {
+      "path": "src/assets/logo4.svg",
+      "root": "src/assets",
+      "size": 275,
+      "sizeHuman": "275.0 B"
+    },
+    {
+      "path": "src/assets/react.svg",
+      "root": "src/assets",
+      "size": 4126,
+      "sizeHuman": "4.0 KB"
+    }
+  ],
+  "duplicatesByHash": [
+    {
+      "hash": "6c12b947fc7bb72fbd52f2c4eca09173",
+      "files": [
+        {
+          "path": "public/MWhconsumption.png",
+          "root": "public",
+          "size": 90246,
+          "sizeHuman": "88.1 KB"
+        },
+        {
+          "path": "src/assets/certifications/MWhconsumption.png",
+          "root": "src/assets",
+          "size": 90246,
+          "sizeHuman": "88.1 KB"
+        }
+      ]
+    },
+    {
+      "hash": "7c9c11d305c9400c515eb4d3d633f753",
+      "files": [
+        {
+          "path": "public/cifar10.png",
+          "root": "public",
+          "size": 378630,
+          "sizeHuman": "369.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/cifar10.png",
+          "root": "src/assets",
+          "size": 378630,
+          "sizeHuman": "369.8 KB"
+        }
+      ]
+    },
+    {
+      "hash": "913614ec14e2ce50c540d6527d228bad",
+      "files": [
+        {
+          "path": "public/credly.png",
+          "root": "public",
+          "size": 146469,
+          "sizeHuman": "143.0 KB"
+        },
+        {
+          "path": "src/assets/certifications/credly.png",
+          "root": "src/assets",
+          "size": 146469,
+          "sizeHuman": "143.0 KB"
+        }
+      ]
+    },
+    {
+      "hash": "830ed24040b7b68f4033a0a08aaeaf25",
+      "files": [
+        {
+          "path": "public/customerSegments.png",
+          "root": "public",
+          "size": 37862,
+          "sizeHuman": "37.0 KB"
+        },
+        {
+          "path": "src/assets/certifications/customerSegments.png",
+          "root": "src/assets",
+          "size": 37862,
+          "sizeHuman": "37.0 KB"
+        }
+      ]
+    },
+    {
+      "hash": "dc53b2183051f50fc4fa7e1a51693bb9",
+      "files": [
+        {
+          "path": "public/draft.png",
+          "root": "public",
+          "size": 313923,
+          "sizeHuman": "306.6 KB"
+        },
+        {
+          "path": "src/assets/certifications/draft.png",
+          "root": "src/assets",
+          "size": 313923,
+          "sizeHuman": "306.6 KB"
+        }
+      ]
+    },
+    {
+      "hash": "cb3aaa98c8d316bcac3a7e26127af443",
+      "files": [
+        {
+          "path": "public/imdb draft.png",
+          "root": "public",
+          "size": 147755,
+          "sizeHuman": "144.3 KB"
+        },
+        {
+          "path": "src/assets/certifications/imdb draft.png",
+          "root": "src/assets",
+          "size": 147755,
+          "sizeHuman": "144.3 KB"
+        }
+      ]
+    },
+    {
+      "hash": "227f24e81e3debb6e601952ff03f7779",
+      "files": [
+        {
+          "path": "public/imdbTableau2.png",
+          "root": "public",
+          "size": 250681,
+          "sizeHuman": "244.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/imdbTableau2.png",
+          "root": "src/assets",
+          "size": 250681,
+          "sizeHuman": "244.8 KB"
+        }
+      ]
+    },
+    {
+      "hash": "da5468448514f83fc9789cbe17b7914a",
+      "files": [
+        {
+          "path": "public/weeklyDemand.png",
+          "root": "public",
+          "size": 103267,
+          "sizeHuman": "100.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/weeklyDemand.png",
+          "root": "src/assets",
+          "size": 103267,
+          "sizeHuman": "100.8 KB"
+        }
+      ]
+    },
+    {
+      "hash": "08b79abeeaae0983ae87e2fecc5ba48e",
+      "files": [
+        {
+          "path": "src/assets/certifications/customerSegments.png.webp",
+          "root": "src/assets",
+          "size": 14182,
+          "sizeHuman": "13.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/customerSegments.webp",
+          "root": "src/assets",
+          "size": 14182,
+          "sizeHuman": "13.8 KB"
+        }
+      ]
+    },
+    {
+      "hash": "5e3ee6ca86bdea4c9f77a47a87999d8d",
+      "files": [
+        {
+          "path": "src/assets/certifications/data-analysis-python.png.webp",
+          "root": "src/assets",
+          "size": 29458,
+          "sizeHuman": "28.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/data-analysis-python.webp",
+          "root": "src/assets",
+          "size": 29458,
+          "sizeHuman": "28.8 KB"
+        }
+      ]
+    },
+    {
+      "hash": "19fc3e3c69d1ba5be8f12fffdb17a323",
+      "files": [
+        {
+          "path": "src/assets/certifications/data-visualization-python.png.webp",
+          "root": "src/assets",
+          "size": 30212,
+          "sizeHuman": "29.5 KB"
+        },
+        {
+          "path": "src/assets/certifications/data-visualization-python.webp",
+          "root": "src/assets",
+          "size": 30212,
+          "sizeHuman": "29.5 KB"
+        }
+      ]
+    },
+    {
+      "hash": "2c847a373ae911bef4d89f0cd3126b84",
+      "files": [
+        {
+          "path": "src/assets/certifications/featureImportanceRF.png.webp",
+          "root": "src/assets",
+          "size": 15834,
+          "sizeHuman": "15.5 KB"
+        },
+        {
+          "path": "src/assets/certifications/featureImportanceRF.webp",
+          "root": "src/assets",
+          "size": 15834,
+          "sizeHuman": "15.5 KB"
+        }
+      ]
+    },
+    {
+      "hash": "97c860e81c23dcd51c50cb8aeb876edf",
+      "files": [
+        {
+          "path": "src/assets/certifications/flowtime6.png.webp",
+          "root": "src/assets",
+          "size": 15688,
+          "sizeHuman": "15.3 KB"
+        },
+        {
+          "path": "src/assets/certifications/flowtime6.webp",
+          "root": "src/assets",
+          "size": 15688,
+          "sizeHuman": "15.3 KB"
+        }
+      ]
+    },
+    {
+      "hash": "11fc40ab4879f8578ccce4cacdb736c3",
+      "files": [
+        {
+          "path": "src/assets/certifications/hands-on-essentials-data-applications.png.webp",
+          "root": "src/assets",
+          "size": 24210,
+          "sizeHuman": "23.6 KB"
+        },
+        {
+          "path": "src/assets/certifications/hands-on-essentials-data-applications.webp",
+          "root": "src/assets",
+          "size": 24210,
+          "sizeHuman": "23.6 KB"
+        }
+      ]
+    },
+    {
+      "hash": "05085d331abf25c998484cb2a9151339",
+      "files": [
+        {
+          "path": "src/assets/certifications/ibm-cloud-pak-data-science.png.webp",
+          "root": "src/assets",
+          "size": 15092,
+          "sizeHuman": "14.7 KB"
+        },
+        {
+          "path": "src/assets/certifications/ibm-cloud-pak-data-science.webp",
+          "root": "src/assets",
+          "size": 15092,
+          "sizeHuman": "14.7 KB"
+        }
+      ]
+    },
+    {
+      "hash": "1482dff639cd1afb1305981fc2544afb",
+      "files": [
+        {
+          "path": "src/assets/certifications/ibm-consulting-communicating-value.png.webp",
+          "root": "src/assets",
+          "size": 15458,
+          "sizeHuman": "15.1 KB"
+        },
+        {
+          "path": "src/assets/certifications/ibm-consulting-communicating-value.webp",
+          "root": "src/assets",
+          "size": 15458,
+          "sizeHuman": "15.1 KB"
+        }
+      ]
+    },
+    {
+      "hash": "587ecf2b9665cbb564761e979b116b39",
+      "files": [
+        {
+          "path": "src/assets/certifications/imdbTableau.png.webp",
+          "root": "src/assets",
+          "size": 164182,
+          "sizeHuman": "160.3 KB"
+        },
+        {
+          "path": "src/assets/certifications/imdbTableau.webp",
+          "root": "src/assets",
+          "size": 164182,
+          "sizeHuman": "160.3 KB"
+        }
+      ]
+    },
+    {
+      "hash": "2ee135c4b688a10d1c00aba1c2bb42ba",
+      "files": [
+        {
+          "path": "src/assets/certifications/procCapacity1.png.webp",
+          "root": "src/assets",
+          "size": 8414,
+          "sizeHuman": "8.2 KB"
+        },
+        {
+          "path": "src/assets/certifications/procCapacity1.webp",
+          "root": "src/assets",
+          "size": 8414,
+          "sizeHuman": "8.2 KB"
+        }
+      ]
+    },
+    {
+      "hash": "15c6b9dc845470613de7a71ff46c9a52",
+      "files": [
+        {
+          "path": "src/assets/certifications/procDistribution.png.webp",
+          "root": "src/assets",
+          "size": 20162,
+          "sizeHuman": "19.7 KB"
+        },
+        {
+          "path": "src/assets/certifications/procDistribution.webp",
+          "root": "src/assets",
+          "size": 20162,
+          "sizeHuman": "19.7 KB"
+        }
+      ]
+    },
+    {
+      "hash": "8293ef5079b42d117441c6c4ef78a39e",
+      "files": [
+        {
+          "path": "src/assets/certifications/randomforest.png.webp",
+          "root": "src/assets",
+          "size": 8082,
+          "sizeHuman": "7.9 KB"
+        },
+        {
+          "path": "src/assets/certifications/randomforest.webp",
+          "root": "src/assets",
+          "size": 8082,
+          "sizeHuman": "7.9 KB"
+        }
+      ]
+    },
+    {
+      "hash": "85fd9a9e7433a147014f9e6f0fcd1776",
+      "files": [
+        {
+          "path": "src/assets/certifications/roberta.png.webp",
+          "root": "src/assets",
+          "size": 15390,
+          "sizeHuman": "15.0 KB"
+        },
+        {
+          "path": "src/assets/certifications/roberta.webp",
+          "root": "src/assets",
+          "size": 15390,
+          "sizeHuman": "15.0 KB"
+        }
+      ]
+    },
+    {
+      "hash": "c9e08adf41bc053eb98ad51c438b2da9",
+      "files": [
+        {
+          "path": "src/assets/certifications/sentAnalysis_wearables.png.webp",
+          "root": "src/assets",
+          "size": 13390,
+          "sizeHuman": "13.1 KB"
+        },
+        {
+          "path": "src/assets/certifications/sentAnalysis_wearables.webp",
+          "root": "src/assets",
+          "size": 13390,
+          "sizeHuman": "13.1 KB"
+        }
+      ]
+    },
+    {
+      "hash": "a372996618f0de296d5fc25b55bf69b9",
+      "files": [
+        {
+          "path": "src/assets/certifications/vader.png.webp",
+          "root": "src/assets",
+          "size": 14836,
+          "sizeHuman": "14.5 KB"
+        },
+        {
+          "path": "src/assets/certifications/vader.webp",
+          "root": "src/assets",
+          "size": 14836,
+          "sizeHuman": "14.5 KB"
+        }
+      ]
+    },
+    {
+      "hash": "fa133a99048fdd2278cfd44393575562",
+      "files": [
+        {
+          "path": "src/assets/certifications/weeklyDemand.png.webp",
+          "root": "src/assets",
+          "size": 40802,
+          "sizeHuman": "39.8 KB"
+        },
+        {
+          "path": "src/assets/certifications/weeklyDemand.webp",
+          "root": "src/assets",
+          "size": 40802,
+          "sizeHuman": "39.8 KB"
+        }
+      ]
+    }
+  ],
+  "crossRootDuplicates": [
+    {
+      "hash": "6c12b947fc7bb72fbd52f2c4eca09173",
+      "files": [
+        {
+          "path": "public/MWhconsumption.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/MWhconsumption.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "7c9c11d305c9400c515eb4d3d633f753",
+      "files": [
+        {
+          "path": "public/cifar10.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/cifar10.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "913614ec14e2ce50c540d6527d228bad",
+      "files": [
+        {
+          "path": "public/credly.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/credly.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "830ed24040b7b68f4033a0a08aaeaf25",
+      "files": [
+        {
+          "path": "public/customerSegments.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/customerSegments.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "dc53b2183051f50fc4fa7e1a51693bb9",
+      "files": [
+        {
+          "path": "public/draft.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/draft.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "cb3aaa98c8d316bcac3a7e26127af443",
+      "files": [
+        {
+          "path": "public/imdb draft.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/imdb draft.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "227f24e81e3debb6e601952ff03f7779",
+      "files": [
+        {
+          "path": "public/imdbTableau2.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/imdbTableau2.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "hash": "da5468448514f83fc9789cbe17b7914a",
+      "files": [
+        {
+          "path": "public/weeklyDemand.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/weeklyDemand.png",
+          "root": "src/assets"
+        }
+      ]
+    }
+  ],
+  "bothPlacesByName": [
+    {
+      "base": "MWhconsumption.png",
+      "files": [
+        {
+          "path": "public/MWhconsumption.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/MWhconsumption.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "cifar10.png",
+      "files": [
+        {
+          "path": "public/cifar10.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/cifar10.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "credly.png",
+      "files": [
+        {
+          "path": "public/credly.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/credly.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "customerSegments.png",
+      "files": [
+        {
+          "path": "public/customerSegments.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/customerSegments.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "draft.png",
+      "files": [
+        {
+          "path": "public/draft.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/draft.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "imdb draft.png",
+      "files": [
+        {
+          "path": "public/imdb draft.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/imdb draft.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "imdbTableau2.png",
+      "files": [
+        {
+          "path": "public/imdbTableau2.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/imdbTableau2.png",
+          "root": "src/assets"
+        }
+      ]
+    },
+    {
+      "base": "weeklyDemand.png",
+      "files": [
+        {
+          "path": "public/weeklyDemand.png",
+          "root": "public"
+        },
+        {
+          "path": "src/assets/certifications/weeklyDemand.png",
+          "root": "src/assets"
+        }
+      ]
+    }
+  ]
+}
