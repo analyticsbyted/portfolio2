@@ -2,6 +2,7 @@ import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import { useState, useEffect } from 'react';
+import moviePoster from '../assets/webapps/movie-explorer-poster.svg';
 
 const heroStats = [
   { value: '10+', label: 'Years Experience' },
@@ -12,23 +13,23 @@ const heroStats = [
 
 const services = [
   {
-    title: 'Data Science & Analytics',
-    description: 'Turn your data into competitive advantage with predictive modeling and advanced analytics',
+    title: 'Faster Time‑to‑Value',
+    description: 'Ship MVPs in weeks, not months, with focused scopes and fast feedback loops.',
     color: 'blue'
   },
   {
-    title: 'Cloud Solutions',
-    description: 'Scalable cloud architecture and migration strategies that reduce costs and improve performance',
+    title: 'Measurable Impact',
+    description: 'Proven outcomes like +25% forecast accuracy and 40% infra cost savings.',
     color: 'purple'
   },
   {
-    title: 'AI & Machine Learning',
-    description: 'Custom AI solutions that automate processes and unlock new business opportunities',
+    title: 'Production‑Ready',
+    description: 'CI/CD, observability, and security basics baked in from day one.',
     color: 'green'
   },
   {
-    title: 'Business Intelligence',
-    description: 'Interactive dashboards and reporting systems that drive data-informed decisions',
+    title: 'Partner‑Friendly',
+    description: 'Transparent roadmaps, async updates, and clear SLAs that keep teams aligned.',
     color: 'orange'
   }
 ];
@@ -75,6 +76,9 @@ function Home() {
       <section className="relative mb-20">
         <div className="text-center mb-16">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-4">
+              Available for Web & AI Projects
+            </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Building Intelligent
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -83,7 +87,7 @@ function Home() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, a builder of full‑stack web apps, AI agents, and data platforms. I help organizations ship production‑ready applications and intelligent systems—spanning React, TypeScript, and cloud—with measurable business impact.
+              I build production‑ready web apps, AI agents, and data platforms that drive measurable outcomes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -105,8 +109,8 @@ function Home() {
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Stats Grid (moved up for at-a-glance KPIs) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mb-12">
           {heroStats.map((stat, index) => (
             <div 
               key={index} 
@@ -118,16 +122,73 @@ function Home() {
             </div>
           ))}
         </div>
+
+        {/* Featured Project Strip */}
+        <div className="mb-14 rounded-3xl overflow-hidden border border-border bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="md:col-span-2">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Featured: Movie Explorer</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                A modern React + TypeScript web app for discovering movies with live data, fast search, and rich details.
+              </p>
+              <div className="flex gap-3">
+                <a href="/work?tab=web" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+                  Explore Projects
+                </a>
+                <a href="https://moviez-explorer.netlify.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all">
+                  Live Demo
+                </a>
+              </div>
+            </div>
+            <div className="md:col-span-1">
+              <div className="h-40 md:h-44 bg-muted/40 rounded-2xl flex items-center justify-center p-3">
+                <img src={moviePoster} alt="Movie Explorer poster" className="h-full w-full object-contain" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* What I Do - 3 Pillars */}
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            What I Do
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Web Apps, AI/Agents, and Data Platforms—built for measurable business outcomes.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+          <div className="rounded-2xl p-[1px] bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 transition">
+            <a href="/work?tab=web" className="block p-6 rounded-2xl bg-card border border-border hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Web Apps</h3>
+              <p className="text-gray-600 dark:text-gray-300">Production React/TypeScript apps with robust data fetching and deployment.</p>
+            </a>
+          </div>
+          <div className="rounded-2xl p-[1px] bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 transition">
+            <a href="/work?tab=ds" className="block p-6 rounded-2xl bg-card border border-border hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI / Agents</h3>
+              <p className="text-gray-600 dark:text-gray-300">ML models and agentic workflows for intelligent, automated experiences.</p>
+            </a>
+          </div>
+          <div className="rounded-2xl p-[1px] bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 transition">
+            <a href="/work?tab=da" className="block p-6 rounded-2xl bg-card border border-border hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Data Platforms</h3>
+              <p className="text-gray-600 dark:text-gray-300">Analytics, pipelines, and BI to operationalize data at scale.</p>
+            </a>
+          </div>
+        </div>
+
+        
       </section>
 
       {/* Services Section */}
       <section className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            How I Drive Business Results
+            How I Deliver Results
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Specialized solutions that transform your data challenges into competitive advantages
+            Outcome‑focused delivery backed by real metrics and production standards.
           </p>
         </div>
 
@@ -140,6 +201,18 @@ function Home() {
               </p>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href="/work"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+          >
+            See outcomes in Work
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
         </div>
       </section>
 

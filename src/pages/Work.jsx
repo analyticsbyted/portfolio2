@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CTASection from '../components/CTASection';
 import PageSubtitle from '../components/PageSubtitle';
 import Card from '../components/Card';
@@ -302,6 +302,19 @@ const webDevProjects = [
 function Work() {
   const [activeTab, setActiveTab] = useState('ds');
   const [expandedIdx, setExpandedIdx] = useState(null);
+
+  // Support deep-linking via ?tab= or #tab-<key>
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('tab');
+    const hash = window.location.hash.replace('#', '');
+    const fromHash = hash.startsWith('tab-') ? hash.slice(4) : null;
+    const candidate = q || fromHash;
+    const keys = tabs.map(t => t.key);
+    if (candidate && keys.includes(candidate)) {
+      setActiveTab(candidate);
+    }
+  }, []);
 
   let projects = [];
   if (activeTab === 'ds') projects = dataScienceProjects;

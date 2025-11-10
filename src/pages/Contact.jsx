@@ -41,7 +41,7 @@ function Contact() {
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Ready to transform your data challenges into competitive advantages? I'd love to discuss how we can drive measurable results for your business.
+          Build modern web apps, AI agents, and data platforms—let's scope your project and deliver measurable outcomes.
         </p>
       </section>
 
