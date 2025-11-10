@@ -76,14 +76,14 @@ function Home() {
         <div className="text-center mb-16">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              Turning Data Into
+              Building Intelligent
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Strategic Advantage
+                Data, AI, and Web Apps
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, a data science and cloud solutions specialist who helps organizations unlock the power of their data through advanced analytics, AI, and scalable cloud architectures.
+              I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, a builder of full‑stack web apps, AI agents, and data platforms. I help organizations ship production‑ready applications and intelligent systems—spanning React, TypeScript, and cloud—with measurable business impact.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -92,7 +92,7 @@ function Home() {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold"
                 ariaLabel="Contact Ted for consulting services"
               >
-                Start Your Data Journey
+                Start Your Project
               </Button>
               <Button 
                 href="/work" 
@@ -202,7 +202,7 @@ function Home() {
       {/* CTA Section */}
       <CTASection
         title="Ready to Transform Your Business?"
-        description="Let's discuss how data science, AI, and cloud solutions can accelerate your growth and drive measurable results."
+        description="Let's discuss how modern web apps, AI agents, and data platforms can accelerate your growth and drive measurable results."
         primaryButton={{
           href: "/contact",
           text: "Get Started Today",

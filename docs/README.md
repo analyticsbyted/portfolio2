@@ -12,6 +12,8 @@ This folder documents the application architecture, setup, and operational guide
 - Environment Variables: `docs/environment.md`
 - Analytics: `docs/analytics.md`
 - Assets & Media: `docs/assets.md`
+- Work Page Catalog: `docs/work-catalog.md`
+- Scripts: `docs/scripts.md`
 
 If you find gaps or have questions, please open an issue or edit these docs.
 

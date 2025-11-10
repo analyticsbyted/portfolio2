@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import CTASection from '../components/CTASection';
+import PageSubtitle from '../components/PageSubtitle';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
 import moviePoster from '../assets/webapps/movie-explorer-poster.svg';
 import tvPoster from '../assets/webapps/tv-explorer-poster.svg';
+import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
 import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.webp';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
 import randomforestImg from '../assets/certifications/randomforest.webp';
-import confusionMatrixImg from '../assets/confusion_matrix.webp';
+import confusionMatrixImg from '../assets/confusion_matrix2.png';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.webp';
 import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.webp';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.webp';
@@ -40,6 +42,15 @@ const tabs = [
   { name: 'Web Development', key: 'web' },
   { name: 'Research', key: 'research' },
 ];
+
+const tabSubtitles = {
+  ds: 'Supervised and unsupervised ML—classification, clustering, and model evaluation for business impact.',
+  da: 'ETL, EDA, forecasting, and operations analysis to optimize processes and decisions.',
+  bi: 'Interactive dashboards and KPIs to communicate insights with Tableau and Power BI.',
+  nlp: 'Text analytics and NLP—sentiment, embeddings, and retrieval on unstructured data.',
+  web: 'Production web apps built with React, TypeScript, and modern tooling.',
+  research: 'Academic and applied research exploring AI, ethics, healthcare, and organizational analytics.'
+};
 
 const dataScienceProjects = [
   {
@@ -80,16 +91,13 @@ const dataScienceProjects = [
     problem: 'How can we build a robust CNN to classify images across 10 object categories while mitigating overfitting?',
     approach: 'Implemented a TensorFlow/Keras CNN with data augmentation (RandomFlip/Rotation/Zoom), batch normalization, and max‑pooling to improve generalization and stabilize training.',
     result: 'Achieved ~79% test accuracy with detailed classification report and confusion matrix analysis for model diagnostics.',
-    img: confusionMatrixImg,
+    img: cifarPoster,
     link: 'https://github.com/analyticsbyted/CNN-Image-Classification-CIFAR10',
     linkLabel: 'View Repo',
     demoLink: 'https://huggingface.co/spaces/analyticsbyted/CIFAR10-Classifier',
     demoLabel: 'Live Demo',
     details: 'CNN with image augmentation (RandomFlip/Rotation/Zoom), BatchNorm + MaxPool; ~79% test accuracy with full classification report and confusion matrix.',
-    skills: ['Python', 'TensorFlow', 'Keras', 'Deep Learning'],
-    // Make the confusion matrix fully visible by enlarging the image frame (responsive) and reducing padding
-    imageHeight: 'h-72 sm:h-80 md:h-96',
-    imagePadding: 'p-2 sm:p-3'
+    skills: ['Python', 'TensorFlow', 'Keras', 'Deep Learning']
   }
 ];
 
@@ -317,11 +325,11 @@ function Work() {
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           Portfolio of
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-            Data Solutions
+            Data, AI, and Web Solutions
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Explore real-world projects spanning Data Science, Analytics, Business Intelligence, and AI/ML solutions that drive measurable business impact.
+          Explore real‑world projects across Web Development, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
         </p>
       </section>
       {/* Modern Tab Navigation */}
@@ -346,6 +354,8 @@ function Work() {
           ))}
         </div>
       </section>
+      {/* Tab Subtitle */}
+      <PageSubtitle>{tabSubtitles[activeTab]}</PageSubtitle>
       {/* Project Grid */}
       {activeTab !== 'web' ? (
         <section className="mb-16">
@@ -370,7 +380,7 @@ function Work() {
                   <ImageWithSkeleton
                     src={proj.img}
                     alt={proj.title}
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-contain"
                   />
                 </div>
 
@@ -472,7 +482,7 @@ function Work() {
                   <ImageWithSkeleton
                     src={app.img}
                     alt={app.alt}
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-contain"
                   />
                 </div>
                 {/* Content */}
