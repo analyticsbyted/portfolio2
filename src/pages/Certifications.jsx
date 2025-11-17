@@ -3,6 +3,8 @@ import { AcademicCapIcon, StarIcon, TrophyIcon, ShieldCheckIcon } from '@heroico
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
 import agileExplorer from '../assets/certifications/agile-explorer.png.webp';
 import alteryxFoundational from '../assets/certifications/alteryx-foundational-micro-credential.png.webp';
 import ibmMlSpecialist from '../assets/certifications/ibm-ml-specialist-associate.png.webp';
@@ -326,7 +328,15 @@ function Certifications() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <>
+      <HeadMetadata
+        title="Certifications"
+        description="Browse 25+ active certifications in data science, cloud computing, analytics, and AI that validate Ted Dickey's expertise."
+        canonical="/certifications"
+        keywords="Ted Dickey certifications, AWS Solutions Architect, Azure AI Fundamentals, IBM machine learning badges, Snowflake, Tableau, Alteryx"
+        schema={personSchema}
+      />
+      <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
@@ -513,6 +523,7 @@ function Certifications() {
         }}
       />
     </div>
+    </>
   );
 }
 

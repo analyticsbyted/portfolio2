@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Update with your production URL
 Sitemap: https://teddickey.com/sitemap.xml
-
-

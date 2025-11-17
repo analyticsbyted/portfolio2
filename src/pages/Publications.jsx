@@ -1,6 +1,8 @@
 import { BookOpenIcon, DocumentTextIcon, PresentationChartBarIcon, AcademicCapIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
 import { publishedArticles } from '../data/publicationHelper';
 
 const publicationStats = [
@@ -12,7 +14,15 @@ const publicationStats = [
 
 function Publications() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <>
+      <HeadMetadata
+        title="Publications"
+        description="Explore current and upcoming publications from Ted Dickey covering AI ethics, data-driven leadership, and organizational transformation."
+        canonical="/publications"
+        keywords="Ted Dickey publications, Magnetic Leadership book, AI ethics research, data-driven leadership articles, upcoming research"
+        schema={personSchema}
+      />
+      <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
@@ -261,6 +271,7 @@ function Publications() {
         }}
       />
     </div>
+    </>
   );
 }
 

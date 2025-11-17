@@ -1,5 +1,7 @@
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
 import { useState } from 'react';
 
 const stats = [
@@ -49,7 +51,15 @@ function About() {
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <>
+      <HeadMetadata
+        title="About"
+        description="Learn about Ted Dickey II—a data science professional and PhD candidate delivering intelligent web apps, AI agents, and analytics platforms across industries."
+        canonical="/about"
+        keywords="Ted Dickey background, AI consultant, PhD candidate, leadership experience, certifications, web app architect"
+        schema={personSchema}
+      />
+      <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Hero Section - Deconstructed Layout */}
       <section className="relative mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -193,6 +203,7 @@ function About() {
         }}
       />
     </div>
+    </>
   );
 }
 

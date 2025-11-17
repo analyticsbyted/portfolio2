@@ -1,4 +1,6 @@
 import CTASection from '../components/CTASection';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
 import { useContactForm } from '../hooks/useContactForm'; // <-- Import the new hook
 
 const contactMethods = [
@@ -31,7 +33,15 @@ function Contact() {
   const { form, status, error, handleChange, handleSubmit } = useContactForm();
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <>
+      <HeadMetadata
+        title="Contact"
+        description="Contact Ted Dickey II to scope modern web apps, AI agents, and analytics platforms. Typical response time within 24 hours."
+        canonical="/contact"
+        keywords="contact Ted Dickey, project inquiry, AI consulting, web app scoping, data platform services, response time"
+        schema={personSchema}
+      />
+      <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Hero Section (Unchanged) */}
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
@@ -149,6 +159,7 @@ function Contact() {
         secondaryButton={{ href: "/about", text: "Learn More", ariaLabel: "Learn more about Ted" }}
       />
     </div>
+    </>
   );
 }
 

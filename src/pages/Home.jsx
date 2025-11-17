@@ -1,8 +1,9 @@
-
-
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
+import websiteSchema from '../seo/websiteSchema';
 import { useState, useEffect } from 'react';
 import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
 
@@ -73,7 +74,15 @@ function Home() {
   // Icons removed for a more professional, minimalist presentation
 
   return (
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+    <>
+      <HeadMetadata
+        title="Home"
+        description="Data Science Professional & PhD Candidate delivering production-ready web apps, AI agents, and data platforms that drive measurable outcomes."
+        canonical="/"
+        keywords="Ted Dickey, data science portfolio, web app development, AI agents, KPI dashboards, featured projects, consulting"
+        schema={[personSchema, websiteSchema]}
+      />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
       {/* Hero Section */}
       <section className="relative mb-20">
         <div className="text-center mb-16">
@@ -290,6 +299,7 @@ function Home() {
         }}
       />
     </div>
+    </>
   );
 }
 

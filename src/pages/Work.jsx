@@ -3,6 +3,8 @@ import CTASection from '../components/CTASection';
 import PageSubtitle from '../components/PageSubtitle';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
+import HeadMetadata from '../components/HeadMetadata';
+import personSchema from '../seo/personSchema';
 import moviePoster from '../assets/webapps/movie-explorer-poster.png';
 import tvPoster from '../assets/webapps/tv-explorer-poster.png';
 import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
@@ -370,9 +372,17 @@ function Work() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <section className="text-center mb-16">
+    <>
+      <HeadMetadata
+        title="Portfolio"
+        description="Explore Ted Dickey's portfolio of production-ready web apps, AI/ML solutions, analytics platforms, and research projects that deliver measurable business impact."
+        canonical="/work"
+        keywords="portfolio, web apps, AI/ML solutions, Economic KPI Pulse, Movie Explorer, Equity Screener, CNN image classifier, business intelligence projects"
+        schema={personSchema}
+      />
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
           Portfolio of
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
@@ -604,6 +614,7 @@ function Work() {
         }}
       />
     </div>
+    </>
   );
 }
 

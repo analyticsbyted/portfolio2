@@ -683,6 +683,22 @@ export default MyComponent;
 - Assets are hashed for cache-busting
 - Production build optimized and minified by Vite
 
+## SEO & Metadata
+
+### Dynamic Metadata Management
+- `HeadMetadata` component centralizes `<title>`, meta tags, Open Graph, Twitter Cards, and canonical URLs
+- Each top-level page (Home, Work, About, Contact, Education, Certifications, Publications, Newsletter) passes page-specific titles, descriptions, and keyword sets
+- Keywords now reflect actual page content (e.g., Work lists flagship projects, Publications references Magnetic Leadership)
+
+### Structured Data
+- `schema` prop on `HeadMetadata` injects JSON-LD scripts
+- `personSchema` (Person) applied globally so every major page explicitly references Ted Dickey II with consistent `sameAs` links
+- Home page also provides a `websiteSchema` (WebSite) with a `SearchAction` target to unlock sitelinks search box support
+
+### Robots & Sitemap
+- `robots.txt` trimmed to the modern `Sitemap` directive pointing at `https://teddickey.com/sitemap.xml`
+- `sitemap.xml` refreshed with `<lastmod>` timestamps to highlight recent updates across all public routes
+
 ## Future Enhancements & TODOs
 
 ### Potential Improvements
@@ -740,11 +756,17 @@ export default MyComponent;
 
 ---
 
-**Last Updated:** 2025-01-11  
+**Last Updated:** 2025-11-17  
 **Maintained By:** Ted Dickey II  
-**Version:** 1.3
+**Version:** 1.4
 
 **Recent Updates:**
+- **SEO & Structured Data Enhancements (2025-11-17):**
+  - Extended `HeadMetadata` to support JSON-LD and reusable `schema` props
+  - Added global `personSchema` and homepage `websiteSchema` for rich search results
+  - Refined per-page keywords so each route highlights its specific content focus
+  - Updated `robots.txt` and `sitemap.xml` (with `<lastmod>`) to match production domain
+- **Documentation Enhancements (2025-01-11):**
 - **Documentation Enhancements (2025-01-11):**
   - Enhanced root README.md with welcoming introduction and quick start guide
   - Added "5-Minute Quick Start Checklist" for rapid onboarding

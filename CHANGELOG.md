@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - 2025-11-17
+
+#### SEO & Structured Data
+- **HeadMetadata Enhancements**: Added `schema` prop support to inject JSON-LD `<script type="application/ld+json">`.
+- **Structured Data**:
+  - `personSchema` applied across all top-level pages (Home, Work, About, Contact, Education, Certifications, Publications, Newsletter).
+  - `websiteSchema` added to Home page to enable Google sitelinks search box eligibility.
+- **Keywords & Metadata**: Refined per-page keyword lists so each route highlights its specific content focus (e.g., flagship projects on Work, Magnetic Leadership on Publications).
+- **Robots & Sitemap**:
+  - `robots.txt` simplified to the modern `Sitemap` directive pointing at `https://teddickey.com/sitemap.xml`.
+  - `sitemap.xml` updated with `<lastmod>` timestamps for every entry to highlight recent activity.
+- **Files Modified**: `src/components/HeadMetadata.jsx`, `src/seo/personSchema.js`, `src/seo/websiteSchema.js`, top-level page files, `public/robots.txt`, `public/sitemap.xml`, documentation.
+
 ### Added - 2025-01-11
 
 #### Documentation Enhancements
