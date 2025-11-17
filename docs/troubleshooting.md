@@ -218,6 +218,58 @@ Error: Incompatible React versions: The "react" and "react-dom" packages must ha
 
 ---
 
+### Mobile Navigation Not Animating
+
+**Symptoms:** Mobile menu appears/disappears instantly without slide-in animation.
+
+**Possible Causes:**
+1. `AnimatePresence` not wrapping mobile menu
+2. Missing `motion` import from Framer Motion
+3. `mobileOpen` state not properly managed
+4. Reduced motion preference enabled (fade-only is expected)
+5. Z-index conflicts with other elements
+
+**Solutions:**
+1. **Check AnimatePresence:**
+   ```javascript
+   // ✅ Correct
+   <AnimatePresence>
+     {mobileOpen && (
+       <motion.div>...</motion.div>
+     )}
+   </AnimatePresence>
+   
+   // ❌ Incorrect (no animation)
+   {mobileOpen && <div>...</div>}
+   ```
+
+2. **Verify Imports:**
+   ```javascript
+   import { AnimatePresence, motion } from 'framer-motion';
+   ```
+
+3. **Check State Management:**
+   - Verify `mobileOpen` state is properly toggled
+   - Ensure `setMobileOpen` is called on button click
+   - Check that menu closes on link click
+
+4. **Test Reduced Motion:**
+   - If reduced motion is enabled, menu will fade (not slide)
+   - This is expected behavior for accessibility
+   - Check OS/browser motion preferences
+
+5. **Verify Z-Index:**
+   - Backdrop should be `z-40`
+   - Menu should be `z-50`
+   - Ensure no other elements have higher z-index
+
+**Common Issues:**
+- Menu appears behind content: Increase z-index values
+- Menu doesn't close: Check `onClick` handlers on backdrop and close button
+- Body scroll not locked: Verify `useEffect` for body overflow is working
+
+---
+
 ### Page Transitions Not Working
 
 **Symptoms:** Pages change instantly without animation, or animations are missing.

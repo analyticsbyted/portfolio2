@@ -11,7 +11,7 @@ A modern, responsive single-page application (SPA) showcasing professional portf
 
 - **Frontend Framework:** React 19.2.0 with Vite 7.2.2
 - **Routing:** React Router v7.6.3 (client-side routing)
-- **Animations:** Framer Motion 12.23.24 (page transitions, component animations)
+- **Animations:** Framer Motion 12.23.24 (page transitions, mobile navigation, component animations)
 - **Styling:** Tailwind CSS 3.4.3 with PostCSS
 - **Language:** JavaScript (ESM modules)
 - **Build Tool:** Vite (HMR, code splitting, optimized production builds)
@@ -170,6 +170,12 @@ portfolio2/
 **Key Responsibilities:**
 - Defines all routes using `useRoutes` hook with routes array
 - Provides navigation bar (desktop + mobile responsive)
+- **Mobile Navigation:** Animated slide-in menu with Framer Motion
+  - Slide-in from right with backdrop overlay
+  - Staggered menu item animations (50ms delay between items)
+  - Respects `prefers-reduced-motion` (fade-only when enabled)
+  - Body scroll lock when menu is open
+  - Close button and backdrop click to dismiss
 - Manages theme state (light/dark) with localStorage
 - Implements page transitions via Framer Motion's `AnimatePresence`
 - Wraps all pages in main layout container (`max-w-7xl mx-auto`)
@@ -179,7 +185,8 @@ portfolio2/
 - Routing: `useRoutes` hook with routes array (instead of `<Routes>` component)
 - Page transitions: `AnimatePresence` + `cloneElement` pattern for route tracking
 - Theme toggle: `handleThemeToggle()` updates state and `<html>` class
-- Mobile menu: `mobileOpen` state controls visibility
+- Mobile menu: `mobileOpen` state controls visibility with animated slide-in
+- Motion preference: `shouldReduceMotion` state detects user's accessibility preference
 - Route lazy loading: `const Work = lazy(() => import('./pages/Work'))`
 
 **Routing Implementation:**
@@ -697,6 +704,21 @@ export default MyComponent;
 ## Resources & Links
 
 ### Documentation
+
+**Root README.md:**
+- Enhanced with welcoming introduction and quick start guide
+- "5-Minute Quick Start Checklist" for rapid onboarding
+- "Common Tasks" section with links to relevant documentation
+- Categorized documentation links with emojis for better navigation
+- Acts as a gateway to deeper documentation in `docs/` folder
+
+**Visual Diagrams:**
+- **Component Hierarchy**: Mermaid flowchart in `docs/architecture.md` showing component relationships
+- **Routing Flow**: Sequence diagram illustrating page navigation and transitions
+- **Theme System Flow**: Flowchart showing theme toggle and persistence logic
+- **Mobile Navigation Flow**: Sequence diagram for mobile menu interactions in `docs/page-transitions.md`
+
+**Key Documentation Files:**
 - `docs/README.md`: Documentation index
 - `docs/architecture.md`: Architecture overview
 - `docs/getting-started.md`: Setup guide
@@ -720,9 +742,28 @@ export default MyComponent;
 
 **Last Updated:** 2025-01-11  
 **Maintained By:** Ted Dickey II  
-**Version:** 1.1
+**Version:** 1.3
 
 **Recent Updates:**
+- **Documentation Enhancements (2025-01-11):**
+  - Enhanced root README.md with welcoming introduction and quick start guide
+  - Added "5-Minute Quick Start Checklist" for rapid onboarding
+  - Added "Common Tasks" section with links to relevant documentation
+  - Reorganized documentation section with categorized links and emojis
+  - Added visual Mermaid diagrams to architecture documentation:
+    - Component hierarchy flowchart
+    - Routing flow sequence diagram
+    - Theme system flowchart
+    - Mobile navigation interaction diagram
+  - **Result:** More accessible documentation with visual aids for faster comprehension
+- **Mobile Navigation Animation (2025-01-11):**
+  - Implemented animated mobile navigation menu using Framer Motion
+  - Slide-in from right with backdrop overlay (300ms animation)
+  - Staggered menu item animations (50ms delay between items)
+  - Respects `prefers-reduced-motion` (fade-only when enabled)
+  - Body scroll lock when menu is open
+  - Close button and backdrop click to dismiss
+  - **Result:** Modern, polished mobile navigation experience
 - **Typographic Scale Implementation (2025-01-11):**
   - Implemented semantic typographic tokens in `tailwind.config.js`
   - Replaced raw Tailwind sizes with semantic tokens (`text-headline-1`, `text-body-large`, etc.)

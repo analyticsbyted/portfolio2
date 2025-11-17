@@ -2,6 +2,8 @@
 
 A modern, responsive single-page application (SPA) showcasing professional portfolio, certifications, publications, and projects across data science, AI/ML, business intelligence, and web development domains.
 
+> **New to this project?** Start with [`docs/context.md`](docs/context.md) for comprehensive project context and handover information. This README provides a quick overview—see the [Documentation](#documentation) section for detailed guides.
+
 ## Technology Stack
 
 - **Frontend:** React 19.2.0 with Vite 7.2.2
@@ -13,17 +15,39 @@ A modern, responsive single-page application (SPA) showcasing professional portf
 
 ## Quick Start
 
+### First Time Setup
+
 ```bash
-# Install dependencies
+# 1. Install dependencies
 npm install
 
-# Start development server
+# 2. Create environment file (optional, for contact form)
+echo "VITE_AWS_HTTPAPI_URL=https://your-api.example.com/contact" > .env
+
+# 3. Start development server
+npm run dev
+```
+
+The app will be available at `http://localhost:5173` (or next available port).
+
+### 5-Minute Quick Start Checklist
+
+- [ ] Run `npm install`
+- [ ] Start dev server with `npm run dev`
+- [ ] Open `http://localhost:5173` in browser
+- [ ] Read [`docs/context.md`](docs/context.md) for project overview
+- [ ] Review [`docs/getting-started.md`](docs/getting-started.md) for detailed setup
+
+### Development Commands
+
+```bash
+# Start development server (with HMR)
 npm run dev
 
 # Build for production
 npm run build
 
-# Preview production build
+# Preview production build locally
 npm run preview
 
 # Lint code
@@ -52,6 +76,7 @@ portfolio2/
 - **Responsive Design:** Mobile-first, works on all screen sizes
 - **Dark Mode:** Theme toggle with localStorage persistence
 - **Page Transitions:** Smooth page transitions with Framer Motion (respects reduced motion)
+- **Mobile Navigation:** Animated slide-in menu with backdrop overlay and staggered items
 - **Portfolio Showcase:** Tabbed navigation for different project categories
 - **Interactive Cards:** Hover effects, focus indicators, line clamping
 - **Lazy Loading:** Route-level code splitting for performance
@@ -83,22 +108,40 @@ See `docs/environment.md` for details.
 
 ## Documentation
 
-Comprehensive documentation is available in the `docs/` directory:
+### 🚀 Getting Started
 
-- **Context & Handover:** `docs/context.md` ⭐ **Start here** (For new developers/LLMs)
-- **Brand Guidelines:** `docs/brand-guidelines.md` ⭐ (Color palette, typography, component patterns)
-- **Color Migration Guide:** `docs/color-migration-guide.md` ⭐ (Brand token usage, real-world examples)
-- **Getting Started:** `docs/getting-started.md`
-- **Architecture:** `docs/architecture.md`
-- **Styling & Theming:** `docs/styling-and-theming.md`
-- **Pages & Components:** `docs/pages-and-components.md`
-- **Work Catalog:** `docs/work-catalog.md`
-- **Assets:** `docs/assets.md`
-- **Deployment:** `docs/deployment.md`
-- **Scripts:** `docs/scripts.md`
-- **CHANGELOG:** `CHANGELOG.md` (Detailed change history)
+- **[Context & Handover](docs/context.md)** ⭐ **START HERE** - Comprehensive project context for new developers/LLMs
+- **[Getting Started Guide](docs/getting-started.md)** - Detailed setup instructions
+- **[Architecture Overview](docs/architecture.md)** - High-level architecture and design decisions
 
-See `docs/README.md` for the full documentation index.
+### 📚 Core Documentation
+
+**Design System:**
+- **[Brand Guidelines](docs/brand-guidelines.md)** ⭐ - Color palette, typography, component patterns
+- **[Color Migration Guide](docs/color-migration-guide.md)** ⭐ - Brand token usage and real-world examples
+- **[Styling & Theming](docs/styling-and-theming.md)** - Design tokens, responsive design, dark mode
+
+**Components & Pages:**
+- **[Pages & Components](docs/pages-and-components.md)** - Detailed component documentation
+- **[Page Transitions](docs/page-transitions.md)** ⭐ - Framer Motion implementation guide
+- **[Work Catalog](docs/work-catalog.md)** - Portfolio page structure and card schemas
+
+**Development:**
+- **[Development Workflow](docs/development-workflow.md)** - Best practices and common tasks
+- **[Troubleshooting](docs/troubleshooting.md)** - Solutions to common issues
+- **[Scripts](docs/scripts.md)** - Utility scripts and tools
+
+**Deployment & Operations:**
+- **[Deployment Guide](docs/deployment.md)** - Production deployment instructions
+- **[Assets & Media](docs/assets.md)** - Image standards and asset management
+- **[Environment Variables](docs/environment.md)** - Configuration and secrets
+
+### 📋 Additional Resources
+
+- **[CHANGELOG](CHANGELOG.md)** - Detailed change history
+- **[Full Documentation Index](docs/README.md)** - Complete documentation catalog
+
+> **Tip:** Bookmark [`docs/context.md`](docs/context.md) for quick reference—it's the most comprehensive guide for understanding the project.
 
 ## Deployment
 
@@ -117,36 +160,64 @@ Output is in the `dist/` directory.
 
 See `docs/deployment.md` for detailed deployment instructions.
 
-## Development
+## Common Tasks
 
-### Adding a New Project
+### Adding a New Project to Portfolio
 
-1. Prepare poster image (screenshot or SVG)
-2. Save to `src/assets/[category]/[name]-poster.png`
-3. Add project object to appropriate array in `src/pages/Work.jsx`
-4. Include all required fields (title, problem, approach, result, img, link, skills)
+1. **Prepare poster image:**
+   - Screenshot: Use `node scripts/capture-screenshot.mjs <url> <output-path>`
+   - Or create SVG: Save to `src/assets/[category]/[name]-poster.svg`
+   - See [`docs/assets.md`](docs/assets.md) for image standards
 
-See `docs/work-catalog.md` for the complete card schema.
+2. **Add project to Work.jsx:**
+   - Add project object to appropriate tab array
+   - Include: `title`, `problem`, `approach`, `result`, `img`, `link`, `skills`
+   - See [`docs/work-catalog.md`](docs/work-catalog.md) for complete schema
 
-### Capturing Screenshots
+### Adding a New Page
 
-Use the screenshot utility:
+1. Create page component in `src/pages/`
+2. Add route to `src/App.jsx` routes array
+3. Wrap in `<AnimatedPage>` for transitions
+4. Add navigation link to navbar
+5. See [`docs/development-workflow.md`](docs/development-workflow.md) for details
 
+### Modifying Typography
+
+- Use semantic tokens: `text-headline-1`, `text-body-large`, etc.
+- See [`docs/brand-guidelines.md`](docs/brand-guidelines.md) for typographic scale
+- Update `tailwind.config.js` to change token values globally
+
+### Modifying Brand Colors
+
+- Use brand tokens: `bg-brand-primary`, `from-brand-primary to-brand-secondary`
+- See [`docs/color-migration-guide.md`](docs/color-migration-guide.md) for patterns
+- Update `tailwind.config.js` to change brand colors globally
+
+### Troubleshooting
+
+- **Blank screen?** See [`docs/troubleshooting.md`](docs/troubleshooting.md)
+- **Styles not applying?** Clear Vite cache: `rm -rf node_modules/.vite`
+- **Images not loading?** Check import paths and file existence
+- **Page transitions not working?** Verify `AnimatePresence` and `AnimatedPage` setup
+
+### Useful Scripts
+
+**Capture Screenshot:**
 ```bash
 node scripts/capture-screenshot.mjs <url> <output-path>
 ```
 
-See `docs/scripts.md` for usage details.
-
-### Clearing Cache
-
-**Vite Cache:**
+**Clear Caches:**
 ```bash
+# Vite cache
 rm -rf node_modules/.vite
+
+# Browser cache (manual)
+# Hard refresh: Cmd + Shift + R (Mac) or Ctrl + Shift + R (Windows)
 ```
 
-**Browser Cache:**
-- Hard refresh: `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows)
+See [`docs/scripts.md`](docs/scripts.md) for more utilities.
 
 ## Browser Support
 

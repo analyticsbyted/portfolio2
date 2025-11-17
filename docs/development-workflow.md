@@ -46,6 +46,7 @@ The dev server starts on `http://localhost:5173` (or next available port).
 - Error Overlay: Errors displayed in browser overlay
 - Source Maps: Debug with original source code
 - Page Transitions: Framer Motion provides smooth transitions between routes
+- Mobile Navigation: Animated slide-in menu with backdrop overlay
 
 ## Development Commands
 

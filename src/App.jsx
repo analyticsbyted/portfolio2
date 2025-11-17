@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Link, useRoutes, useLocation } from 'react-router-dom';
 import { useEffect, useState, Suspense, lazy, cloneElement } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 const Work = lazy(() => import('./pages/Work'));
 import About from './pages/About';
@@ -52,6 +52,28 @@ function AppContent() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem(THEME_KEY) || 'light';
   });
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setShouldReduceMotion(mediaQuery.matches);
+
+    const handleChange = (e) => setShouldReduceMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
 
   const routes = [
     {
@@ -215,30 +237,126 @@ function AppContent() {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          {mobileOpen && (
-            <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
-              <div className="flex flex-col space-y-3">
-                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
-                <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Portfolio</Link>
-                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
-                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
-                <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Publications</Link>
-                <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-                <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Contact</Link>
+          {/* Mobile Navigation with Animation */}
+          <AnimatePresence>
+            {mobileOpen && (
+              <>
+                {/* Backdrop Overlay */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: shouldReduceMotion ? 0.1 : 0.2 }}
+                  className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+                  onClick={() => setMobileOpen(false)}
+                  aria-hidden="true"
+                />
                 
-                <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                  <button
-                    className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                    onClick={handleThemeToggle}
-                  >
-                    {currentTheme.icon}
-                    <span>Theme: {currentTheme.label}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+                {/* Mobile Menu */}
+                <motion.div
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '100%' }}
+                  animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '100%' }}
+                  transition={{
+                    duration: shouldReduceMotion ? 0.15 : 0.3,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="fixed top-0 right-0 bottom-0 w-64 bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
+                >
+                  {/* Close button */}
+                  <div className="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700">
+                    <button
+                      onClick={() => setMobileOpen(false)}
+                      className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                      aria-label="Close navigation menu"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  <div className="lg:hidden pb-4 pt-4 px-4">
+                    <motion.div
+                      initial="closed"
+                      animate="open"
+                      variants={{
+                        open: {
+                          transition: { staggerChildren: shouldReduceMotion ? 0 : 0.05, delayChildren: shouldReduceMotion ? 0 : 0.1 }
+                        },
+                        closed: {
+                          transition: { staggerChildren: 0, staggerDirection: -1 }
+                        }
+                      }}
+                      className="flex flex-col space-y-3"
+                    >
+                      {[
+                        { to: '/about', label: 'About' },
+                        { to: '/work', label: 'Portfolio' },
+                        { to: '/education', label: 'Education' },
+                        { to: '/certifications', label: 'Certifications' },
+                        { to: '/publications', label: 'Publications' },
+                        { to: '/newsletter', label: 'Newsletter' },
+                        { to: '/contact', label: 'Contact' },
+                      ].map((item, index) => (
+                        <motion.div
+                          key={item.to}
+                          variants={{
+                            open: {
+                              opacity: shouldReduceMotion ? 1 : [0, 1],
+                              x: shouldReduceMotion ? 0 : [20, 0],
+                            },
+                            closed: {
+                              opacity: shouldReduceMotion ? 0 : [1, 0],
+                              x: shouldReduceMotion ? 0 : [0, 20],
+                            }
+                          }}
+                          transition={{
+                            duration: shouldReduceMotion ? 0.1 : 0.2,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                        >
+                          <Link
+                            to={item.to}
+                            className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.div>
+                      ))}
+                      
+                      <motion.div
+                        variants={{
+                          open: {
+                            opacity: shouldReduceMotion ? 1 : [0, 1],
+                            x: shouldReduceMotion ? 0 : [20, 0],
+                          },
+                          closed: {
+                            opacity: shouldReduceMotion ? 0 : [1, 0],
+                            x: shouldReduceMotion ? 0 : [0, 20],
+                          }
+                        }}
+                        transition={{
+                          duration: shouldReduceMotion ? 0.1 : 0.2,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="pt-3 border-t border-gray-200 dark:border-gray-700"
+                      >
+                        <button
+                          className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                          onClick={handleThemeToggle}
+                        >
+                          {currentTheme.icon}
+                          <span>Theme: {currentTheme.label}</span>
+                        </button>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-10">

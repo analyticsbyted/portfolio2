@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - 2025-01-11
+
+#### Documentation Enhancements
+- **Enhanced Root README.md**: Improved onboarding experience with:
+  - Welcome message directing new users to `docs/context.md`
+  - "First Time Setup" section with step-by-step instructions
+  - "5-Minute Quick Start Checklist" for rapid onboarding
+  - "Common Tasks" section with links to relevant documentation:
+    - Adding new projects to portfolio
+    - Adding new pages
+    - Modifying typography and brand colors
+    - Troubleshooting common issues
+  - Reorganized "Documentation" section with categorized links and emojis
+  - Better organization and navigation flow
+- **Visual Diagrams in Architecture Documentation**:
+  - **Component Hierarchy Diagram**: Mermaid flowchart showing component relationships
+  - **Routing Flow Diagram**: Sequence diagram illustrating page navigation flow
+  - **Theme System Flow Diagram**: Flowchart showing theme toggle and persistence logic
+  - **Mobile Navigation Flow Diagram**: Sequence diagram for mobile menu interactions
+- **Files Modified**:
+  - `README.md` - Enhanced with quick start, common tasks, and better organization
+  - `docs/architecture.md` - Added 3 Mermaid diagrams (component hierarchy, routing, theme)
+  - `docs/page-transitions.md` - Added mobile navigation interaction diagram
+- **Result**: More accessible documentation with visual aids for faster comprehension
+
+### Added - 2025-01-11
+
+#### Mobile Navigation Animation
+- **Animated Mobile Menu**: Implemented smooth slide-in navigation using Framer Motion
+  - Slide-in animation from right (300ms) with custom easing
+  - Backdrop overlay with fade animation (200ms)
+  - Staggered menu item animations (50ms delay between items)
+  - Close button at top of menu
+  - Body scroll lock when menu is open
+  - Click backdrop to dismiss menu
+- **Accessibility**: Respects `prefers-reduced-motion` preference
+  - Full motion: Slide + fade with stagger
+  - Reduced motion: Fade only (150ms, no stagger)
+- **Implementation**: Uses `AnimatePresence` and `motion.div` from Framer Motion
+- **Files Modified**: `src/App.jsx`
+- **Result**: Modern, polished mobile navigation experience
+
 ### Changed - 2025-01-11
 
 #### Typographic Scale Implementation (COMPLETED)

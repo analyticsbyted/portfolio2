@@ -4,7 +4,12 @@ This document describes the page transition implementation using Framer Motion.
 
 ## Overview
 
-The portfolio uses Framer Motion 12.23.24 for smooth page transitions between routes. All page transitions respect accessibility preferences and provide a professional, polished user experience.
+The portfolio uses Framer Motion 12.23.24 for smooth animations including:
+- **Page transitions** between routes
+- **Mobile navigation** slide-in menu
+- **Component animations** throughout the app
+
+All animations respect accessibility preferences and provide a professional, polished user experience.
 
 ## Implementation
 
@@ -283,10 +288,112 @@ When adding a new route, always wrap it in `<AnimatedPage>`:
 4. **Route-specific animations:**
    - Custom transitions based on route direction (back/forward)
 
+## Mobile Navigation Animation
+
+**Location:** `src/App.jsx`
+
+The mobile navigation menu uses Framer Motion for smooth slide-in animations.
+
+### Component Interaction Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Button
+    participant App
+    participant AnimatePresence
+    participant Backdrop
+    participant Menu
+    participant MenuItems
+    
+    User->>Button: Click Hamburger
+    Button->>App: setMobileOpen(true)
+    App->>AnimatePresence: Render Menu
+    AnimatePresence->>Backdrop: Fade In (200ms)
+    AnimatePresence->>Menu: Slide In (300ms)
+    Menu->>MenuItems: Stagger Animation
+    MenuItems->>MenuItems: Item 1 (delay 0ms)
+    MenuItems->>MenuItems: Item 2 (delay 50ms)
+    MenuItems->>MenuItems: Item 3 (delay 100ms)
+    MenuItems->>MenuItems: ... (50ms stagger)
+    
+    User->>Backdrop: Click Backdrop
+    Backdrop->>App: setMobileOpen(false)
+    App->>AnimatePresence: Exit Animation
+    AnimatePresence->>Menu: Slide Out (300ms)
+    AnimatePresence->>Backdrop: Fade Out (200ms)
+```
+
+### Implementation
+
+```javascript
+<AnimatePresence>
+  {mobileOpen && (
+    <>
+      {/* Backdrop Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+        onClick={() => setMobileOpen(false)}
+      />
+      
+      {/* Mobile Menu */}
+      <motion.div
+        initial={{ opacity: 0, x: '100%' }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: '100%' }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 right-0 bottom-0 w-64 bg-white shadow-2xl z-50"
+      >
+        {/* Menu items with stagger */}
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+```
+
+### Features
+
+1. **Slide-in Animation:**
+   - Menu slides in from right (`x: '100%'` → `x: 0`)
+   - 300ms duration with custom easing
+   - Backdrop fades in simultaneously (200ms)
+
+2. **Staggered Menu Items:**
+   - Menu items animate in sequence (50ms delay between items)
+   - Each item fades in and slides from right (20px)
+   - Creates polished, professional feel
+
+3. **Accessibility:**
+   - Respects `prefers-reduced-motion` (fade-only when enabled)
+   - Body scroll lock when menu is open
+   - Close button and backdrop click to dismiss
+
+4. **UX Enhancements:**
+   - Fixed positioning with proper z-index layering
+   - Backdrop blur for visual depth
+   - Smooth exit animation when closing
+
+### Animation Details
+
+- **Full Motion:**
+  - Menu slide: 300ms
+  - Backdrop fade: 200ms
+  - Item stagger: 50ms delay
+  - Item animation: 200ms (fade + slide)
+
+- **Reduced Motion:**
+  - Menu fade: 150ms (no slide)
+  - Backdrop fade: 100ms
+  - No stagger (items appear simultaneously)
+  - Item animation: 100ms (fade only)
+
 ## See Also
 
 - `docs/routing-and-navigation.md`: Routing patterns and navigation
-- `docs/pages-and-components.md`: AnimatedPage component API
+- `docs/pages-and-components.md`: AnimatedPage component API and App.jsx details
 - `docs/architecture.md`: Overall architecture including page transitions
 - [Framer Motion Documentation](https://www.framer.com/motion/)
 

@@ -192,6 +192,34 @@ const tabs = [
 
 **Note:** Navigation is handled in `App.jsx`, not a separate Header component
 
+### App.jsx
+**Purpose:** Root component, handles routing, navigation, theme, layout shell
+
+**Key Features:**
+- Route configuration using `useRoutes` hook
+- Navigation bar (desktop + mobile responsive)
+- **Mobile Navigation Animation:**
+  - Slide-in from right with Framer Motion (300ms)
+  - Backdrop overlay with fade animation
+  - Staggered menu item animations (50ms delay)
+  - Respects `prefers-reduced-motion` (fade-only when enabled)
+  - Body scroll lock when menu is open
+  - Close button and backdrop click to dismiss
+- Theme toggle (light/dark) with localStorage persistence
+- Page transitions via `AnimatePresence` and `AnimatedPage` wrapper
+- Lazy loading for Work page with Suspense fallback
+
+**State:**
+- `theme`: Light/dark mode preference
+- `mobileOpen`: Controls mobile menu visibility
+- `shouldReduceMotion`: Detects user's motion preference for accessibility
+
+**Implementation Details:**
+- Uses `AnimatePresence` for mobile menu enter/exit animations
+- Menu slides in from right (`x: '100%'` → `x: 0`)
+- Menu items use stagger animation via `variants` and `staggerChildren`
+- Backdrop uses fixed positioning with `z-40`, menu uses `z-50`
+
 #### Main.jsx
 **Purpose:** Main content wrapper with section rendering logic
 

@@ -31,6 +31,82 @@ This document describes the high-level architecture of the portfolio application
 - **Static Site Generation**: Builds to static HTML/CSS/JS files
 - **No Server-Side Rendering**: Pure client-side rendering
 
+### Component Hierarchy
+
+```mermaid
+graph TD
+    A[index.html] --> B[main.jsx]
+    B --> C[App.jsx]
+    C --> D[Navbar]
+    C --> E[AnimatePresence]
+    E --> F[AnimatedPage]
+    F --> G[Page Components]
+    G --> H[Home/Work/About/etc]
+    C --> I[Footer]
+    
+    D --> J[Desktop Nav]
+    D --> K[Mobile Menu]
+    K --> L[AnimatePresence]
+    L --> M[motion.div Menu]
+    L --> N[motion.div Backdrop]
+    
+    G --> O[Reusable Components]
+    O --> P[Button/Card/CTASection/etc]
+    
+    style C fill:#2563EB,color:#fff
+    style E fill:#9333EA,color:#fff
+    style F fill:#9333EA,color:#fff
+    style K fill:#2563EB,color:#fff
+```
+
+### Routing Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant Router
+    participant useRoutes
+    participant AnimatePresence
+    participant AnimatedPage
+    participant Page
+    
+    User->>App: Click Navigation Link
+    App->>Router: Location Change
+    Router->>useRoutes: Match Route
+    useRoutes->>App: Return Matched Element
+    App->>AnimatePresence: Previous Page Exit
+    AnimatePresence->>AnimatedPage: Animate Out (300ms)
+    AnimatePresence->>AnimatedPage: Animate In (300ms)
+    AnimatedPage->>Page: Render Content
+    Page->>User: Display New Page
+```
+
+### Theme System Flow
+
+```mermaid
+graph LR
+    A[User Clicks Theme Toggle] --> B[handleThemeToggle]
+    B --> C{Theme State}
+    C -->|light| D[Set 'dark']
+    C -->|dark| E[Set 'light']
+    D --> F[Update localStorage]
+    E --> F
+    F --> G[setHtmlTheme]
+    G --> H[Add/Remove 'dark' class]
+    H --> I[CSS Variables Update]
+    I --> J[Components Re-render]
+    J --> K[UI Updates]
+    
+    L[Page Load] --> M[Read localStorage]
+    M --> N[Apply Saved Theme]
+    N --> G
+    
+    style B fill:#2563EB,color:#fff
+    style G fill:#9333EA,color:#fff
+    style I fill:#9333EA,color:#fff
+```
+
 ### Key Architectural Decisions
 
 1. **ESM Modules Only**: All code uses ES Module syntax (`import`/`export`)
@@ -119,7 +195,11 @@ createRoot(document.getElementById('root')).render(
 
 **Navigation:**
 - Desktop: Horizontal nav bar with theme toggle
-- Mobile: Hamburger menu with dropdown navigation
+- Mobile: Animated slide-in menu with backdrop overlay
+  - Slide-in from right (300ms) with Framer Motion
+  - Staggered menu item animations (50ms delay)
+  - Body scroll lock when open
+  - Respects `prefers-reduced-motion`
 - Responsive: Hidden on mobile (`hidden lg:flex`), visible on desktop
 
 ## Directory Structure
