@@ -1,48 +1,419 @@
-## Architecture Overview
+# Architecture Overview
 
-### High-Level
-- React 19 SPA powered by Vite 7
-- Client-side routing with React Router v7
-- Styling via Tailwind CSS (`darkMode: 'class'`)
-- Static hosting friendly (e.g., S3 + CloudFront)
+This document describes the high-level architecture of the portfolio application.
 
-### Key Entry Points
-- `index.html`: Root HTML shell with the `#root` mount and analytics
-- `src/main.jsx`: Bootstraps React and global CSS
-- `src/App.jsx`: Router, page layout (navigation + footer), theme toggle
+## Technology Stack
 
-### Directory Structure (selected)
-- `src/pages/*`: Page-level components for each route
-- `src/components/*`: Reusable UI components
-- `src/components/sections/*`: Feature sections used by pages
-- `src/hooks/useContactForm.js`: Contact form state, validation, and submission
-- `src/assets/*`: Project images and SVGs (including certifications)
-- `public/*`: Public assets copied as-is to the root of the build
+### Frontend Framework
+- **React 19.2.0**: Modern React with hooks, Suspense, and concurrent features
+- **Vite 7.2.2**: Build tool with HMR, fast dev server, optimized production builds
+- **React Router v7.6.3**: Client-side routing with lazy loading support
+- **Framer Motion 12.23.24**: Animation library for smooth page transitions and component animations
 
-### Routing Flow
-1. Browser navigates to `/some-path`
-2. In production: CloudFront/S3 serves `index.html` for unknown paths (see deployment docs)
-3. React Router matches the route and renders the corresponding page
-4. For lazy routes (e.g., `Work`), a fallback loading UI displays until the chunk is loaded
+### Styling
+- **Tailwind CSS 3.4.3**: Utility-first CSS framework
+- **PostCSS 8.5.6**: CSS processing and autoprefixing
+- **Dark Mode**: `darkMode: 'class'` strategy for theme switching
 
-### Theming
-- Tailwind uses the `dark` class on `<html>` to activate dark mode variants
-- `src/App.jsx` toggles the theme and stores user preference in `localStorage`
-- See `docs/styling-and-theming.md` for recommended design tokens and color guidance
+### Development Tools
+- **ESLint 9.29.0**: Code linting with React-specific rules
+- **Puppeteer 24.29.1**: Browser automation for screenshot capture
+- **Node.js 25.2.0**: Runtime environment
 
-### Data and Side Effects
-- Contact form is the primary side-effect: it posts JSON to an external HTTP API
-- The API URL is injected via `VITE_AWS_HTTPAPI_URL` at build time
-- See `docs/contact-form.md` for details
+### Deployment
+- **Static Hosting**: AWS S3 + CloudFront (or Netlify, Vercel, etc.)
+- **SPA Routing**: CloudFront Function or custom error pages for route fallback
 
-### Build & Output
-- Vite builds into `dist/`
-- Static assets are hashed for cache-busting
-- Preview locally with `npm run preview`
+## High-Level Architecture
 
-### Performance Considerations
-- Route-level code split for `Work` page using `React.lazy`
-- Tailwind JIT trimming via `content` globs in `tailwind.config.js`
-- Use `.webp`/SVG where appropriate for images (see `docs/assets.md`)
+### Application Type
+- **Single Page Application (SPA)**: All navigation handled client-side
+- **Static Site Generation**: Builds to static HTML/CSS/JS files
+- **No Server-Side Rendering**: Pure client-side rendering
+
+### Key Architectural Decisions
+
+1. **ESM Modules Only**: All code uses ES Module syntax (`import`/`export`)
+2. **Client-Side Routing**: React Router handles all navigation
+3. **Lazy Loading**: `Work.jsx` is code-split for performance
+4. **Page Transitions**: Framer Motion for smooth page transitions with accessibility support
+5. **Theme System**: Tailwind `darkMode: 'class'` with localStorage persistence
+6. **Typography Pairing**: Inter (headlines) + Source Serif Pro (body)
+7. **CSS Custom Properties**: Theme-aware colors via CSS variables
+8. **Component Composition**: Reusable components with clear separation of concerns
+
+## Entry Points
+
+### index.html
+**Location:** Root directory  
+**Purpose:** Root HTML shell with React mount point
+
+**Key Elements:**
+- `<div id="root">`: React mount point
+- `<script type="module" src="/src/main.jsx">`: React entry point
+- Google Fonts links (Inter, Source Serif Pro)
+- Google Analytics (`gtag.js`)
+- Meta tags (description, viewport, favicon)
+
+**Loads:**
+- React entry point (`src/main.jsx`)
+- Global CSS (`src/index.css`)
+
+### src/main.jsx
+**Purpose:** React entry point, bootstraps React application
+
+**Structure:**
+```javascript
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```
+
+**Features:**
+- React 19 `createRoot` API
+- `StrictMode` for development warnings
+- Global CSS import
+
+### src/App.jsx
+**Purpose:** Main application component, handles routing, navigation, theme, layout
+
+**Key Responsibilities:**
+- Defines all routes using `useRoutes` hook with route array
+- Provides navigation bar (desktop + mobile responsive)
+- Manages theme state (light/dark) with localStorage
+- Wraps all pages in main layout container (`max-w-7xl mx-auto`)
+- Implements page transitions via Framer Motion's `AnimatePresence`
+- Uses `cloneElement` pattern to add keys for route tracking
+- Lazy-loads `Work.jsx` with Suspense fallback
+- Renders `<Footer />` component
+
+**Routing Pattern:**
+- Uses `useRoutes` hook instead of `<Routes>` component
+- Each route element wrapped in `<AnimatedPage>` for transitions
+- `AnimatePresence` with `mode="wait"` ensures exit completes before enter
+- `cloneElement` adds `key` prop based on `location.pathname` for tracking
+
+**Routes:**
+- `/`: Home page
+- `/work`: Portfolio/work page (lazy-loaded)
+- `/about`: About page
+- `/education`: Education page
+- `/certifications`: Certifications page
+- `/publications`: Publications page
+- `/contact`: Contact form page
+- `/newsletter`: Newsletter page
+- `*`: 404 Not Found page
+
+**Theme Management:**
+- State: `const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || 'light')`
+- Toggle: `handleThemeToggle()` updates state and `<html>` class
+- Persistence: Stores in localStorage key `'theme-preference'`
+- Application: `setHtmlTheme()` adds/removes `dark` class on `<html>`
+
+**Navigation:**
+- Desktop: Horizontal nav bar with theme toggle
+- Mobile: Hamburger menu with dropdown navigation
+- Responsive: Hidden on mobile (`hidden lg:flex`), visible on desktop
+
+## Directory Structure
+
+```
+portfolio2/
+├── src/
+│   ├── App.jsx                    # Main router, nav, theme, layout
+│   ├── main.jsx                   # React entry point
+│   ├── index.css                  # Global CSS, CSS variables, Tailwind directives
+│   ├── pages/                     # Page-level components
+│   │   ├── Home.jsx               # Landing page
+│   │   ├── Work.jsx               # Portfolio/work page (lazy-loaded)
+│   │   ├── About.jsx              # About page
+│   │   ├── Education.jsx          # Education page
+│   │   ├── Certifications.jsx     # Certifications page
+│   │   ├── Publications.jsx       # Publications page
+│   │   ├── Contact.jsx            # Contact form page
+│   │   ├── Newsletter.jsx         # Newsletter page
+│   │   ├── NotFound.jsx           # 404 page
+│   │   └── [Topic pages]          # ClassificationPage, ForecastPage, etc.
+│   ├── components/                # Reusable UI components
+│   │   ├── Button.jsx             # Link-styled button
+│   │   ├── Card.jsx               # Reusable card shell
+│   │   ├── ImageWithSkeleton.jsx  # Image loader with skeleton
+│   │   ├── PageSubtitle.jsx       # Page subtitle component
+│   │   ├── CTASection.jsx         # CTA block component
+│   │   ├── Footer.jsx             # Global footer
+│   │   ├── Layout.jsx             # Layout wrapper
+│   │   ├── Background.jsx         # Background layer
+│   │   └── sections/              # Feature sections
+│   │       ├── IntroSection.jsx
+│   │       ├── MLSection.jsx
+│   │       └── [Other sections]
+│   ├── hooks/                     # Custom React hooks
+│   │   └── useContactForm.js      # Contact form hook
+│   ├── assets/                    # Images, SVGs, posters
+│   │   ├── webapps/               # Web app screenshots (16:9)
+│   │   ├── research/              # Research SVGs (4:3)
+│   │   ├── bi/                    # BI dashboard SVGs (4:3)
+│   │   ├── nlp/                   # NLP project SVGs (4:3)
+│   │   └── certifications/        # Certification badges (WebP/PNG)
+│   └── data/                      # Data helpers
+│       └── publicationHelper.js   # Publications data
+├── public/                        # Static assets (copied as-is)
+│   ├── robots.txt                 # SEO robots file
+│   ├── sitemap.xml                # SEO sitemap
+│   └── favicon-td.svg             # Favicon
+├── scripts/                       # Utility scripts
+│   ├── capture-screenshot.mjs     # Puppeteer screenshot utility
+│   └── image-audit.mjs            # Image optimization audit
+├── docs/                          # Project documentation
+├── dist/                          # Production build output (gitignored)
+├── index.html                     # Root HTML shell
+├── vite.config.js                 # Vite configuration
+├── tailwind.config.js             # Tailwind CSS configuration
+├── package.json                   # Dependencies and scripts
+└── cloudfront-spa-function.js     # CloudFront Function for SPA routing
+```
+
+## Routing Flow
+
+### Client-Side Routing
+
+1. **Browser Navigation:** User navigates to `/work` (via link or URL)
+2. **React Router:** `useRoutes` hook matches route in routes array
+3. **Page Transition:** `AnimatePresence` detects route change via key prop
+4. **Exit Animation:** Previous page animates out (opacity fade + slide)
+5. **Page Rendering:** New page element is returned from `useRoutes`
+6. **Enter Animation:** New page animates in smoothly
+7. **Lazy Loading:** For `Work.jsx`, Suspense shows fallback until chunk loads
+8. **No Page Reload:** Client-side navigation, no server request
+
+**Implementation:**
+```javascript
+// Routes array with AnimatedPage wrappers
+const routes = [
+  { path: '/', element: <AnimatedPage><Home /></AnimatedPage> },
+  { path: '/work', element: <AnimatedPage><Work /></AnimatedPage> },
+  // ...
+];
+
+// useRoutes returns matched element
+const element = useRoutes(routes);
+
+// AnimatePresence tracks route changes via key
+<AnimatePresence mode="wait">
+  {element && cloneElement(element, { key: location.pathname })}
+</AnimatePresence>
+```
+
+### Production SPA Routing
+
+1. **Browser Request:** User requests `/work` (or refreshes page)
+2. **CloudFront/S3:** Receives request for `/work` path
+3. **CloudFront Function:** Rewrites request to `/index.html` (see `cloudfront-spa-function.js`)
+4. **S3:** Serves `index.html` file
+5. **React Router:** Client-side router matches `/work` and renders `Work` page
+6. **No 404:** User sees correct page, not XML error
+
+**Alternative Solutions:**
+- CloudFront custom error pages (403/404 → `/index.html` with 200 status)
+- S3 website hosting with error document set to `index.html`
+- Netlify/Vercel automatic SPA routing support
+
+See `SPA-ROUTING-SETUP.md` for detailed deployment configuration.
+
+## Theming System
+
+### Theme Strategy
+- **Tailwind Dark Mode:** `darkMode: 'class'` in `tailwind.config.js`
+- **Activation:** Add/remove `dark` class on `<html>` element
+- **State Management:** `App.jsx` manages theme state with `useState`
+- **Persistence:** Stores preference in localStorage (`'theme-preference'` key)
+
+### Theme Application
+```javascript
+function setHtmlTheme(theme) {
+  const html = document.documentElement;
+  if (theme === 'dark') {
+    html.classList.add('dark');
+  } else {
+    html.classList.remove('dark');
+  }
+}
+```
+
+### CSS Variables
+**Light Theme:**
+- `--color-surface: 248 247 244` (#F8F7F4)
+- `--color-card: 250 249 247` (#FAF9F7)
+- `--color-border: 229 231 235` (gray-200)
+- `--color-muted: 243 244 246` (gray-100)
+
+**Dark Theme:**
+- `--color-surface: 17 24 39` (gray-900)
+- `--color-card: 31 41 55` (gray-800)
+- `--color-border: 55 65 81` (gray-700)
+- `--color-muted: 31 41 55` (gray-800)
+
+**Usage:** Mapped to Tailwind colors via `rgb(var(--color-surface) / <alpha-value>)`
+
+See `docs/styling-and-theming.md` for detailed styling guidelines.
+
+## Data Flow & Side Effects
+
+### Contact Form
+**Primary Side Effect:** POSTs JSON to external HTTP API
+
+**Flow:**
+1. User submits form in `Contact.jsx`
+2. `useContactForm` hook handles validation
+3. POST request to `VITE_AWS_HTTPAPI_URL` endpoint
+4. Success/error handling and UI updates
+
+**Environment Variable:**
+- `VITE_AWS_HTTPAPI_URL`: API endpoint (injected at build time)
+
+**Payload:**
+```json
+{
+  "name": "string",
+  "email": "string",
+  "message": "string",
+  "timestamp": "ISO string",
+  "source": "portfolio-contact-form"
+}
+```
+
+See `docs/contact-form.md` for detailed form documentation.
+
+### Static Data
+**No Backend:** All data is static (hardcoded in components or imported)
+
+**Data Sources:**
+- Project data: Hardcoded in `Work.jsx` arrays
+- Publication data: `src/data/publicationHelper.js`
+- Certification data: Hardcoded in `Certifications.jsx`
+
+## Build & Output
+
+### Build Process
+1. **Vite Build:** `npm run build` processes source files
+2. **Output:** Static files generated in `dist/` directory
+3. **Asset Hashing:** Files are hashed for cache-busting (e.g., `index-a1b2c3.html`)
+4. **Optimization:** Code minification, tree-shaking, asset optimization
+
+### Build Output Structure
+```
+dist/
+├── index.html                    # Main HTML file
+├── assets/
+│   ├── index-[hash].js          # Main JavaScript bundle
+│   ├── index-[hash].css         # Main CSS bundle
+│   ├── work-[hash].js           # Lazy-loaded Work chunk
+│   └── [image]-[hash].png       # Hashed images
+└── favicon-td.svg               # Static assets
+```
+
+### Deployment
+**Target:** Static hosting (AWS S3 + CloudFront, Netlify, Vercel, etc.)
+
+**Requirements:**
+- SPA routing support (serve `index.html` for all routes)
+- HTTPS enabled
+- Proper CORS headers (if using external API)
+
+See `docs/deployment.md` for detailed deployment instructions.
+
+## Performance Considerations
+
+### Code Splitting
+- **Route-Level:** `Work.jsx` lazy-loaded with `React.lazy()`
+- **Suspense Fallback:** Skeleton cards shown during load
+- **Bundle Size:** Reduces initial bundle size
+
+### Tailwind Optimization
+- **JIT Mode:** Only used classes are included in build
+- **Content Configuration:** `content` globs in `tailwind.config.js` specify which files to scan
+- **Purge Unused:** Unused CSS automatically removed in production
+
+### Image Optimization
+- **Format Selection:** WebP for certifications, SVG for posters where possible
+- **Sizing:** Appropriate dimensions for display (no oversized images)
+- **Lazy Loading:** `ImageWithSkeleton` component shows placeholder during load
+
+### Asset Caching
+- **Hashed Filenames:** Vite hashes assets for cache-busting
+- **Browser Caching:** Static assets cached aggressively
+- **Cache Invalidation:** Invalidate `index.html` on deployments
+
+## Security Considerations
+
+### Client-Side Security
+- **No Secrets:** Environment variables are public (prefixed with `VITE_`)
+- **XSS Protection:** React escapes content by default
+- **Form Validation:** Client-side validation + server-side validation required
+
+### Contact Form Security
+- **Honeypot Field:** Hidden `honey` field for spam detection
+- **CORS:** Backend API must allow CORS from site origin
+- **Rate Limiting:** Backend should implement rate limiting
+- **Input Sanitization:** Backend should sanitize inputs
+
+## Browser Support
+
+### Supported Browsers
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- No IE11 support (uses modern JavaScript features)
+
+### Feature Detection
+- CSS Grid (used for layouts)
+- CSS Variables (used for theming)
+- ES Modules (used for imports)
+- Fetch API (used for form submission)
+
+## Development Workflow
+
+### Local Development
+```bash
+npm install          # Install dependencies
+npm run dev          # Start dev server (HMR enabled)
+npm run build        # Build for production
+npm run preview      # Preview production build locally
+npm run lint         # Run ESLint
+```
+
+### Hot Module Replacement (HMR)
+- **Fast Refresh:** React components update without full page reload
+- **CSS Updates:** Tailwind classes update instantly
+- **Asset Updates:** Images update on change
+
+### Environment Variables
+- **Local:** Create `.env` file at project root
+- **Production:** Set in build/CI environment
+- **Naming:** Must be prefixed with `VITE_` to be exposed to client
+
+See `docs/getting-started.md` for detailed setup instructions.
+
+## Future Architecture Considerations
+
+### Potential Enhancements
+- **TypeScript:** Migrate to TypeScript for type safety
+- **Testing:** Add unit tests (Vitest) and E2E tests (Playwright)
+- **SSR/SSG:** Consider Next.js for server-side rendering
+- **CMS Integration:** Add headless CMS for content management
+- **PWA:** Add service worker and manifest for offline support
+- **i18n:** Add internationalization support
+
+### Known Limitations
+- **No Server-Side Rendering:** Pure client-side SPA
+- **Static Content Only:** No dynamic content from database
+- **No User Accounts:** No authentication/user management
+- **SEO:** Limited SEO compared to SSR (mitigated with meta tags)
 
 

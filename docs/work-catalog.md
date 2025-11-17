@@ -57,6 +57,8 @@ Web Development:
   alt: string,
   link: string,
   linkLabel: string,
+  repoLink?: string,   // optional second CTA to GitHub repo
+  repoLabel?: string,  // defaults to 'View Repo'
   imageHeight?: string // optional
 }
 ```
@@ -65,12 +67,18 @@ Web Development:
 1. Place the poster in `src/assets/...` (see Assets guide for sizing).
 2. Import the poster at the top of `Work.jsx`.
 3. Append a new object to the appropriate array (`dataScienceProjects`, `dataAnalysisProjects`, `biProjects`, `nlpProjects`, `webDevProjects`, or `researchProjects`).
-4. For live demos, include `demoLink` and `demoLabel` to render a second CTA.
+4. For live demos, include `demoLink`/`demoLabel` (standard tabs) or `link`/`repoLink` for Web apps to render dual CTAs.
 
 ### Posters
 See `docs/assets.md` for sizing. In brief:
 - Web apps: 16:9 at 1280×720
 - Research/BI/Data: 4:3 at 1200×900
 - For fixed-height frames (`h-48`), small thumbnails at ~360–400 px long edge work well.
+
+### Card UX Details
+- Subtle hover lift and focus-visible ring for accessibility.
+- Thin gradient bar at the top of poster frames for hierarchy.
+- Multi-line clamp (3 lines) on Challenge/Solution/Impact when collapsed; full content on expand.
+- Keyboard support: Enter/Space toggles expand; Tab cycles CTAs.
 
 

@@ -3,9 +3,11 @@ import CTASection from '../components/CTASection';
 import PageSubtitle from '../components/PageSubtitle';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
-import moviePoster from '../assets/webapps/movie-explorer-poster.svg';
-import tvPoster from '../assets/webapps/tv-explorer-poster.svg';
+import moviePoster from '../assets/webapps/movie-explorer-poster.png';
+import tvPoster from '../assets/webapps/tv-explorer-poster.png';
 import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
+import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
+import equityScreenerPoster from '../assets/webapps/equity-screener-poster.png';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
@@ -282,6 +284,8 @@ const webDevProjects = [
     alt: 'Movie Explorer web app screenshot',
     link: 'https://moviez-explorer.netlify.app/',
     linkLabel: 'Live App',
+    repoLink: 'https://github.com/analyticsbyted/movie-explorer',
+    repoLabel: 'View Repo',
   },
   {
     title: 'TV Explorer',
@@ -296,6 +300,40 @@ const webDevProjects = [
     alt: 'TV Explorer web app screenshot',
     link: 'https://tvexplorer.netlify.app/',
     linkLabel: 'Live App',
+    repoLink: 'https://github.com/analyticsbyted/tv-explorer',
+    repoLabel: 'View Repo',
+  },
+  {
+    title: 'Economic KPI Pulse',
+    tagline: 'Business‑friendly dashboard of inflation, labor, and rates with exportable charts.',
+    features: [
+      'KPI tiles with YoY/MoM',
+      'Time‑series charts with recession shading and rich tooltips',
+      'Compare indicators and export PNG/CSV'
+    ],
+    stack: ['React', 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
+    img: economicPulsePoster,
+    alt: 'Economic KPI Pulse dashboard screenshot',
+    link: 'https://economic-pulse.vercel.app/',
+    linkLabel: 'Live App',
+    repoLink: 'https://github.com/analyticsbyted/economic-pulse',
+    repoLabel: 'View Repo',
+  },
+  {
+    title: 'Equity Screener',
+    tagline: 'Production financial app for equity screening, watchlist management, and automated alerts.',
+    features: [
+      'Real-time price tracking and technical indicators (RSI, MACD)',
+      'Preset screening filters and custom watchlists',
+      'Automated email alerts and news aggregation'
+    ],
+    stack: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Finnhub API', 'Tailwind'],
+    img: equityScreenerPoster,
+    alt: 'Equity Screener dashboard screenshot',
+    link: 'https://equity-screener.onrender.com/',
+    linkLabel: 'Live App',
+    repoLink: 'https://github.com/analyticsbyted/equity-screener',
+    repoLabel: 'View Repo',
   },
 ];
 
@@ -335,13 +373,13 @@ function Work() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="text-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
           Portfolio of
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
             Data, AI, and Web Solutions
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-headline">
           Explore real‑world projects across Web Development, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
         </p>
       </section>
@@ -376,12 +414,13 @@ function Work() {
             {projects.map((proj, idx) => (
               <Card
                 key={idx}
-                className="cursor-pointer"
+                className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 hover:shadow-xl transition-shadow group"
                 onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
                 tabIndex={0}
                 role="button"
                 aria-label={`Expand details for ${proj.title}`}
                 aria-expanded={expandedIdx === idx}
+                aria-labelledby={`proj-title-${idx}`}
                 onKeyDown={e => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     setExpandedIdx(expandedIdx === idx ? null : idx);
@@ -390,6 +429,7 @@ function Work() {
               >
                 {/* Project Image */}
                 <div className={`relative ${proj.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center ${proj.imagePadding || 'p-4'} mt-3`}>
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30" aria-hidden="true" />
                   <ImageWithSkeleton
                     src={proj.img}
                     alt={proj.title}
@@ -400,7 +440,7 @@ function Work() {
                 {/* Project Content */}
                 <div className="p-6">
                   {/* Skill Badges */}
-                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                  <div className="flex flex-wrap gap-2 mt-2 mb-3">
                     {proj.skills && proj.skills.map((skill, i) => (
                       <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
                         {skill}
@@ -409,25 +449,25 @@ function Work() {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{proj.title}</h3>
+                  <h3 id={`proj-title-${idx}`} className="text-xl font-bold text-gray-900 dark:text-white mb-3">{proj.title}</h3>
 
                   {/* Problem Statement */}
                   <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Challenge</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.problem}</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Challenge</h4>
+                    <p className={`text-gray-600 dark:text-gray-300 leading-relaxed ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>{proj.problem}</p>
                   </div>
 
                   {/* Approach */}
                   <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Solution</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.approach}</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Solution</h4>
+                    <p className={`text-gray-600 dark:text-gray-300 leading-relaxed ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>{proj.approach}</p>
                   </div>
 
                   {/* Result */}
                   {proj.result && (
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Impact</h4>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{proj.result}</p>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Impact</h4>
+                      <p className={`text-gray-600 dark:text-gray-300 leading-relaxed ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>{proj.result}</p>
                     </div>
                   )}
 
@@ -438,7 +478,7 @@ function Work() {
                         href={proj.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg font-headline"
                         onClick={e => e.stopPropagation()}
                         aria-label={`Open project: ${proj.title} repository`}
                       >
@@ -452,7 +492,7 @@ function Work() {
                           href={proj.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300"
+                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-base sm:text-lg font-headline"
                           onClick={e => e.stopPropagation()}
                           aria-label={`Open ${proj.title} live demo`}
                         >
@@ -489,9 +529,10 @@ function Work() {
         <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {webDevProjects.map((app, idx) => (
-              <Card key={idx}>
+              <Card key={idx} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 hover:shadow-xl transition-shadow">
                 {/* Poster */}
                 <div className={`relative ${app.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3`}>
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30" aria-hidden="true" />
                   <ImageWithSkeleton
                     src={app.img}
                     alt={app.alt}
@@ -501,30 +542,46 @@ function Work() {
                 {/* Content */}
                 <div className="p-6">
                   {/* Stack badges (consistent placement and color with other tabs) */}
-                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                  <div className="flex flex-wrap gap-2 mt-2 mb-3">
                     {app.stack.map((s, i) => (
                       <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
                         {s}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{app.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{app.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{app.tagline}</p>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 mb-4">
                     {app.features.map((f, i) => (<li key={i}>{f}</li>))}
                   </ul>
-                  <a
-                    href={app.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    aria-label={`Open ${app.title}`}
-                  >
-                    {app.linkLabel}
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={app.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg font-headline"
+                      aria-label={`Open ${app.title} live app`}
+                    >
+                      {app.linkLabel}
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                    {app.repoLink && (
+                      <a
+                        href={app.repoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-base sm:text-lg font-headline"
+                        aria-label={`Open ${app.title} repository`}
+                      >
+                        {app.repoLabel || 'View Repo'}
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Card>
             ))}

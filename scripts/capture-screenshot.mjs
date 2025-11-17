@@ -32,9 +32,9 @@ async function run() {
   });
   try {
     const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(45000);
-    await page.goto(url, { waitUntil: 'load' });
-    await new Promise((res) => setTimeout(res, 2500)); // allow client app to render
+    page.setDefaultNavigationTimeout(60000); // 60 seconds timeout
+    await page.goto(url, { waitUntil: 'networkidle2' }); // wait for network to be mostly idle
+    await new Promise((res) => setTimeout(res, 20000)); // allow client app to render and data to load (20 seconds)
     await page.screenshot({
       path: outputPath,
       fullPage: false,

@@ -57,13 +57,13 @@ function About() {
           <div className="space-y-6">
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full opacity-60"></div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight font-headline">
                 Building Intelligent
                 <span className="text-blue-600 dark:text-blue-400 block">Data, AI, and Web Solutions</span>
               </h1>
             </div>
             
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-headline">
               I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, delivering full‑stack web apps, AI agents, and data platforms. I bridge product and engineering to ship scalable, production‑ready systems across React/TypeScript, Python, and cloud.
             </p>
 

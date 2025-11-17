@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useEffect, useState, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Link, useRoutes, useLocation } from 'react-router-dom';
+import { useEffect, useState, Suspense, lazy, cloneElement } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 const Work = lazy(() => import('./pages/Work'));
 import About from './pages/About';
@@ -11,6 +12,7 @@ import Publications from './pages/Publications';
 import Footer from './components/Footer';
 import logo from './assets/logo-td.svg';
 import NotFound from './pages/NotFound';
+import AnimatedPage from './components/AnimatedPage';
 
 // Simple SVG icons
 const SunIcon = () => (
@@ -45,10 +47,110 @@ function setHtmlTheme(theme) {
   }
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation();
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem(THEME_KEY) || 'light';
   });
+
+  const routes = [
+    {
+      path: '/',
+      element: (
+        <AnimatedPage>
+          <Home />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/work',
+      element: (
+        <AnimatedPage>
+          <Suspense fallback={
+            <div>
+              <div className="text-center mb-8">
+                <div className="mx-auto h-8 w-48 bg-muted/60 rounded-lg animate-pulse" />
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {[0,1,2,3].map(i => (
+                  <div key={i} className="bg-card border-2 border-border rounded-2xl overflow-hidden">
+                    <div className="h-48 bg-muted/50 animate-pulse" />
+                    <div className="p-6 space-y-3">
+                      <div className="h-4 w-1/3 bg-muted/60 rounded animate-pulse" />
+                      <div className="h-5 w-2/3 bg-muted/60 rounded animate-pulse" />
+                      <div className="h-4 w-full bg-muted/50 rounded animate-pulse" />
+                      <div className="h-4 w-5/6 bg-muted/50 rounded animate-pulse" />
+                      <div className="h-10 w-40 bg-muted/60 rounded-lg animate-pulse" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          }>
+            <Work />
+          </Suspense>
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/publications',
+      element: (
+        <AnimatedPage>
+          <Publications />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/newsletter',
+      element: (
+        <AnimatedPage>
+          <Newsletter />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/certifications',
+      element: (
+        <AnimatedPage>
+          <Certifications />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/about',
+      element: (
+        <AnimatedPage>
+          <About />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/education',
+      element: (
+        <AnimatedPage>
+          <Education />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '/contact',
+      element: (
+        <AnimatedPage>
+          <Contact />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: '*',
+      element: (
+        <AnimatedPage>
+          <NotFound />
+        </AnimatedPage>
+      ),
+    },
+  ];
+
+  const element = useRoutes(routes);
 
   // Apply theme on mount and when theme changes
   useEffect(() => {
@@ -69,116 +171,90 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <Router>
-      <div className="min-h-screen bg-surface text-gray-900 dark:text-gray-100 font-sans">
-        <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <Link to="/" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Home">
-                <img src={logo} alt="Ted Dickey logo" width={40} height={40} className="mr-3" />
-                <span className="text-xl md:text-2xl">Ted Dickey</span>
-              </Link>
+    <div className="min-h-screen bg-surface text-gray-900 dark:text-gray-100 font-body">
+      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Home">
+              <img src={logo} alt="Ted Dickey logo" width={40} height={40} className="mr-3" />
+              <span className="text-xl md:text-2xl">Ted Dickey</span>
+            </Link>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
+              <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Portfolio</Link>
+              <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
+              <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
+              <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Publications</Link>
+              <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Newsletter</Link>
+              <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
               
-              {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center space-x-8">
-                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
-                <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Portfolio</Link>
-                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
-                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
-                <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Publications</Link>
-                <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-                <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
-                
-                {/* Theme toggle */}
-                <button
-                  className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                  aria-label={`Theme: ${currentTheme.label}`}
-                  title={`Theme: ${currentTheme.label}`}
-                  onClick={handleThemeToggle}
-                >
-                  {currentTheme.icon}
-                </button>
-              </div>
-
-              {/* Mobile menu button */}
-              <div className="lg:hidden">
-                <button
-                  onClick={() => setMobileOpen(v => !v)}
-                  className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
-                  aria-label="Toggle navigation menu"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                  </svg>
-                </button>
-              </div>
+              {/* Theme toggle */}
+              <button
+                className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                aria-label={`Theme: ${currentTheme.label}`}
+                title={`Theme: ${currentTheme.label}`}
+                onClick={handleThemeToggle}
+              >
+                {currentTheme.icon}
+              </button>
             </div>
 
-            {/* Mobile Navigation */}
-            {mobileOpen && (
-              <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
-                <div className="flex flex-col space-y-3">
-                  <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
-                  <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Portfolio</Link>
-                  <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
-                  <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
-                  <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Publications</Link>
-                  <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-                  <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Contact</Link>
-                  
-                  <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <button
-                      className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={handleThemeToggle}
-                    >
-                      {currentTheme.icon}
-                      <span>Theme: {currentTheme.label}</span>
-                    </button>
-                  </div>
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileOpen(v => !v)}
+                className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                aria-label="Toggle navigation menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {mobileOpen && (
+            <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+              <div className="flex flex-col space-y-3">
+                <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>About</Link>
+                <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Portfolio</Link>
+                <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Education</Link>
+                <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Certifications</Link>
+                <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Publications</Link>
+                <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Newsletter</Link>
+                <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Contact</Link>
+                
+                <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                  <button
+                    className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={handleThemeToggle}
+                  >
+                    {currentTheme.icon}
+                    <span>Theme: {currentTheme.label}</span>
+                  </button>
                 </div>
               </div>
-            )}
-          </div>
-        </nav>
-        <main className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={
-              <Suspense fallback={
-                <div>
-                  <div className="text-center mb-8">
-                    <div className="mx-auto h-8 w-48 bg-muted/60 rounded-lg animate-pulse" />
-                  </div>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {[0,1,2,3].map(i => (
-                      <div key={i} className="bg-card border-2 border-border rounded-2xl overflow-hidden">
-                        <div className="h-48 bg-muted/50 animate-pulse" />
-                        <div className="p-6 space-y-3">
-                          <div className="h-4 w-1/3 bg-muted/60 rounded animate-pulse" />
-                          <div className="h-5 w-2/3 bg-muted/60 rounded animate-pulse" />
-                          <div className="h-4 w-full bg-muted/50 rounded animate-pulse" />
-                          <div className="h-4 w-5/6 bg-muted/50 rounded animate-pulse" />
-                          <div className="h-10 w-40 bg-muted/60 rounded-lg animate-pulse" />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              }>
-                <Work />
-              </Suspense>
-            } />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/newsletter" element={<Newsletter />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+            </div>
+          )}
+        </div>
+      </nav>
+      <main className="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <AnimatePresence mode="wait" initial={false}>
+          {element && cloneElement(element, { key: location.pathname })}
+        </AnimatePresence>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

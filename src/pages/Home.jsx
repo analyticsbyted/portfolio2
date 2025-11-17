@@ -2,7 +2,8 @@ import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import { useState, useEffect } from 'react';
-import moviePoster from '../assets/webapps/movie-explorer-poster.svg';
+import moviePoster from '../assets/webapps/movie-explorer-poster.png';
+import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
 
 const heroStats = [
   { value: '10+', label: 'Years Experience' },
@@ -79,14 +80,14 @@ function Home() {
             <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-4">
               Available for Web & AI Projects
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
               Building Intelligent
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 Data, AI, and Web Apps
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-headline">
               I build production‑ready web apps, AI agents, and data platforms that drive measurable outcomes.
             </p>
 
@@ -127,22 +128,22 @@ function Home() {
         <div className="mb-14 rounded-3xl overflow-hidden border border-border bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
           <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Featured: Movie Explorer</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Featured: Economic KPI Pulse</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                A modern React + TypeScript web app for discovering movies with live data, fast search, and rich details.
+                A business‑friendly React + TypeScript dashboard visualizing US macro indicators from FRED—KPI tiles, YoY/MoM charts, compare view, recession shading, and PNG/CSV export.
               </p>
               <div className="flex gap-3">
-                <a href="/work?tab=web" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+                <a href="/work?tab=web" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all font-headline">
                   Explore Projects
                 </a>
-                <a href="https://moviez-explorer.netlify.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all">
-                  Live Demo
+                <a href="https://economic-pulse.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all font-headline">
+                  Live App
                 </a>
               </div>
             </div>
             <div className="md:col-span-1">
               <div className="h-40 md:h-44 bg-muted/40 rounded-2xl flex items-center justify-center p-3">
-                <img src={moviePoster} alt="Movie Explorer poster" className="h-full w-full object-contain" />
+                <img src={economicPulsePoster} alt="Economic KPI Pulse dashboard poster" className="h-full w-full object-contain" />
               </div>
             </div>
           </div>
@@ -150,10 +151,10 @@ function Home() {
 
         {/* What I Do - 3 Pillars */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             What I Do
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-headline">
             Web Apps, AI/Agents, and Data Platforms—built for measurable business outcomes.
           </p>
         </div>
@@ -184,10 +185,10 @@ function Home() {
       {/* Services Section */}
       <section className="mb-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             How I Deliver Results
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-headline">
             Outcome‑focused delivery backed by real metrics and production standards.
           </p>
         </div>
@@ -219,7 +220,7 @@ function Home() {
       {/* Testimonials Section */}
       <section className="mb-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             Trusted by Industry Leaders
           </h2>
         </div>
@@ -252,7 +253,7 @@ function Home() {
       {/* Technologies Section */}
       <section className="mb-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             Technologies I Work With
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">

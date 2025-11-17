@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const baseClass =
-  "inline-block rounded-lg shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60";
+"inline-block rounded-lg shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60 font-headline";
 
 const Button = ({
   children,

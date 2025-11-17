@@ -1,3 +1,10 @@
+# Local helper prompts (do not commit)
+prompt.md
+# Session/refactor docs not part of site
+docs/energy-markets-pulse-refactor.md
+# External poster asset not tracked in repo
+src/assets/webapps/economic-kpi-pulse-poster.png
+docs/equity-screener-project-plan.md
 # Logs
 logs
 *.log

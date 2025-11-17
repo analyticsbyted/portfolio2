@@ -44,6 +44,18 @@ Usage examples with Tailwind:
 ### Fonts
 - `src/index.css` defines the base font stack (`Inter`, system UI fallbacks)
 
+### Typography Pairing (Headlines vs Body)
+- Headlines and CTAs: Inter (700–800 recommended). Applied via the `font-headline` utility class.
+- Body copy: Source Serif Pro (400–500). Applied globally by setting the app wrapper to `font-body` in `src/App.jsx`.
+- Configuration:
+  - `index.html` loads Inter and Source Serif Pro via Google Fonts.
+  - `tailwind.config.js` defines:
+    - `fontFamily.headline` → Inter stack
+    - `fontFamily.body` → Source Serif Pro stack
+- Usage:
+  - Add `font-headline` on major titles, subtitles, and CTA buttons.
+  - Body text inherits `font-body` by default from the app wrapper.
+
 ### Responsiveness
 - Use Tailwind responsive variants (`sm:`, `md:`, `lg:`, `xl:`) for layout changes. These compile to CSS `@media` rules.
 - Common patterns used:
