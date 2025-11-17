@@ -109,13 +109,37 @@ portfolio2/
 - **Decision:** Inter for headlines/CTAs (`font-headline`), Source Serif Pro for body (`font-body`)
 - **Rationale:** Marketing best practice, visual hierarchy, readability
 - **Implementation:** Google Fonts loaded in `index.html`, mapped in `tailwind.config.js`
+- **Line Height:** Source Serif Pro uses 1.75 line height (optimal for serif fonts) - applied globally via CSS
+- **Consistency:** All body paragraphs inherit `font-body`, headlines/CTAs use `font-headline` explicitly
 
-### 7. Color System
+### 7. Brand Identity System
+- **Decision:** Blue-to-purple gradient as primary brand identity with semantic color tokens
+- **Rationale:** Professional, modern, data-driven visual identity
+- **Implementation:** 
+  - Brand tokens in `tailwind.config.js`: `brand-primary`, `brand-secondary`, `brand-accent`, `brand-accentAlt`
+  - Logo and favicon aligned (gradient background)
+  - Footer uses primary brand gradient pattern
+- **Color Palette:** Slate neutrals (not Gray) for warmer, modern appearance
+- **Documentation:** Comprehensive brand guidelines in `docs/brand-guidelines.md`
+
+### 8. Button Interactivity
+- **Decision:** Consistent hover lift effects and active states across all buttons
+- **Rationale:** Improved perceived quality, clear interaction feedback, professional polish
+- **Implementation:**
+  - Hover: `hover:-translate-y-1` (2px lift) + `hover:shadow-xl`
+  - Active: `active:translate-y-0` (return) + `active:shadow-md` + darker background
+  - Applied to all button types (primary, secondary, gradient)
+- **Components:** `Button.jsx` defaults include interactions, inline buttons updated consistently
+
+### 9. Color System
 - **Decision:** CSS custom properties for theme-aware colors, off-white substitute for pure white
 - **Rationale:** Consistent theming, avoids pure white (#ffffff) per user preference
-- **Implementation:** `--color-white: 248 247 244` (#F8F7F4), mapped to Tailwind via `rgb()` with alpha support
+- **Implementation:** 
+  - `--color-white: 248 247 244` (#F8F7F4), mapped to Tailwind via `rgb()` with alpha support
+  - Dark mode uses Slate palette (slate-900, slate-800, slate-700) instead of Gray
+  - Text color variables: `--color-text-body` (slate-300), `--color-text-headline` (slate-100)
 
-### 8. Image Standards
+### 10. Image Standards
 - **Poster Images:**
   - Web apps: 16:9 screenshots (PNG, ~1200x675 or 1200x600)
   - Research/BI/NLP: 4:3 vector SVGs
@@ -211,6 +235,32 @@ const element = useRoutes(routes);
 - Headlines use `font-headline` (Inter)
 - Body text uses `font-body` (Source Serif Pro)
 
+### Button.jsx
+**Purpose:** Link-styled button component with enhanced interactivity
+
+**Props:**
+- `children`: Button content
+- `href`: Link destination (internal or external)
+- `className`: Additional CSS classes
+- `ariaLabel`: Accessibility label
+- `onClick`: Click handler (optional)
+- `type`: Button type (default: "button")
+
+**Features:**
+- **Hover Effects:** Lift effect (`hover:-translate-y-1`) with enhanced shadow (`hover:shadow-xl`)
+- **Active States:** Click feedback (`active:translate-y-0`, `active:shadow-md`, darker background)
+- **Transitions:** Smooth animations with `transition-all duration-200`
+- **Accessibility:** Focus rings, disabled states with `disabled:cursor-not-allowed`
+- **Link Support:** Handles both internal routes (`/route`) and external URLs
+- **Default Styles:** Brand gradient button when no custom className provided
+
+**Usage:**
+```jsx
+<Button href="/contact" className="bg-gradient-to-r from-blue-600 to-purple-600 ...">
+  Start Your Project
+</Button>
+```
+
 ### Card.jsx
 **Purpose:** Reusable card shell for project/work cards
 
@@ -298,6 +348,14 @@ const element = useRoutes(routes);
 - `border`: Border color
 - `muted`: Subtle surfaces, skeletons
 
+**Brand Color Tokens:**
+- `brand-primary`: #2563EB (blue-600) - start of gradient
+- `brand-secondary`: #9333EA (purple-600) - end of gradient
+- `brand-accent`: #1D4ED8 (blue-700) - hover/darker variants
+- `brand-accentAlt`: #7E22CE (purple-700) - hover/darker variants
+- **Note:** Currently defined but migration to full usage is in progress
+- **Usage:** `bg-brand-primary`, `text-brand-secondary`, etc. (once migration complete)
+
 **Dark Mode:**
 - Toggle: `darkMode: 'class'`
 - Activate: Add `dark` class to `<html>`
@@ -314,6 +372,11 @@ const element = useRoutes(routes);
 **Utilities:**
 - `.line-clamp-2`, `.line-clamp-3`: Text truncation with ellipsis
 - `.no-scrollbar`: Hide scrollbar utility
+
+**Typography:**
+- Automatic line height (1.75) for Source Serif Pro body text via `.font-body p` selector
+- Headlines use tighter line height (1.2) for better visual hierarchy
+- Custom line height utilities: `leading-serif` (1.75), `leading-serif-tight` (1.65)
 
 ### Design Tokens
 **Container Width:** `max-w-7xl` (1280px) - consistent across all pages
@@ -636,5 +699,14 @@ export default MyComponent;
 
 **Last Updated:** 2025-01-11  
 **Maintained By:** Ted Dickey II  
-**Version:** 1.0
+**Version:** 1.1
+
+**Recent Updates:**
+- Brand identity system (color tokens, logo/favicon consistency)
+- Typography improvements (line height optimization, font consistency)
+- Button interactivity enhancements (hover lift, active states)
+- Slate color palette migration for dark mode
+- Comprehensive brand guidelines documentation
+
+For detailed changelog, see `CHANGELOG.md` in project root.
 

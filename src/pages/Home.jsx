@@ -1,8 +1,9 @@
+
+
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import { useState, useEffect } from 'react';
-import moviePoster from '../assets/webapps/movie-explorer-poster.png';
 import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
 
 const heroStats = [
@@ -87,21 +88,21 @@ function Home() {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-headline">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               I build production‑ready web apps, AI agents, and data platforms that drive measurable outcomes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
                 href="/contact" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md px-8 py-4 text-lg font-semibold"
                 ariaLabel="Contact Ted for consulting services"
               >
                 Start Your Project
               </Button>
               <Button 
                 href="/work" 
-                className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold"
+                className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md px-8 py-4 text-lg font-semibold"
                 ariaLabel="View Ted's portfolio"
               >
                 View My Work
@@ -133,10 +134,10 @@ function Home() {
                 A business‑friendly React + TypeScript dashboard visualizing US macro indicators from FRED—KPI tiles, YoY/MoM charts, compare view, recession shading, and PNG/CSV export.
               </p>
               <div className="flex gap-3">
-                <a href="/work?tab=web" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all font-headline">
+                <a href="/work?tab=web" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all font-headline">
                   Explore Projects
                 </a>
-                <a href="https://economic-pulse.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all font-headline">
+                <a href="https://economic-pulse.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all font-headline">
                   Live App
                 </a>
               </div>
@@ -154,7 +155,7 @@ function Home() {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             What I Do
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-headline">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Web Apps, AI/Agents, and Data Platforms—built for measurable business outcomes.
           </p>
         </div>
@@ -188,7 +189,7 @@ function Home() {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
             How I Deliver Results
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-headline">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Outcome‑focused delivery backed by real metrics and production standards.
           </p>
         </div>
@@ -207,7 +208,7 @@ function Home() {
         <div className="text-center mt-10">
           <a
             href="/work"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all shadow-lg"
           >
             See outcomes in Work
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

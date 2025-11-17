@@ -63,7 +63,7 @@ function About() {
               </h1>
             </div>
             
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-headline">
+            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
               I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, delivering full‑stack web apps, AI agents, and data platforms. I bridge product and engineering to ship scalable, production‑ready systems across React/TypeScript, Python, and cloud.
             </p>
 

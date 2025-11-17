@@ -379,7 +379,7 @@ function Work() {
             Data, AI, and Web Solutions
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-headline">
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
           Explore real‑world projects across Web Development, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
         </p>
       </section>
@@ -478,7 +478,7 @@ function Work() {
                         href={proj.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg font-headline"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
                         onClick={e => e.stopPropagation()}
                         aria-label={`Open project: ${proj.title} repository`}
                       >
@@ -492,7 +492,7 @@ function Work() {
                           href={proj.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-base sm:text-lg font-headline"
+                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
                           onClick={e => e.stopPropagation()}
                           aria-label={`Open ${proj.title} live demo`}
                         >
@@ -559,7 +559,7 @@ function Work() {
                       href={app.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg font-headline"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
                       aria-label={`Open ${app.title} live app`}
                     >
                       {app.linkLabel}
@@ -572,7 +572,7 @@ function Work() {
                         href={app.repoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-base sm:text-lg font-headline"
+                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
                         aria-label={`Open ${app.title} repository`}
                       >
                         {app.repoLabel || 'View Repo'}

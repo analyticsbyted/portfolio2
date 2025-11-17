@@ -1,15 +1,23 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background with rounded corners -->
-  <rect width="32" height="32" rx="6" fill="#ffffff"/>
+  <!-- Blue-to-purple gradient matching main logo -->
+  <defs>
+    <linearGradient id="faviconBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333EA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
   
-  <!-- Black rectangular border around letters -->
-  <rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- Background with rounded corners matching logo style -->
+  <rect width="32" height="32" rx="6" fill="url(#faviconBgGradient)"/>
   
-  <!-- TD Letters with bold serif font and black fill -->
-  <g font-family="Times, serif" font-weight="900" font-size="13" text-anchor="middle" dominant-baseline="middle">
+  <!-- Thinner rectangular border for smaller size (scaled down from main logo) -->
+  <rect x="4" y="8" width="24" height="16" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- TD Letters with bold serif font and white fill (scaled for 32x32) -->
+  <g font-family="Times, serif" font-weight="900" font-size="11" text-anchor="middle" dominant-baseline="middle">
     <!-- T -->
-    <text x="12" y="17" fill="#000000">T</text>
+    <text x="12" y="18" fill="#ffffff">T</text>
     <!-- D -->
-    <text x="20" y="17" fill="#000000">D</text>
+    <text x="20" y="18" fill="#ffffff">D</text>
   </g>
 </svg>

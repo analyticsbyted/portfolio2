@@ -11,6 +11,7 @@ This folder documents the application architecture, setup, and operational guide
 - Pages & Components: `docs/pages-and-components.md`
 - Page Transitions: `docs/page-transitions.md` ⭐ (Framer Motion implementation)
 - Styling & Theming: `docs/styling-and-theming.md`
+- Brand Guidelines: `docs/brand-guidelines.md` ⭐ (Color palette, typography, logo usage)
 - Routing & Navigation: `docs/routing-and-navigation.md`
 - Work Page Catalog: `docs/work-catalog.md`
 
@@ -29,6 +30,7 @@ This folder documents the application architecture, setup, and operational guide
 - Deployment Guide: `docs/deployment.md`
 
 ### Additional Resources
+- **CHANGELOG**: `CHANGELOG.md` (project root) - Detailed change history
 - Session Notes: `docs/session-notes-2025-11-10.md`
 - Project Plans: `docs/equity-screener-project-plan.md` (gitignored)
 
@@ -40,6 +42,7 @@ This folder documents the application architecture, setup, and operational guide
 - **Pages & Components** (`pages-and-components.md`): Detailed component documentation (includes AnimatedPage)
 - **Routing & Navigation** (`routing-and-navigation.md`): Routing patterns and page transitions (Framer Motion)
 - **Styling** (`styling-and-theming.md`): Design system, theming, responsive design
+- **Brand Guidelines** (`brand-guidelines.md`): Color palette, typography, logo usage, component patterns
 - **Work Catalog** (`work-catalog.md`): Portfolio page structure and card schemas
 
 If you find gaps or have questions, please open an issue or edit these docs.
