@@ -53,6 +53,7 @@ function AppContent() {
     return localStorage.getItem(THEME_KEY) || 'light';
   });
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -189,8 +190,6 @@ function AppContent() {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
   const currentTheme = themeOptions.find(opt => opt.value === theme) || themeOptions[0];
-
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-surface text-gray-900 dark:text-gray-100 font-body">
