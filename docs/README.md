@@ -12,6 +12,8 @@ This folder documents the application architecture, setup, and operational guide
 - Page Transitions: `docs/page-transitions.md` ⭐ (Framer Motion implementation)
 - Styling & Theming: `docs/styling-and-theming.md`
 - Brand Guidelines: `docs/brand-guidelines.md` ⭐ (Color palette, typography, logo usage)
+- Color Migration Guide: `docs/color-migration-guide.md` ⭐ (Migrating to brand tokens)
+- Brand Token Quick Reference: `docs/BRAND-TOKEN-QUICK-REFERENCE.md` (Quick lookup for brand token usage)
 - Routing & Navigation: `docs/routing-and-navigation.md`
 - Work Page Catalog: `docs/work-catalog.md`
 
@@ -43,6 +45,7 @@ This folder documents the application architecture, setup, and operational guide
 - **Routing & Navigation** (`routing-and-navigation.md`): Routing patterns and page transitions (Framer Motion)
 - **Styling** (`styling-and-theming.md`): Design system, theming, responsive design
 - **Brand Guidelines** (`brand-guidelines.md`): Color palette, typography, logo usage, component patterns
+- **Color Migration Guide** (`color-migration-guide.md`): Guide for migrating from hardcoded colors to brand tokens
 - **Work Catalog** (`work-catalog.md`): Portfolio page structure and card schemas
 
 If you find gaps or have questions, please open an issue or edit these docs.

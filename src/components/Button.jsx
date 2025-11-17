@@ -15,8 +15,9 @@ const Button = ({
 }) => {
   // Default styles when no custom className is provided
   // Includes hover lift effect and active state
+  // Uses brand tokens for consistent theming
   const defaultStyles = className === "" 
-    ? "px-8 py-3 bg-blue-600 text-white hover:bg-blue-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md active:bg-blue-800 font-semibold text-lg dark:bg-blue-700 dark:hover:bg-blue-800 dark:active:bg-blue-900" 
+    ? "px-8 py-3 bg-brand-primary text-white hover:bg-brand-accent hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md active:bg-blue-800 text-button dark:bg-brand-accent dark:hover:bg-blue-800 dark:active:bg-blue-900" 
     : "";
   const buttonClassName = `${baseClass} ${defaultStyles} ${className}`.trim();
   if (href) {

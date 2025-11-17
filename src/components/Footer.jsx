@@ -29,7 +29,7 @@ const Footer = () => {
   };
   
   return (
-    <footer className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 dark:from-blue-700 dark:via-purple-700 dark:to-blue-700 text-white mt-16" role="contentinfo" aria-label="Site footer">
+    <footer className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary dark:from-brand-accent dark:via-brand-accent-alt dark:to-brand-accent text-white mt-16" role="contentinfo" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         {/* Mobile Layout */}
         <div className="block md:hidden text-center">

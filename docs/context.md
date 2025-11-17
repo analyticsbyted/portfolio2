@@ -111,16 +111,31 @@ portfolio2/
 - **Implementation:** Google Fonts loaded in `index.html`, mapped in `tailwind.config.js`
 - **Line Height:** Source Serif Pro uses 1.75 line height (optimal for serif fonts) - applied globally via CSS
 - **Consistency:** All body paragraphs inherit `font-body`, headlines/CTAs use `font-headline` explicitly
+- **Typographic Scale:** ✅ **IMPLEMENTED** (2025-01-11) - Semantic typographic tokens replace raw Tailwind sizes
+  - **Headlines**: `text-headline-1` (56px/60px/72px), `text-headline-2` (36px), `text-headline-3` (24px/30px)
+  - **Body**: `text-body-large` (20px/24px), `text-body` (16px), `text-body-md` (18px), `text-body-small` (14px)
+  - **Special**: `text-stat-value` (30px), `text-button` (18px), `text-badge` (14px)
+  - **Benefits**: Consistency, maintainability, responsive by default, semantic clarity
+  - **Migration Status**: Key pages migrated (Home, Work, About, Contact, Button, PageSubtitle)
+  - **Documentation**: See `docs/brand-guidelines.md` for complete typographic scale
 
 ### 7. Brand Identity System
 - **Decision:** Blue-to-purple gradient as primary brand identity with semantic color tokens
 - **Rationale:** Professional, modern, data-driven visual identity
-- **Implementation:** 
-  - Brand tokens in `tailwind.config.js`: `brand-primary`, `brand-secondary`, `brand-accent`, `brand-accentAlt`
+- **Implementation History:**
+  1. **Initial (2025-01-11):** Brand tokens added as nested structure (`brand.primary`, `brand.secondary`)
+  2. **Problem:** Tailwind gradient utilities (`from-brand-primary to-brand-secondary`) didn't work with nested structure
+  3. **Restructuring (2025-01-11):** Flattened to `'brand-primary'` structure to enable gradient support
+  4. **Migration (2025-01-11):** Systematically migrated all brand gradients (26 instances across 10 files)
+- **Current Implementation:** 
+  - Brand tokens in `tailwind.config.js`: Flattened structure (`'brand-primary'`, `'brand-secondary'`) for gradient support
+  - Nested aliases maintained for backward compatibility
   - Logo and favicon aligned (gradient background)
   - Footer uses primary brand gradient pattern
+  - **Migration Status:** ✅ COMPLETE (2025-01-11) - All brand gradients migrated to semantic tokens
 - **Color Palette:** Slate neutrals (not Gray) for warmer, modern appearance
 - **Documentation:** Comprehensive brand guidelines in `docs/brand-guidelines.md`
+- **Usage:** See `docs/color-migration-guide.md` for real-world examples and migration details
 
 ### 8. Button Interactivity
 - **Decision:** Consistent hover lift effects and active states across all buttons
@@ -348,13 +363,19 @@ const element = useRoutes(routes);
 - `border`: Border color
 - `muted`: Subtle surfaces, skeletons
 
-**Brand Color Tokens:**
+**Brand Color Tokens (Flattened for Gradient Support):**
 - `brand-primary`: #2563EB (blue-600) - start of gradient
 - `brand-secondary`: #9333EA (purple-600) - end of gradient
 - `brand-accent`: #1D4ED8 (blue-700) - hover/darker variants
-- `brand-accentAlt`: #7E22CE (purple-700) - hover/darker variants
-- **Note:** Currently defined but migration to full usage is in progress
-- **Usage:** `bg-brand-primary`, `text-brand-secondary`, etc. (once migration complete)
+- `brand-accent-alt`: #7E22CE (purple-700) - hover/darker variants
+- **Structure:** Flattened with prefix (e.g., `'brand-primary'`) for gradient support
+  - **Why Flattened?** Tailwind gradient utilities (`from-*`, `to-*`) require flat color keys. Nested structure (`brand.primary`) doesn't work with gradients.
+  - **History:** Initially implemented as nested, restructured to flattened on 2025-01-11 to enable gradient support
+  - **Backward Compatibility:** Nested aliases maintained (`brand.primary`, `brand.secondary`) for solid color usage
+- **Gradients:** `from-brand-primary to-brand-secondary` ✅ **WORKS!**
+- **Solid Colors:** `bg-brand-primary`, `text-brand-secondary` (works with nested aliases)
+- **Migration Status:** ✅ **COMPLETE** (2025-01-11) - All brand gradients migrated (26 instances across 10 files)
+- **Usage:** See `docs/color-migration-guide.md` for real-world examples
 
 **Dark Mode:**
 - Toggle: `darkMode: 'class'`
@@ -702,11 +723,32 @@ export default MyComponent;
 **Version:** 1.1
 
 **Recent Updates:**
+- **Typographic Scale Implementation (2025-01-11):**
+  - Implemented semantic typographic tokens in `tailwind.config.js`
+  - Replaced raw Tailwind sizes with semantic tokens (`text-headline-1`, `text-body-large`, etc.)
+  - Migrated 30+ typographic instances across key pages (Home, Work, About, Contact)
+  - Includes responsive variants and proper line heights/font weights
+  - **Result:** Consistent, maintainable typography system
+- **Brand Token Restructuring & Migration (2025-01-11):**
+  - Restructured brand tokens from nested (`brand.primary`) to flattened (`'brand-primary'`) structure
+  - **Reason:** Tailwind gradient utilities (`from-*`, `to-*`) require flat color keys - nested structure didn't work
+  - Migrated all brand gradients to semantic tokens (26 instances across 10 files)
+  - Migration pattern: `from-blue-600 to-purple-600` → `from-brand-primary to-brand-secondary`
+  - Files migrated: Button.jsx, Home.jsx, Work.jsx, Contact.jsx, Certifications.jsx, Education.jsx, Publications.jsx, Newsletter.jsx, CTASection.jsx, Footer.jsx
+  - Maintained nested aliases for backward compatibility
+  - **Result:** All brand gradients now use semantic tokens for maintainable theming
 - Brand identity system (color tokens, logo/favicon consistency)
 - Typography improvements (line height optimization, font consistency)
 - Button interactivity enhancements (hover lift, active states)
 - Slate color palette migration for dark mode
 - Comprehensive brand guidelines documentation
+
+**Brand Token Evolution:**
+1. **Initial Implementation:** Brand tokens added as nested structure (`brand.primary`, `brand.secondary`)
+2. **Problem Identified:** Gradient utilities (`from-brand-primary`) didn't work with nested structure
+3. **Restructuring (2025-01-11):** Flattened to `'brand-primary'` structure for gradient support
+4. **Migration (2025-01-11):** Systematically migrated all 26 brand gradient instances across 10 files
+5. **Status:** ✅ COMPLETE - All brand gradients now use semantic tokens
 
 For detailed changelog, see `CHANGELOG.md` in project root.
 

@@ -7,6 +7,58 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed - 2025-01-11
+
+#### Typographic Scale Implementation (COMPLETED)
+- **Semantic Typographic Tokens**: Implemented semantic typographic scale in `tailwind.config.js`
+  - Replaced raw Tailwind sizes (`text-5xl`) with semantic tokens (`text-headline-1`)
+  - **Headlines**: `headline-1` (56px/60px/72px), `headline-2` (36px), `headline-3` (24px/30px)
+  - **Body Text**: `body-large` (20px/24px), `body` (16px), `body-md` (18px), `body-small` (14px)
+  - **Special**: `stat-value` (30px), `button` (18px), `badge` (14px)
+  - Includes responsive variants (mobile → tablet → desktop)
+  - Proper line heights and font weights included in token definitions
+- **Component Migration**: Migrated typography across key pages and components
+  - **Home.jsx**: Hero headlines, section headings, body text, buttons, stats (15+ instances)
+  - **Work.jsx**: Hero headline, card titles, buttons, badges (10+ instances)
+  - **About.jsx**: Hero headline, body text
+  - **Contact.jsx**: Hero headline, body text
+  - **Button.jsx**: Default button text size
+  - **PageSubtitle.jsx**: Subtitle text size
+  - **Total**: 30+ typographic instances migrated to semantic tokens
+- **Migration Pattern**:
+  - `text-5xl md:text-6xl lg:text-7xl` → `text-headline-1 md:text-headline-1-md lg:text-headline-1-lg`
+  - `text-4xl` → `text-headline-2`
+  - `text-2xl md:text-3xl` → `text-headline-3 md:text-headline-3-md`
+  - `text-xl md:text-2xl` → `text-body-large md:text-body-large-md`
+  - `text-lg` → `text-button` (buttons) or `text-body-md` (body)
+  - `text-sm` → `text-badge` (badges) or `text-body-small` (captions)
+- **Benefits**: Consistency, maintainability, semantic clarity, responsive by default
+
+#### Brand Token Migration (COMPLETED)
+- **Restructured Brand Tokens**: Flattened brand color tokens for gradient support
+  - Changed from nested `brand.primary` to flat `'brand-primary'` structure
+  - Enables gradient utilities: `from-brand-primary to-brand-secondary` (now works!)
+  - Maintained nested aliases for backward compatibility
+  - **Migration Status**: ✅ **COMPLETE** - All brand gradients migrated to semantic tokens
+- **Component Migration**: Migrated all brand gradients across the codebase
+  - **Button.jsx**: Default button styles now use `bg-brand-primary`
+  - **Home.jsx**: Hero badge, headline gradient, buttons, 3-pillars borders, featured project (8 instances)
+  - **Work.jsx**: Headline gradient, tab buttons, card gradient bars, project buttons (6 instances)
+  - **Contact.jsx**: Headline gradient, submit button (2 instances)
+  - **Certifications.jsx**: Headline gradient, verify button (2 instances)
+  - **Education.jsx**: Headline gradient, tab button (2 instances)
+  - **Publications.jsx**: Headline gradient (1 instance)
+  - **Newsletter.jsx**: Headline gradient, section background, subscribe button (3 instances)
+  - **CTASection.jsx**: Section background gradient (1 instance)
+  - **Footer.jsx**: Footer gradient (1 instance)
+  - **Total**: 26 brand gradient instances migrated to semantic tokens
+- **Migration Pattern**: 
+  - `from-blue-600 to-purple-600` → `from-brand-primary to-brand-secondary`
+  - `hover:from-blue-700 hover:to-purple-700` → `hover:from-brand-accent hover:to-brand-accent-alt`
+  - `from-blue-600/20 to-purple-600/20` → `from-brand-primary/20 to-brand-secondary/20`
+  - `bg-blue-600` → `bg-brand-primary`
+  - `border-blue-600` → `border-brand-primary`
+
 ### Added - 2025-01-11
 
 #### Brand Identity & Visual System

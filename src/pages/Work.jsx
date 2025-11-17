@@ -375,11 +375,11 @@ function Work() {
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
           Portfolio of
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
             Data, AI, and Web Solutions
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-body">
           Explore real‑world projects across Web Development, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
         </p>
       </section>
@@ -389,9 +389,9 @@ function Work() {
           {tabs.map(tab => (
             <button
               key={tab.key}
-              className={`px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 border-2 ${
+              className={`px-8 py-4 rounded-2xl text-button transition-all duration-300 border-2 ${
                 activeTab === tab.key 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-blue-600 shadow-lg transform hover:scale-105' 
+                  ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white border-brand-primary shadow-lg transform hover:scale-105' 
                   : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:shadow-md hover:bg-blue-50 dark:hover:bg-gray-700'
               }`}
               onClick={() => { setActiveTab(tab.key); setExpandedIdx(null); }}
@@ -429,7 +429,7 @@ function Work() {
               >
                 {/* Project Image */}
                 <div className={`relative ${proj.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center ${proj.imagePadding || 'p-4'} mt-3`}>
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30" aria-hidden="true" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30" aria-hidden="true" />
                   <ImageWithSkeleton
                     src={proj.img}
                     alt={proj.title}
@@ -442,14 +442,14 @@ function Work() {
                   {/* Skill Badges */}
                   <div className="flex flex-wrap gap-2 mt-2 mb-3">
                     {proj.skills && proj.skills.map((skill, i) => (
-                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-badge">
                         {skill}
                       </span>
                     ))}
                   </div>
 
                   {/* Project Title */}
-                  <h3 id={`proj-title-${idx}`} className="text-xl font-bold text-gray-900 dark:text-white mb-3">{proj.title}</h3>
+                  <h3 id={`proj-title-${idx}`} className="text-headline-3 text-gray-900 dark:text-white mb-3 font-headline">{proj.title}</h3>
 
                   {/* Problem Statement */}
                   <div className="mb-4">
@@ -478,7 +478,7 @@ function Work() {
                         href={proj.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-button hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg font-headline"
                         onClick={e => e.stopPropagation()}
                         aria-label={`Open project: ${proj.title} repository`}
                       >
@@ -492,7 +492,7 @@ function Work() {
                           href={proj.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
+                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl text-button hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 font-headline"
                           onClick={e => e.stopPropagation()}
                           aria-label={`Open ${proj.title} live demo`}
                         >
@@ -532,7 +532,7 @@ function Work() {
               <Card key={idx} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 hover:shadow-xl transition-shadow">
                 {/* Poster */}
                 <div className={`relative ${app.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3`}>
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30" aria-hidden="true" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30" aria-hidden="true" />
                   <ImageWithSkeleton
                     src={app.img}
                     alt={app.alt}
@@ -544,12 +544,12 @@ function Work() {
                   {/* Stack badges (consistent placement and color with other tabs) */}
                   <div className="flex flex-wrap gap-2 mt-2 mb-3">
                     {app.stack.map((s, i) => (
-                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-badge">
                         {s}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{app.title}</h3>
+                  <h3 className="text-headline-3 text-gray-900 dark:text-white mb-2 font-headline">{app.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{app.tagline}</p>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 mb-4">
                     {app.features.map((f, i) => (<li key={i}>{f}</li>))}
@@ -559,7 +559,7 @@ function Work() {
                       href={app.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
                       aria-label={`Open ${app.title} live app`}
                     >
                       {app.linkLabel}

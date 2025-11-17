@@ -62,20 +62,54 @@ bg-surface, bg-card, border-border, bg-muted
 
 ### Tailwind Brand Tokens
 
-Use these semantic tokens in Tailwind:
+Use these semantic tokens in Tailwind. **Flattened structure for gradient support:**
 
 ```js
-// Tailwind config tokens
-brand: {
-  primary: '#2563EB',    // blue-600
-  secondary: '#9333EA',  // purple-600
-  accent: '#1D4ED8',     // blue-700 (hover)
-  accentAlt: '#7E22CE',  // purple-700 (hover)
-}
+// Tailwind config tokens (flattened for gradient utilities)
+'brand-primary': '#2563EB',      // blue-600 (start of gradient)
+'brand-secondary': '#9333EA',    // purple-600 (end of gradient)
+'brand-accent': '#1D4ED8',       // blue-700 (hover/darker variants)
+'brand-accent-alt': '#7E22CE',   // purple-700 (hover/darker variants)
 
-// Usage
-bg-brand-primary, text-brand-secondary, border-brand-accent
+// Nested aliases maintained for backward compatibility
+brand: {
+  primary: '#2563EB',
+  secondary: '#9333EA',
+  accent: '#1D4ED8',
+  accentAlt: '#7E22CE',
+}
 ```
+
+**Usage Examples:**
+```jsx
+// Solid colors (works with both flat and nested)
+className="bg-brand-primary text-white"
+className="text-brand-secondary"
+className="border-brand-accent"
+
+// Gradients (REQUIRES flat structure) ✅ NOW IN USE
+className="bg-gradient-to-r from-brand-primary to-brand-secondary"
+className="hover:from-brand-accent hover:to-brand-accent-alt"
+
+// Text gradients ✅ NOW IN USE
+className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"
+
+// Opacity variants ✅ NOW IN USE
+className="from-brand-primary/20 to-brand-secondary/20"  // Gradient borders
+className="from-brand-primary/30 to-brand-secondary/30"  // Card gradient bars
+
+// Footer gradient (with via)
+className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary"
+```
+
+**Real-World Examples (From Codebase):**
+- **Button defaults:** `Button.jsx` uses `bg-brand-primary hover:bg-brand-accent`
+- **Hero gradients:** `Home.jsx` uses `from-brand-primary to-brand-secondary` for badges and headlines
+- **Tab buttons:** `Work.jsx` active tabs use `from-brand-primary to-brand-secondary`
+- **Card borders:** `Home.jsx` 3-pillars use `from-brand-primary/20 to-brand-secondary/20`
+- **All pages:** Headline text gradients use `from-brand-primary to-brand-secondary`
+
+**Migration Status:** ✅ All brand gradients migrated (2025-01-11)
 
 ## Typography
 
@@ -89,7 +123,91 @@ bg-brand-primary, text-brand-secondary, border-brand-accent
 - Applied globally via `font-body` on app wrapper
 - Used for: Paragraphs, descriptions, card content, testimonials
 
-### Typography Scale
+### Typographic Scale (Semantic Tokens)
+
+**Status:** ✅ **IMPLEMENTED** (2025-01-11) - Semantic typographic scale with responsive variants
+
+**Approach:** Semantic tokens replace raw Tailwind sizes (`text-5xl`) with meaningful names (`text-headline-1`) for maintainability and consistency.
+
+**Headlines (Inter, Bold/ExtraBold):**
+```jsx
+// Hero headlines (largest)
+className="text-headline-1"              // 56px mobile
+className="md:text-headline-1-md"       // 60px tablet
+className="lg:text-headline-1-lg"       // 72px desktop
+
+// Section headings (H2)
+className="text-headline-2"              // 36px - Section titles
+
+// Subsection headings (H3)
+className="text-headline-3"              // 24px mobile
+className="md:text-headline-3-md"        // 30px desktop
+```
+
+**Body Text (Source Serif Pro, Regular/Medium):**
+```jsx
+// Large body (hero subtitles, intro paragraphs)
+className="text-body-large"              // 20px mobile
+className="md:text-body-large-md"       // 24px desktop
+
+// Default body
+className="text-body"                   // 16px - Standard paragraphs
+
+// Medium body
+className="text-body-md"                // 18px - Slightly larger paragraphs
+
+// Small body (captions, metadata)
+className="text-body-small"             // 14px - Small text, captions
+```
+
+**Special Use Cases:**
+```jsx
+// KPI stat values
+className="text-stat-value"              // 30px, bold
+
+// Button text
+className="text-button"                  // 18px, semibold
+
+// Badge text
+className="text-badge"                   // 14px, semibold
+```
+
+**Usage Examples:**
+```jsx
+// Hero section
+<h1 className="text-headline-1 md:text-headline-1-md lg:text-headline-1-lg font-headline">
+  Building Intelligent Solutions
+</h1>
+<p className="text-body-large md:text-body-large-md font-body">
+  Production-ready web apps and data platforms
+</p>
+
+// Section heading
+<h2 className="text-headline-2 font-headline">
+  How I Deliver Results
+</h2>
+
+// Card title
+<h3 className="text-headline-3 md:text-headline-3-md font-headline">
+  Project Title
+</h3>
+
+// Button
+<button className="text-button font-headline">
+  Get Started
+</button>
+```
+
+**Benefits:**
+- **Consistency:** Same semantic token = same size across all pages
+- **Maintainability:** Change size once in `tailwind.config.js`, updates everywhere
+- **Responsive:** Built-in responsive variants (mobile → tablet → desktop)
+- **Semantic:** Clear purpose (`headline-1` vs `text-5xl`)
+- **Accessibility:** Proper line heights and font weights included
+
+**Configuration:** `tailwind.config.js` - `fontSize` extension with semantic tokens
+
+### Typography Scale (Legacy - Being Migrated)
 
 | Element | Size (Mobile) | Size (Desktop) | Weight | Font |
 |---------|--------------|----------------|--------|------|

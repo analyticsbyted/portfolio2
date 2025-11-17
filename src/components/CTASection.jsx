@@ -8,7 +8,7 @@ const CTASection = ({
   className = "" 
 }) => {
   return (
-    <section className={`mt-20 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl ${className}`}>
+    <section className={`mt-20 text-center bg-gradient-to-r from-brand-primary to-brand-secondary text-white p-12 rounded-2xl ${className}`}>
       <h2 className="text-4xl font-bold mb-6 font-headline">{title}</h2>
       <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
         {description}

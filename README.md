@@ -55,7 +55,9 @@ portfolio2/
 - **Portfolio Showcase:** Tabbed navigation for different project categories
 - **Interactive Cards:** Hover effects, focus indicators, line clamping
 - **Lazy Loading:** Route-level code splitting for performance
-- **Modern Typography:** Inter + Source Serif Pro font pairing
+- **Modern Typography:** Inter + Source Serif Pro font pairing with optimized line heights
+- **Brand Identity System:** Semantic color tokens for maintainable theming (brand-primary, brand-secondary)
+- **Enhanced Button Interactions:** Consistent hover lift effects and active states
 - **Accessibility:** Keyboard navigation, focus indicators, semantic HTML, motion preferences
 
 ## Pages
@@ -83,15 +85,18 @@ See `docs/environment.md` for details.
 
 Comprehensive documentation is available in the `docs/` directory:
 
+- **Context & Handover:** `docs/context.md` ⭐ **Start here** (For new developers/LLMs)
+- **Brand Guidelines:** `docs/brand-guidelines.md` ⭐ (Color palette, typography, component patterns)
+- **Color Migration Guide:** `docs/color-migration-guide.md` ⭐ (Brand token usage, real-world examples)
 - **Getting Started:** `docs/getting-started.md`
 - **Architecture:** `docs/architecture.md`
-- **Context & Handover:** `docs/context.md` ⭐ (For new developers/LLMs)
 - **Styling & Theming:** `docs/styling-and-theming.md`
 - **Pages & Components:** `docs/pages-and-components.md`
 - **Work Catalog:** `docs/work-catalog.md`
 - **Assets:** `docs/assets.md`
 - **Deployment:** `docs/deployment.md`
 - **Scripts:** `docs/scripts.md`
+- **CHANGELOG:** `CHANGELOG.md` (Detailed change history)
 
 See `docs/README.md` for the full documentation index.
 

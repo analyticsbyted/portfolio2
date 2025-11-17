@@ -73,7 +73,7 @@ function Newsletter() {
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           Data Science
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
             Newsletter
           </span>
         </h1>
@@ -100,7 +100,7 @@ function Newsletter() {
 
       {/* Newsletter Subscription */}
       <section className="mb-16">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl text-center">
+        <div className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white p-12 rounded-2xl text-center">
           <EnvelopeIcon className="w-16 h-16 mx-auto mb-6 opacity-90" />
           <h2 className="text-4xl font-bold mb-6">Join Our Premium Community</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
@@ -205,7 +205,7 @@ function Newsletter() {
 
                   {/* Action Buttons */}
                   <div className="flex-shrink-0 flex flex-col gap-2">
-                    <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group-hover:scale-105">
+                    <button className="px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group-hover:scale-105">
                       Subscribe to Read
                     </button>
                     <button className="px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 text-sm">

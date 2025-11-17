@@ -331,7 +331,7 @@ function Certifications() {
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           Professional
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
             Certifications
           </span>
         </h1>
@@ -484,7 +484,7 @@ function Certifications() {
                 href={selectedCertification.verificationLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <TrophyIcon className="w-5 h-5 mr-2" />
                 Verify Certification

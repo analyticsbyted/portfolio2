@@ -19,7 +19,7 @@ function Education() {
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           Academic
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
             Excellence
           </span>
         </h1>
@@ -56,7 +56,7 @@ function Education() {
               key={tab.key}
               className={`px-4 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-lg transition-all duration-300 border-2 flex-1 sm:flex-none ${
                 activeSection === tab.key 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-blue-600 shadow-lg' 
+                  ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white border-brand-primary shadow-lg' 
                   : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:shadow-md'
               }`}
               onClick={() => setActiveSection(tab.key)}

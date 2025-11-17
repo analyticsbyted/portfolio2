@@ -15,16 +15,19 @@ We define surface tokens once in CSS and reference them via Tailwind or inline s
 Variables in `src/index.css`:
 ```css
 :root {
+  --color-white: 248 247 244; /* #F8F7F4 - off-white substitute */
   --color-surface: 248 247 244; /* Light off-white */
-  --color-card: 255 255 255;    /* Base card (overridable) */
+  --color-card: 250 249 247;    /* Soft card surface (off-white) */
   --color-border: 229 231 235;  /* Gray-200 */
-  --color-muted: 243 244 246;   /* Gray-100 */
+  --color-muted: 243 244 246;   /* Gray-100/200 */
 }
 .dark {
-  --color-surface: 17 24 39;    /* Gray-900 */
-  --color-card: 31 41 55;       /* Gray-800 */
-  --color-border: 55 65 81;     /* Gray-700 */
-  --color-muted: 41 49 61;      /* Gray-700 slightly darker */
+  --color-surface: 15 23 42;    /* Slate-900 (warmer than gray-900) */
+  --color-card: 30 41 59;       /* Slate-800 */
+  --color-border: 51 65 85;     /* Slate-700 */
+  --color-muted: 30 41 59;      /* Slate-800 */
+  --color-text-body: 203 213 225;    /* Slate-300 for body text */
+  --color-text-headline: 241 245 249; /* Slate-100 for headlines */
 }
 ```
 
@@ -55,6 +58,40 @@ Usage examples with Tailwind:
 - Usage:
   - Add `font-headline` on major titles, subtitles, and CTA buttons.
   - Body text inherits `font-body` by default from the app wrapper.
+
+### Brand Color Tokens
+
+**Structure:** Flattened with prefix for gradient support (required by Tailwind gradient utilities)
+
+**Tokens:**
+- `brand-primary`: #2563EB (blue-600) - start of gradient
+- `brand-secondary`: #9333EA (purple-600) - end of gradient
+- `brand-accent`: #1D4ED8 (blue-700) - hover/darker variants
+- `brand-accent-alt`: #7E22CE (purple-700) - hover/darker variants
+
+**Usage:**
+```jsx
+// Solid colors
+className="bg-brand-primary text-white"
+className="text-brand-secondary"
+className="border-brand-primary"
+
+// Gradients (REQUIRES flat structure)
+className="bg-gradient-to-r from-brand-primary to-brand-secondary"
+className="hover:from-brand-accent hover:to-brand-accent-alt"
+
+// Text gradients
+className="bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"
+
+// Opacity variants
+className="from-brand-primary/20 to-brand-secondary/20"
+```
+
+**Migration Status:** ✅ COMPLETE (2025-01-11) - All brand gradients migrated to semantic tokens
+- 26 instances migrated across 10 files
+- See `docs/color-migration-guide.md` for details and real-world examples
+
+**Configuration:** `tailwind.config.js` - flattened structure with nested aliases for backward compatibility
 
 ### Responsiveness
 - Use Tailwind responsive variants (`sm:`, `md:`, `lg:`, `xl:`) for layout changes. These compile to CSS `@media` rules.
