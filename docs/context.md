@@ -694,6 +694,7 @@ export default MyComponent;
 - `schema` prop on `HeadMetadata` injects JSON-LD scripts
 - `personSchema` (Person) applied globally so every major page explicitly references Ted Dickey II with consistent `sameAs` links
 - Home page also provides a `websiteSchema` (WebSite) with a `SearchAction` target to unlock sitelinks search box support
+- See `docs/seo-and-metadata.md` for step-by-step instructions on adding keywords, schemas, and regenerating the sitemap
 
 ### Robots & Sitemap
 - `robots.txt` trimmed to the modern `Sitemap` directive pointing at `https://teddickey.com/sitemap.xml`

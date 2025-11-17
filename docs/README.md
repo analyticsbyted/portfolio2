@@ -14,6 +14,7 @@ This folder documents the application architecture, setup, and operational guide
 - Brand Guidelines: `docs/brand-guidelines.md` ⭐ (Color palette, typography, logo usage)
 - Color Migration Guide: `docs/color-migration-guide.md` ⭐ (Migrating to brand tokens)
 - Brand Token Quick Reference: `docs/BRAND-TOKEN-QUICK-REFERENCE.md` (Quick lookup for brand token usage)
+- SEO & Metadata: `docs/seo-and-metadata.md` (HeadMetadata usage, schema, sitemap automation)
 - Routing & Navigation: `docs/routing-and-navigation.md`
 - Work Page Catalog: `docs/work-catalog.md`
 

@@ -18,7 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Robots & Sitemap**:
   - `robots.txt` simplified to the modern `Sitemap` directive pointing at `https://teddickey.com/sitemap.xml`.
   - `sitemap.xml` updated with `<lastmod>` timestamps for every entry to highlight recent activity.
-- **Files Modified**: `src/components/HeadMetadata.jsx`, `src/seo/personSchema.js`, `src/seo/websiteSchema.js`, top-level page files, `public/robots.txt`, `public/sitemap.xml`, documentation.
+- **Sitemap Automation**: Added `scripts/generate-sitemap.mjs` plus `npm run generate:sitemap` to regenerate the sitemap programmatically.
+- **Documentation**: Created `docs/seo-and-metadata.md` and expanded `docs/context.md`/`docs/README.md` with SEO instructions.
+- **Files Modified**: `src/components/HeadMetadata.jsx`, `src/seo/personSchema.js`, `src/seo/websiteSchema.js`, page files, `scripts/generate-sitemap.mjs`, `public/robots.txt`, `public/sitemap.xml`, documentation, `package.json`.
 
 ### Added - 2025-01-11
 
