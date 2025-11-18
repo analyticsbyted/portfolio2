@@ -329,21 +329,69 @@ const tabs = [
 - Certification cards in `Certifications.jsx`
 
 #### ImageWithSkeleton.jsx
-**Purpose:** Image loader with skeleton placeholder during load
+**Purpose:** Enhanced image loader with lazy loading, responsive images, WebP fallback, and skeleton placeholder
+
+**Location:** `src/components/ImageWithSkeleton.jsx`
 
 **Props:**
-- `src`: Image source (imported asset or URL)
-- `alt`: Alt text for accessibility
+- `src`: Image source (imported asset or URL) - **required**
+- `alt`: Alt text for accessibility - **required**
 - `className`: Additional CSS classes (typically `h-full w-full object-contain`)
+- `webpSrc`: Optional WebP version (enables `<picture>` element with automatic fallback)
+- `srcset`: Optional srcset attribute for responsive images
+- `sizes`: Optional sizes attribute for responsive images
+- `loading`: Loading strategy - `'lazy'` (default), `'eager'`, or `false`
+- `onLoad`: Callback function when image loads
+- `...rest`: Additional img attributes
 
 **Features:**
-- Shows skeleton placeholder (`bg-muted/50 animate-pulse`) while loading
-- Fades in image when loaded
-- Uses `object-contain` by default to prevent cropping
+- **Lazy Loading:** Native browser lazy loading enabled by default (`loading="lazy"`)
+  - Images below the fold load only when about to enter viewport
+  - Reduces initial page load time and bandwidth usage
+  - Can be overridden with `loading="eager"` for above-the-fold images
+- **WebP Fallback:** Automatic `<picture>` element when `webpSrc` is provided
+  - Falls back to original format (PNG/JPG) if WebP not supported
+  - No changes to existing images required—WebP versions are optional
+- **Responsive Images:** Supports `srcset` and `sizes` for responsive image loading
+  - Browser selects appropriate image size based on viewport and device pixel ratio
+  - Existing images remain unchanged—responsive versions are optional
+- **Loading States:** Shows skeleton placeholder (`bg-muted/60 animate-pulse`) while loading
+- **Error Handling:** Displays fallback message if image fails to load
+- **Smooth Transitions:** Fades in image when loaded (`opacity-0` → visible)
 
 **Usage:**
-- All poster images in `Work.jsx`
+```jsx
+// Basic usage (lazy loading enabled by default)
+<ImageWithSkeleton
+  src={posterImage}
+  alt="Project poster"
+  className="h-full w-full object-contain"
+/>
+
+// With WebP fallback
+<ImageWithSkeleton
+  src={posterPng}
+  webpSrc={posterWebp}
+  alt="Project poster"
+  className="h-full w-full object-contain"
+/>
+
+// Eager loading for above-the-fold images
+<ImageWithSkeleton
+  src={heroImage}
+  alt="Hero image"
+  loading="eager"
+  className="w-full"
+/>
+```
+
+**Used In:**
+- All poster images in `Work.jsx` (lazy loading enabled)
+- Featured project image in `Home.jsx` (lazy loading enabled)
 - Certification badges in `Certifications.jsx`
+- `PosterFrame.jsx` component (uses `ImageWithSkeleton` internally)
+
+**See Also:** [Image Optimization Documentation](./image-optimization.md) for detailed optimization strategy and migration guide.
 
 #### PosterFrame.jsx
 **Purpose:** Wrapper for poster images with consistent styling
@@ -396,6 +444,52 @@ const tabs = [
 - `children`: Page component to wrap
 
 **See Also:** `docs/routing-and-navigation.md` for page transition details
+
+#### ErrorBoundary.jsx
+**Purpose:** Error boundary component that catches JavaScript errors and displays fallback UI
+
+**Location:** `src/components/ErrorBoundary.jsx`
+
+**Features:**
+- **Error Catching:** Catches JavaScript errors in child component tree
+- **Fallback UI:** Displays branded error message with recovery options
+- **Error Logging:** Integrates with centralized error logger (`lib/errorLogger.js`)
+- **Development Mode:** Shows full error details (stack traces, component stacks)
+- **Recovery Options:** "Try Again" button and "Go Home" link
+- **Customizable:** Custom error titles and messages per route
+
+**Props:**
+- `children` - Child components to wrap
+- `fallbackTitle` - Custom title for error message (default: "Something went wrong")
+- `fallbackMessage` - Custom message for the error
+- `onError` - Optional callback when error occurs (for custom logging)
+- `showDetails` - Whether to show error details (default: development mode only)
+
+**Usage:**
+```jsx
+<ErrorBoundary
+  fallbackTitle="Portfolio Page Error"
+  fallbackMessage="We encountered an error loading the portfolio."
+  onError={customErrorHandler}
+>
+  <YourComponent />
+</ErrorBoundary>
+```
+
+**Implementation:**
+- Uses React class component (required for error boundaries)
+- Implements `componentDidCatch` and `static getDerivedStateFromError`
+- Three-layer protection: global, route-level, and component-level
+- All routes wrapped with route-specific error boundaries
+- Global boundary in `main.jsx` as last resort
+
+**Error Logging:**
+- Uses `logError` from `lib/errorLogger.js`
+- Development: Full error details in console
+- Production: Ready for external services (Sentry, LogRocket)
+- Includes context (component name, route, user action)
+
+**See Also:** [Error Boundaries Documentation](./error-boundaries.md) for detailed implementation guide
 
 ## Section Components (`src/components/sections`)
 

@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import logo from './assets/logo-td.svg';
 import AnimatedPage from './components/AnimatedPage';
 import PageSkeleton from './components/PageSkeleton';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Keep Home eagerly loaded (critical path - first page users see)
 import Home from './pages/Home';
@@ -82,93 +83,153 @@ function AppContent() {
     };
   }, [mobileOpen]);
 
+  // Error logging function (uses centralized logger)
+  const logError = (error, errorInfo) => {
+    // Error logging is handled by ErrorBoundary component using logError from lib/errorLogger
+    // This callback can be used for route-specific error handling if needed
+  };
+
   const routes = [
     {
       path: '/',
       element: (
-        <AnimatedPage>
-          <Home />
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Home Page Error"
+          fallbackMessage="We encountered an error loading the home page. Please try refreshing or navigating to another page."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Home />
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/work',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="work" />}>
-            <Work />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Portfolio Page Error"
+          fallbackMessage="We encountered an error loading the portfolio. Some projects may not be displaying correctly."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="work" />}>
+              <Work />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/publications',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="publications" />}>
-            <Publications />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Publications Page Error"
+          fallbackMessage="We encountered an error loading publications. Please try again later."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="publications" />}>
+              <Publications />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/newsletter',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="newsletter" />}>
-            <Newsletter />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Newsletter Page Error"
+          fallbackMessage="We encountered an error loading the newsletter page. Please try again later."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="newsletter" />}>
+              <Newsletter />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/certifications',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="certifications" />}>
-            <Certifications />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Certifications Page Error"
+          fallbackMessage="We encountered an error loading certifications. Some badges may not be displaying correctly."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="certifications" />}>
+              <Certifications />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/about',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="about" />}>
-            <About />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="About Page Error"
+          fallbackMessage="We encountered an error loading the about page. Please try again later."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="about" />}>
+              <About />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/education',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="education" />}>
-            <Education />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Education Page Error"
+          fallbackMessage="We encountered an error loading education information. Please try again later."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="education" />}>
+              <Education />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '/contact',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="contact" />}>
-            <Contact />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Contact Page Error"
+          fallbackMessage="We encountered an error loading the contact form. Please try refreshing the page or use the email link below."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="contact" />}>
+              <Contact />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
     {
       path: '*',
       element: (
-        <AnimatedPage>
-          <Suspense fallback={<PageSkeleton variant="notfound" />}>
-            <NotFound />
-          </Suspense>
-        </AnimatedPage>
+        <ErrorBoundary
+          fallbackTitle="Page Not Found"
+          fallbackMessage="The page you're looking for doesn't exist or encountered an error."
+          onError={logError}
+        >
+          <AnimatedPage>
+            <Suspense fallback={<PageSkeleton variant="notfound" />}>
+              <NotFound />
+            </Suspense>
+          </AnimatedPage>
+        </ErrorBoundary>
       ),
     },
   ];

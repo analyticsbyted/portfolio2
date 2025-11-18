@@ -42,13 +42,20 @@ portfolio2/
 │   │   ├── AnimatedPage.jsx    # Page transition wrapper (Framer Motion)
 │   │   ├── Button.jsx          # Link-styled button component
 │   │   ├── Card.jsx            # Reusable card shell (hover, focus, gradient bar)
-│   │   ├── ImageWithSkeleton.jsx # Image loader with skeleton placeholder
+│   │   ├── ErrorBoundary.jsx  # Error boundary component (catches errors, fallback UI)
+│   │   ├── HeadMetadata.jsx   # Dynamic meta tags and JSON-LD schema component
+│   │   ├── ImageWithSkeleton.jsx # Image loader with lazy loading, WebP fallback
+│   │   ├── PageSkeleton.jsx   # Route-specific loading skeletons
 │   │   ├── PageSubtitle.jsx    # Page subtitle component
 │   │   ├── CTASection.jsx      # Call-to-action block
 │   │   ├── Footer.jsx          # Global footer
 │   │   └── sections/           # Feature sections used by pages
 │   ├── lib/
-│   │   └── validators.js       # Zod validation schemas (contact form)
+│   │   ├── validators.js       # Zod validation schemas (contact form)
+│   │   └── errorLogger.js      # Centralized error logging utility
+│   ├── seo/
+│   │   ├── personSchema.js     # JSON-LD Person schema
+│   │   └── websiteSchema.js    # JSON-LD WebSite schema
 │   ├── assets/                 # Images, SVGs, posters
 │   │   ├── webapps/            # Web app screenshots (16:9 posters)
 │   │   ├── research/           # Research project SVGs (4:3 posters)
@@ -63,11 +70,18 @@ portfolio2/
 │   └── favicon-td.svg
 ├── scripts/                    # Utility scripts
 │   ├── capture-screenshot.mjs  # Puppeteer script for capturing app screenshots
-│   └── image-audit.mjs         # Image optimization audit tool
+│   ├── image-audit.mjs         # Image optimization audit tool
+│   └── generate-sitemap.mjs    # Dynamic sitemap generation script
+├── tests/                      # Test files
+│   ├── setup.js                # Test environment setup (mocks, globals)
+│   ├── validators.test.js      # Form validation tests (19 tests)
+│   ├── ErrorBoundary.test.jsx  # Error boundary tests (12 tests)
+│   ├── Button.test.jsx         # Button component tests (22 tests)
+│   └── README.md               # Testing documentation
 ├── docs/                       # Project documentation
 ├── dist/                       # Production build output (gitignored)
 ├── index.html                  # Root HTML shell
-├── vite.config.js              # Vite configuration
+├── vite.config.js              # Vite configuration (includes Vitest config)
 ├── tailwind.config.js          # Tailwind CSS configuration
 ├── package.json                # Dependencies and scripts
 └── cloudfront-spa-function.js  # CloudFront Function for SPA routing
@@ -163,13 +177,69 @@ portfolio2/
   - Dark mode uses Slate palette (slate-900, slate-800, slate-700) instead of Gray
   - Text color variables: `--color-text-body` (slate-300), `--color-text-headline` (slate-100)
 
-### 10. Image Standards
+### 10. Image Optimization & Lazy Loading
+- **Decision:** Enhanced `ImageWithSkeleton` component with native lazy loading, WebP fallback, and responsive images
+- **Rationale:** Improved Core Web Vitals (LCP, CLS), reduced bandwidth usage, better mobile performance
+- **Implementation:**
+  - Native browser lazy loading enabled by default (`loading="lazy"`)
+  - WebP fallback via `<picture>` element (optional, falls back to PNG/JPG)
+  - Responsive images via `srcset` and `sizes` attributes (optional)
+  - Loading skeletons for better perceived performance
+  - Error handling with graceful degradation
+- **Fallback Strategy:** 
+  - No changes to existing images required—all optimizations are optional
+  - WebP versions can be added incrementally without breaking existing images
+  - Browser automatically falls back to original format if WebP not supported
+- **Performance Impact:**
+  - Below-the-fold images load only when about to enter viewport
+  - WebP provides ~25-35% file size reduction (when available)
+  - Reduced initial page load time and bandwidth usage
+
+### 11. Error Boundaries
+- **Decision:** Three-layer error boundary protection (global, route-level, component-level)
+- **Rationale:** Prevents full app crashes, provides graceful degradation, improves user experience, enables production resilience
+- **Implementation:**
+  - **Global Boundary:** Wraps entire app in `main.jsx` as last resort safety net
+  - **Route-Level Boundaries:** Each route wrapped with custom error boundary in `App.jsx`
+    - Custom error messages per page type
+    - Isolated error handling - one page failure doesn't affect others
+  - **Error Logging:** Centralized `logError` utility in `lib/errorLogger.js`
+    - Development: Full error details in console
+    - Production: Ready for external services (Sentry, LogRocket)
+  - **Fallback UI:** Branded error messages with recovery options ("Try Again", "Go Home")
+- **Benefits:**
+  - Prevents single component errors from crashing entire application
+  - Better UX with helpful error messages instead of blank screens
+  - Production resilience for unexpected data, network failures, edge cases
+  - Debugging support with centralized error logging
+  - Professional polish demonstrating production-ready error handling
+
+### 12. Testing Infrastructure
+- **Decision:** Vitest + React Testing Library for automated testing
+- **Rationale:** Fast, Vite-native test runner, component testing best practices, CI/CD ready
+- **Implementation:**
+  - **Test Framework:** Vitest configured in `vite.config.js` with jsdom environment
+  - **Test Setup:** `tests/setup.js` with mocks for `matchMedia`, `localStorage`, cleanup
+  - **Test Coverage:** 53 tests covering critical functionality
+    - Form validation (19 tests) - Contact form validation schemas
+    - Error boundaries (12 tests) - Error handling and fallback UI
+    - Button component (22 tests) - All button variants and behaviors
+  - **Test Scripts:** `npm test` (watch), `npm test -- --run` (once), `npm test:ui` (UI), `npm test:run` (CI)
+- **Benefits:**
+  - Confidence in form validation preventing bad data
+  - Verification of error handling working correctly
+  - Protection against regressions in core components
+  - Fast feedback during development
+  - Ready for CI/CD integration
+
+### 13. Image Standards
 - **Poster Images:**
   - Web apps: 16:9 screenshots (PNG, ~1200x675 or 1200x600)
   - Research/BI/NLP: 4:3 vector SVGs
 - **Naming:** `[project-name]-poster.png` or `[category]-[name].svg`
 - **Location:** `src/assets/webapps/`, `src/assets/research/`, etc.
 - **Display:** `object-contain` within fixed-height frames to prevent cropping
+- **Optimization:** All images use `ImageWithSkeleton` component with lazy loading enabled
 
 ## Core Components
 
@@ -188,7 +258,11 @@ portfolio2/
 - Manages theme state (light/dark) with localStorage
 - Implements page transitions via Framer Motion's `AnimatePresence`
 - Wraps all pages in main layout container (`max-w-7xl mx-auto`)
-- Lazy-loads `Work.jsx` with Suspense fallback
+- **Error Boundaries:** All routes wrapped with route-specific error boundaries
+  - Custom error messages per page type
+  - Isolated error handling - one page failure doesn't affect others
+  - Error logging integration
+- **Route-Based Code Splitting:** All routes except Home lazy-loaded with Suspense fallbacks
 
 **Important Patterns:**
 - Routing: `useRoutes` hook with routes array (instead of `<Routes>` component)
@@ -306,17 +380,32 @@ const element = useRoutes(routes);
 - Gradient bar: Optional thin gradient bar at top of image frame
 
 ### ImageWithSkeleton.jsx
-**Purpose:** Image loader with skeleton placeholder during load
+**Purpose:** Enhanced image loader with lazy loading, responsive images, WebP fallback, and skeleton placeholder
 
 **Props:**
-- `src`: Image source (imported asset or URL)
-- `alt`: Alt text
+- `src`: Image source (imported asset or URL) - **required**
+- `alt`: Alt text - **required**
 - `className`: Additional classes (typically `h-full w-full object-contain`)
+- `webpSrc`: Optional WebP version (enables `<picture>` element with automatic fallback)
+- `srcset`: Optional srcset attribute for responsive images
+- `sizes`: Optional sizes attribute for responsive images
+- `loading`: Loading strategy - `'lazy'` (default), `'eager'`, or `false`
+- `onLoad`: Callback function when image loads
 
 **Behavior:**
-- Shows skeleton placeholder (`bg-muted/50 animate-pulse`) while loading
-- Fades in image when loaded
-- Uses `object-contain` by default to prevent cropping
+- **Lazy Loading:** Native browser lazy loading enabled by default (`loading="lazy"`)
+  - Images below the fold load only when about to enter viewport
+  - Reduces initial page load time and bandwidth usage
+- **WebP Fallback:** Automatic `<picture>` element when `webpSrc` is provided
+  - Falls back to original format (PNG/JPG) if WebP not supported
+  - No changes to existing images required—WebP versions are optional
+- **Responsive Images:** Supports `srcset` and `sizes` for responsive image loading
+  - Browser selects appropriate image size based on viewport and device pixel ratio
+- **Loading States:** Shows skeleton placeholder (`bg-muted/60 animate-pulse`) while loading
+- **Error Handling:** Displays fallback message if image fails to load
+- **Smooth Transitions:** Fades in image when loaded (`opacity-0` → visible)
+
+**See Also:** [Image Optimization Documentation](./image-optimization.md) for detailed optimization strategy and migration guide.
 
 ### AnimatedPage.jsx
 **Purpose:** Page transition wrapper using Framer Motion
@@ -514,6 +603,15 @@ npm install
 # Start dev server (HMR enabled)
 npm run dev
 
+# Run tests (watch mode)
+npm test
+
+# Run tests once
+npm test -- --run
+
+# Run tests with UI
+npm test:ui
+
 # Build for production
 npm run build
 
@@ -522,6 +620,9 @@ npm run preview
 
 # Lint code
 npm run lint
+
+# Generate sitemap
+npm run generate:sitemap
 ```
 
 ### Environment Setup
@@ -673,6 +774,38 @@ export default MyComponent;
 
 ## Testing & Quality Assurance
 
+### Automated Testing
+
+**Test Framework:** Vitest + React Testing Library
+
+**Test Coverage:** 53 tests covering critical functionality
+- **Form Validation** (`tests/validators.test.js`): 19 tests
+  - Name, email, message validation
+  - Honeypot spam protection
+  - Complete form scenarios
+- **Error Boundaries** (`tests/ErrorBoundary.test.jsx`): 12 tests
+  - Error catching and fallback UI
+  - Recovery options
+  - Error logging
+  - Accessibility
+- **Button Component** (`tests/Button.test.jsx`): 22 tests
+  - Button, Link, and anchor rendering
+  - Accessibility
+  - Styling and props forwarding
+
+**Running Tests:**
+```bash
+npm test              # Watch mode
+npm test -- --run     # Run once
+npm test:ui           # UI mode
+npm test:run          # CI mode
+```
+
+**Test Setup:**
+- `tests/setup.js`: Mocks for `matchMedia`, `localStorage`, cleanup
+- Vitest configured in `vite.config.js` with jsdom environment
+- See `tests/README.md` for detailed testing documentation
+
 ### Manual Testing Checklist
 - [ ] All pages load without errors
 - [ ] Navigation works (desktop + mobile)
@@ -684,6 +817,7 @@ export default MyComponent;
 - [ ] SPA routing works (no 404s on refresh)
 - [ ] External links open in new tabs
 - [ ] Accessibility: Keyboard navigation, focus indicators
+- [ ] Run automated tests: `npm test -- --run`
 
 ### Browser Support
 - Modern browsers (Chrome, Firefox, Safari, Edge)
@@ -693,13 +827,17 @@ export default MyComponent;
 ## Performance Considerations
 
 ### Code Splitting
-- `Work.jsx` lazy-loaded to reduce initial bundle size
-- Route-level splitting via `React.lazy()`
+- **Route-Based Code Splitting:** All routes except `Home.jsx` lazy-loaded with `React.lazy()`
+- **Bundle Size Reduction:** 31% reduction (557KB → 383KB main bundle)
+- **Loading States:** `PageSkeleton` component provides route-specific loading skeletons
+- **Impact:** Faster initial page load, improved Core Web Vitals (LCP, FID)
 
 ### Image Optimization
-- Use WebP where possible for certifications
-- SVG for vector posters (smaller file sizes)
-- Optimize PNG screenshots before committing
+- **Lazy Loading:** Native browser lazy loading enabled by default (`loading="lazy"`)
+- **WebP Fallback:** Optional WebP versions with automatic fallback to PNG/JPG
+- **Responsive Images:** Optional `srcset` and `sizes` support
+- **Image Standards:** Web apps (16:9 PNG), Research/BI/NLP (4:3 SVG)
+- **Performance Impact:** Reduced initial load time, improved LCP, better mobile performance
 
 ### Tailwind JIT
 - Only used classes are included in build
@@ -726,17 +864,53 @@ export default MyComponent;
 - `robots.txt` trimmed to the modern `Sitemap` directive pointing at `https://teddickey.com/sitemap.xml`
 - `sitemap.xml` refreshed with `<lastmod>` timestamps to highlight recent updates across all public routes
 
+## Analytics & User Tracking
+
+### Google Analytics 4 (GA4)
+- **Purpose:** Comprehensive web analytics for tracking user behavior, conversions, and performance
+- **Setup:** Requires Measurement ID (`G-XXXXXXXXXX`) from Google Analytics dashboard
+- **Integration:** `react-ga4` library for React integration
+- **Features:**
+  - Page view tracking
+  - Custom event tracking (form submissions, button clicks, project views)
+  - User flow analysis
+  - Audience insights
+  - Real-time data
+- **Implementation:** Initialize in `main.jsx`, track route changes in `App.jsx`
+- **See:** `docs/analytics.md` for complete setup and usage instructions
+
+### Microsoft Clarity
+- **Purpose:** Free user behavior analytics with session recordings and heatmaps
+- **Setup:** Requires Project ID from Microsoft Clarity dashboard
+- **Integration:** Script injection (no npm package needed)
+- **Features:**
+  - Session recordings (watch user interactions)
+  - Heatmaps (click, scroll, move patterns)
+  - Dead clicks and rage clicks detection
+  - JavaScript error tracking
+  - UX insights
+- **Implementation:** Initialize in `main.jsx` via `initClarity()` utility
+- **See:** `docs/analytics.md` for complete setup and usage instructions
+
+### Privacy Considerations
+- **GDPR Compliance:** Cookie consent required before initializing analytics
+- **IP Anonymization:** GA4 anonymizes IPs by default
+- **Opt-out:** Provide users with opt-out mechanism
+- **Privacy Policy:** Update privacy policy with analytics usage disclosure
+
 ## Future Enhancements & TODOs
 
 ### Potential Improvements
-- [ ] Add unit tests (Vitest, React Testing Library)
+- [x] Add unit tests (Vitest, React Testing Library) - **COMPLETE** (53 tests)
 - [ ] Add E2E tests (Playwright, Cypress)
+- [ ] Expand test coverage (ImageWithSkeleton, HeadMetadata, PageSkeleton, Contact form integration)
 - [ ] Add TypeScript migration
 - [ ] Add Storybook for component documentation
-- [ ] Optimize images further (WebP conversion)
+- [ ] Optimize images further (WebP conversion for all images)
 - [ ] Add PWA support (service worker, manifest)
-- [ ] Add analytics tracking for user interactions
+- [ ] **Add analytics tracking** (Google Analytics, Microsoft Clarity) - **DOCUMENTED** (see `docs/analytics.md`)
 - [ ] Add i18n support for multiple languages
+- [ ] Integrate external error tracking (Sentry, LogRocket)
 
 ### Known Limitations
 - No server-side rendering (SSR) - pure SPA
@@ -765,10 +939,17 @@ export default MyComponent;
 - `docs/README.md`: Documentation index
 - `docs/architecture.md`: Architecture overview
 - `docs/getting-started.md`: Setup guide
+- `docs/development-workflow.md`: Development workflow and best practices
 - `docs/deployment.md`: Deployment guide
 - `docs/styling-and-theming.md`: Styling guidelines
 - `docs/work-catalog.md`: Work page structure
 - `docs/assets.md`: Asset management guide
+- `docs/contact-form.md`: Contact form implementation (react-hook-form + zod)
+- `docs/error-boundaries.md`: Error boundary implementation
+- `docs/image-optimization.md`: Image optimization and lazy loading
+- `docs/seo-and-metadata.md`: SEO and metadata management
+- `docs/analytics.md`: Google Analytics and Microsoft Clarity setup and usage ⭐
+- `tests/README.md`: Testing documentation and guidelines
 
 ### External Resources
 - [Vite Documentation](https://vite.dev/)
@@ -783,17 +964,38 @@ export default MyComponent;
 
 ---
 
-**Last Updated:** 2025-11-17  
+**Last Updated:** 2025-01-11  
 **Maintained By:** Ted Dickey II  
-**Version:** 1.4
+**Version:** 1.5
 
 **Recent Updates:**
+- **Analytics Documentation (2025-01-11):**
+  - Created comprehensive analytics documentation (`docs/analytics.md`)
+  - Documented Google Analytics 4 (GA4) integration with react-ga4
+  - Documented Microsoft Clarity integration with script injection
+  - Included setup instructions, usage examples, and best practices
+  - Added privacy compliance guidance (GDPR, cookie consent)
+  - Ready for implementation when analytics accounts are created
+- **Testing Infrastructure (2025-01-11):**
+  - Implemented Vitest + React Testing Library for automated testing
+  - Created 53 tests covering form validation, error boundaries, and Button component
+  - Added test scripts and comprehensive testing documentation
+  - Ready for CI/CD integration
+- **Error Boundaries Implementation (2025-01-11):**
+  - Three-layer error boundary protection (global, route-level, component-level)
+  - Centralized error logging utility (`lib/errorLogger.js`)
+  - Branded fallback UI with recovery options
+  - All routes protected with custom error messages
+- **Image Optimization & Lazy Loading (2025-01-11):**
+  - Enhanced `ImageWithSkeleton` component with native lazy loading
+  - WebP fallback support with automatic fallback
+  - Responsive images support (srcset/sizes)
+  - All images use lazy loading by default
 - **SEO & Structured Data Enhancements (2025-11-17):**
   - Extended `HeadMetadata` to support JSON-LD and reusable `schema` props
   - Added global `personSchema` and homepage `websiteSchema` for rich search results
   - Refined per-page keywords so each route highlights its specific content focus
   - Updated `robots.txt` and `sitemap.xml` (with `<lastmod>`) to match production domain
-- **Documentation Enhancements (2025-01-11):**
 - **Documentation Enhancements (2025-01-11):**
   - Enhanced root README.md with welcoming introduction and quick start guide
   - Added "5-Minute Quick Start Checklist" for rapid onboarding

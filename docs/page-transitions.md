@@ -47,7 +47,7 @@ function AppContent() {
       path: '/work',
       element: (
         <AnimatedPage>
-          <Suspense fallback={/* ... */}>
+          <Suspense fallback={<PageSkeleton variant="work" />}>
             <Work />
           </Suspense>
         </AnimatedPage>
@@ -203,6 +203,7 @@ The implementation fully respects `prefers-reduced-motion`:
 - **Framer Motion:** ~60-80KB gzipped
 - **Impact:** Acceptable tradeoff for UX improvement
 - **Optimization:** Only imports needed functions (`motion`, `AnimatePresence`)
+- **Code Splitting:** Route-based splitting reduces initial bundle by 31% (see `docs/context.md`)
 
 ### Animation Performance
 - **GPU Acceleration:** Framer Motion uses transform/opacity (GPU-accelerated)
@@ -251,25 +252,45 @@ The implementation fully respects `prefers-reduced-motion`:
 
 ## Adding New Routes
 
-When adding a new route, always wrap it in `<AnimatedPage>`:
+When adding a new route, wrap it in `<AnimatedPage>` and use lazy loading with `<Suspense>`:
 
 ```javascript
-// ✅ Correct
+// ✅ Correct - Lazy loaded route with Suspense
+import { lazy, Suspense } from 'react';
+import AnimatedPage from './components/AnimatedPage';
+import PageSkeleton from './components/PageSkeleton';
+
+const NewPage = lazy(() => import('./pages/NewPage'));
+
 {
   path: '/new-page',
   element: (
     <AnimatedPage>
-      <NewPage />
+      <Suspense fallback={<PageSkeleton variant="default" />}>
+        <NewPage />
+      </Suspense>
     </AnimatedPage>
   ),
 }
 
-// ❌ Incorrect (no transition)
+// ✅ Also correct - Eagerly loaded route (only for critical paths like Home)
+{
+  path: '/',
+  element: (
+    <AnimatedPage>
+      <Home />
+    </AnimatedPage>
+  ),
+}
+
+// ❌ Incorrect (no transition, no lazy loading)
 {
   path: '/new-page',
   element: <NewPage />,
 }
 ```
+
+**Note:** For non-critical routes, always use lazy loading to maintain bundle size benefits.
 
 ## Future Enhancements
 

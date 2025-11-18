@@ -92,6 +92,24 @@ npm run generate:sitemap
 - Regenerates `public/sitemap.xml` with up-to-date `<lastmod>` dates.
 - Update `scripts/generate-sitemap.mjs` `routes` array when new top-level pages are added.
 
+### Run Tests
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests once
+npm test -- --run
+
+# Run tests with UI
+npm test:ui
+
+# Run tests in CI mode
+npm test:run
+```
+- Runs unit and component tests using Vitest
+- Tests form validation, error boundaries, and components
+- See `tests/README.md` for detailed testing documentation
+
 ## File Structure & Organization
 
 ### Adding a New Page
@@ -233,10 +251,11 @@ chore: update dependencies
 
 ### Before Committing
 1. **Run Linter:** `npm run lint`
-2. **Build Successfully:** `npm run build`
-3. **Test Locally:** `npm run preview`
-4. **Check Changes:** `git diff`
-5. **Review Staged Files:** `git status`
+2. **Run Tests:** `npm test -- --run`
+3. **Build Successfully:** `npm run build`
+4. **Test Locally:** `npm run preview`
+5. **Check Changes:** `git diff`
+6. **Review Staged Files:** `git status`
 
 ### Common Git Commands
 ```bash
@@ -335,6 +354,28 @@ git checkout main
 
 ## Testing
 
+### Automated Testing
+
+The project uses **Vitest** and **React Testing Library** for automated testing.
+
+**Test Coverage:**
+- Form validation (`validators.test.js`) - 19 tests
+- Error boundaries (`ErrorBoundary.test.jsx`) - 12 tests
+- Button component (`Button.test.jsx`) - 22 tests
+
+**Running Tests:**
+```bash
+npm test              # Watch mode
+npm test -- --run     # Run once
+npm test:ui           # UI mode
+npm test:run          # CI mode
+```
+
+**Writing Tests:**
+- Component tests: Use React Testing Library queries (`getByRole`, `getByText`)
+- Utility tests: Test function inputs/outputs
+- See `tests/README.md` for examples and best practices
+
 ### Manual Testing Checklist
 Before committing, test:
 - [ ] All pages load without errors
@@ -399,7 +440,7 @@ Before deploying:
 - **DRY:** Don't Repeat Yourself - extract common logic
 - **Consistent:** Follow project conventions
 - **Documented:** Add comments for complex logic
-- **Tested:** Test manually before committing
+- **Tested:** Write tests for new features, run tests before committing
 
 ## Resources
 

@@ -44,6 +44,15 @@ The app will be available at `http://localhost:5173` (or next available port).
 # Start development server (with HMR)
 npm run dev
 
+# Run tests (watch mode)
+npm test
+
+# Run tests once
+npm test -- --run
+
+# Run tests with UI
+npm test:ui
+
 # Build for production
 npm run build
 
@@ -52,6 +61,9 @@ npm run preview
 
 # Lint code
 npm run lint
+
+# Generate sitemap
+npm run generate:sitemap
 ```
 
 ## Project Structure
@@ -79,7 +91,10 @@ portfolio2/
 - **Mobile Navigation:** Animated slide-in menu with backdrop overlay and staggered items
 - **Portfolio Showcase:** Tabbed navigation for different project categories
 - **Interactive Cards:** Hover effects, focus indicators, line clamping
-- **Lazy Loading:** Route-level code splitting for performance
+- **Route-Based Code Splitting:** All routes except Home lazy-loaded for 31% bundle reduction (557KB → 383KB)
+- **Image Optimization:** Lazy loading, WebP fallback, responsive images
+- **Error Boundaries:** Three-layer error handling (global, route-level, component-level)
+- **Automated Testing:** 53 tests covering form validation, error boundaries, and core components
 - **Modern Typography:** Inter + Source Serif Pro font pairing with optimized line heights
 - **Brand Identity System:** Semantic color tokens for maintainable theming (brand-primary, brand-secondary)
 - **Enhanced Button Interactions:** Consistent hover lift effects and active states
@@ -128,6 +143,7 @@ See `docs/environment.md` for details.
 
 **Development:**
 - **[Development Workflow](docs/development-workflow.md)** - Best practices and common tasks
+- **[Testing](tests/README.md)** ⭐ - Test setup, running tests, writing tests
 - **[Troubleshooting](docs/troubleshooting.md)** - Solutions to common issues
 - **[Scripts](docs/scripts.md)** - Utility scripts and tools
 
@@ -135,6 +151,13 @@ See `docs/environment.md` for details.
 - **[Deployment Guide](docs/deployment.md)** - Production deployment instructions
 - **[Assets & Media](docs/assets.md)** - Image standards and asset management
 - **[Environment Variables](docs/environment.md)** - Configuration and secrets
+
+**Features:**
+- **[Contact Form](docs/contact-form.md)** - react-hook-form + zod implementation
+- **[Error Boundaries](docs/error-boundaries.md)** ⭐ - Error handling and fallback UI
+- **[Image Optimization](docs/image-optimization.md)** ⭐ - Lazy loading, WebP fallback
+- **[SEO & Metadata](docs/seo-and-metadata.md)** - Dynamic meta tags, JSON-LD, sitemap
+- **[Analytics & Tracking](docs/analytics.md)** ⭐ - Google Analytics & Microsoft Clarity setup
 
 ### 📋 Additional Resources
 

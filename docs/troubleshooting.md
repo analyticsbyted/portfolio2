@@ -507,8 +507,9 @@ Error: Incompatible React versions: The "react" and "react-dom" packages must ha
    - Compress images
 
 3. **Code Splitting:**
-   - Use `React.lazy()` for large components
-   - Already implemented for `Work.jsx`
+   - Route-based code splitting implemented (all routes except Home lazy-loaded)
+   - Use `React.lazy()` for any new large components
+   - See `docs/context.md` for code splitting details
 
 4. **Check Network Tab:**
    - Identify slow requests

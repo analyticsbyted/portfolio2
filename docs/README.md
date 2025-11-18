@@ -15,19 +15,22 @@ This folder documents the application architecture, setup, and operational guide
 - Color Migration Guide: `docs/color-migration-guide.md` ⭐ (Migrating to brand tokens)
 - Brand Token Quick Reference: `docs/BRAND-TOKEN-QUICK-REFERENCE.md` (Quick lookup for brand token usage)
 - SEO & Metadata: `docs/seo-and-metadata.md` (HeadMetadata usage, schema, sitemap automation)
-- Routing & Navigation: `docs/routing-and-navigation.md`
+- Routing & Navigation: `docs/routing-and-navigation.md` ⭐ (Route-based code splitting)
 - Work Page Catalog: `docs/work-catalog.md`
 
 ### Development & Operations
 - Development Workflow: `docs/development-workflow.md`
+- Testing: `tests/README.md` ⭐ (Test setup, running tests, writing tests)
 - Troubleshooting: `docs/troubleshooting.md`
 - Scripts: `docs/scripts.md`
 
 ### Features & Configuration
 - Contact Form & API: `docs/contact-form.md`
+- Image Optimization: `docs/image-optimization.md` ⭐ (Lazy loading, WebP fallback, responsive images)
+- Error Boundaries: `docs/error-boundaries.md` ⭐ (Error handling, fallback UI, error logging)
 - Environment Variables: `docs/environment.md`
 - Assets & Media: `docs/assets.md`
-- Analytics: `docs/analytics.md`
+- Analytics & Tracking: `docs/analytics.md` ⭐ (Google Analytics, Microsoft Clarity)
 
 ### Deployment
 - Deployment Guide: `docs/deployment.md`

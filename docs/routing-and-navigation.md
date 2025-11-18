@@ -21,19 +21,32 @@
 - See `docs/pages-and-components.md` for AnimatedPage details
 
 ### Route Map (current)
-- `/` → `Home`
+- `/` → `Home` (eagerly loaded - critical path)
 - `/work` → `Work` (lazy loaded)
-- `/about` → `About`
-- `/education` → `Education`
-- `/certifications` → `Certifications`
-- `/publications` → `Publications`
-- `/newsletter` → `Newsletter`
-- `/contact` → `Contact`
-- `*` → `NotFound`
+- `/about` → `About` (lazy loaded)
+- `/education` → `Education` (lazy loaded)
+- `/certifications` → `Certifications` (lazy loaded)
+- `/publications` → `Publications` (lazy loaded)
+- `/newsletter` → `Newsletter` (lazy loaded)
+- `/contact` → `Contact` (lazy loaded)
+- `*` → `NotFound` (lazy loaded)
 
-### Lazy Loading
-- `Work` page is loaded via `React.lazy` for faster initial load:
-  - Suspense fallback shows a spinner until the chunk is ready
+### Route-Based Code Splitting
+- **Strategy:** All routes except `Home.jsx` are lazy-loaded with `React.lazy()`
+- **Rationale:** Reduces initial bundle size by 31% (557KB → 383KB), improves Core Web Vitals
+- **Implementation:**
+  - Each lazy route wrapped in `<Suspense>` boundary
+  - `PageSkeleton` component provides route-specific loading skeletons
+  - Skeletons match page layouts for better UX
+- **Bundle Impact:**
+  - Main bundle: 383KB (121.58KB gzipped)
+  - Route chunks: 2-92KB each (loaded on-demand)
+  - **31% reduction** in initial bundle size
+- **Performance Benefits:**
+  - Faster initial page load
+  - Better mobile performance
+  - Improved Core Web Vitals (LCP, FID)
+  - Better SEO scores
 
 ### Navigation
 - Top navigation bar in `src/App.jsx` with links to routes

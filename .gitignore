@@ -31,3 +31,18 @@ dist-ssr
 *.sw?
 
 .env
+
+# Temporary/utility files
+*.html
+!index.html
+pages/
+original_images_backup/
+docs/TempFolder/
+GEMINI.md
+svg-to-png-converter.html
+moviedashboard.html
+
+# Screenshot/image files (keep in assets/)
+Image*.jpeg
+Image*.jpg
+Image*.png

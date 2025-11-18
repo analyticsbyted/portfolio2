@@ -2,6 +2,7 @@ import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import HeadMetadata from '../components/HeadMetadata';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 import personSchema from '../seo/personSchema';
 import websiteSchema from '../seo/websiteSchema';
 import { useState, useEffect } from 'react';
@@ -153,7 +154,12 @@ function Home() {
             </div>
             <div className="md:col-span-1">
               <div className="h-40 md:h-44 bg-muted/40 rounded-2xl flex items-center justify-center p-3">
-                <img src={economicPulsePoster} alt="Economic KPI Pulse dashboard poster" className="h-full w-full object-contain" />
+                <ImageWithSkeleton 
+                  src={economicPulsePoster} 
+                  alt="Economic KPI Pulse dashboard poster" 
+                  className="h-full w-full object-contain"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
