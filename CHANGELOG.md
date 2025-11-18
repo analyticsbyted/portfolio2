@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed - 2025-01-XX
 
+#### Route-Based Code Splitting Implementation
+- **Performance Optimization**: Implemented route-based code splitting for all routes except Home page
+  - **Bundle Size Reduction**: Main bundle reduced from 557KB (164.93KB gzipped) to 383KB (121.58KB gzipped)
+  - **31% reduction** in initial bundle size (174KB uncompressed, 43KB gzipped)
+  - **Impact**: Faster initial page load, improved Core Web Vitals (LCP, FID), better mobile performance
+  - **Implementation**:
+    - All routes except `Home.jsx` now lazy-loaded with `React.lazy()`
+    - Created `PageSkeleton` component with route-specific loading skeletons
+    - Each route wrapped in `<Suspense>` with appropriate skeleton variant
+    - Route chunks loaded on-demand (2-92KB each)
+  - **Routes Lazy-Loaded**: Work, About, Contact, Education, Certifications, Publications, Newsletter, NotFound
+  - **Files Modified**: `src/App.jsx`, created `src/components/PageSkeleton.jsx`
+  - **Documentation**: Updated `docs/context.md`, `docs/development-workflow.md`, `docs/pages-and-components.md`
+  - **Result**: Significant performance improvement with minimal user-visible delay (~50-200ms per route)
+
+### Changed - 2025-01-XX
+
 #### Contact Form Refactor
 - **Migration to react-hook-form + zod**: Refactored contact form from custom hook to react-hook-form with zod validation
   - **Benefits**: Better performance (minimal re-renders), field-level error messages, type-safe validation, cleaner code

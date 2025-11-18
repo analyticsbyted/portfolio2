@@ -177,6 +177,35 @@ const tabs = [
 
 ## Shared Components (`src/components`)
 
+### PageSkeleton.jsx
+**Purpose:** Reusable loading skeleton component for route-based code splitting
+
+**Variants:**
+- `default`: Generic page skeleton (hero + content)
+- `work`: Work page skeleton (grid of project cards)
+- `certifications`: Certifications page skeleton (grid layout)
+- `publications`: Publications page skeleton (list layout)
+- `contact`: Contact page skeleton (form layout)
+- `education`: Education page skeleton (tabs + content)
+- `newsletter`: Newsletter page skeleton
+- `about`: About page skeleton
+- `notfound`: NotFound page skeleton (minimal)
+
+**Usage:**
+```javascript
+<Suspense fallback={<PageSkeleton variant="work" />}>
+  <Work />
+</Suspense>
+```
+
+**Features:**
+- Consistent loading states across all routes
+- Route-specific skeletons matching page layouts
+- Smooth animations with `animate-pulse`
+- Dark mode support via Tailwind classes
+
+## Shared Components (`src/components`)
+
 ### Layout & Shell Components
 
 #### Layout.jsx

@@ -47,6 +47,7 @@ The dev server starts on `http://localhost:5173` (or next available port).
 - Source Maps: Debug with original source code
 - Page Transitions: Framer Motion provides smooth transitions between routes
 - Mobile Navigation: Animated slide-in menu with backdrop overlay
+- Route-Based Code Splitting: Routes lazy-loaded for optimal performance (see `docs/context.md`)
 
 ## Development Commands
 

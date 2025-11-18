@@ -2,18 +2,23 @@ import { BrowserRouter as Router, Link, useRoutes, useLocation } from 'react-rou
 import { useEffect, useState, Suspense, lazy, cloneElement } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
-import Home from './pages/Home';
-const Work = lazy(() => import('./pages/Work'));
-import About from './pages/About';
-import Education from './pages/Education';
-import Contact from './pages/Contact';
-import Newsletter from './pages/Newsletter';
-import Certifications from './pages/Certifications';
-import Publications from './pages/Publications';
 import Footer from './components/Footer';
 import logo from './assets/logo-td.svg';
-import NotFound from './pages/NotFound';
 import AnimatedPage from './components/AnimatedPage';
+import PageSkeleton from './components/PageSkeleton';
+
+// Keep Home eagerly loaded (critical path - first page users see)
+import Home from './pages/Home';
+
+// Lazy load all other routes for code splitting
+const Work = lazy(() => import('./pages/Work'));
+const About = lazy(() => import('./pages/About'));
+const Education = lazy(() => import('./pages/Education'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Newsletter = lazy(() => import('./pages/Newsletter'));
+const Certifications = lazy(() => import('./pages/Certifications'));
+const Publications = lazy(() => import('./pages/Publications'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Simple SVG icons
 const SunIcon = () => (
@@ -90,27 +95,7 @@ function AppContent() {
       path: '/work',
       element: (
         <AnimatedPage>
-          <Suspense fallback={
-            <div>
-              <div className="text-center mb-8">
-                <div className="mx-auto h-8 w-48 bg-muted/60 rounded-lg animate-pulse" />
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {[0,1,2,3].map(i => (
-                  <div key={i} className="bg-card border-2 border-border rounded-2xl overflow-hidden">
-                    <div className="h-48 bg-muted/50 animate-pulse" />
-                    <div className="p-6 space-y-3">
-                      <div className="h-4 w-1/3 bg-muted/60 rounded animate-pulse" />
-                      <div className="h-5 w-2/3 bg-muted/60 rounded animate-pulse" />
-                      <div className="h-4 w-full bg-muted/50 rounded animate-pulse" />
-                      <div className="h-4 w-5/6 bg-muted/50 rounded animate-pulse" />
-                      <div className="h-10 w-40 bg-muted/60 rounded-lg animate-pulse" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          }>
+          <Suspense fallback={<PageSkeleton variant="work" />}>
             <Work />
           </Suspense>
         </AnimatedPage>
@@ -120,7 +105,9 @@ function AppContent() {
       path: '/publications',
       element: (
         <AnimatedPage>
-          <Publications />
+          <Suspense fallback={<PageSkeleton variant="publications" />}>
+            <Publications />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -128,7 +115,9 @@ function AppContent() {
       path: '/newsletter',
       element: (
         <AnimatedPage>
-          <Newsletter />
+          <Suspense fallback={<PageSkeleton variant="newsletter" />}>
+            <Newsletter />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -136,7 +125,9 @@ function AppContent() {
       path: '/certifications',
       element: (
         <AnimatedPage>
-          <Certifications />
+          <Suspense fallback={<PageSkeleton variant="certifications" />}>
+            <Certifications />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -144,7 +135,9 @@ function AppContent() {
       path: '/about',
       element: (
         <AnimatedPage>
-          <About />
+          <Suspense fallback={<PageSkeleton variant="about" />}>
+            <About />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -152,7 +145,9 @@ function AppContent() {
       path: '/education',
       element: (
         <AnimatedPage>
-          <Education />
+          <Suspense fallback={<PageSkeleton variant="education" />}>
+            <Education />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -160,7 +155,9 @@ function AppContent() {
       path: '/contact',
       element: (
         <AnimatedPage>
-          <Contact />
+          <Suspense fallback={<PageSkeleton variant="contact" />}>
+            <Contact />
+          </Suspense>
         </AnimatedPage>
       ),
     },
@@ -168,7 +165,9 @@ function AppContent() {
       path: '*',
       element: (
         <AnimatedPage>
-          <NotFound />
+          <Suspense fallback={<PageSkeleton variant="notfound" />}>
+            <NotFound />
+          </Suspense>
         </AnimatedPage>
       ),
     },

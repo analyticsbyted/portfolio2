@@ -86,10 +86,19 @@ portfolio2/
 - **Rationale:** Fast navigation, no page reloads, better UX
 - **Deployment Requirement:** Server/CDN must serve `index.html` for all routes (see `SPA-ROUTING-SETUP.md`)
 
-### 3. Lazy Loading Strategy
-- **Decision:** `Work.jsx` is lazy-loaded with `React.lazy()`
-- **Rationale:** Large component with many assets, reduces initial bundle size
-- **Implementation:** Wrapped in `<Suspense>` with skeleton fallback in `App.jsx`
+### 3. Route-Based Code Splitting
+- **Decision:** All routes except `Home.jsx` are lazy-loaded with `React.lazy()`
+- **Rationale:** Reduces initial bundle size by ~31% (557KB → 383KB), improves Core Web Vitals (LCP, FID), faster Time to Interactive
+- **Implementation:** 
+  - `Home.jsx` eagerly loaded (critical path - first page users see)
+  - All other routes (`Work`, `About`, `Contact`, `Education`, `Certifications`, `Publications`, `Newsletter`, `NotFound`) lazy-loaded
+  - Each route wrapped in `<Suspense>` with `PageSkeleton` component providing route-specific loading states
+  - `PageSkeleton` component (`src/components/PageSkeleton.jsx`) provides consistent loading skeletons for each route variant
+- **Bundle Impact:** 
+  - Main bundle: 383KB (121.58KB gzipped) - down from 557KB (164.93KB gzipped)
+  - Route chunks: 2-92KB each (loaded on-demand)
+  - **31% reduction** in initial bundle size
+- **User Experience:** Faster initial page load, better mobile performance, improved SEO via Core Web Vitals
 
 ### 4. Page Transitions
 - **Decision:** Framer Motion for smooth page transitions
