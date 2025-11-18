@@ -235,7 +235,8 @@ portfolio2/
 │   │       ├── MLSection.jsx
 │   │       └── [Other sections]
 │   ├── hooks/                     # Custom React hooks
-│   │   └── useContactForm.js      # Contact form hook
+│   ├── lib/
+│   │   └── validators.js         # Zod validation schemas
 │   ├── assets/                    # Images, SVGs, posters
 │   │   ├── webapps/               # Web app screenshots (16:9)
 │   │   ├── research/              # Research SVGs (4:3)
@@ -351,9 +352,16 @@ See `docs/styling-and-theming.md` for detailed styling guidelines.
 
 **Flow:**
 1. User submits form in `Contact.jsx`
-2. `useContactForm` hook handles validation
-3. POST request to `VITE_AWS_HTTPAPI_URL` endpoint
-4. Success/error handling and UI updates
+2. react-hook-form validates via zod schema (`src/lib/validators.js`)
+3. Field-level validation errors displayed if validation fails
+4. If valid, POST request to `VITE_AWS_HTTPAPI_URL` endpoint
+5. Success/error handling and UI updates
+6. Form resets on successful submission
+
+**Technology:**
+- **react-hook-form**: Form state management
+- **zod**: Schema-based validation
+- **@hookform/resolvers**: Zod resolver integration
 
 **Environment Variable:**
 - `VITE_AWS_HTTPAPI_URL`: API endpoint (injected at build time)
@@ -361,15 +369,15 @@ See `docs/styling-and-theming.md` for detailed styling guidelines.
 **Payload:**
 ```json
 {
-  "name": "string",
-  "email": "string",
-  "message": "string",
+  "name": "string (trimmed)",
+  "email": "string (trimmed)",
+  "message": "string (trimmed)",
   "timestamp": "ISO string",
-  "source": "portfolio-contact-form"
+  "source": "portfolio-contact-form-rhf"
 }
 ```
 
-See `docs/contact-form.md` for detailed form documentation.
+**See:** `docs/contact-form.md` for detailed form documentation.
 
 ### Static Data
 **No Backend:** All data is static (hardcoded in components or imported)

@@ -1,10 +1,14 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactFormSchema } from '../lib/validators';
 import CTASection from '../components/CTASection';
 import HeadMetadata from '../components/HeadMetadata';
 import personSchema from '../seo/personSchema';
-import { useContactForm } from '../hooks/useContactForm'; // <-- Import the new hook
+
+const API_URL = import.meta.env.VITE_AWS_HTTPAPI_URL;
 
 const contactMethods = [
-  // ... (Your contactMethods array is unchanged)
     {
     title: 'My Resume',
     description: 'Download a PDF copy of my resume',
@@ -29,8 +33,63 @@ const contactMethods = [
 ];
 
 function Contact() {
-  // All logic is now cleanly encapsulated in the custom hook
-  const { form, status, error, handleChange, handleSubmit } = useContactForm();
+  const [submissionStatus, setSubmissionStatus] = useState('idle'); // idle | sending | success | error
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setError, // Added setError
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+      honey: '',
+    }
+  });
+
+  const onSubmit = async (data) => {
+    setSubmissionStatus('sending');
+
+    try {
+      if (!API_URL) {
+        throw new Error('The API URL is not configured.');
+      }
+
+      const payload = {
+        name: data.name.trim(),
+        email: data.email.trim(),
+        message: data.message.trim(),
+        timestamp: new Date().toISOString(),
+        source: 'portfolio-contact-form-rhf' // New source identifier
+      };
+
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        setSubmissionStatus('success');
+        reset(); // Reset form fields to default values
+      } else {
+        const responseData = await response.json().catch(() => ({}));
+        const errorMessage = responseData.message || 'Failed to send message. Please try again.';
+        throw new Error(errorMessage);
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError('root', { message: err.message || 'An unexpected error occurred. Please try again.' }); // Use setError for server errors
+      setSubmissionStatus('error');
+    }
+  };
 
   return (
     <>
@@ -42,7 +101,7 @@ function Contact() {
         schema={personSchema}
       />
       <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Hero Section (Unchanged) */}
+      {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
           Let's Work
@@ -56,7 +115,7 @@ function Contact() {
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        {/* Contact Methods (Unchanged) */}
+        {/* Contact Methods */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Get In Touch</h2>
           
@@ -87,43 +146,64 @@ function Contact() {
           </div>
         </section>
 
-        {/* Contact Form (Unchanged structure, but connected to the hook) */}
+        {/* Contact Form */}
         <section>
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Send a Message</h2>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Name *</label>
-                  <input type="text" id="name" name="name" value={form.name} onChange={handleChange} className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg" placeholder="Your full name" required />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Email *</label>
-                  <input type="email" id="email" name="email" value={form.email} onChange={handleChange} className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg" placeholder="your.email@example.com" required />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Message *</label>
-                  <textarea id="message" name="message" value={form.message} onChange={handleChange} rows={6} className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg resize-none" placeholder="Tell me about your project, goals, or how I can help..." required />
-                </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  {...register('name')}
+                  className={`w-full px-6 py-4 rounded-xl border-2 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'}`}
+                  placeholder="Your full name"
+                />
+                {errors.name && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.name.message}</p>}
               </div>
 
-              {/* Honeypot field for spam prevention. Now uses Tailwind classes for better accessibility. */}
+              <div>
+                <label htmlFor="email" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  {...register('email')}
+                  className={`w-full px-6 py-4 rounded-xl border-2 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg ${errors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'}`}
+                  placeholder="your.email@example.com"
+                />
+                {errors.email && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.email.message}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-lg font-semibold mb-3 text-gray-900 dark:text-white">Message *</label>
+                <textarea
+                  id="message"
+                  {...register('message')}
+                  rows={6}
+                  className={`w-full px-6 py-4 rounded-xl border-2 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-600'}`}
+                  placeholder="Tell me about your project, goals, or how I can help..."
+                />
+                {errors.message && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.message.message}</p>}
+              </div>
+
+              {/* Honeypot field for spam prevention */}
               <div className="absolute w-px h-px p-0 -m-px overflow-hidden [clip:rect(0,0,0,0)] whitespace-nowrap border-0">
                 <label htmlFor="honey">Do not fill this out</label>
-                <input type="text" id="honey" name="honey" value={form.honey} onChange={handleChange} autoComplete="off" tabIndex="-1" />
+                <input type="text" id="honey" {...register('honey')} autoComplete="off" tabIndex="-1" />
               </div>
 
-              {/* Status Messages with Accessibility improvements */}
-              {status === 'error' && (
+              {/* Status Messages */}
+              {errors.root && (
                 <div role="alert" aria-live="assertive" className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-red-600 dark:text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span className="text-red-700 dark:text-red-300 font-medium">{error}</span>
+                    <span className="text-red-700 dark:text-red-300 font-medium">{errors.root.message}</span>
                   </div>
                 </div>
               )}
-              {status === 'success' && (
+              {submissionStatus === 'success' && (
                 <div role="alert" aria-live="polite" className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -132,9 +212,8 @@ function Contact() {
                 </div>
               )}
 
-              {/* Submit Button (Unchanged) */}
-              <button type="submit" disabled={status === 'sending'} className="w-full py-4 px-8 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-lg rounded-xl shadow-lg hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-400/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 font-headline">
-                {status === 'sending' ? (
+              <button type="submit" disabled={isSubmitting} className="w-full py-4 px-8 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-lg rounded-xl shadow-lg hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-400/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 font-headline">
+                {isSubmitting ? (
                   <div className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     Sending Message...
@@ -151,7 +230,6 @@ function Contact() {
         </section>
       </div>
 
-      {/* Final CTA Section (Unchanged) */}
       <CTASection
         title="Ready to Get Started?"
         description="Whether you need strategic consulting, custom analytics solutions, or want to explore a partnership, I'm here to help turn your data into actionable insights."

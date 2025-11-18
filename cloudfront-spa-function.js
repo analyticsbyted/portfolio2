@@ -2,6 +2,7 @@
 // This function handles URL rewriting for Single Page Applications
 // It redirects all non-file requests to index.html for client-side routing
 
+// eslint-disable-next-line no-unused-vars
 function handler(event) {
     var request = event.request;
     var uri = request.uri;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = ({ activeSection, setActiveSection }) => {
+const Header = ({ setActiveSection }) => {
   return (
     <header id="header" className="flex flex-col items-center justify-center min-h-screen text-center text-white p-8">
       <div className="content">

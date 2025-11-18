@@ -84,6 +84,13 @@ npm run lint
 - Checks for code quality issues
 - Reports errors and warnings
 
+### Generate Sitemap
+```bash
+npm run generate:sitemap
+```
+- Regenerates `public/sitemap.xml` with up-to-date `<lastmod>` dates.
+- Update `scripts/generate-sitemap.mjs` `routes` array when new top-level pages are added.
+
 ## File Structure & Organization
 
 ### Adding a New Page
@@ -139,7 +146,8 @@ import posterImage from '../assets/webapps/project-poster.png';
 
 ### Naming Conventions
 - **Components:** PascalCase (`Card.jsx`, `PageSubtitle.jsx`)
-- **Hooks:** camelCase with `use` prefix (`useContactForm.js`)
+- **Hooks:** camelCase with `use` prefix (e.g., `useTheme.js`)
+- **Validators:** camelCase (e.g., `validators.js`)
 - **Assets:** kebab-case (`movie-explorer-poster.png`)
 - **CSS Classes:** Tailwind utility classes
 
@@ -157,7 +165,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
-import { useContactForm } from '../hooks/useContactForm';
+import { contactFormSchema } from '../lib/validators';
 import posterImage from '../assets/webapps/poster.png';
 ```
 
@@ -398,6 +406,7 @@ Before deploying:
 - `docs/context.md`: Comprehensive project context
 - `docs/architecture.md`: Architecture overview
 - `docs/pages-and-components.md`: Component documentation
+- `docs/seo-and-metadata.md`: SEO/HeadMetadata usage, structured data, sitemap workflow
 - `docs/styling-and-theming.md`: Styling guidelines
 
 ### External Resources

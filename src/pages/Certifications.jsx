@@ -562,8 +562,9 @@ function Modal({ children, onClose }) {
   // Restore focus to last focused element
   const lastActiveRef = React.useRef(document.activeElement);
   React.useEffect(() => {
+    const lastActive = lastActiveRef.current;
     return () => {
-      lastActiveRef.current && lastActiveRef.current.focus();
+      lastActive && lastActive.focus();
     };
   }, []);
   return (

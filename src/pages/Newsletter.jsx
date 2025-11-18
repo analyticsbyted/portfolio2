@@ -168,7 +168,7 @@ function Newsletter() {
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Recent Articles</h2>
         
         <div className="grid gap-8">
-          {articles.map((article, index) => (
+          {articles.map((article) => (
             <div
               key={article.id}
               className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"

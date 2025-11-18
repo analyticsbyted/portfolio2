@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable-next-line no-unused-vars
 const ForecastSection = ({ closeSection }) => {
   return (
     <article id="forecast" className="max-w-4xl">

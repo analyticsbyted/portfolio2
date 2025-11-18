@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Link, useRoutes, useLocation } from 'react-router-dom';
 import { useEffect, useState, Suspense, lazy, cloneElement } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 const Work = lazy(() => import('./pages/Work'));
@@ -297,7 +298,7 @@ function AppContent() {
                         { to: '/publications', label: 'Publications' },
                         { to: '/newsletter', label: 'Newsletter' },
                         { to: '/contact', label: 'Contact' },
-                      ].map((item, index) => (
+                      ].map((item) => (
                         <motion.div
                           key={item.to}
                           variants={{

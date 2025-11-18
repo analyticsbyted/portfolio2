@@ -47,8 +47,8 @@ portfolio2/
 │   │   ├── CTASection.jsx      # Call-to-action block
 │   │   ├── Footer.jsx          # Global footer
 │   │   └── sections/           # Feature sections used by pages
-│   ├── hooks/
-│   │   └── useContactForm.js   # Contact form state, validation, submission
+│   ├── lib/
+│   │   └── validators.js       # Zod validation schemas (contact form)
 │   ├── assets/                 # Images, SVGs, posters
 │   │   ├── webapps/            # Web app screenshots (16:9 posters)
 │   │   ├── research/           # Research project SVGs (4:3 posters)
@@ -331,13 +331,27 @@ const element = useRoutes(routes);
 - Used with `AnimatePresence` in `App.jsx` for page transitions
 - See `docs/pages-and-components.md` for detailed API
 
-### useContactForm.js
-**Purpose:** Custom hook for contact form state and submission
+### Contact Form (Contact.jsx)
+**Purpose:** Contact form page with react-hook-form + zod validation
 
-**API:**
-- Returns: `{ form, status, error, handleChange, handleSubmit }`
-- Status: `'idle' | 'sending' | 'success' | 'error'`
-- Validation: Required fields, email format, honeypot (spam detection)
+**Implementation:**
+- Uses `useForm` hook from react-hook-form
+- Zod schema validation via `zodResolver`
+- Field-level error messages
+- Honeypot spam protection (handled by zod schema)
+
+**Validation Schema:** `src/lib/validators.js`
+- `contactFormSchema`: Zod schema defining validation rules
+- All fields trimmed before validation
+- Email format validation
+- Minimum message length (10 characters)
+- Honeypot field validation
+
+**Form State:**
+- Uses react-hook-form's `formState` for errors and submission status
+- `isSubmitting`: Loading state from react-hook-form
+- `errors`: Field-level and root-level errors
+- `reset()`: Resets form on successful submission
 
 **Environment Variable:**
 - `VITE_AWS_HTTPAPI_URL`: Endpoint for form submission (POST JSON)
@@ -345,13 +359,15 @@ const element = useRoutes(routes);
 **Payload:**
 ```json
 {
-  "name": "string",
-  "email": "string",
-  "message": "string",
+  "name": "string (trimmed)",
+  "email": "string (trimmed)",
+  "message": "string (trimmed)",
   "timestamp": "ISO string",
-  "source": "portfolio-contact-form"
+  "source": "portfolio-contact-form-rhf"
 }
 ```
+
+**See:** `docs/contact-form.md` for detailed documentation
 
 ## Styling & Theming
 
@@ -533,7 +549,8 @@ VITE_AWS_HTTPAPI_URL=https://your-api.example.com/contact
 
 **File Naming:**
 - Components: PascalCase (`Card.jsx`, `PageSubtitle.jsx`)
-- Hooks: camelCase with `use` prefix (`useContactForm.js`)
+- Hooks: camelCase with `use` prefix (e.g., `useTheme.js`)
+- Validators: camelCase (e.g., `validators.js`)
 - Assets: kebab-case (`movie-explorer-poster.png`)
 
 **Import Order:**

@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed - 2025-01-XX
+
+#### Contact Form Refactor
+- **Migration to react-hook-form + zod**: Refactored contact form from custom hook to react-hook-form with zod validation
+  - **Benefits**: Better performance (minimal re-renders), field-level error messages, type-safe validation, cleaner code
+  - **Implementation**:
+    - Replaced custom `useContactForm` hook with `useForm` from react-hook-form
+    - Added zod validation schema in `src/lib/validators.js`
+    - Integrated `zodResolver` for seamless validation
+    - Field-level error messages displayed below each input
+    - Server errors handled via `setError('root', ...)` and displayed via `errors.root.message`
+  - **Validation**: All fields trimmed before validation, email format validation, minimum message length (10 chars), honeypot spam protection handled by zod schema
+  - **Dependencies Added**: `react-hook-form` (^7.66.1), `zod` (^3.25.76), `@hookform/resolvers` (^5.2.2)
+  - **Files Modified**: `src/pages/Contact.jsx`, `src/lib/validators.js` (new), removed `src/hooks/useContactForm.js`
+  - **Documentation**: Updated `docs/contact-form.md`, `docs/context.md`, `docs/pages-and-components.md`, `docs/architecture.md`, `docs/development-workflow.md` to reflect new implementation
+  - **Payload Source**: Changed from `portfolio-contact-form` to `portfolio-contact-form-rhf` for tracking
+
 ### Added - 2025-11-17
 
 #### SEO & Structured Data

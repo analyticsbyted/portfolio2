@@ -127,22 +127,32 @@ const tabs = [
 - Uses `publicationHelper.js` for data structure
 
 ### Contact.jsx
-**Purpose:** Contact form page
+**Purpose:** Contact form page with react-hook-form + zod validation
 
 **Structure:**
 - Value proposition headline/subtitle
 - Contact form (name, email, message)
-- Uses `useContactForm` hook for state and submission
+- Uses `useForm` hook from react-hook-form with zod validation
 
 **Form Validation:**
-- Required fields: name, email, message
-- Email format validation (basic regex)
-- Honeypot spam detection
+- **Schema:** `src/lib/validators.js` (zod schema)
+- Required fields: name, email, message (minimum 10 characters)
+- Email format validation via zod
+- All fields trimmed before validation
+- Honeypot spam detection (handled by zod schema)
+
+**Error Handling:**
+- Field-level error messages (displayed below each field)
+- Server errors displayed via `errors.root.message`
+- Red border styling on invalid fields
 
 **Submission:**
 - POSTs JSON to `VITE_AWS_HTTPAPI_URL` endpoint
-- Status states: `idle`, `sending`, `success`, `error`
-- Error messages displayed to user
+- Uses `isSubmitting` from react-hook-form for loading state
+- Form resets automatically on success using `reset()`
+- Success/error messages displayed to user
+
+**See:** `docs/contact-form.md` for detailed form documentation
 
 ### Newsletter.jsx
 **Purpose:** Newsletter signup/CTA page
@@ -376,37 +386,35 @@ const tabs = [
 - Used in topic-specific pages
 - May be used in `Main.jsx` for modal sections
 
-## Hooks
+## Validation Schemas
 
-### useContactForm.js
-**Location:** `src/hooks/useContactForm.js`
+### validators.js
+**Location:** `src/lib/validators.js`
 
-**Purpose:** Encapsulates contact form state, validation, honeypot, submission, and error/status handling
+**Purpose:** Zod validation schemas for form validation
 
-**API:**
+**Schemas:**
+- `contactFormSchema`: Contact form validation schema
+  - Validates name (required, trimmed, min 1 char)
+  - Validates email (required, trimmed, valid email format)
+  - Validates message (required, trimmed, min 10 chars)
+  - Validates honeypot field (must be empty)
+
+**Usage:**
 ```javascript
-const { form, status, error, handleChange, handleSubmit } = useContactForm();
+import { contactFormSchema } from '../lib/validators';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const { register, handleSubmit, formState: { errors } } = useForm({
+  resolver: zodResolver(contactFormSchema),
+});
 ```
 
-**Returns:**
-- `form`: Form state object `{ name, email, message, honey }`
-- `status`: Current status `'idle' | 'sending' | 'success' | 'error'`
-- `error`: Error message string (empty if no error)
-- `handleChange`: Form field change handler
-- `handleSubmit`: Form submission handler
+**See:** `docs/contact-form.md` for detailed form documentation
 
-**Validation:**
-- Required fields: name, email, message
-- Email format: Basic regex validation
-- Honeypot: Checks for `honey` field (hidden, spam detection)
+## Hooks
 
-**Submission:**
-- POSTs JSON to `VITE_AWS_HTTPAPI_URL` endpoint
-- Payload includes: name, email, message, timestamp, source
-- Error handling: Catches network errors, parses error messages
-
-**Environment Variable:**
-- `VITE_AWS_HTTPAPI_URL`: API endpoint for form submission (required)
+**Note:** Custom hooks are used sparingly in this project. The contact form uses react-hook-form's `useForm` hook directly in the component. See `Contact.jsx` and `docs/contact-form.md` for details.
 
 ## Typography Utilities
 

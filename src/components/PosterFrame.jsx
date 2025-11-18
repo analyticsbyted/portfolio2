@@ -67,12 +67,10 @@ function PosterFrame({
  * Small adapter to reuse ImageWithSkeleton while also exposing the actual <img> element on load.
  */
 function ImageWithScriptedOnLoad({ onElementLoaded, ...rest }) {
-  const [imgEl, setImgEl] = useState(null);
   return (
     <ImageWithSkeleton
       {...rest}
       onLoad={(e) => {
-        setImgEl(e.currentTarget);
         if (onElementLoaded) onElementLoaded(e.currentTarget);
       }}
     />

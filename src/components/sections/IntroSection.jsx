@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable-next-line no-unused-vars
 const IntroSection = ({ closeSection }) => {
   return (
     <article id="intro" className="max-w-4xl">

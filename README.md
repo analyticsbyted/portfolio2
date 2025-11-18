@@ -208,6 +208,13 @@ See `docs/deployment.md` for detailed deployment instructions.
 node scripts/capture-screenshot.mjs <url> <output-path>
 ```
 
+**Generate Sitemap:**
+```bash
+npm run generate:sitemap
+```
+- Regenerates `public/sitemap.xml` with current routes and `<lastmod>` date.
+- Update `scripts/generate-sitemap.mjs` if you add/remove top-level pages.
+
 **Clear Caches:**
 ```bash
 # Vite cache

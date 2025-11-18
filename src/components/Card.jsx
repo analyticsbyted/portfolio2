@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line no-unused-vars
 function Card({ as: Component = 'div', className = '', children, ...rest }) {
   const base =
     'bg-card border-2 border-border rounded-2xl overflow-hidden transition-all duration-300';
