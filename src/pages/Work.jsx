@@ -10,6 +10,9 @@ import tvPoster from '../assets/webapps/tv-explorer-poster.png';
 import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
 import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
 import equityScreenerPoster from '../assets/webapps/equity-screener-poster.png';
+import marisHome from '../assets/apps/maris-home.png';
+import marisIntent from '../assets/apps/maris-intent.png';
+import marisTimer from '../assets/apps/maris-timer.png';
 
 // Import images for project visuals
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
@@ -31,11 +34,12 @@ import powerBiPoster from '../assets/bi/power-bi-dashboard.svg';
 import textMiningPoster from '../assets/nlp/text-mining.svg';
 
 const tabs = [
+  { name: 'Applications', key: 'apps' },
+  { name: 'Web Development', key: 'web' },
   { name: 'Predictive Modeling & ML', key: 'ds' },
   { name: 'Data Analysis / Operations', key: 'da' },
   { name: 'Business Intelligence / Dashboards', key: 'bi' },
   { name: 'NLP & Text Analytics', key: 'nlp' },
-  { name: 'Web Development', key: 'web' },
   { name: 'Research', key: 'research' },
 ];
 
@@ -45,6 +49,7 @@ const tabSubtitles = {
   bi: 'Interactive dashboards and KPIs to communicate insights with Tableau and Power BI.',
   nlp: 'Text analytics and NLP—sentiment, embeddings, and retrieval on unstructured data.',
   web: 'Production web apps built with React, TypeScript, and modern tooling.',
+  apps: 'Native mobile applications for iOS and Android—health, productivity, and cognitive tools.',
   research: 'Academic and applied research exploring AI, ethics, healthcare, and organizational analytics.'
 };
 
@@ -331,8 +336,31 @@ const webDevProjects = [
   },
 ];
 
+// Mobile Applications (app-focused cards)
+const mobileApps = [
+  {
+    title: 'Maris',
+    tagline: 'Cognitive behavioral tool for ADHD brains—when willpower isn\'t enough.',
+    features: [
+      'Intent-based friction: Type why you need to unlock (10-second pause activates rational brain before impulse hijacks)',
+      'Strict Mode: 5-second delay before quitting (gives working memory time to catch up with impulse)',
+      'Visually Quiet "Liquid Glass" UI: Morphing gradients and soft glass elements reduce sensory overload',
+      'Available on iOS and Android: Native mobile apps for both platforms',
+      'CBT-based intervention: Rewires automatic dopamine response over time, not just blocking'
+    ],
+    stack: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'RevenueCat', 'Skia', 'Reanimated', 'Screen Time API', 'Android Accessibility Service'],
+    images: [
+      { src: marisHome, alt: 'Maris home screen with Deep Work session card' },
+      { src: marisIntent, alt: 'Maris intent-based unlocking screen' },
+      { src: marisTimer, alt: 'Maris active timer screen showing Brainstorming Session' }
+    ],
+    link: 'https://trymaris.com',
+    linkLabel: 'Visit Website',
+  },
+];
+
 function Work() {
-  const [activeTab, setActiveTab] = useState('ds');
+  const [activeTab, setActiveTab] = useState('apps');
   const [expandedIdx, setExpandedIdx] = useState(null);
 
   // Support deep-linking via ?tab= or #tab-<key>
@@ -354,7 +382,7 @@ function Work() {
   else if (activeTab === 'bi') projects = biProjects;
   else if (activeTab === 'nlp') projects = nlpProjects;
   else if (activeTab === 'research') projects = researchProjects;
-  // web tab uses distinct renderer
+  // web and apps tabs use distinct renderer
 
   // General CTA text and link
   const generalCTA = {
@@ -367,9 +395,9 @@ function Work() {
     <>
       <HeadMetadata
         title="Portfolio"
-        description="Explore Ted Dickey's portfolio of production-ready web apps, AI/ML solutions, analytics platforms, and research projects that deliver measurable business impact."
+        description="Explore Ted Dickey's portfolio of production-ready web apps, mobile applications, AI/ML solutions, analytics platforms, and research projects that deliver measurable business impact."
         canonical="/work"
-        keywords="portfolio, web apps, AI/ML solutions, Economic KPI Pulse, Movie Explorer, Equity Screener, CNN image classifier, business intelligence projects"
+        keywords="portfolio, web apps, mobile apps, AI/ML solutions, Economic KPI Pulse, Movie Explorer, Equity Screener, Maris, CNN image classifier, business intelligence projects"
         schema={personSchema}
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -382,7 +410,7 @@ function Work() {
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-body">
-          Explore real‑world projects across Web Development, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
+          Explore real‑world projects across Web Development, Mobile Applications, AI/ML, Data Science, Business Intelligence, and NLP—focused on shipping practical, production‑ready outcomes.
         </p>
       </section>
       {/* Modern Tab Navigation */}
@@ -410,7 +438,7 @@ function Work() {
       {/* Tab Subtitle */}
       <PageSubtitle>{tabSubtitles[activeTab]}</PageSubtitle>
       {/* Project Grid */}
-      {activeTab !== 'web' ? (
+      {activeTab !== 'web' && activeTab !== 'apps' ? (
         <section className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
             {projects.map((proj, idx) => (
@@ -527,7 +555,7 @@ function Work() {
             ))}
           </div>
         </section>
-      ) : (
+      ) : activeTab === 'web' ? (
         <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {webDevProjects.map((app, idx) => (
@@ -555,6 +583,92 @@ function Work() {
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{app.tagline}</p>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 mb-4">
                     {app.features.map((f, i) => (<li key={i}>{f}</li>))}
+                  </ul>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={app.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg text-base sm:text-lg font-headline"
+                      aria-label={`Open ${app.title} live app`}
+                    >
+                      {app.linkLabel}
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                    {app.repoLink && (
+                      <a
+                        href={app.repoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
+                        aria-label={`Open ${app.title} repository`}
+                      >
+                        {app.repoLabel || 'View Repo'}
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {mobileApps.map((app, idx) => (
+              <Card key={idx} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 hover:shadow-xl transition-shadow">
+                {/* Poster - Support multiple images for mobile apps */}
+                {app.images ? (
+                  <div className="relative bg-muted/40 overflow-hidden rounded-t-2xl mt-3">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30 z-10" aria-hidden="true" />
+                    <div className="p-3 flex justify-center">
+                      <div className="flex gap-2 overflow-x-auto no-scrollbar">
+                        {app.images.map((image, imgIdx) => (
+                          <div key={imgIdx} className="flex-shrink-0 w-36 h-64 flex items-center justify-center">
+                            <ImageWithSkeleton
+                              src={image.src}
+                              alt={image.alt}
+                              className="h-full w-auto object-contain rounded-lg"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={`relative ${app.imageHeight || 'h-48'} bg-muted/40 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3`}>
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30" aria-hidden="true" />
+                    <ImageWithSkeleton
+                      src={app.img}
+                      alt={app.alt}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                )}
+                {/* Content */}
+                <div className="p-6">
+                  {/* Stack badges (consistent placement and color with other tabs) */}
+                  <div className="flex flex-wrap gap-2 mt-2 mb-3">
+                    {app.stack.map((s, i) => (
+                      <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-badge">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-headline-3 text-gray-900 dark:text-white mb-2 font-headline">{app.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{app.tagline}</p>
+                  <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+                    {app.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
                   </ul>
                   <div className="flex items-center gap-3">
                     <a
