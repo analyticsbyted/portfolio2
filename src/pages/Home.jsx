@@ -3,18 +3,14 @@ import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import HeadMetadata from '../components/HeadMetadata';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
+import PhoneMockup from '../components/PhoneMockup';
+import marisHome from '../assets/apps/maris-home.png';
+import marisTimer from '../assets/apps/maris-timer.png';
 import personSchema from '../seo/personSchema';
 import websiteSchema from '../seo/websiteSchema';
 import { useState, useEffect, useRef } from 'react';
-import { useCounter } from '../hooks/useCounter';
-import marisTimer from '../assets/apps/maris-timer.png';
 
-const heroStats = [
-  { value: 10, suffix: '+', label: 'Years Experience', icon: '📊' },
-  { value: 50, suffix: '+', label: 'Projects Delivered', icon: '🚀' },
-  { value: 25, suffix: '+', label: 'Certifications', icon: '🎓' },
-  { value: 8, suffix: '+', label: 'Industries', icon: '🏢' }
-];
+
 
 const services = [
   {
@@ -61,78 +57,19 @@ const technologies = [
   'React', 'React Native', 'TypeScript', 'JavaScript', 'Expo', 'Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Python', 'AWS', 'Docker', 'Git'
 ];
 
-function StatCard({ stat, index, isInView }) {
-  const count = useCounter(stat.value, 2000, isInView);
-  
-  return (
-    <div 
-      className={`text-center p-6 bg-card rounded-2xl shadow-lg border-2 border-transparent bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl ${
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      {/* Gradient border effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-primary/20 via-brand-secondary/20 to-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl" />
-      <div className="absolute inset-[2px] rounded-2xl bg-card -z-10" />
-      
-      {/* Gradient top border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/50 via-brand-secondary/50 to-brand-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
-      {/* Icon */}
-      <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
-        {stat.icon}
-      </div>
-      
-      {/* Animated counter */}
-      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2">
-        {count}{stat.suffix}
-      </div>
-      
-      {/* Label */}
-      <div className="text-body-md font-body text-gray-600 dark:text-gray-400">
-        {stat.label}
-      </div>
-    </div>
-  );
-}
+
 
 function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const [statsInView, setStatsInView] = useState(false);
-  const statsRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  // Intersection Observer for stats animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setStatsInView(true);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '-100px' }
-    );
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-    };
-  }, []);
 
   // Icons removed for a more professional, minimalist presentation
 
@@ -146,273 +83,213 @@ function Home() {
         schema={[personSchema, websiteSchema]}
       />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
-      {/* Hero Section */}
-      <section className="relative mb-20 overflow-hidden">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-transparent dark:from-blue-900/10 dark:via-purple-900/10 -z-10" />
-        
-        {/* Floating shapes */}
-        <div className="absolute top-20 right-20 w-72 h-72 bg-blue-200/20 dark:bg-blue-800/10 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDuration: '4s' }} />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-200/20 dark:bg-purple-800/10 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDuration: '6s', animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-300/10 dark:bg-blue-700/5 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDuration: '5s', animationDelay: '2s' }} />
-        
-        {/* Hero Content */}
-        <div className="relative z-10 text-center mb-16">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="inline-flex items-center px-3 py-1 rounded-full text-badge bg-gradient-to-r from-brand-primary to-brand-secondary text-white mb-4 shadow-lg">
-              Product Developer & Full-Stack Engineer
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
-              Building Mobile Apps &
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-                Modern Web Experiences
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-body">
-              I design and develop mobile apps, modern websites, and full-stack applications—from concept to App Store.
-            </p>
+        {/* Hero Section */}
+        <section className="relative mb-0 overflow-hidden min-h-screen flex flex-col justify-center">
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-transparent dark:from-blue-900/10 dark:via-purple-900/10 -z-10" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                href="/contact" 
-                className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md px-8 py-4 text-button font-headline shadow-lg"
-                ariaLabel="Contact Ted for product development services"
-              >
-                Start Your Project
-              </Button>
-              <Button 
-                href="/work" 
-                className="bg-surface dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md px-8 py-4 text-button font-headline"
-                ariaLabel="View Ted's portfolio"
-              >
-                View My Work
-              </Button>
-            </div>
-          </div>
-        </div>
+          {/* Floating shapes */}
+          <div className="absolute top-20 right-20 w-72 h-72 bg-blue-200/20 dark:bg-blue-800/10 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-200/20 dark:bg-purple-800/10 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDuration: '6s', animationDelay: '1s' }} />
 
-        {/* Enhanced Stats Grid */}
-        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mb-12">
-          {heroStats.map((stat, index) => (
-            <StatCard 
-              key={index}
-              stat={stat}
-              index={index}
-              isInView={statsInView}
-            />
-          ))}
-        </div>
-
-        {/* Featured Project Strip */}
-        <div className="mb-14 rounded-3xl overflow-hidden border border-border bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
-          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-            <div className="md:col-span-2">
-              <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-brand-primary to-brand-secondary text-white mb-3">
-                Featured Project
-              </div>
-              <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-2 font-headline">Maris</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                A cognitive behavioral tool for ADHD brains—when willpower isn't enough. Native iOS and Android app with intent-based friction, strict mode, and a visually quiet "Liquid Glass" UI designed to reduce sensory overload.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a href="/work?tab=apps" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all font-headline">
-                  View Project
-                </a>
-                <a href="https://trymaris.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-surface dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all font-headline">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-            <div className="md:col-span-1">
-              <div className="bg-muted/40 rounded-2xl flex items-center justify-center p-4" style={{ minHeight: '320px', maxHeight: '500px' }}>
-                <ImageWithSkeleton 
-                  src={marisTimer} 
-                  alt="Maris mobile app timer screen" 
-                  className="max-h-full w-auto object-contain"
-                  style={{ maxHeight: '460px' }}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* What I Do - 3 Pillars */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
-            What I Do
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-body">
-            Mobile Apps, Web Development, and Full-Stack Solutions—built for measurable business outcomes.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          {[
-            {
-              title: 'Mobile Apps',
-              description: 'Native iOS and Android apps built with React Native, from concept to App Store.',
-              href: '/work?tab=apps',
-              gradient: 'from-blue-500/10 to-purple-500/10'
-            },
-            {
-              title: 'Web Development',
-              description: 'Modern, responsive websites and web applications built with React and TypeScript.',
-              href: '/work?tab=web',
-              gradient: 'from-purple-500/10 to-pink-500/10'
-            },
-            {
-              title: 'Full-Stack Solutions',
-              description: 'End-to-end product development from design to deployment and beyond.',
-              href: '/work',
-              gradient: 'from-pink-500/10 to-blue-500/10'
-            }
-          ].map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              className="group relative rounded-2xl bg-card border-2 border-border hover:border-brand-primary/50 dark:hover:border-brand-primary/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-            >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-              
-              {/* Content */}
-              <div className="relative p-6 h-full flex flex-col">
-                {/* Title */}
-                <h3 className="text-headline-3 text-gray-900 dark:text-white mb-3 font-headline">
-                  {item.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-body font-body text-gray-600 dark:text-gray-300 flex-grow">
-                  {item.description}
+          <div className="container mx-auto px-6 pt-10 pb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+              {/* Text Content */}
+              <div className="text-center lg:text-left order-2 lg:order-1 relative z-20">
+                <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium text-sm tracking-wide">
+                  Product Developer & Full-Stack Engineer
+                </div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-6 font-headline tracking-tight leading-[1.1]">
+                  Building Mobile Apps <br className="hidden lg:block" />& Digital Products
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
+                  I design and develop native iOS/Android apps, modern web platforms, and end-to-end software solutions.
                 </p>
-                
-                {/* Arrow indicator */}
-                <div className="mt-4 flex items-center text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-sm font-semibold mr-2">Learn more</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <a
+                    href="/work"
+                    className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-lg font-semibold hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 shadow-lg font-headline"
+                  >
+                    View My Work
+                  </a>
                 </div>
               </div>
-              
-              {/* Gradient top border */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-          ))}
-        </div>
 
-        
-      </section>
-
-      {/* Services Section */}
-      <section className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
-            How I Deliver Results
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-body">
-            Outcome‑focused delivery backed by real metrics and production standards.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="p-8 cursor-pointer">
-              <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-4 font-headline">{service.title}</h3>
-              <p className="text-body-md font-body text-gray-600 dark:text-gray-300">
-                {service.description}
-              </p>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <a
-            href="/work"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-button hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all shadow-lg font-headline"
-          >
-            See outcomes in Portfolio
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
-            Trusted by Industry Leaders
-          </h2>
-        </div>
-
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center">
-          <div className="transition-all duration-500 opacity-100">
-            <blockquote className="text-headline-3 md:text-headline-3-md font-body text-gray-900 dark:text-white mb-6">
-              "{testimonials[currentTestimonial].quote}"
-            </blockquote>
-            <div className="text-body-md font-body text-gray-600 dark:text-gray-300">
-              <div className="font-semibold">{testimonials[currentTestimonial].author}</div>
-              <div>{testimonials[currentTestimonial].role}</div>
+              {/* Phone Mockup Column */}
+              <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative z-10 perspective-1000">
+                <div className="relative transform transition-transform duration-700 hover:rotate-0 lg:rotate-y-[-12deg] lg:rotate-x-[5deg]">
+                  <PhoneMockup src={marisHome} alt="Maris App Home Screen" className="shadow-2xl" />
+                  {/* Floating elements behind phone */}
+                  <div className="absolute -top-10 -right-10 w-20 h-20 bg-yellow-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-primary rounded-full blur-3xl opacity-20 animate-pulse delay-700"></div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div className="flex justify-center space-x-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
-                }`}
-                onClick={() => setCurrentTestimonial(index)}
-              />
+        </section>
+
+        {/* Maris Feature Section */}
+        <section className="py-16 bg-card border-y border-border relative overflow-hidden mb-16">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none"></div>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div className="order-2 md:order-1">
+                <div className="flex items-center space-x-2 mb-4">
+                  <span className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-lg">M</span>
+                  <span className="text-brand-primary font-bold tracking-wider text-sm uppercase">Featured App</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-headline">
+                  Maris: ADHD Management <br /> Reimagined.
+                </h2>
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                  A cognitive behavioral tool designed to help users master their focus. Built with React Native, Expo, and a focus on accessibility and native performance.
+                </p>
+
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="flex -space-x-4">
+                    {[1, 2, 3, 4].map(i => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-500">
+                        U{i}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-sm text-gray-500 font-medium">
+                    Trusted by beta testers
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-4">
+                  <button className="flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                    <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.48-1.23 3.93-1.05 1.5.25 2.19.82 2.7 1.55-2.58 1.48-2.03 5.48.51 6.55-.47 1.4-1.12 2.78-2.22 5.18zm-2.12-14.8c.83-1.02 1.34-2.45 1.18-3.88-1.22.1-2.67.79-3.53 1.8-.75.88-1.41 2.3-1.23 3.65 1.37.1 2.76-.56 3.58-1.57z" />
+                    </svg>
+                    Download on iOS
+                  </button>
+                  <button className="flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                    <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.609 1.814L13.792 12 3.61 22.186a.912.912 0 01-.253.076.902.902 0 01-.364-.067c-.439-.244-.578-.797-.307-1.238l9.162-9.162L2.686 2.633a.903.903 0 01.923-1.57v.75zm12.973 9.423l4.385-2.513a.901.901 0 01.88.006c.433.249.578.802.323 1.258l-4.72 8.165-2.427-2.427 1.559-4.489zM16.582 12l-1.56 4.49 2.428-2.428-4.72-8.166a.902.902 0 01.322-1.257.902.902 0 011.085.197l4.385 2.513-1.94 4.65z" />
+                    </svg>
+                    Get it on Android
+                  </button>
+                </div>
+              </div>
+              <div className="order-1 md:order-2 flex justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
+                  {/* Insert Screen/Graphic for App Feature */}
+                  <img src={marisTimer} alt="Maris App Timer Screen" className="relative z-10 w-64 md:w-80 rounded-[2.5rem] shadow-2xl border-8 border-gray-900 dark:border-gray-800 rotate-3 hover:rotate-0 transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="mb-20 px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
+              How I Deliver Results
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-body">
+              Outcome‑focused delivery backed by real metrics and production standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="p-8 cursor-pointer bg-white dark:bg-card hover:shadow-xl hover:-translate-y-1 hover:border-blue-500/30 transition-all duration-300 group">
+                <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-4 font-headline group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{service.title}</h3>
+                <p className="text-body-md font-body text-gray-600 dark:text-gray-300">
+                  {service.description}
+                </p>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Technologies Section */}
-      <section className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
-            Technologies I Work With
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-body">
-            Modern tools and frameworks for building mobile apps and web experiences
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          {technologies.map((tech, index) => (
-            <span 
-              key={index}
-              className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 font-medium"
+          <div className="text-center mt-10">
+            <a
+              href="/work"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-button hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all shadow-lg font-headline"
             >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </section>
+              See outcomes in Portfolio
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Transform Your Business?"
-        description="Let's discuss how modern web apps, AI agents, and data platforms can accelerate your growth and drive measurable results."
-        primaryButton={{
-          href: "/contact",
-          text: "Get Started Today",
-          ariaLabel: "Contact Ted for consulting"
-        }}
-        secondaryButton={{
-          href: "/certifications",
-          text: "View Credentials",
-          ariaLabel: "View Ted's certifications"
-        }}
-      />
-    </div>
+        {/* Testimonials Section */}
+        <section className="mb-20 px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
+              Building in Public & Shipping Products
+            </h2>
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center">
+            <div className="transition-all duration-500 opacity-100">
+              <blockquote className="text-headline-3 md:text-headline-3-md font-body text-gray-900 dark:text-white mb-6">
+                "{testimonials[currentTestimonial].quote}"
+              </blockquote>
+              <div className="text-body-md font-body text-gray-600 dark:text-gray-300">
+                <div className="font-semibold">{testimonials[currentTestimonial].author}</div>
+                <div>{testimonials[currentTestimonial].role}</div>
+              </div>
+            </div>
+
+            <div className="flex justify-center space-x-2 mt-6">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                    }`}
+                  onClick={() => setCurrentTestimonial(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies Section */}
+        <section className="mb-20 px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
+              Technologies I Work With
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-body">
+              Modern tools and frameworks for building mobile apps and web experiences
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            {technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <CTASection
+          title="Ready to Transform Your Business?"
+          description="Let's discuss how modern web apps, AI agents, and data platforms can accelerate your growth and drive measurable results."
+          primaryButton={{
+            href: "/contact",
+            text: "Get Started Today",
+            ariaLabel: "Contact Ted for consulting"
+          }}
+          secondaryButton={{
+            href: "/certifications",
+            text: "View Credentials",
+            ariaLabel: "View Ted's certifications"
+          }}
+        />
+      </div>
     </>
   );
 }

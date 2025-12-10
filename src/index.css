@@ -4,31 +4,44 @@
 
 :root {
   /* Preferred off-white token used as the global substitute for pure white */
-  --color-white: 248 247 244; /* #F8F7F4 */
+  --color-white: 248 247 244;
+  /* #F8F7F4 */
 
   /* Additional off-white shades kept for intentional variety (optional use) */
-  --offwhite-1: 250 249 247; /* #FAF9F7 - slightly lighter */
-  --offwhite-2: 245 244 239; /* #F5F4EF - slightly deeper */
+  --offwhite-1: 250 249 247;
+  /* #FAF9F7 - slightly lighter */
+  --offwhite-2: 245 244 239;
+  /* #F5F4EF - slightly deeper */
 
   /* Surface palette for standardized UI */
-  --color-surface: 248 247 244; /* page background */
-  --color-card: 250 249 247;    /* soft card surface (off-white) */
-  --color-border: 229 231 235;  /* gray-200 */
-  --color-muted: 243 244 246;   /* gray-100/200 for skeletons, subtle surfaces */
+  --color-surface: 248 247 244;
+  /* page background */
+  --color-card: 250 249 247;
+  /* soft card surface (off-white) */
+  --color-border: 229 231 235;
+  /* gray-200 */
+  --color-muted: 243 244 246;
+  /* gray-100/200 for skeletons, subtle surfaces */
 }
 
 /* Dark theme may still reference white for contrast tokens selectively.
    We do not override --color-white in dark to avoid unintended contrast issues. */
 .dark {
   /* no change to --color-white by default */
-  --color-surface: 15 23 42;   /* slate-900 - warmer than gray-900 */
-  --color-card: 30 41 59;      /* slate-800 - warmer than gray-800 */
-  --color-border: 51 65 85;    /* slate-700 - warmer than gray-700 */
-  --color-muted: 30 41 59;     /* slate-800 for skeletons in dark */
-  
+  --color-surface: 15 23 42;
+  /* slate-900 - warmer than gray-900 */
+  --color-card: 30 41 59;
+  /* slate-800 - warmer than gray-800 */
+  --color-border: 51 65 85;
+  /* slate-700 - warmer than gray-700 */
+  --color-muted: 30 41 59;
+  /* slate-800 for skeletons in dark */
+
   /* Slate text colors for better readability in dark mode */
-  --color-text-body: 203 213 225;    /* slate-300 for body text */
-  --color-text-headline: 241 245 249; /* slate-100 for headlines/emphasis */
+  --color-text-body: 203 213 225;
+  /* slate-300 for body text */
+  --color-text-headline: 241 245 249;
+  /* slate-100 for headlines/emphasis */
 }
 
 body {
@@ -41,7 +54,8 @@ body {
 /* Serif fonts require more generous line height (1.7-1.75) for optimal readability */
 /* This applies to all body text unless overridden by Tailwind utilities like leading-tight */
 .font-body p:not([class*="leading-"]) {
-  line-height: 1.75; /* Optimal for serif body text - more breathing room than leading-relaxed (1.625) */
+  line-height: 1.75;
+  /* Optimal for serif body text - more breathing room than leading-relaxed (1.625) */
 }
 
 /* For paragraphs that should use body font but don't have explicit leading class */
@@ -55,8 +69,10 @@ p:not(.font-headline):not([class*="leading-"]) {
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Line clamp utilities */
@@ -66,6 +82,7 @@ p:not(.font-headline):not([class*="leading-"]) {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

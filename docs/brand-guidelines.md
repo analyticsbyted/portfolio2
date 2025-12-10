@@ -115,7 +115,7 @@ className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-prim
 
 ### Font Pairing
 
-**Headlines & CTAs**: Inter (700–800 weight)
+**Headlines & CTAs**: Plus Jakarta Sans (700–800 weight)
 - Applied via `font-headline` utility class
 - Used for: Page titles, section headers, CTA buttons, navigation labels
 
@@ -129,7 +129,7 @@ className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-prim
 
 **Approach:** Semantic tokens replace raw Tailwind sizes (`text-5xl`) with meaningful names (`text-headline-1`) for maintainability and consistency.
 
-**Headlines (Inter, Bold/ExtraBold):**
+**Headlines (Plus Jakarta Sans, Bold/ExtraBold):**
 ```jsx
 // Hero headlines (largest)
 className="text-headline-1"              // 56px mobile
@@ -207,21 +207,21 @@ className="text-badge"                   // 14px, semibold
 
 **Configuration:** `tailwind.config.js` - `fontSize` extension with semantic tokens
 
-### Typography Scale (Legacy - Being Migrated)
+#### 2. Typographic Scale (Legacy)
 
-| Element | Size (Mobile) | Size (Desktop) | Weight | Font |
-|---------|--------------|----------------|--------|------|
-| Hero Title | `text-5xl` | `text-6xl lg:text-7xl` | 800 | Inter |
-| Page Title | `text-4xl` | `text-5xl md:text-6xl` | 800 | Inter |
-| Section Title | `text-3xl` | `text-4xl` | 700 | Inter |
-| Card Title | `text-xl` | `text-xl` | 700 | Inter |
-| Subtitle | `text-lg` | `text-xl md:text-2xl` | 600 | Inter |
-| Body | `text-base` | `text-lg` | 400 | Source Serif Pro |
-| Small | `text-sm` | `text-base` | 400 | Source Serif Pro |
+| Element | Size (Desktop) | Size (Mobile) | Weight | Font | Usage |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `h1` | 4rem (64px) | 2.5rem (40px) | 800 | Inter | Landing page hero |
+| `h2` | 3rem (48px) | 2rem (32px) | 700 | Inter | Section headers |
+| `h3` | 2rem (32px) | 1.5rem (24px) | 600 | Inter | Card titles, subsections |
+| `body-lg` | 1.125rem (18px) | 1rem (16px) | 400 | Source Serif Pro | Intro text, lead paragraphs |
+| `body` | 1rem (16px) | 1rem (16px) | 400 | Source Serif Pro | Standard content |
+| `button` | 1rem (16px) | 1rem (16px) | 600 | Inter | CTA buttons, nav links |
 
-### Google Fonts
+#### 3. Implementation
 
-Loaded in `index.html`:
+Import via Google Fonts in your `<head>`:
+
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 ```

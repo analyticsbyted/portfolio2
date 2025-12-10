@@ -33,7 +33,7 @@ dist-ssr
 # Temporary/utility files
 *.html
 !index.html
-pages/
+
 original_images_backup/
 docs/TempFolder/
 GEMINI.md
