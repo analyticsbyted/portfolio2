@@ -42,7 +42,7 @@ function Publications() {
           {publicationStats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="text-4xl mb-3">{stat.icon}</div>
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
@@ -57,7 +57,7 @@ function Publications() {
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Current Publications</h2>
         <div className="space-y-8">
           {/* Book */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-card dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="flex-shrink-0 flex items-center justify-center lg:items-start">
                 <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-2xl flex items-center justify-center">
@@ -110,7 +110,7 @@ function Publications() {
                 {publishedArticles.map((article) => (
                   <article
                     key={article.title}
-                    className="flex flex-col md:flex-row bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group md:items-center"
+                    className="flex flex-col md:flex-row bg-card dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group md:items-center"
                   >
                     <div className="bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded-t-xl md:rounded-t-none md:rounded-l-xl overflow-hidden md:ml-4 p-2 md:p-3">
                       <img 
@@ -161,7 +161,7 @@ function Publications() {
             
             <div className="grid md:grid-cols-2 gap-6">
               {/* Article 1 */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <div className="bg-card dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center">
                     <DocumentTextIcon className="w-5 h-5 text-white" />
@@ -187,7 +187,7 @@ function Publications() {
               </div>
               
               {/* Article 2 */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <div className="bg-card dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center">
                     <AcademicCapIcon className="w-5 h-5 text-white" />
@@ -219,7 +219,7 @@ function Publications() {
           <div className="mt-8">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Research Focus Areas</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <div className="text-center p-4 bg-card dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
                   <PresentationChartBarIcon className="w-6 h-6 text-white" />
                 </div>
@@ -227,7 +227,7 @@ function Publications() {
                 <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Responsible AI deployment</p>
               </div>
               
-              <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <div className="text-center p-4 bg-card dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
                   <AcademicCapIcon className="w-6 h-6 text-white" />
                 </div>
@@ -235,7 +235,7 @@ function Publications() {
                 <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Analytics for decision-making</p>
               </div>
 
-              <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <div className="text-center p-4 bg-card dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
                   <PresentationChartBarIcon className="w-6 h-6 text-white" />
                 </div>
@@ -243,7 +243,7 @@ function Publications() {
                 <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Transforming organizations for the future</p>
               </div>
 
-              <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+              <div className="text-center p-4 bg-card dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-xl mx-auto mb-3 flex items-center justify-center">
                   <PresentationChartBarIcon className="w-6 h-6 text-white" />
                 </div>

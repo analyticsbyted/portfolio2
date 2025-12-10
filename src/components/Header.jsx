@@ -19,7 +19,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('intro')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Intro
             </button>
@@ -27,7 +27,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('sentiment')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               NLP
             </button>
@@ -35,7 +35,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('classification')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Image Analysis
             </button>
@@ -43,7 +43,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('forecast')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Time-Series
             </button>
@@ -51,7 +51,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('supply')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Operations
             </button>
@@ -59,7 +59,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('ml')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Others
             </button>
@@ -67,7 +67,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('vizzes')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Dashboards
             </button>
@@ -75,7 +75,7 @@ const Header = ({ setActiveSection }) => {
           <li>
             <button 
               onClick={() => setActiveSection('contact')}
-              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
+              className="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-surface hover:text-black transition-all duration-300 rounded-lg"
             >
               Contact
             </button>

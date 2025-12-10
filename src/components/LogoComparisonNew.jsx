@@ -8,7 +8,7 @@ import logoOptionD from '../assets/logo-option-d.svg';
 
 const LogoComparisonNew = () => {
   return (
-    <div className="max-w-6xl mx-auto p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
+    <div className="max-w-6xl mx-auto p-8 bg-card dark:bg-gray-800 rounded-2xl shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
         Enhanced Logo Options - 2024 Design Standards
       </h2>

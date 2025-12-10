@@ -5,7 +5,7 @@ import logoPersonal from '../assets/logo-personal.svg';
 
 const LogoComparison = () => {
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
+    <div className="max-w-4xl mx-auto p-8 bg-card dark:bg-gray-800 rounded-2xl shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
         Logo Design Comparison
       </h2>

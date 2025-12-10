@@ -254,7 +254,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-surface text-gray-900 dark:text-gray-100 font-body">
-      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-surface/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Home">
@@ -321,7 +321,7 @@ function AppContent() {
                     duration: shouldReduceMotion ? 0.15 : 0.3,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="fixed top-0 right-0 bottom-0 w-64 bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
+                  className="fixed top-0 right-0 bottom-0 w-64 bg-surface dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
                 >
                   {/* Close button */}
                   <div className="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700">

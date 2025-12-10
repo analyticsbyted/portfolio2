@@ -121,7 +121,7 @@ function Contact() {
           
           <div className="space-y-6">
             {contactMethods.map((method, index) => (
-              <a key={index} href={method.link} target="_blank" rel="noopener noreferrer" className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <a key={index} href={method.link} target="_blank" rel="noopener noreferrer" className="flex items-center p-6 bg-card dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
                 <div className="text-4xl mr-6">{method.icon}</div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{method.title}</h3>
@@ -148,7 +148,7 @@ function Contact() {
 
         {/* Contact Form */}
         <section>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700">
+          <div className="bg-card dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-gray-200 dark:border-gray-700">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Send a Message</h2>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

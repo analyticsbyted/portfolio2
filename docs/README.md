@@ -31,6 +31,8 @@ This folder documents the application architecture, setup, and operational guide
 - Environment Variables: `docs/environment.md`
 - Assets & Media: `docs/assets.md`
 - Analytics & Tracking: `docs/analytics.md` ⭐ (Google Analytics, Microsoft Clarity)
+- UI/UX Design Analysis: `docs/UI_UX_ANALYSIS.md` ⭐ (Design analysis, enhancements, implementation status)
+- White to Off-White Migration: `docs/WHITE_TO_OFFWHITE_MIGRATION.md` ⭐ (Color system migration, semantic tokens)
 
 ### Deployment
 - Deployment Guide: `docs/deployment.md`

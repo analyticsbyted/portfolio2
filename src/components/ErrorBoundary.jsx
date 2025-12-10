@@ -67,7 +67,7 @@ class ErrorBoundary extends React.Component {
 
       return (
         <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900">
-          <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-2 border-red-200 dark:border-red-800 p-8 md:p-12">
+          <div className="max-w-2xl w-full bg-card dark:bg-gray-800 rounded-2xl shadow-2xl border-2 border-red-200 dark:border-red-800 p-8 md:p-12">
             {/* Error Icon */}
             <div className="flex justify-center mb-6">
               <div className="w-20 h-20 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
@@ -107,7 +107,7 @@ class ErrorBoundary extends React.Component {
               </button>
               <Link
                 to="/"
-                className="px-6 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-600 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-200 text-center font-headline"
+                className="px-6 py-3 bg-surface dark:bg-gray-700 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-600 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-200 text-center font-headline"
               >
                 Go Home
               </Link>
@@ -122,14 +122,14 @@ class ErrorBoundary extends React.Component {
                 <div className="mt-2 space-y-2 text-xs font-mono text-red-700 dark:text-red-400 overflow-auto max-h-64">
                   <div>
                     <strong>Error:</strong>
-                    <pre className="mt-1 p-2 bg-white dark:bg-gray-900 rounded overflow-auto">
+                    <pre className="mt-1 p-2 bg-surface dark:bg-gray-900 rounded overflow-auto">
                       {this.state.error.toString()}
                     </pre>
                   </div>
                   {this.state.errorInfo && (
                     <div>
                       <strong>Component Stack:</strong>
-                      <pre className="mt-1 p-2 bg-white dark:bg-gray-900 rounded overflow-auto">
+                      <pre className="mt-1 p-2 bg-surface dark:bg-gray-900 rounded overflow-auto">
                         {this.state.errorInfo.componentStack}
                       </pre>
                     </div>

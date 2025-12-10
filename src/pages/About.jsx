@@ -93,7 +93,7 @@ function About() {
           {/* Right Column - Stats Grid */}
           <div className="grid grid-cols-2 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-card dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
                 <div className="text-3xl mb-2">{stat.icon}</div>
                 <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
@@ -116,7 +116,7 @@ function About() {
               className={`p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                 activeService === index 
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' 
-                  : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-blue-300'
+                  : 'border-gray-200 dark:border-gray-700 bg-card dark:bg-gray-800 hover:border-blue-300'
               }`}
               onClick={() => setActiveService(index)}
             >

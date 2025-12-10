@@ -422,7 +422,7 @@ function Work() {
               className={`px-8 py-4 rounded-2xl text-button transition-all duration-300 border-2 ${
                 activeTab === tab.key 
                   ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white border-brand-primary shadow-lg transform hover:scale-105' 
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:shadow-md hover:bg-blue-50 dark:hover:bg-gray-700'
+                  : 'bg-card dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-blue-400 hover:shadow-md hover:bg-blue-50 dark:hover:bg-gray-700'
               }`}
               onClick={() => { setActiveTab(tab.key); setExpandedIdx(null); }}
               role="tab"
@@ -522,7 +522,7 @@ function Work() {
                           href={proj.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl text-button hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 font-headline"
+                          className="inline-flex items-center px-6 py-3 bg-surface dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl text-button hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 font-headline"
                           onClick={e => e.stopPropagation()}
                           aria-label={`Open ${proj.title} live demo`}
                         >
@@ -602,7 +602,7 @@ function Work() {
                         href={app.repoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
+                        className="inline-flex items-center px-6 py-3 bg-surface dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
                         aria-label={`Open ${app.title} repository`}
                       >
                         {app.repoLabel || 'View Repo'}
@@ -688,7 +688,7 @@ function Work() {
                         href={app.repoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
+                        className="inline-flex items-center px-6 py-3 bg-surface dark:bg-gray-800 text-blue-600 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-600 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all duration-300 text-base sm:text-lg font-headline"
                         aria-label={`Open ${app.title} repository`}
                       >
                         {app.repoLabel || 'View Repo'}

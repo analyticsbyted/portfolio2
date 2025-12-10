@@ -98,7 +98,7 @@ function Newsletter() {
           {newsletterStats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="text-4xl mb-3">{stat.icon}</div>
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
@@ -143,7 +143,7 @@ function Newsletter() {
                 <button
                   type="submit"
                   disabled={subscriptionStatus === 'submitting'}
-                  className="px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="px-8 py-4 bg-surface text-blue-600 hover:bg-gray-100 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {subscriptionStatus === 'submitting' ? 'Processing...' : 'Start Membership'}
                 </button>
@@ -171,7 +171,7 @@ function Newsletter() {
           {articles.map((article) => (
             <div
               key={article.id}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"
+              className="bg-card dark:bg-gray-800 rounded-2xl shadow-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="p-8">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
@@ -234,7 +234,7 @@ function Newsletter() {
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Why Subscribe?</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+          <div className="text-center p-8 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto mb-6 flex items-center justify-center">
               <ChartBarIcon className="w-8 h-8 text-white" />
             </div>
@@ -244,7 +244,7 @@ function Newsletter() {
             </p>
           </div>
 
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+          <div className="text-center p-8 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl mx-auto mb-6 flex items-center justify-center">
               <BookOpenIcon className="w-8 h-8 text-white" />
             </div>
@@ -254,7 +254,7 @@ function Newsletter() {
             </p>
           </div>
 
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+          <div className="text-center p-8 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl mx-auto mb-6 flex items-center justify-center">
               <UsersIcon className="w-8 h-8 text-white" />
             </div>

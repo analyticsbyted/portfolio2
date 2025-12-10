@@ -356,7 +356,7 @@ function Certifications() {
           {certificationStats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="text-4xl mb-3">{stat.icon}</div>
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
@@ -369,7 +369,7 @@ function Certifications() {
       {/* Search and Filter Section */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Explore Certifications</h2>
-        <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 items-center justify-center bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+        <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 items-center justify-center bg-card dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
           <div className="flex-1 max-w-md">
             <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search</label>
             <input
