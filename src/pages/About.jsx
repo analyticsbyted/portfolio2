@@ -13,38 +13,38 @@ const stats = [
 
 const services = [
   {
-    title: 'Data Science & Analytics',
-    description: 'Transform raw data into strategic insights that drive business decisions',
-    icon: '🧠',
-    features: ['Predictive Modeling', 'Statistical Analysis', 'Machine Learning', 'A/B Testing']
+    title: 'Mobile App Development',
+    description: 'Native iOS and Android apps built with React Native, from concept to App Store',
+    icon: '📱',
+    features: ['iOS & Android Development', 'React Native & Expo', 'App Store Deployment', 'Native API Integration']
   },
   {
-    title: 'Cloud Solutions',
-    description: 'Scalable cloud architecture and migration strategies for modern businesses',
-    icon: '☁️',
-    features: ['AWS/Azure Migration', 'Cloud Architecture', 'DevOps Integration', 'Cost Optimization']
+    title: 'Web Development',
+    description: 'Modern, responsive websites and web applications built with React and TypeScript',
+    icon: '🌐',
+    features: ['React & Next.js', 'TypeScript', 'Responsive Design', 'Performance Optimization']
   },
   {
-    title: 'Business Intelligence',
-    description: 'Interactive dashboards and reporting systems for data-driven organizations',
-    icon: '📈',
-    features: ['Tableau/Power BI', 'Real-time Dashboards', 'KPI Tracking', 'Executive Reporting']
+    title: 'Full-Stack Solutions',
+    description: 'End-to-end product development from design to deployment',
+    icon: '⚡',
+    features: ['Frontend & Backend', 'Database Design', 'API Development', 'Cloud Deployment']
   },
   {
-    title: 'AI & Automation',
-    description: 'Custom AI solutions and process automation to enhance operational efficiency',
-    icon: '🤖',
-    features: ['NLP Solutions', 'Computer Vision', 'Process Automation', 'ML Operations']
+    title: 'Product Design & UX',
+    description: 'User-centered design and modern UI/UX for engaging digital experiences',
+    icon: '🎨',
+    features: ['UI/UX Design', 'User Research', 'Prototyping', 'Design Systems']
   }
 ];
 
 const expertise = [
-  { name: 'Python', level: 95 },
-  { name: 'R', level: 90 },
-  { name: 'SQL', level: 92 },
-  { name: 'Tableau', level: 88 },
-  { name: 'AWS', level: 85 },
-  { name: 'Machine Learning', level: 90 }
+  { name: 'React Native', level: 90 },
+  { name: 'React', level: 95 },
+  { name: 'TypeScript', level: 92 },
+  { name: 'JavaScript', level: 93 },
+  { name: 'Node.js', level: 85 },
+  { name: 'Supabase/PostgreSQL', level: 88 }
 ];
 
 function About() {
@@ -68,13 +68,13 @@ function About() {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full opacity-60"></div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight font-headline">
-                Building Intelligent
-                <span className="text-blue-600 dark:text-blue-400 block">Data, AI, and Web Solutions</span>
+                Building Mobile Apps &
+                <span className="text-blue-600 dark:text-blue-400 block">Modern Web Experiences</span>
               </h1>
             </div>
             
             <p className="text-body-large font-body text-gray-600 dark:text-gray-300">
-              I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, delivering full‑stack web apps, AI agents, and data platforms. I bridge product and engineering to ship scalable, production‑ready systems across React/TypeScript, Python, and cloud.
+              I'm <span className="font-semibold text-gray-900 dark:text-white">Ted Dickey II</span>, a full‑stack product developer building mobile apps and modern websites. I design and develop iOS, Android, and web applications—from concept to App Store.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -171,15 +171,15 @@ function About() {
                 </p>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-green-500">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🚀 Industry Impact</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🚀 Product Development</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Delivered solutions across healthcare, finance, retail, and manufacturing, consistently improving operational efficiency and strategic decision-making.
+                  Built and launched Maris, a mobile focus timer app for iOS and Android. Creating user-facing products that solve real problems and ship to app stores.
                 </p>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-purple-500">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎯 Vision</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Bridging the gap between complex data science and practical business value, making AI and analytics accessible to organizations of all sizes.
+                  Building products that matter—mobile apps and web experiences that users love. From concept to launch, I focus on shipping real products that solve real problems.
                 </p>
               </div>
             </div>
@@ -190,11 +190,11 @@ function About() {
       {/* CTA Section */}
       <CTASection
         title="Ready to Build What’s Next?"
-        description="Let's discuss how modern web apps, AI, and data platforms can accelerate your business growth."
+        description="Let's discuss how mobile apps and modern web experiences can bring your product vision to life."
         primaryButton={{
           href: "/contact",
           text: "Start a Conversation",
-          ariaLabel: "Contact Ted for consulting"
+          ariaLabel: "Contact Ted for product development"
         }}
         secondaryButton={{
           href: "/work",

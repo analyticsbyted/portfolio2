@@ -1,6 +1,6 @@
 # Portfolio Website - Ted Dickey II
 
-A modern, responsive single-page application (SPA) showcasing professional portfolio, certifications, publications, and projects across data science, AI/ML, business intelligence, and web development domains.
+A modern, responsive single-page application (SPA) showcasing professional portfolio, certifications, publications, and projects. **Recently pivoted from data science consulting to product development**—focusing on mobile app development (iOS/Android) and modern web experiences.
 
 > **New to this project?** Start with [`docs/context.md`](docs/context.md) for comprehensive project context and handover information. This README provides a quick overview—see the [Documentation](#documentation) section for detailed guides.
 
@@ -102,9 +102,9 @@ portfolio2/
 
 ## Pages
 
-- **Home:** Landing page with hero, KPIs, featured project, services
-- **Portfolio:** Tabbed showcase of projects (Data Science, BI, NLP, Web Dev, Research)
-- **About:** Professional background and expertise
+- **Home:** Landing page with hero, KPIs, featured project, services (recently updated for product development focus)
+- **Portfolio:** Tabbed showcase of projects (Applications, Web Development, Data Science, BI, NLP, Research) - Applications tab is now first
+- **About:** Professional background and expertise (updated to emphasize product development)
 - **Education:** Academic credentials
 - **Certifications:** Professional certifications grid
 - **Publications:** Research publications and articles
@@ -259,12 +259,24 @@ See [`docs/scripts.md`](docs/scripts.md) for more utilities.
 
 See `LICENSE.txt` for details.
 
+## Recent Changes (December 2024)
+
+**Portfolio Pivot:** The portfolio has been updated to reflect a shift from data science consulting to product development. Key changes:
+
+- **New Focus:** Mobile app development (iOS/Android) and modern web experiences
+- **Featured Project:** Maris mobile app (cognitive behavioral tool for ADHD)
+- **Tab Reordering:** Applications tab is now first, followed by Web Development
+- **Updated Messaging:** Hero section, services, and About page emphasize product building
+- **Technology Stack:** Updated to highlight React Native, Expo, mobile development tools
+
+See `PORTFOLIO_PIVOT_PLAN.md` for detailed pivot strategy and `CONTEXT.md` for current project state.
+
 ## Author
 
 **Ted Dickey II**  
-Data Science Professional & PhD Candidate  
-Specializing in AI/ML, Analytics, and Web Development
+Product Developer & Full-Stack Engineer  
+Specializing in Mobile Apps (iOS/Android), Web Development, and Product Design
 
 ---
 
-For detailed project context and handover information, see `docs/context.md`.
+For detailed project context and handover information, see `CONTEXT.md` and `docs/context.md`.

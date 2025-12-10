@@ -60,7 +60,7 @@ const Footer = () => {
                 <span className="text-2xl font-bold">Ted Dickey II</span>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Data Science professional with 6+ years of experience in analytics, machine learning, and organizational leadership. PhD Candidate specializing in AI/ML.
+                Full-stack product developer building mobile apps and modern web experiences. From concept to App Store, I design and develop iOS, Android, and web applications.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map(link => (

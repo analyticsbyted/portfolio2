@@ -57,7 +57,7 @@ const testimonials = [
 ];
 
 const technologies = [
-  'Python', 'R', 'SQL', 'Tableau', 'Power BI', 'AWS', 'Azure', 'Snowflake', 'Alteryx', 'TensorFlow', 'scikit-learn', 'Docker'
+  'React', 'React Native', 'TypeScript', 'JavaScript', 'Expo', 'Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Python', 'AWS', 'Docker', 'Git'
 ];
 
 function Home() {
@@ -89,24 +89,24 @@ function Home() {
         <div className="text-center mb-16">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="inline-flex items-center px-3 py-1 rounded-full text-badge bg-gradient-to-r from-brand-primary to-brand-secondary text-white mb-4">
-              Available for Web & AI Projects
+              Product Developer & Full-Stack Engineer
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
-              Building Intelligent
+              Building Mobile Apps &
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-                Data, AI, and Web Apps
+                Modern Web Experiences
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-body">
-              I build production‑ready web apps, AI agents, and data platforms that drive measurable outcomes.
+              I design and develop mobile apps, modern websites, and full-stack applications—from concept to App Store.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
                 href="/contact" 
                 className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md px-8 py-4 text-button font-headline"
-                ariaLabel="Contact Ted for consulting services"
+                ariaLabel="Contact Ted for product development services"
               >
                 Start Your Project
               </Button>
@@ -225,7 +225,7 @@ function Home() {
             href="/work"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-button hover:from-brand-accent hover:to-brand-accent-alt hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md transition-all shadow-lg font-headline"
           >
-            See outcomes in Work
+            See outcomes in Portfolio
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -273,7 +273,7 @@ function Home() {
             Technologies I Work With
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-body">
-            Cutting-edge tools and platforms for modern data solutions
+            Modern tools and frameworks for building mobile apps and web experiences
           </p>
         </div>
 
