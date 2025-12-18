@@ -23,11 +23,11 @@ const socialLinks = [
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  
+
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  
+
   return (
     <footer className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary dark:from-brand-accent dark:via-brand-accent-alt dark:to-brand-accent text-white mt-16" role="contentinfo" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
@@ -38,10 +38,10 @@ const Footer = () => {
               <img src={logo} alt="Ted Dickey logo" width={32} height={32} className="mr-2" />
               <span className="text-xl font-bold">Ted Dickey II</span>
             </div>
-            <p className="text-gray-300 text-sm">© {year} Ted Dickey II. All rights reserved.</p>
+            <p className="text-white/80 text-sm">© {year} Ted Dickey II. All rights reserved.</p>
             <div className="flex space-x-6">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View my ${link.name} profile`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View my ${link.name} profile`} className="text-white/80 hover:text-white transition-colors">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d={link.path} />
                   </svg>
@@ -59,12 +59,12 @@ const Footer = () => {
                 <img src={logo} alt="Ted Dickey logo" width={40} height={40} className="mr-3" />
                 <span className="text-2xl font-bold">Ted Dickey II</span>
               </div>
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="text-white/80 mb-4 leading-relaxed">
                 Full-stack product developer building mobile apps and modern web experiences. From concept to App Store, I design and develop iOS, Android, and web applications.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map(link => (
-                  <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View my ${link.name} profile`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                  <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View my ${link.name} profile`} className="text-white/80 hover:text-white transition-colors">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d={link.path} />
                     </svg>
@@ -77,26 +77,26 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link to="/work" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
-                <li><Link to="/about" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">About Me</Link></li>
-                <li><Link to="/certifications" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Certifications</Link></li>
-                <li><Link to="/education" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Education</Link></li>
+                <li><Link to="/work" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Portfolio</Link></li>
+                <li><Link to="/about" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">About Me</Link></li>
+                <li><Link to="/certifications" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Certifications</Link></li>
+                <li><Link to="/education" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Education</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
-                <li><Link to="/publications" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Publications</Link></li>
-                <li><Link to="/newsletter" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Newsletter</Link></li>
-                <li><Link to="/contact" onClick={handleLinkClick} className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/publications" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Publications</Link></li>
+                <li><Link to="/newsletter" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Newsletter</Link></li>
+                <li><Link to="/contact" onClick={handleLinkClick} className="text-white/80 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar (Unchanged) */}
-          <div className="border-t border-gray-700 pt-8 mt-8">
+          <div className="border-t border-white/20 pt-8 mt-8">
             <div className="flex flex-col items-center">
-              <div className="flex items-center text-gray-300 justify-center">
+              <div className="flex items-center text-white/80 justify-center">
                 <img src={logo} alt="Ted Dickey logo" width={24} height={24} className="mr-2" />
                 <span className="text-sm">© {year} Ted Dickey II. All rights reserved.</span>
               </div>

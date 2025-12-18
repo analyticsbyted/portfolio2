@@ -10,14 +10,24 @@ This document defines the visual identity, color palette, typography, and compon
 
 ## Color Palette
 
+**📚 For detailed color usage rules, see: [`docs/STYLING_GUIDE.md`](./STYLING_GUIDE.md)**  
+**📚 For color system definition, see: [`docs/COLOR_SYSTEM.md`](./COLOR_SYSTEM.md)**
+
 ### Primary Brand Colors
 
 The portfolio uses a **blue-to-purple gradient** as the primary brand identity:
 
-- **Primary Start (Blue)**: `#2563EB` (blue-600)
-- **Primary End (Purple)**: `#9333EA` (purple-600)
-- **Accent Dark (Blue)**: `#1D4ED8` (blue-700) - for hover states
-- **Accent Dark (Purple)**: `#7E22CE` (purple-700) - for hover states
+- **PRIMARY COLOR (Blue)**: `#2563EB` (blue-600) - Token: `brand-primary`
+  - **Purpose**: Main brand color, primary CTAs, key highlights
+  - **Usage**: Always paired with secondary in gradients for brand elements
+  - **Hover**: `brand-accent` (`#1D4ED8` / `blue-700`)
+
+- **SECONDARY COLOR (Purple)**: `#9333EA` (purple-600) - Token: `brand-secondary`
+  - **Purpose**: Secondary brand color, used exclusively in gradients with primary
+  - **Usage**: **ONLY** in gradients with primary, never standalone
+  - **Hover**: `brand-accent-alt` (`#7E22CE` / `purple-700`)
+
+**IMPORTANT**: The brand identity is a **blue-to-purple gradient**, not individual colors. Always use gradients for brand elements.
 
 **Usage**:
 - Primary CTAs and buttons: `bg-gradient-to-r from-blue-600 to-purple-600`

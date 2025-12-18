@@ -7,6 +7,10 @@
   --color-white: 248 247 244;
   /* #F8F7F4 */
 
+  /* Text tokens */
+  --color-foreground: 17 24 39;         /* #111827 - default foreground */
+  --color-muted-foreground: 107 114 128; /* #6B7280 - muted foreground */
+
   /* Additional off-white shades kept for intentional variety (optional use) */
   --offwhite-1: 250 249 247;
   /* #FAF9F7 - slightly lighter */
@@ -22,6 +26,8 @@
   /* gray-200 */
   --color-muted: 243 244 246;
   /* gray-100/200 for skeletons, subtle surfaces */
+  --color-surface-dark: 15 23 42;
+  /* slate-900 equivalent for explicit dark surface tokens */
 }
 
 /* Dark theme may still reference white for contrast tokens selectively.
@@ -42,6 +48,9 @@
   /* slate-300 for body text */
   --color-text-headline: 241 245 249;
   /* slate-100 for headlines/emphasis */
+  --color-foreground: 241 245 249;        /* slate-100 for general foreground */
+  --color-muted-foreground: 148 163 184;  /* slate-400 for muted foreground */
+  --color-surface-dark: 15 23 42;         /* keep consistent for explicit dark surfaces */
 }
 
 body {

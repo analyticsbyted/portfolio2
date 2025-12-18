@@ -4,7 +4,7 @@ const websiteSchema = {
   name: 'Ted Dickey Portfolio',
   url: 'https://teddickey.com/',
   description:
-    'Portfolio of Ted Dickey II—Data Science Professional & PhD Candidate delivering web apps, AI agents, and analytics platforms.',
+    'Portfolio of Ted Dickey II—Indie Developer & Full-Stack Engineer building native mobile apps, AI agents, and modern web platforms.',
   potentialAction: {
     '@type': 'SearchAction',
     target: 'https://teddickey.com/?s={search_term_string}',

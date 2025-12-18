@@ -2,7 +2,7 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Ted Dickey II',
-  jobTitle: 'Data Science Professional & PhD Candidate',
+  jobTitle: 'Indie Developer & Data Science Professional',
   url: 'https://teddickey.com',
   image: 'https://teddickey.com/favicon-td.svg',
   sameAs: [

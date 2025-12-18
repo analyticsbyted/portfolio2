@@ -11,6 +11,8 @@ This folder documents the application architecture, setup, and operational guide
 - Pages & Components: `docs/pages-and-components.md`
 - Page Transitions: `docs/page-transitions.md` ⭐ (Framer Motion implementation)
 - Styling & Theming: `docs/styling-and-theming.md`
+- **Styling Guide**: `docs/STYLING_GUIDE.md` ⭐⭐ **START HERE** (Complete styling rules, color usage, component patterns)
+- **Color System**: `docs/COLOR_SYSTEM.md` ⭐ (Primary/secondary color definitions)
 - Brand Guidelines: `docs/brand-guidelines.md` ⭐ (Color palette, typography, logo usage)
 - Color Migration Guide: `docs/color-migration-guide.md` ⭐ (Migrating to brand tokens)
 - Brand Token Quick Reference: `docs/BRAND-TOKEN-QUICK-REFERENCE.md` (Quick lookup for brand token usage)

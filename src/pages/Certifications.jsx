@@ -76,16 +76,16 @@ const certificationsData = [
   {
     id: 21,
     name: "Alteryx Designer Core - General Knowledge",
-    categories: ["Alteryx",  "Data Preparation", "workfloes", "Machine Learning", "Cloud", "Docker"],
+    categories: ["Alteryx", "Data Preparation", "workfloes", "Machine Learning", "Cloud", "Docker"],
     issuingOrganization: "Alteryx",
-    badgeImage: alteryxDesignerCore, 
+    badgeImage: alteryxDesignerCore,
     verificationLink: "https://www.credly.com/badges/659f876b-800f-4150-a040-f2a665d78d64/public_url",
     description: "Earners of this certification have a thorough understanding of the Alteryx Designer environment. They are able to navigate the user interface, find Designer resources, identify file formats, share and export workflows, and optimize workflows. This micro-certification can be stacked with the Alteryx Designer Core Micro-Credentials Data Preparation, Data Manipulation, and Data Transformation to achieve the full Designer Core Certification.",
   },
   {
     id: 5,
     name: "Microsoft Certified: Azure Data Fundamentals",
-    categories: ["Data Analytics", "Azure", "Microsoft", "Data Science", "Data Warehouse","Azure Synapse Analytics", "Azure Databricks"],
+    categories: ["Data Analytics", "Azure", "Microsoft", "Data Science", "Data Warehouse", "Azure Synapse Analytics", "Azure Databricks"],
     issuingOrganization: "Microsoft",
     badgeImage: msAzureDataFundamentals,
     verificationLink: "https://www.credly.com/badges/da1b9066-a4a5-4fa5-bba3-46acb9f02ef8/public_url",
@@ -94,7 +94,7 @@ const certificationsData = [
   {
     id: 6,
     name: "Snowflake Essentials: Data Warehousing",
-    categories: ["Database",  "Data Science", "Data Warehouse"],
+    categories: ["Database", "Data Science", "Data Warehouse"],
     issuingOrganization: "Snowflake",
     badgeImage: snowflakeDW,
     verificationLink: "https://www.credly.com/badges/48640c20-a3cb-4c24-8c77-b22f454d67c5/public_url",
@@ -103,7 +103,7 @@ const certificationsData = [
   {
     id: 7,
     name: "Python for Data Science",
-    categories: ["Programming",  "Data Science", "Python", "Data Analytics", "Jupyter"],
+    categories: ["Programming", "Data Science", "Python", "Data Analytics", "Jupyter"],
     issuingOrganization: "IBM",
     badgeImage: pythonDataScience,
     verificationLink: "https://www.credly.com/badges/cec32f6a-c4bb-4c9a-b706-7c92a0cc5a04/public_url",
@@ -112,153 +112,153 @@ const certificationsData = [
   {
     id: 8,
     name: "Applied Data Science with Python - Level 2",
-    categories: ["Programming",  "Data Science", "Python", "Data Analytics", "Visualization", "matplotlib"],
+    categories: ["Programming", "Data Science", "Python", "Data Analytics", "Visualization", "matplotlib"],
     issuingOrganization: "IBM",
-    badgeImage: appliedDataSciencePython, 
+    badgeImage: appliedDataSciencePython,
     verificationLink: "https://www.credly.com/badges/87d25096-01cb-4a61-8324-d70b2711185f/public_url",
     description: "This badge earner is able to code in Python for data science. They can analyze and visualize data with Python with packages like scikit-learn, matplotlib and bokeh.",
   },
   {
     id: 9,
     name: "IBM Consulting - Delivering Business Value",
-    categories: ["Project management",  "Consulting"],
+    categories: ["Project management", "Consulting"],
     issuingOrganization: "IBM",
-    badgeImage: deliveringBusinessValue, 
+    badgeImage: deliveringBusinessValue,
     verificationLink: "https://www.credly.com/badges/87d25096-01cb-4a61-8324-d70b2711185f/public_url",
     description: "The badge earner is able to deliver business value by performing Consulting Discipline activities using well established IBM assets, methods and engagement practices. IBM is a leader in transforming industries, societies and the workplace through data, cloud, social and mobile utilising world class IBM Consulting experience.",
   },
   {
     id: 10,
     name: "AWS Certified Cloud Practitioner",
-    categories: ["Cloud",  "Cloud Services", "Cloud Platform", "Cloud Computing"],
+    categories: ["Cloud", "Cloud Services", "Cloud Platform", "Cloud Computing"],
     issuingOrganization: "AWS",
-    badgeImage: awsCloudPractitioner, 
+    badgeImage: awsCloudPractitioner,
     verificationLink: "https://www.credly.com/badges/4efd9378-9a6f-4a84-bf05-bee24becad6c/public_url",
     description: "Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.",
   },
   {
     id: 11,
     name: "Microsoft Certified: Azure Fundamentals",
-    categories: ["Cloud",  "Cloud Services", "Cloud Platform", "Cloud Computing"],
+    categories: ["Cloud", "Cloud Services", "Cloud Platform", "Cloud Computing"],
     issuingOrganization: "Microsoft",
-    badgeImage: msCertifiedAzureFundamentals, 
+    badgeImage: msCertifiedAzureFundamentals,
     verificationLink: "https://www.credly.com/badges/b8bc667c-062c-4026-8b54-faf301055dec/public_url",
     description: "Earners of the Azure Fundamentals certification have demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.",
   },
   {
     id: 12,
     name: "Microsoft Certified: Azure AI Fundamentals",
-    categories: ["Cloud",  "Azure Machine Learning", "Artificial Intelligence", "Cognitive Services"],
+    categories: ["Cloud", "Azure Machine Learning", "Artificial Intelligence", "Cognitive Services"],
     issuingOrganization: "Microsoft",
-    badgeImage: msCertifiedAzureAIFundamentals, 
+    badgeImage: msCertifiedAzureAIFundamentals,
     verificationLink: "https://www.credly.com/badges/da8468ed-ff6b-48f6-b67b-964dff928704/public_url",
     description: "Earners of the Azure AI Fundamentals certification have demonstrated foundational knowledge of machine learning (ML) and artificial intelligence (AI) concepts and related Microsoft Azure services.",
   },
   {
     id: 13,
     name: "SAS Programming 1: Essentials",
-    categories: ["SAS",  "programming", "Base SAS",],
+    categories: ["SAS", "programming", "Base SAS",],
     issuingOrganization: "SAS",
-    badgeImage: sasProgramming1, 
+    badgeImage: sasProgramming1,
     verificationLink: "https://www.credly.com/badges/da8468ed-ff6b-48f6-b67b-964dff928704/public_url",
     description: "This course is for users who want to learn how to write SAS programs to access, explore, prepare, and analyze data. It is the entry point to learning SAS programming for data science, machine learning, and artificial intelligence. It is a prerequisite to many other SAS courses.",
   },
   {
     id: 14,
     name: "AWS Partner: Technical Accredited",
-    categories: ["AWS",  "AWS Cloud", "AWS Partner",],
+    categories: ["AWS", "AWS Cloud", "AWS Partner",],
     issuingOrganization: "AWS",
-    badgeImage: awsPartnerTechnical, 
+    badgeImage: awsPartnerTechnical,
     verificationLink: "https://www.credly.com/badges/da8468ed-ff6b-48f6-b67b-964dff928704/public_url",
     description: "Earners of this badge are AWS Partners who have developed fundamental, technical knowledge of AWS cloud computing, global infrastructure, services, solutions, migration and security.",
   },
   {
     id: 15,
     name: "Data Visualization using Python",
-    categories: ["Python",  "data visualization", "business intelligence",],
+    categories: ["Python", "data visualization", "business intelligence",],
     issuingOrganization: "IBM",
-    badgeImage: dataVizPython, 
+    badgeImage: dataVizPython,
     verificationLink: "https://www.credly.com/badges/34ef6b01-3e53-4ec7-acda-ec5de45f417d/public_url",
     description: "This badge earner understands how Python libraries such as Matplotib, Seaborn and Folium are used for the creation and customization of graphical representation outputs for both small and large-scale data sets.",
   },
   {
     id: 16,
     name: "Data Analysis using Python",
-    categories: ["Python",  "data analysis", "data analytics", "Jupyter", "Machine Learning"],
+    categories: ["Python", "data analysis", "data analytics", "Jupyter", "Machine Learning"],
     issuingOrganization: "IBM",
-    badgeImage: dataAnalysisPython, 
+    badgeImage: dataAnalysisPython,
     verificationLink: "https://www.credly.com/badges/31ed2a1d-884a-420c-9379-00ce11811450/public_url",
     description: "This badge earner understands the essential steps necessary to analyze data in Python using multi-dimensional arrays, manipulating DataFrames in pandas, using SciPy library of mathematical routines and performing machine learning using scikit-learn. This includes hands-on demonstration using Jupyter notebook in JupyterLab Python tools.",
   },
   {
     id: 17,
     name: "IBM Cloud Pak for Data V3.5.x Essentials",
-    categories: ["IBM Cloud Pak",  "data sources", "ETL",],
+    categories: ["IBM Cloud Pak", "data sources", "ETL",],
     issuingOrganization: "IBM",
-    badgeImage: cloudPakData35, 
+    badgeImage: cloudPakData35,
     verificationLink: "https://www.credly.com/badges/ec8f694e-52e6-46fe-b00a-ddfad14219cd/public_url",
     description: "The successful badge earner can comprehend the platform and architecture of IBM Cloud Pak for Data, and the workflow and collaboration between the personas. The earner can access the various supported data sources, and catalog, govern, and perform extract, transform, and load (ETL) on that data. The badge earner can perform basic administrative tasks, set up projects, and analyze the data by using or constructing a wide range of components: notebooks, RStudio, and machine learning models.",
   },
   {
     id: 18,
     name: "IBM Consulting - Communicating Value",
-    categories: ["Communication",  "Presentations", "Consulting",],
+    categories: ["Communication", "Presentations", "Consulting",],
     issuingOrganization: "IBM",
-    badgeImage: communicatingValue, 
+    badgeImage: communicatingValue,
     verificationLink: "https://www.credly.com/badges/68797612-3207-4419-b4fa-6f2ccdfc92c5/public_url",
     description: "The badge earner is able to communicate value by performing Consulting Discipline activities using well established IBM assets, methods and engagement practices. IBM is a leader in transforming industries, societies and the workplace through data, cloud, social and mobile utilising world class IBM Consulting experience.",
   },
   {
     id: 19,
     name: "IBM Agile Explorer",
-    categories: ["Project Management",  "Agile", "Consulting",],
+    categories: ["Project Management", "Agile", "Consulting",],
     issuingOrganization: "IBM",
-    badgeImage: ibmAgileExplorer, 
+    badgeImage: ibmAgileExplorer,
     verificationLink: "https://www.credly.com/badges/99b6fef1-11c6-4877-8dbc-c497677b3530/public_url",
     description: "The Agile Explorer has a foundational understanding of Agile values, principles, and practices that allows them to initiate an Agile conversation with co-workers and colleagues. This badge is available to IBM employees only.",
   },
   {
     id: 20,
     name: "IBM Cloud Pak for Data V3.5.x Data Scientist",
-    categories: ["Data Scientist",  "Governance", "Microservice", "Machine Learning", "Cloud", "Docker"],
+    categories: ["Data Scientist", "Governance", "Microservice", "Machine Learning", "Cloud", "Docker"],
     issuingOrganization: "IBM",
-    badgeImage: cloudPakDataScientist, 
+    badgeImage: cloudPakDataScientist,
     verificationLink: "https://www.credly.com/badges/34a96a03-5205-40a2-98c6-31ee2daea22b/public_url",
     description: "The successful badge earner understands the core technologies, platform, and architecture of IBM Cloud Pak for Data. The earner knows how to collaborate, build and deploy analytics models, and knows the tasks of the different built-in roles in IBM Cloud Pak for Data, with a special emphasis on the tasks performed by the data scientist in a real-world, working environment.",
   },
   {
     id: 22,
     name: "Enterprise Design Thinking Practitioner",
-    categories: ["Design",  "User Experience", "User Research", "Machine Learning", "Cloud", "Docker"],
+    categories: ["Design", "User Experience", "User Research", "Machine Learning", "Cloud", "Docker"],
     issuingOrganization: "IBM",
-    badgeImage: enterpriseDesign, 
+    badgeImage: enterpriseDesign,
     verificationLink: "https://www.credly.com/badges/b2003fd9-7086-4437-915c-b873b4a36a90/public_url",
     description: "The earner has acquired knowledge of applying Enterprise Design Thinking and its value. As a Practitioner, the badge earner finds opportunities to try it out in their every day work.",
   },
   {
     id: 23,
     name: "Hands On Essentials - Data Applications",
-    categories: ["Design",  "User Experience", "User Research", "Machine Learning", "Cloud", "Docker"],
+    categories: ["Design", "User Experience", "User Research", "Machine Learning", "Cloud", "Docker"],
     issuingOrganization: "Snowflake",
-    badgeImage: handsOnEssentials, 
+    badgeImage: handsOnEssentials,
     verificationLink: "https://www.credly.com/badges/6449f5e1-d0a1-45c3-965b-d15426c73290/public_url",
     description: "The Data Applications badge is the second badge in Snowflake's Hands On Essentials Series. Users earning this credential have demonstrated an ability to use Python to read from and write to their Snowflake database tables. Badge earners after April 2022 built a Streamlit application which can be viewed as part of their GitHub repository. Please contact the badge earner for details. Badge Earners Prior to May 2022 built an IOT data pipeline using SoftwareAG tools.",
   },
   {
     id: 24,
     name: "Hands On Essentials - Data Sharing",
-    categories: ["Database", ],
+    categories: ["Database",],
     issuingOrganization: "Snowflake",
-    badgeImage: dataSharing, 
+    badgeImage: dataSharing,
     verificationLink: "https://www.credly.com/badges/94914ac5-b702-4f94-896e-857047f0bead/public_url",
     description: "The Data Sharing badge is the third badge in Snowflake's Hands On Essentials Series. Users earning this credential have demonstrated an ability to use Snowflake's three data sharing technologies, including: Direct Sharing, the Snowflake Data Marketplace, and Snowflake's Private Data Exchanges.",
   },
   {
     id: 25,
     name: "IBM Cloud Pak for Data V3.5.x - Data Science",
-    categories: ["Data Science", "Data Analyst", "Data Engineer", "Business Analyst", ],
+    categories: ["Data Science", "Data Analyst", "Data Engineer", "Business Analyst",],
     issuingOrganization: "IBM",
-    badgeImage: cloudPakDataScience, 
+    badgeImage: cloudPakDataScience,
     verificationLink: "https://www.credly.com/badges/776973b0-17fe-453e-bcb3-b8c14549a9ed/public_url",
     description: "The successful badge earner knows how to use Data Refinery, AutoAI Experiment, notebooks, JupyterLab, and is familiar with projects, jobs, connected data, analytics models, and deployment. The earner will also know how to collaborate with others on the Cloud Pak for Data 3.5 platform.",
   },
@@ -267,7 +267,7 @@ const certificationsData = [
     name: "IBM Garage Essentials",
     categories: ["Agile", "Design Thinking", "Methodology", "IBM Garage"],
     issuingOrganization: "IBM",
-    badgeImage: garageEssentials, 
+    badgeImage: garageEssentials,
     verificationLink: "https://www.credly.com/badges/f328ee45-cb16-4a02-a544-653393b7b691/public_url",
     description: "This badge earner is able to demonstrate understanding of IBM Garage Methodology, assets and platforms.",
   },
@@ -276,7 +276,7 @@ const certificationsData = [
     name: "IBM Garage Foundation",
     categories: ["Agile", "Design Thinking", "Methodology", "IBM Garage"],
     issuingOrganization: "IBM",
-    badgeImage: garageFoundation, 
+    badgeImage: garageFoundation,
     verificationLink: "https://www.credly.com/badges/eec90555-27bc-4c0b-9062-02f8868e07df/public_url",
     description: "This badge earner has gained a basic understanding and skill necessary to perform in an IBM Garage engagement.",
   },
@@ -285,16 +285,16 @@ const certificationsData = [
     name: "Desktop 1: Fundamentals",
     categories: ["Data Visualization", "Business Intelligence", "Dashboards",],
     issuingOrganization: "Tableau",
-    badgeImage: logoTableau, 
+    badgeImage: logoTableau,
     verificationLink: "http://verify.skilljar.com/c/rvmqhai52mr6",
     description: "This badge earner has gained a basic understanding and skill necessary to perform in an IBM Garage engagement.",
   },
   {
     id: 29,
     name: "Spreadsheet Modeling",
-    categories: ["Excel", "data modeling", ],
+    categories: ["Excel", "data modeling",],
     issuingOrganization: "Harvard Business Publishing",
-    badgeImage: harvardBusiness, 
+    badgeImage: harvardBusiness,
     verificationLink: "https://eproduct.hbsp.harvard.edu/eproduct/product/spreadsheet_2013/content/index.html",
     description: "This badge earner has gained a basic understanding and skill necessary to perform in an IBM Garage engagement.",
   },
@@ -337,192 +337,192 @@ function Certifications() {
         schema={personSchema}
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <section className="text-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-          Professional
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-            Certifications
-          </span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          A comprehensive collection of industry-recognized certifications spanning Data Science, Cloud Computing, Analytics, and emerging technologies.
-        </p>
-      </section>
+        {/* Hero Section */}
+        <section className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            Professional
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+              Certifications
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            A comprehensive collection of industry-recognized certifications spanning Data Science, Cloud Computing, Analytics, and emerging technologies.
+          </p>
+        </section>
 
-      {/* Stats Grid */}
-      <section className="mb-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {certificationStats.map((stat, index) => (
-            <div 
-              key={index} 
-              className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <div className="text-4xl mb-3">{stat.icon}</div>
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+        {/* Stats Grid */}
+        <section className="mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {certificationStats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="text-4xl mb-3">{stat.icon}</div>
+                <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Search and Filter Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Explore Certifications</h2>
+          <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 items-center justify-center bg-card dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex-1 max-w-md">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search</label>
+              <input
+                type="text"
+                placeholder="Search certifications..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-surface dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 text-lg"
+                aria-label="Search certifications"
+              />
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Search and Filter Section */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Explore Certifications</h2>
-        <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 items-center justify-center bg-card dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-          <div className="flex-1 max-w-md">
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search</label>
-            <input
-              type="text"
-              placeholder="Search certifications..."
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
-              aria-label="Search certifications"
-            />
-          </div>
-          <div className="flex-1 max-w-md">
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Category</label>
-            <select
-              value={selectedCategory}
-              onChange={e => setSelectedCategory(e.target.value)}
-              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
-              aria-label="Filter by category"
-            >
-              <option value="All">All Categories</option>
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1 max-w-md">
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Issuer</label>
-            <select
-              value={selectedIssuer}
-              onChange={e => setSelectedIssuer(e.target.value)}
-              className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-500 transition-all duration-300 text-lg"
-              aria-label="Filter by issuer"
-            >
-              <option value="All">All Issuers</option>
-              {issuers.map(issuer => (
-                <option key={issuer} value={issuer}>{issuer}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Grid */}
-      <section className="mb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredCertifications.map(cert => (
-            <Card
-              key={cert.id}
-              className="shadow-lg p-6 flex flex-col items-center group"
-              onClick={() => setSelectedCertification(cert)}
-              tabIndex={0}
-              role="button"
-              aria-label={`View details for ${cert.name}`}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setSelectedCertification(cert);
-                }
-              }}
-            >
-              <div className="w-24 h-24 mb-4 flex items-center justify-center bg-muted rounded-2xl p-2 group-hover:scale-110 transition-transform duration-300">
-                <ImageWithSkeleton src={cert.badgeImage} alt={cert.name} className="w-full h-full object-contain" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-center text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">{cert.name}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm text-center font-medium">{cert.issuingOrganization}</p>
-              
-              {/* Category tags */}
-              <div className="flex flex-wrap gap-1 mt-3 justify-center">
-                {cert.categories.slice(0, 2).map((category, i) => (
-                  <span key={i} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
-                    {category}
-                  </span>
+            <div className="flex-1 max-w-md">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Category</label>
+              <select
+                value={selectedCategory}
+                onChange={e => setSelectedCategory(e.target.value)}
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-surface dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 text-lg"
+                aria-label="Filter by category"
+              >
+                <option value="All">All Categories</option>
+                {categories.map(category => (
+                  <option key={category} value={category}>{category}</option>
                 ))}
-                {cert.categories.length > 2 && (
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs font-medium">
-                    +{cert.categories.length - 2}
-                  </span>
-                )}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-      {/* Modal */}
-      {selectedCertification && (
-        <Modal onClose={() => setSelectedCertification(null)}>
-          <div className="bg-card rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative border-2 border-border">
-            <button
-              className="absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
-              onClick={() => setSelectedCertification(null)}
-              aria-label="Close"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center bg-muted rounded-2xl p-4">
-                <ImageWithSkeleton src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-full h-full object-contain" />
-              </div>
-              
-              <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">{selectedCertification.name}</h2>
-              
-              <div className="mb-6">
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
-                  <span className="font-semibold text-gray-900 dark:text-white">Issued by:</span> {selectedCertification.issuingOrganization}
-                </p>
-                
-                {/* Category badges */}
-                <div className="flex flex-wrap gap-2 justify-center mb-4">
-                  {selectedCertification.categories.map((category, i) => (
-                    <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+              </select>
+            </div>
+            <div className="flex-1 max-w-md">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Issuer</label>
+              <select
+                value={selectedIssuer}
+                onChange={e => setSelectedIssuer(e.target.value)}
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-600 bg-surface dark:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 text-lg"
+                aria-label="Filter by issuer"
+              >
+                <option value="All">All Issuers</option>
+                {issuers.map(issuer => (
+                  <option key={issuer} value={issuer}>{issuer}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </section>
+
+        {/* Certifications Grid */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredCertifications.map(cert => (
+              <Card
+                key={cert.id}
+                className="shadow-lg p-6 flex flex-col items-center group"
+                onClick={() => setSelectedCertification(cert)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details for ${cert.name}`}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setSelectedCertification(cert);
+                  }
+                }}
+              >
+                <div className="w-24 h-24 mb-4 flex items-center justify-center bg-muted rounded-2xl p-2 group-hover:scale-110 transition-transform duration-300">
+                  <ImageWithSkeleton src={cert.badgeImage} alt={cert.name} className="w-full h-full object-contain" />
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-center text-gray-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-accent transition-colors leading-tight">{cert.name}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm text-center font-medium">{cert.issuingOrganization}</p>
+
+                {/* Category tags */}
+                <div className="flex flex-wrap gap-1 mt-3 justify-center">
+                  {cert.categories.slice(0, 2).map((category, i) => (
+                    <span key={i} className="px-2 py-1 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-blue-200 rounded-full text-xs font-medium">
                       {category}
                     </span>
                   ))}
+                  {cert.categories.length > 2 && (
+                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs font-medium">
+                      +{cert.categories.length - 2}
+                    </span>
+                  )}
                 </div>
-              </div>
-              
-              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed text-left">{selectedCertification.description}</p>
-              
-              <a
-                href={selectedCertification.verificationLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <TrophyIcon className="w-5 h-5 mr-2" />
-                Verify Certification
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
+              </Card>
+            ))}
           </div>
-        </Modal>
-      )}
+        </section>
+        {/* Modal */}
+        {selectedCertification && (
+          <Modal onClose={() => setSelectedCertification(null)}>
+            <div className="bg-card rounded-2xl shadow-2xl p-8 max-w-2xl w-full relative border-2 border-border">
+              <button
+                className="absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all duration-300"
+                onClick={() => setSelectedCertification(null)}
+                aria-label="Close"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Leverage Expertise?"
-        description="These certifications represent continuous learning and proven expertise across data science, cloud computing, and analytics technologies."
-        primaryButton={{
-          href: "/work",
-          text: "See My Work",
-          ariaLabel: "View Ted's portfolio projects"
-        }}
-        secondaryButton={{
-          href: "/contact",
-          text: "Let's Connect",
-          ariaLabel: "Contact Ted"
-        }}
-      />
-    </div>
+              <div className="text-center">
+                <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center bg-muted rounded-2xl p-4">
+                  <ImageWithSkeleton src={selectedCertification.badgeImage} alt={selectedCertification.name} className="w-full h-full object-contain" />
+                </div>
+
+                <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">{selectedCertification.name}</h2>
+
+                <div className="mb-6">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
+                    <span className="font-semibold text-gray-900 dark:text-white">Issued by:</span> {selectedCertification.issuingOrganization}
+                  </p>
+
+                  {/* Category badges */}
+                  <div className="flex flex-wrap gap-2 justify-center mb-4">
+                    {selectedCertification.categories.map((category, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-blue-200 rounded-full text-sm font-medium">
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed text-left">{selectedCertification.description}</p>
+
+                <a
+                  href={selectedCertification.verificationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  <TrophyIcon className="w-5 h-5 mr-2" />
+                  Verify Certification
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </Modal>
+        )}
+
+        {/* CTA Section */}
+        <CTASection
+          title="Ready to Leverage Expertise?"
+          description="These certifications represent continuous learning and proven expertise across data science, cloud computing, and analytics technologies."
+          primaryButton={{
+            href: "/work",
+            text: "See My Work",
+            ariaLabel: "View Ted's portfolio projects"
+          }}
+          secondaryButton={{
+            href: "/contact",
+            text: "Let's Connect",
+            ariaLabel: "Contact Ted"
+          }}
+        />
+      </div>
     </>
   );
 }

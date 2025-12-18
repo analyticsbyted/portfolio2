@@ -10,7 +10,7 @@ import ContactSection from './sections/ContactSection'
 
 const Main = ({ activeSection, closeSection }) => {
   const renderSection = () => {
-    switch(activeSection) {
+    switch (activeSection) {
       case 'intro':
         return <IntroSection closeSection={closeSection} />
       case 'sentiment':
@@ -35,11 +35,11 @@ const Main = ({ activeSection, closeSection }) => {
   if (!activeSection) return null
 
   return (
-    <div id="main" className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50">
-      <div className="bg-gray-900 text-white p-8 rounded-lg max-w-4xl max-h-screen overflow-y-auto m-4 relative">
-        <button 
+    <div id="main" className="fixed inset-0 flex items-center justify-center bg-black/90 z-50">
+      <div className="bg-surface dark:bg-surface-dark text-foreground dark:text-white p-8 rounded-lg max-w-4xl max-h-screen overflow-y-auto m-4 relative">
+        <button
           onClick={closeSection}
-          className="absolute top-4 right-4 text-white hover:text-gray-300 text-2xl"
+          className="absolute top-4 right-4 text-foreground dark:text-white hover:text-muted-foreground text-2xl"
         >
           ×
         </button>

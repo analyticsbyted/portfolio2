@@ -14,42 +14,42 @@ import { useState, useEffect, useRef } from 'react';
 
 const services = [
   {
-    title: 'Faster Time‑to‑Value',
-    description: 'Ship MVPs in weeks, not months, with focused scopes and fast feedback loops.',
+    title: 'End-to-End Product Dev',
+    description: 'From concept to App Store launch—I handle design, development, and deployment.',
     color: 'blue'
   },
   {
-    title: 'Measurable Impact',
-    description: 'Proven outcomes like +25% forecast accuracy and 40% infra cost savings.',
+    title: 'Mobile-First Design',
+    description: 'Native iOS and Android apps built with React Native and modern UI/UX principles.',
     color: 'purple'
   },
   {
-    title: 'Production‑Ready',
-    description: 'CI/CD, observability, and security basics baked in from day one.',
+    title: 'Modern Web Platforms',
+    description: 'Responsive, performant web applications built with React, Next.js, and TypeScript.',
     color: 'green'
   },
   {
-    title: 'Partner‑Friendly',
-    description: 'Transparent roadmaps, async updates, and clear SLAs that keep teams aligned.',
+    title: 'Production-Ready',
+    description: 'CI/CD, automated testing, and scalable architecture baked in from day one.',
     color: 'orange'
   }
 ];
 
 const testimonials = [
   {
-    quote: "Ted's expertise in data analytics transformed our decision-making process",
-    author: "Healthcare Industry Client",
-    role: "VP of Operations"
+    quote: "Ted's mobile app expertise helped us launch a polished iOS and Android experience in record time.",
+    author: "Healthcare Startup",
+    role: "Head of Product"
   },
   {
-    quote: "His cloud migration strategy saved us 40% in infrastructure costs",
-    author: "Manufacturing Company",
+    quote: "The web platform he architected handles our peak traffic effortlessly and improved user engagement by 40%.",
+    author: "eCommerce Brand",
     role: "CTO"
   },
   {
-    quote: "The predictive models Ted built increased our forecast accuracy by 25%",
-    author: "Retail Organization",
-    role: "Analytics Director"
+    quote: "He brought our product vision to life with an intuitive design and robust full-stack engineering.",
+    author: "Fintech Founder",
+    role: "CEO"
   }
 ];
 
@@ -96,7 +96,7 @@ function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
               {/* Text Content */}
               <div className="text-center lg:text-left order-2 lg:order-1 relative z-20">
-                <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium text-sm tracking-wide">
+                <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-primary/20 dark:border-brand-primary/30 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-blue-300 font-medium text-sm tracking-wide">
                   Product Developer & Full-Stack Engineer
                 </div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-6 font-headline tracking-tight leading-[1.1]">
@@ -135,7 +135,7 @@ function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
                 <div className="flex items-center space-x-2 mb-4">
-                  <span className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-lg">M</span>
+                  <span className="h-8 w-8 rounded-lg bg-brand-primary flex items-center justify-center text-white font-bold text-lg">M</span>
                   <span className="text-brand-primary font-bold tracking-wider text-sm uppercase">Featured App</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-headline">
@@ -175,7 +175,7 @@ function Home() {
               </div>
               <div className="order-1 md:order-2 flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
+                  <div className="absolute inset-0 bg-brand-primary/20 blur-3xl rounded-full"></div>
                   {/* Insert Screen/Graphic for App Feature */}
                   <img src={marisTimer} alt="Maris App Timer Screen" className="relative z-10 w-64 md:w-80 rounded-[2.5rem] shadow-2xl border-8 border-gray-900 dark:border-gray-800 rotate-3 hover:rotate-0 transition-transform duration-500" />
                 </div>
@@ -197,8 +197,8 @@ function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-8 cursor-pointer bg-white dark:bg-card hover:shadow-xl hover:-translate-y-1 hover:border-blue-500/30 transition-all duration-300 group">
-                <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-4 font-headline group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{service.title}</h3>
+              <Card key={index} className="p-8 cursor-pointer bg-card hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary/30 transition-all duration-300 group">
+                <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-4 font-headline group-hover:text-brand-primary dark:group-hover:text-blue-400 transition-colors">{service.title}</h3>
                 <p className="text-body-md font-body text-gray-600 dark:text-gray-300">
                   {service.description}
                 </p>
@@ -223,7 +223,7 @@ function Home() {
         <section className="mb-20 px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-headline">
-              Building in Public & Shipping Products
+              Trusted by Partners & Clients
             </h2>
           </div>
 
@@ -242,7 +242,7 @@ function Home() {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial ? 'bg-brand-primary' : 'bg-gray-300 dark:bg-gray-600'
                     }`}
                   onClick={() => setCurrentTestimonial(index)}
                 />
@@ -266,7 +266,7 @@ function Home() {
             {technologies.map((tech, index) => (
               <span
                 key={index}
-                className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 font-medium"
+                className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-border dark:border-gray-700 hover:shadow-md hover:border-brand-primary dark:hover:border-blue-600 transition-all duration-300 font-medium"
               >
                 {tech}
               </span>
@@ -277,7 +277,7 @@ function Home() {
         {/* CTA Section */}
         <CTASection
           title="Ready to Transform Your Business?"
-          description="Let's discuss how modern web apps, AI agents, and data platforms can accelerate your growth and drive measurable results."
+          description="Let's discuss how mobile apps and modern web platforms can accelerate your growth and drive measurable results."
           primaryButton={{
             href: "/contact",
             text: "Get Started Today",
