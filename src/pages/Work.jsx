@@ -11,6 +11,7 @@ import tvPoster from '../assets/webapps/tv-explorer-poster.png';
 import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
 import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
 import equityScreenerPoster from '../assets/webapps/equity-screener-poster.png';
+import marisWebsitePoster from '../assets/webapps/maris-website-poster.png';
 import marisHome from '../assets/apps/maris-home.png';
 import marisIntent from '../assets/apps/maris-intent.png';
 import marisTimer from '../assets/apps/maris-timer.png';
@@ -144,6 +145,21 @@ const webEngineeringProjects = [
     alt: 'Learn Your ADHD website screenshot',
     link: 'https://learnyouradhd.com',
     linkLabel: 'Visit Platform',
+  },
+  {
+    type: 'web',
+    title: 'Maris Website',
+    tagline: 'High-performance marketing site and compliance hub for the Maris focus app.',
+    features: [
+      'Premium Dark Mode UI: Custom Tailwind theme optimized for OLED screens',
+      'Static Export Architecture: Zero-runtime deployment on AWS S3 & CloudFront',
+      'Compliance Hub: Accessible Privacy Policy and Terms for App Store approval'
+    ],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS S3'],
+    img: marisWebsitePoster,
+    alt: 'Maris website home screen',
+    link: 'https://trymaris.com',
+    linkLabel: 'Visit Website',
   },
   {
     type: 'web',
