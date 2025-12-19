@@ -436,7 +436,7 @@ function Work() {
 
         {/* Updated Hero Section */}
         <section className="text-center mb-16">
-          <h1 className="text-headline-1 md:text-headline-1-md font-bold text-foreground dark:text-white mb-6 leading-tight font-headline">
+          <h1 className="text-5xl md:text-6xl font-bold text-foreground dark:text-white mb-6 leading-tight font-headline">
             Shipped
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
               Work & Experiments
