@@ -406,7 +406,7 @@ const researchOperationsProjects = [
 
 function Work() {
   const [activeTab, setActiveTab] = useState('products');
-  const [expandedIdx, setExpandedIdx] = useState(null);
+
 
   // Determine which projects to show based on active tab
   const getProjectsForTab = () => {
@@ -473,7 +473,7 @@ function Work() {
                   ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white border-brand-primary shadow-lg transform hover:scale-105'
                   : 'bg-card dark:bg-gray-800 text-foreground dark:text-gray-300 border-border dark:border-gray-700 hover:border-brand-primary/50 hover:shadow-md hover:bg-muted dark:hover:bg-gray-700'
                   }`}
-                onClick={() => { setActiveTab(tab.key); setExpandedIdx(null); }}
+                onClick={() => { setActiveTab(tab.key); }}
                 role="tab"
                 aria-selected={activeTab === tab.key}
                 aria-controls={`tabpanel-${tab.key}`}
@@ -617,11 +617,7 @@ function Work() {
                   <Card
                     key={`${activeTab}-${proj.title}`}
                     layoutId={`project-${proj.title}`}
-                    className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
-                    onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
-                    tabIndex={0}
-                    role="button"
-                    aria-expanded={expandedIdx === idx}
+                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
                   >
                     <div className={`relative h-48 bg-muted/40 dark:bg-muted/20 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3 mx-3`}>
                       <div className="absolute top-0 right-0 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-accent text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
@@ -643,61 +639,49 @@ function Work() {
                         ))}
                       </div>
 
-                      <h3 className="text-headline-3 font-bold text-foreground dark:text-white mb-2 font-headline">{proj.title}</h3>
+                      <h3 className="text-headline-3 font-bold text-foreground dark:text-white mb-4 font-headline">{proj.title}</h3>
 
-                      <div className="mb-4 flex-1">
-                        <p className={`text-body-small text-muted-foreground dark:text-gray-300 leading-relaxed font-body ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>
-                          {proj.problem}
-                        </p>
+                      <div className="space-y-4 mb-6 flex-1">
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/70 dark:text-gray-500 mb-1 font-body">Problem</div>
+                          <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed font-body">
+                            {proj.problem}
+                          </p>
+                        </div>
+
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/70 dark:text-gray-500 mb-1 font-body">Approach</div>
+                          <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed font-body">
+                            {proj.approach}
+                          </p>
+                        </div>
+
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/70 dark:text-gray-500 mb-1 font-body">Result</div>
+                          <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed font-body">
+                            {proj.result}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-border dark:border-gray-700 mt-auto">
+                      <div className="pt-4 border-t border-border dark:border-gray-700 mt-auto">
                         <a
                           href={proj.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-xs md:text-sm font-headline"
-                          onClick={e => e.stopPropagation()}
                         >
                           {proj.linkLabel}
                           <svg className="w-3 h-3 md:w-4 md:h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         </a>
-                        <div className="flex items-center text-muted-foreground dark:text-gray-400 text-xs">
-                          <span className="mr-1">{expandedIdx === idx ? 'Less' : 'More'}</span>
-                          <svg className={`w-4 h-4 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
+                        {proj.demoLink && (
+                          <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-primary dark:text-brand-accent hover:underline ml-4 text-xs md:text-sm font-headline">
+                            {proj.demoLabel} &rarr;
+                          </a>
+                        )}
                       </div>
-
-                      {expandedIdx === idx && (
-                        <div className="mt-4 p-4 bg-muted/50 dark:bg-gray-800/50 rounded-xl text-body-small space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 font-body">
-                          <div>
-                            <span className="font-semibold text-foreground dark:text-white block mb-1">Approach:</span>
-                            <span className="text-muted-foreground dark:text-gray-300">{proj.approach}</span>
-                          </div>
-                          {proj.result && (
-                            <div>
-                              <span className="font-semibold text-foreground dark:text-white block mb-1">Impact:</span>
-                              <span className="text-muted-foreground dark:text-gray-300">{proj.result}</span>
-                            </div>
-                          )}
-                          {proj.details && (
-                            <div className="pt-2 border-t border-border dark:border-gray-700 mt-2">
-                              <span className="text-muted-foreground dark:text-gray-400 italic">{proj.details}</span>
-                            </div>
-                          )}
-                          {proj.demoLink && (
-                            <div className="pt-2">
-                              <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-primary dark:text-brand-accent hover:underline" onClick={e => e.stopPropagation()}>
-                                {proj.demoLabel} &rarr;
-                              </a>
-                            </div>
-                          )}
-                        </div>
-                      )}
                     </div>
                   </Card>
                 ))}
