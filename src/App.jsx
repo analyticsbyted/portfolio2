@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link, useRoutes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Link, NavLink, useRoutes, useLocation } from 'react-router-dom';
 import { useEffect, useState, Suspense, lazy, cloneElement } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
@@ -266,14 +266,14 @@ function AppContent() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>About</Link>
-              <Link to="/work" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Portfolio</Link>
-              <Link to="/education" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Education</Link>
-              <Link to="/certifications" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Certifications</Link>
-              <Link to="/publications" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Publications</Link>
-              <Link to="/newsletter" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Newsletter</Link>
-              <Link to="/contact" className="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
+            <div className="hidden lg:flex items-center space-x-2">
+              <NavLink to="/about" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>About</NavLink>
+              <NavLink to="/work" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Portfolio</NavLink>
+              <NavLink to="/education" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Education</NavLink>
+              <NavLink to="/certifications" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Certifications</NavLink>
+              <NavLink to="/publications" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Publications</NavLink>
+              <NavLink to="/newsletter" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Newsletter</NavLink>
+              <NavLink to="/contact" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Contact</NavLink>
 
               {/* Theme toggle */}
               <button
@@ -290,7 +290,7 @@ function AppContent() {
             <div className="lg:hidden">
               <button
                 onClick={() => setMobileOpen(v => !v)}
-                className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-muted dark:hover:bg-muted focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300"
+                className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-200"
                 aria-label="Toggle navigation menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -327,7 +327,7 @@ function AppContent() {
                   <div className="flex justify-end p-4 border-b border-border dark:border-gray-700">
                     <button
                       onClick={() => setMobileOpen(false)}
-                      className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-muted dark:hover:bg-muted focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300"
+                      className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-200"
                       aria-label="Close navigation menu"
                     >
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -346,18 +346,18 @@ function AppContent() {
                       { to: '/newsletter', label: 'Newsletter' },
                       { to: '/contact', label: 'Contact' },
                     ].map((item) => (
-                      <Link
+                      <NavLink
                         key={item.to}
                         to={item.to}
-                        className="block text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors font-medium py-3 px-4 rounded-lg hover:bg-muted dark:hover:bg-muted/50"
+                        className={({ isActive }) => `block font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`}
                         onClick={() => setMobileOpen(false)}
                       >
                         {item.label}
-                      </Link>
+                      </NavLink>
                     ))}
 
                     <button
-                      className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent transition-colors font-medium py-3 px-4 rounded-lg hover:bg-muted dark:hover:bg-muted/50 mt-4 border-t border-border dark:border-gray-700 pt-4"
+                      className="flex items-center gap-3 w-full text-left text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-blue-400 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-muted dark:hover:bg-muted/50 mt-4 border-t border-border dark:border-gray-700 pt-4"
                       onClick={handleThemeToggle}
                     >
                       {currentTheme.icon}
