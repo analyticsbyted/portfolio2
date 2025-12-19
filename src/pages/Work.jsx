@@ -490,26 +490,25 @@ function Work() {
 
         {/* Tab Content */}
         <AnimatePresence mode="wait">
-          {(activeTab === 'products' || activeTab === 'web') && (
-            <motion.section
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="mb-16"
-              id={`tabpanel-${activeTab}`}
-              role="tabpanel"
-              aria-labelledby={`tab-${activeTab}`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {currentProjects.map((app, idx) => (
+          <motion.section
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="mb-16"
+            id={`tabpanel-${activeTab}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${activeTab}`}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {(activeTab === 'products' || activeTab === 'web') ? (
+                currentProjects.map((app, idx) => (
                   <Card
                     key={`${activeTab}-${app.title}`}
                     layoutId={`project-${app.title}`}
-                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow h-full flex flex-col"
+                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
                   >
-
                     {/* Image Area - Different for Mobile vs Web */}
                     {app.type === 'mobile' && app.images ? (
                       <div className="relative bg-muted/40 overflow-hidden rounded-t-2xl mt-3 mx-3 pt-4">
@@ -594,26 +593,9 @@ function Work() {
                       </div>
                     </div>
                   </Card>
-                ))}
-              </div>
-
-            </motion.section>
-          )}
-
-          {(activeTab === 'data' || activeTab === 'research') && (
-            <motion.section
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="mb-16"
-              id={`tabpanel-${activeTab}`}
-              role="tabpanel"
-              aria-labelledby={`tab-${activeTab}`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {currentProjects.map((proj, idx) => (
+                ))
+              ) : (
+                currentProjects.map((proj, idx) => (
                   <Card
                     key={`${activeTab}-${proj.title}`}
                     layoutId={`project-${proj.title}`}
@@ -689,12 +671,11 @@ function Work() {
                       </div>
                     </div>
                   </Card>
-                ))}
-              </div>
-
-            </motion.section>
-          )}
-        </AnimatePresence >
+                ))
+              )}
+            </div>
+          </motion.section>
+        </AnimatePresence>
 
         <CTASection
           title="Need a Product Engineer?"
