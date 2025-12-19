@@ -98,7 +98,9 @@ function About() {
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full opacity-60"></div>
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight font-headline">
                   Building Mobile Apps
-                  <span className="text-brand-primary dark:text-brand-accent block">&{'\u00A0'}Modern Web Experiences</span>
+                  <span className="text-brand-primary dark:text-brand-accent block">
+                    <span className="font-serif italic font-light">&</span>{'\u00A0'}Modern Web Experiences
+                  </span>
                 </h1>
               </div>
 
