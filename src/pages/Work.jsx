@@ -141,10 +141,10 @@ const webEngineeringProjects = [
       'Secure & Private: Anonymous screening with privacy-first architecture'
     ],
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    img: equityScreenerPoster,
+    img: learnYourAdhdHome,
     alt: 'Learn Your ADHD website screenshot',
     link: 'https://learnyouradhd.com',
-    linkLabel: 'Visit Platform',
+    linkLabel: 'Visit Website',
   },
   {
     type: 'web',
