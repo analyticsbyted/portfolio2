@@ -664,21 +664,26 @@ function Work() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-border dark:border-gray-700 mt-auto">
+                      <div className="flex items-center gap-3 pt-4 border-t border-border dark:border-gray-700 mt-auto">
                         <a
                           href={proj.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-xs md:text-sm font-headline"
+                          className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-sm font-headline"
                         >
                           {proj.linkLabel}
-                          <svg className="w-3 h-3 md:w-4 md:h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         </a>
                         {proj.demoLink && (
-                          <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-primary dark:text-brand-accent hover:underline ml-4 text-xs md:text-sm font-headline">
-                            {proj.demoLabel} &rarr;
+                          <a
+                            href={proj.demoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-5 py-2.5 text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white font-medium transition-colors text-sm"
+                          >
+                            {proj.demoLabel}
                           </a>
                         )}
                       </div>
