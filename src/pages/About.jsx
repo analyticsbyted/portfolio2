@@ -97,10 +97,10 @@ function About() {
               <div className="relative">
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full opacity-60"></div>
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight font-headline">
-                  Building Mobile Apps
+                  Bridging Data Science
                   <span className="font-body italic font-light text-brand-primary dark:text-brand-accent">&nbsp;&</span>
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary pb-2">
-                    Modern Web Experiences
+                    Product Engineering
                   </span>
                 </h1>
               </div>

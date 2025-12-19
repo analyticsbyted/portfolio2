@@ -93,19 +93,19 @@ function Newsletter() {
   return (
     <>
       <HeadMetadata
-        title="Newsletter"
-        description="Subscribe to Ted Dickey's weekly newsletter for actionable insights on data science, AI, analytics leadership, and product strategy."
+        title="Data & AI Newsletter"
+        description="Weekly insights on data science, analytics, AI, and leadership. Join hundreds of professionals staying ahead of the curve."
         canonical="/newsletter"
-        keywords="data science newsletter, AI leadership insights, analytics trends, premium content, Ted Dickey weekly updates"
+        keywords="data science newsletter, AI trends, leadership insights, analytics strategies, Ted Dickey newsletter"
         schema={personSchema}
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
-            Data Science
+            Leading with
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary pb-2">
-              Newsletter
+              Data Science & AI
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
