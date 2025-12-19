@@ -99,7 +99,7 @@ function About() {
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight font-headline">
                   Building Mobile Apps
                   <span className="text-brand-primary dark:text-brand-accent block">
-                    <span className="font-serif italic font-light">&</span>{'\u00A0'}Modern Web Experiences
+                    <span className="font-body italic font-light">&</span>{'\u00A0'}Modern Web Experiences
                   </span>
                 </h1>
               </div>
