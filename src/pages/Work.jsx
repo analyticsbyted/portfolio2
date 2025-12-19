@@ -585,7 +585,7 @@ function Work() {
                             href={app.repoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-foreground dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
+                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-600 text-foreground dark:text-white hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                             aria-label={`View Code for ${app.title}`}
                           >
                             {app.repoLabel || 'View Code'}
@@ -681,7 +681,7 @@ function Work() {
                             href={proj.demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-foreground dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
+                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-600 text-foreground dark:text-white hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                           >
                             {proj.demoLabel}
                           </a>
