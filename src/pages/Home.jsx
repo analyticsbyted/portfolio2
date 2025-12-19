@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import { motion } from 'framer-motion';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import HeadMetadata from '../components/HeadMetadata';
@@ -59,6 +60,26 @@ const technologies = [
 
 
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 50, damping: 20 }
+  }
+};
+
 function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -99,9 +120,14 @@ function Home() {
                 <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-primary/20 dark:border-brand-primary/30 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-blue-300 font-medium text-sm tracking-wide">
                   Product Developer & Full-Stack Engineer
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-6 font-headline tracking-tight leading-[1.1]">
+                <motion.h1
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary mb-6 font-headline tracking-tight leading-[1.1]"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                   Building Mobile Apps <br className="hidden lg:block" />& Digital Products
-                </h1>
+                </motion.h1>
                 <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
                   I design and develop native iOS/Android apps, modern web platforms, and end-to-end software solutions.
                 </p>
@@ -133,7 +159,13 @@ function Home() {
           <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none"></div>
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1">
+              <motion.div
+                className="order-2 md:order-1"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
                 <div className="flex items-center space-x-2 mb-4">
                   <span className="h-8 w-8 rounded-lg bg-brand-primary flex items-center justify-center text-white font-bold text-lg">M</span>
                   <span className="text-brand-primary font-bold tracking-wider text-sm uppercase">Featured App</span>
@@ -172,14 +204,20 @@ function Home() {
                     Get it on Android
                   </button>
                 </div>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center">
+              </motion.div>
+              <motion.div
+                className="order-1 md:order-2 flex justify-center"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
                 <div className="relative">
                   <div className="absolute inset-0 bg-brand-primary/20 blur-3xl rounded-full"></div>
                   {/* Insert Screen/Graphic for App Feature */}
                   <img src={marisTimer} alt="Maris App Timer Screen" className="relative z-10 w-64 md:w-80 rounded-[2.5rem] shadow-2xl border-8 border-gray-900 dark:border-gray-800 rotate-3 hover:rotate-0 transition-transform duration-500" />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -195,16 +233,26 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             {services.map((service, index) => (
-              <Card key={index} className="p-8 cursor-pointer bg-card hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary/30 transition-all duration-300 group">
+              <Card
+                key={index}
+                variants={itemVariants}
+                className="p-8 cursor-pointer bg-card hover:shadow-xl hover:border-brand-primary/30 transition-all duration-300 group"
+              >
                 <h3 className="text-headline-3 md:text-headline-3-md text-gray-900 dark:text-white mb-4 font-headline group-hover:text-brand-primary dark:group-hover:text-blue-400 transition-colors">{service.title}</h3>
                 <p className="text-body-md font-body text-gray-600 dark:text-gray-300">
                   {service.description}
                 </p>
               </Card>
             ))}
-          </div>
+          </motion.div>
 
           <div className="text-center mt-10">
             <a
@@ -226,8 +274,13 @@ function Home() {
               Trusted by Partners & Clients
             </h2>
           </div>
-
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center">
+          <motion.div
+            className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <div className="transition-all duration-500 opacity-100">
               <blockquote className="text-headline-3 md:text-headline-3-md font-body text-gray-900 dark:text-white mb-6">
                 "{testimonials[currentTestimonial].quote}"
@@ -248,7 +301,7 @@ function Home() {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Technologies Section */}
@@ -262,16 +315,23 @@ function Home() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <motion.div
+            className="flex flex-wrap justify-center gap-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             {technologies.map((tech, index) => (
-              <span
+              <motion.span
                 key={index}
+                variants={itemVariants}
                 className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-border dark:border-gray-700 hover:shadow-md hover:border-brand-primary dark:hover:border-blue-600 transition-all duration-300 font-medium"
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* CTA Section */}

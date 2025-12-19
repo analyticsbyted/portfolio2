@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import CTASection from '../components/CTASection';
 import PageSubtitle from '../components/PageSubtitle';
 import Card from '../components/Card';
@@ -13,6 +14,8 @@ import equityScreenerPoster from '../assets/webapps/equity-screener-poster.png';
 import marisHome from '../assets/apps/maris-home.png';
 import marisIntent from '../assets/apps/maris-intent.png';
 import marisTimer from '../assets/apps/maris-timer.png';
+import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
+
 
 import BrowserFrame from '../components/BrowserFrame';
 
@@ -81,7 +84,7 @@ const products = [
       'Secure & Private: Anonymous screening with privacy-first architecture'
     ],
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    img: equityScreenerPoster, // Using as placeholder
+    img: learnYourAdhdHome,
     alt: 'Learn Your ADHD website screenshot',
     link: 'https://learnyouradhd.com',
     linkLabel: 'Visit Platform',
@@ -470,189 +473,220 @@ function Work() {
         <PageSubtitle>{tabSubtitles[activeTab]}</PageSubtitle>
 
         {/* Tab Content */}
-        {activeTab === 'products' || activeTab === 'web' ? (
-          <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {currentProjects.map((app, idx) => (
-                <Card key={idx} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow h-full flex flex-col">
+        <AnimatePresence mode="wait">
+          {(activeTab === 'products' || activeTab === 'web') && (
+            <motion.section
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="mb-16"
+              id={`tabpanel-${activeTab}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${activeTab}`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {currentProjects.map((app, idx) => (
+                  <Card
+                    key={`${activeTab}-${app.title}`}
+                    layoutId={`project-${app.title}`}
+                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow h-full flex flex-col"
+                  >
 
-                  {/* Image Area - Different for Mobile vs Web */}
-                  {app.type === 'mobile' && app.images ? (
-                    <div className="relative bg-muted/40 overflow-hidden rounded-t-2xl mt-3 mx-3 pt-4">
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30 z-10" aria-hidden="true" />
-                      <div className="p-3 flex justify-center">
-                        <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2">
-                          {app.images.map((image, imgIdx) => (
-                            <div key={imgIdx} className="flex-shrink-0 w-32 md:w-36 h-auto flex items-center justify-center">
-                              <ImageWithSkeleton
-                                src={image.src}
-                                alt={image.alt}
-                                className="h-full w-auto object-contain rounded-lg shadow-sm"
-                              />
-                            </div>
-                          ))}
+                    {/* Image Area - Different for Mobile vs Web */}
+                    {app.type === 'mobile' && app.images ? (
+                      <div className="relative bg-muted/40 overflow-hidden rounded-t-2xl mt-3 mx-3 pt-4">
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary/30 to-brand-secondary/30 z-10" aria-hidden="true" />
+                        <div className="p-3 flex justify-center">
+                          <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+                            {app.images.map((image, imgIdx) => (
+                              <div key={imgIdx} className="flex-shrink-0 w-32 md:w-36 h-auto flex items-center justify-center">
+                                <ImageWithSkeleton
+                                  src={image.src}
+                                  alt={image.alt}
+                                  className="h-full w-auto object-contain rounded-lg shadow-sm"
+                                />
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    <div className="p-6 mt-2">
-                      <BrowserFrame className="group-hover:shadow-md transition-shadow duration-300">
-                        <div className="aspect-[16/10] bg-muted dark:bg-muted/20 flex items-start overflow-hidden">
-                          <ImageWithSkeleton
-                            src={app.img}
-                            alt={app.alt}
-                            className="w-full h-auto object-cover object-top hover:-translate-y-[10%] transition-transform duration-[2000ms] ease-in-out cursor-pointer"
-                          />
-                        </div>
-                      </BrowserFrame>
-                    </div>
-                  )}
-
-                  {/* Content Area */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    {/* Tech Stack Badges */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {app.stack.map((s, i) => (
-                        <span key={i} className="px-2.5 py-1 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-accent rounded-md text-xs font-medium border border-brand-primary/20 dark:border-brand-primary/30">
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    <h3 className="text-headline-3 md:text-headline-3-md font-bold text-foreground dark:text-white mb-2 font-headline">{app.title}</h3>
-                    <p className="text-body text-muted-foreground dark:text-gray-300 mb-6 flex-1 leading-relaxed font-body">{app.tagline}</p>
-
-                    <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-8 text-body-small font-body">
-                      {app.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
-                          <span className="text-brand-primary dark:text-brand-accent mt-0.5 flex-shrink-0">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                          </span>
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border dark:border-gray-700">
-                      <a
-                        href={app.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-sm font-headline"
-                        aria-label={`Open ${app.title}`}
-                      >
-                        {app.linkLabel}
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                      {app.repoLink && (
-                        <a
-                          href={app.repoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-5 py-2.5 text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white font-medium transition-colors text-sm"
-                          aria-label={`View Code for ${app.title}`}
-                        >
-                          {app.repoLabel || 'View Code'}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </section>
-        ) : activeTab === 'data' || activeTab === 'research' ? (
-          <section className="mb-16" id={`tabpanel-${activeTab}`} role="tabpanel" aria-labelledby={`tab-${activeTab}`}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {currentProjects.map((proj, idx) => (
-                <Card
-                  key={idx}
-                  className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
-                  onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
-                  tabIndex={0}
-                  role="button"
-                  aria-expanded={expandedIdx === idx}
-                >
-                  <div className={`relative h-48 bg-muted/40 dark:bg-muted/20 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3 mx-3`}>
-                    <div className="absolute top-0 right-0 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-accent text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
-                      {proj.category}
-                    </div>
-                    <ImageWithSkeleton
-                      src={proj.img}
-                      alt={proj.title}
-                      className="h-full w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {proj.skills && proj.skills.map((skill, i) => (
-                        <span key={i} className="px-2 py-0.5 bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-400 rounded text-xs border border-border dark:border-gray-700">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    <h3 className="text-headline-3 font-bold text-foreground dark:text-white mb-2 font-headline">{proj.title}</h3>
-
-                    <div className="mb-4 flex-1">
-                      <p className={`text-body-small text-muted-foreground dark:text-gray-300 leading-relaxed font-body ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>
-                        {proj.problem}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-border dark:border-gray-700 mt-auto">
-                      <a
-                        href={proj.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-brand-primary dark:text-brand-accent font-semibold text-sm hover:underline font-headline"
-                        onClick={e => e.stopPropagation()}
-                      >
-                        {proj.linkLabel}
-                      </a>
-                      <div className="flex items-center text-muted-foreground dark:text-gray-400 text-xs">
-                        <span className="mr-1">{expandedIdx === idx ? 'Less' : 'More'}</span>
-                        <svg className={`w-4 h-4 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
-
-                    {expandedIdx === idx && (
-                      <div className="mt-4 p-4 bg-muted/50 dark:bg-gray-800/50 rounded-xl text-body-small space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 font-body">
-                        <div>
-                          <span className="font-semibold text-foreground dark:text-white block mb-1">Approach:</span>
-                          <span className="text-muted-foreground dark:text-gray-300">{proj.approach}</span>
-                        </div>
-                        {proj.result && (
-                          <div>
-                            <span className="font-semibold text-foreground dark:text-white block mb-1">Impact:</span>
-                            <span className="text-muted-foreground dark:text-gray-300">{proj.result}</span>
+                    ) : (
+                      <div className="p-6 mt-2">
+                        <BrowserFrame className="group-hover:shadow-md transition-shadow duration-300">
+                          <div className="aspect-[16/10] bg-muted dark:bg-muted/20 flex items-start overflow-hidden">
+                            <ImageWithSkeleton
+                              src={app.img}
+                              alt={app.alt}
+                              className="w-full h-auto object-cover object-top hover:-translate-y-[10%] transition-transform duration-[2000ms] ease-in-out cursor-pointer"
+                            />
                           </div>
-                        )}
-                        {proj.details && (
-                          <div className="pt-2 border-t border-border dark:border-gray-700 mt-2">
-                            <span className="text-muted-foreground dark:text-gray-400 italic">{proj.details}</span>
-                          </div>
-                        )}
-                        {proj.demoLink && (
-                          <div className="pt-2">
-                            <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-primary dark:text-brand-accent hover:underline" onClick={e => e.stopPropagation()}>
-                              {proj.demoLabel} &rarr;
-                            </a>
-                          </div>
-                        )}
+                        </BrowserFrame>
                       </div>
                     )}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </section>
-        ) : null}
+
+                    {/* Content Area */}
+                    <div className="p-6 flex-1 flex flex-col">
+                      {/* Tech Stack Badges */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {app.stack.map((s, i) => (
+                          <span key={i} className="px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-md text-xs font-bold border border-blue-200 dark:border-blue-800">
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="text-headline-3 md:text-headline-3-md font-bold text-foreground dark:text-white mb-2 font-headline">{app.title}</h3>
+                      <p className="text-body text-muted-foreground dark:text-gray-300 mb-6 flex-1 leading-relaxed font-body">{app.tagline}</p>
+
+                      <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-8 text-body-small font-body">
+                        {app.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-2.5">
+                            <span className="text-brand-primary dark:text-brand-accent mt-0.5 flex-shrink-0">
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                            </span>
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border dark:border-gray-700">
+                        <a
+                          href={app.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-sm font-headline"
+                          aria-label={`Open ${app.title}`}
+                        >
+                          {app.linkLabel}
+                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                        {app.repoLink && (
+                          <a
+                            href={app.repoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-5 py-2.5 text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white font-medium transition-colors text-sm"
+                            aria-label={`View Code for ${app.title}`}
+                          >
+                            {app.repoLabel || 'View Code'}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+
+            </motion.section>
+          )}
+
+          {(activeTab === 'data' || activeTab === 'research') && (
+            <motion.section
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="mb-16"
+              id={`tabpanel-${activeTab}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${activeTab}`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {currentProjects.map((proj, idx) => (
+                  <Card
+                    key={`${activeTab}-${proj.title}`}
+                    layoutId={`project-${proj.title}`}
+                    className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
+                    onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                    tabIndex={0}
+                    role="button"
+                    aria-expanded={expandedIdx === idx}
+                  >
+                    <div className={`relative h-48 bg-muted/40 dark:bg-muted/20 overflow-hidden rounded-t-2xl flex items-center justify-center p-4 mt-3 mx-3`}>
+                      <div className="absolute top-0 right-0 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-accent text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
+                        {proj.category}
+                      </div>
+                      <ImageWithSkeleton
+                        src={proj.img}
+                        alt={proj.title}
+                        className="h-full w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {proj.skills && proj.skills.map((skill, i) => (
+                          <span key={i} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded text-xs font-medium border border-gray-300 dark:border-gray-600">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="text-headline-3 font-bold text-foreground dark:text-white mb-2 font-headline">{proj.title}</h3>
+
+                      <div className="mb-4 flex-1">
+                        <p className={`text-body-small text-muted-foreground dark:text-gray-300 leading-relaxed font-body ${expandedIdx === idx ? '' : 'line-clamp-3'}`}>
+                          {proj.problem}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-border dark:border-gray-700 mt-auto">
+                        <a
+                          href={proj.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-primary dark:text-brand-accent font-semibold text-sm hover:underline font-headline"
+                          onClick={e => e.stopPropagation()}
+                        >
+                          {proj.linkLabel}
+                        </a>
+                        <div className="flex items-center text-muted-foreground dark:text-gray-400 text-xs">
+                          <span className="mr-1">{expandedIdx === idx ? 'Less' : 'More'}</span>
+                          <svg className={`w-4 h-4 transition-transform duration-300 ${expandedIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {expandedIdx === idx && (
+                        <div className="mt-4 p-4 bg-muted/50 dark:bg-gray-800/50 rounded-xl text-body-small space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 font-body">
+                          <div>
+                            <span className="font-semibold text-foreground dark:text-white block mb-1">Approach:</span>
+                            <span className="text-muted-foreground dark:text-gray-300">{proj.approach}</span>
+                          </div>
+                          {proj.result && (
+                            <div>
+                              <span className="font-semibold text-foreground dark:text-white block mb-1">Impact:</span>
+                              <span className="text-muted-foreground dark:text-gray-300">{proj.result}</span>
+                            </div>
+                          )}
+                          {proj.details && (
+                            <div className="pt-2 border-t border-border dark:border-gray-700 mt-2">
+                              <span className="text-muted-foreground dark:text-gray-400 italic">{proj.details}</span>
+                            </div>
+                          )}
+                          {proj.demoLink && (
+                            <div className="pt-2">
+                              <a href={proj.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-primary dark:text-brand-accent hover:underline" onClick={e => e.stopPropagation()}>
+                                {proj.demoLabel} &rarr;
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+
+            </motion.section>
+          )}
+        </AnimatePresence >
 
         <CTASection
           title="Need a Product Engineer?"

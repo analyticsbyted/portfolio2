@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import { motion } from 'framer-motion';
 import CTASection from '../components/CTASection';
 import HeadMetadata from '../components/HeadMetadata';
 import personSchema from '../seo/personSchema';
@@ -46,6 +47,34 @@ const expertise = [
   { name: 'Node.js', level: 85 },
   { name: 'Supabase/PostgreSQL', level: 88 }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
+const progressVariants = {
+  hidden: { width: 0 },
+  visible: (width) => ({
+    width: `${width}%`,
+    transition: { duration: 1, ease: "easeOut", delay: 0.2 }
+  })
+};
 
 function About() {
   const [activeService, setActiveService] = useState(0);
@@ -109,15 +138,23 @@ function About() {
             How I Can Help Your Business
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={itemVariants}
                 className={`p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${activeService === index
-                    ? 'border-brand-primary bg-brand-primary/5 dark:bg-brand-primary/10'
-                    : 'border-border dark:border-gray-700 bg-card dark:bg-gray-800 hover:border-brand-primary/30'
+                  ? 'border-brand-primary bg-brand-primary/5 dark:bg-brand-primary/10'
+                  : 'border-border dark:border-gray-700 bg-card dark:bg-gray-800 hover:border-brand-primary/30'
                   }`}
                 onClick={() => setActiveService(index)}
+                whileHover={{ y: -5, transition: { type: "spring", stiffness: 300 } }}
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{service.title}</h3>
@@ -130,9 +167,9 @@ function About() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* Expertise Section */}
@@ -148,11 +185,15 @@ function About() {
                       <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
                       <span className="text-gray-500 dark:text-gray-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div
-                        className="bg-brand-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                      <motion.div
+                        className="bg-brand-primary h-2 rounded-full"
+                        custom={skill.level}
+                        variants={progressVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                      ></motion.div>
                     </div>
                   </div>
                 ))}
@@ -162,26 +203,32 @@ function About() {
             {/* Right - Story */}
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white">My Journey</h2>
-              <div className="space-y-4">
-                <div className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-primary">
+              <motion.div
+                className="space-y-4"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-primary">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎓 Academic Foundation</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
                     MS in Customer Analytics & MBA in Business Intelligence from Xavier University. Currently pursuing PhD in Technology.
                   </p>
-                </div>
-                <div className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-green-500">
+                </motion.div>
+                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-green-500">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🚀 Product Development</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Built and launched Maris, a mobile focus timer app for iOS and Android. Creating user-facing products that solve real problems and ship to app stores.
                   </p>
-                </div>
-                <div className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-secondary">
+                </motion.div>
+                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-secondary">
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎯 Vision</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Building products that matter—mobile apps and web experiences that users love. From concept to launch, I focus on shipping real products that solve real problems.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </section>

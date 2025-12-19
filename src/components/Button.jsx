@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const baseClass =
   "inline-block rounded-lg shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary/60 disabled:opacity-60 disabled:cursor-not-allowed font-headline";
+
+const MotionLink = motion.create(Link);
 
 const Button = ({
   children,
@@ -17,45 +20,56 @@ const Button = ({
   // Includes hover lift effect and active state
   // Uses brand tokens for consistent theming
   const defaultStyles = className === ""
-    ? "px-8 py-3 bg-brand-primary text-white hover:bg-brand-accent hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:shadow-md active:bg-brand-accent text-button"
+    ? "px-8 py-3 bg-brand-primary text-white hover:bg-brand-accent hover:shadow-xl active:shadow-md active:bg-brand-accent text-button"
     : "";
   const buttonClassName = `${baseClass} ${defaultStyles} ${className}`.trim();
+
+  // Physics-based animation props
+  const animationProps = {
+    whileHover: { y: -2, scale: 1.02 },
+    whileTap: { scale: 0.95 },
+    transition: { type: "spring", stiffness: 400, damping: 17 }
+  };
+
   if (href) {
     // Use React Router Link for internal routes (starting with /)
     if (href.startsWith('/')) {
       return (
-        <Link
+        <MotionLink
           to={href}
           className={buttonClassName}
           aria-label={ariaLabel}
+          {...animationProps}
           {...props}
         >
           {children}
-        </Link>
+        </MotionLink>
       );
     }
     // Use regular anchor tag for external links
     return (
-      <a
+      <motion.a
         href={href}
         className={buttonClassName}
         aria-label={ariaLabel}
+        {...animationProps}
         {...props}
       >
         {children}
-      </a>
+      </motion.a>
     );
   }
   return (
-    <button
+    <motion.button
       type={type}
       onClick={onClick}
       className={buttonClassName}
       aria-label={ariaLabel}
+      {...animationProps}
       {...props}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

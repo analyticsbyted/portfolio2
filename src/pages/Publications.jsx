@@ -1,4 +1,5 @@
 import { BookOpenIcon, DocumentTextIcon, PresentationChartBarIcon, AcademicCapIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import HeadMetadata from '../components/HeadMetadata';
@@ -11,6 +12,26 @@ const publicationStats = [
   { label: 'Research Areas', value: '4', icon: '🔬' },
   { label: 'Target Journals', value: '5+', icon: '🎯' }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 function Publications() {
   return (
@@ -38,18 +59,25 @@ function Publications() {
 
         {/* Stats Grid */}
         <section className="mb-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {publicationStats.map((stat, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={itemVariants}
                 className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* Publications Section */}
@@ -106,10 +134,17 @@ function Publications() {
               {publishedArticles.length === 0 ? (
                 <div className="text-center text-gray-500 italic" role="status">No published articles found.</div>
               ) : (
-                <div className="flex flex-col gap-6">
+                <motion.div
+                  className="flex flex-col gap-6"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
                   {publishedArticles.map((article) => (
-                    <article
+                    <motion.article
                       key={article.title}
+                      variants={itemVariants}
                       className="flex flex-col md:flex-row bg-card dark:bg-card rounded-xl shadow-lg overflow-hidden border border-border dark:border-gray-700 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group md:items-center"
                     >
                       <div className="bg-muted dark:bg-muted/10 flex items-center justify-center rounded-t-xl md:rounded-t-none md:rounded-l-xl overflow-hidden md:ml-4 p-2 md:p-3">
@@ -148,9 +183,9 @@ function Publications() {
                           })}
                         </div>
                       </div>
-                    </article>
+                    </motion.article>
                   ))}
-                </div>
+                </motion.div>
               )}
             </section>
             {/* === END: PUBLISHED ARTICLES & FEATURES === */}
