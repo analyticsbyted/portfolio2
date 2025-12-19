@@ -585,7 +585,7 @@ function Work() {
                             href={app.repoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center px-5 py-2.5 text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white font-medium transition-colors text-sm"
+                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-foreground dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                             aria-label={`View Code for ${app.title}`}
                           >
                             {app.repoLabel || 'View Code'}
@@ -633,7 +633,7 @@ function Work() {
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {proj.skills && proj.skills.map((skill, i) => (
-                          <span key={i} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded text-xs font-medium border border-gray-300 dark:border-gray-600">
+                          <span key={i} className="px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-md text-xs font-bold border border-blue-200 dark:border-blue-800">
                             {skill}
                           </span>
                         ))}
@@ -681,7 +681,7 @@ function Work() {
                             href={proj.demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center px-5 py-2.5 text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white font-medium transition-colors text-sm"
+                            className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-foreground dark:text-gray-300 hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                           >
                             {proj.demoLabel}
                           </a>
