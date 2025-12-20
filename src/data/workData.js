@@ -8,6 +8,7 @@ import marisHome from '../assets/apps/maris-home.png';
 import marisIntent from '../assets/apps/maris-intent.png';
 import marisTimer from '../assets/apps/maris-timer.png';
 import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
+import retentionIqPoster from '../assets/webapps/retentioniq-poster.png';
 
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
@@ -57,6 +58,22 @@ export const products = [
         ],
         link: 'https://trymaris.com',
         linkLabel: 'Visit Website',
+    },
+    {
+        type: 'web',
+        title: 'RetentionIQ',
+        tagline: 'Consulting demo tool for e-commerce churn prediction and customer segmentation.',
+        features: [
+            'Instant Churn Analysis: Rule-based heuristics analyze Shopify data in < 3 seconds',
+            'Visualize Risk: Dynamic Recency vs Frequency heatmaps identify at-risk customers',
+            'Consulting-First Design: Optimized for explainability and high-ticket lead generation'
+        ],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
+        img: retentionIqPoster,
+        alt: 'RetentionIQ dashboard screenshot',
+        link: 'https://retentioniq.com',
+        linkLabel: 'Coming Soon',
+        featured: true,
     },
     {
         type: 'web',
@@ -128,6 +145,21 @@ export const webEngineeringProjects = [
         alt: 'Learn Your ADHD website screenshot',
         link: 'https://learnyouradhd.com',
         linkLabel: 'Visit Website',
+    },
+    {
+        type: 'web',
+        title: 'RetentionIQ',
+        tagline: 'Consulting demo tool for e-commerce churn prediction and customer segmentation.',
+        features: [
+            'Instant Churn Analysis: Rule-based heuristics analyze Shopify data in < 3 seconds',
+            'Visualize Risk: Dynamic Recency vs Frequency heatmaps identify at-risk customers',
+            'Consulting-First Design: Optimized for explainability and high-ticket lead generation'
+        ],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
+        img: retentionIqPoster,
+        alt: 'RetentionIQ dashboard screenshot',
+        link: 'https://retentioniq.com',
+        linkLabel: 'Coming Soon',
     },
     {
         type: 'web',
