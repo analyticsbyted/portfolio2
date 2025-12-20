@@ -10,10 +10,8 @@ import marisTimer from '../assets/apps/maris-timer.png';
 import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
 
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
-import featureImportanceRFImg from '../assets/certifications/featureImportanceRF.webp';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.webp';
-import dataVisualizationPythonImg from '../assets/certifications/data-visualization-python.webp';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.webp';
 import procCapacity1Img from '../assets/certifications/procCapacity1.webp';
 import flowtime6Img from '../assets/certifications/flowtime6.webp';
@@ -23,9 +21,6 @@ import vaderImg from '../assets/certifications/vader.webp';
 import researchDoctoralPoster from '../assets/research/research-doctoral-v2.svg';
 import researchAiEthicsPoster from '../assets/research/research-ai-ethics.svg';
 import researchExplainableHealthcarePoster from '../assets/research/research-explainable-healthcare.svg';
-import researchEmployeeEngagementPoster from '../assets/research/research-employee-engagement.svg';
-import powerBiPoster from '../assets/bi/power-bi-dashboard.svg';
-import textMiningPoster from '../assets/nlp/text-mining.svg';
 
 export const tabs = [
     { name: 'Products', key: 'products' },
