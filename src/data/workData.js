@@ -9,6 +9,7 @@ import marisIntent from '../assets/apps/maris-intent.png';
 import marisTimer from '../assets/apps/maris-timer.png';
 import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
 import retentionIqPoster from '../assets/webapps/retentioniq-poster.png';
+import retentionIqDashboard from '../assets/webapps/retentioniq-dashboard.png';
 
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
@@ -62,17 +63,13 @@ export const products = [
     {
         type: 'web',
         title: 'RetentionIQ',
-        tagline: 'Consulting demo tool for e-commerce churn prediction and customer segmentation.',
-        features: [
-            'Instant Churn Analysis: Rule-based heuristics analyze Shopify data in < 3 seconds',
-            'Visualize Risk: Dynamic Recency vs Frequency heatmaps identify at-risk customers',
-            'Consulting-First Design: Optimized for explainability and high-ticket lead generation'
-        ],
+        tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
+        features: [], // Features hidden for security
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
-        img: retentionIqPoster,
-        alt: 'RetentionIQ dashboard screenshot',
+        img: retentionIqDashboard,
+        alt: 'RetentionIQ Strategy Dashboard',
         link: 'https://retentioniq.com',
-        linkLabel: 'Coming Soon',
+        linkLabel: 'Launch Demo',
         featured: true,
     },
     {
@@ -149,17 +146,13 @@ export const webEngineeringProjects = [
     {
         type: 'web',
         title: 'RetentionIQ',
-        tagline: 'Consulting demo tool for e-commerce churn prediction and customer segmentation.',
-        features: [
-            'Instant Churn Analysis: Rule-based heuristics analyze Shopify data in < 3 seconds',
-            'Visualize Risk: Dynamic Recency vs Frequency heatmaps identify at-risk customers',
-            'Consulting-First Design: Optimized for explainability and high-ticket lead generation'
-        ],
+        tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
+        features: [], // Features hidden for security
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
-        img: retentionIqPoster,
-        alt: 'RetentionIQ dashboard screenshot',
+        img: retentionIqDashboard,
+        alt: 'RetentionIQ Strategy Dashboard',
         link: 'https://retentioniq.com',
-        linkLabel: 'Coming Soon',
+        linkLabel: 'Launch Demo',
     },
     {
         type: 'web',
