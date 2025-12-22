@@ -64,7 +64,13 @@ export const products = [
         type: 'web',
         title: 'RetentionIQ',
         tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
-        features: [], // Features hidden for security
+        features: [
+            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments with real-time filtering.',
+            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence (not just generic 30-day windows).',
+            'Actionable Risk Monitoring: Paginated "High Risk" tables identifying specific users to target for win-back campaigns.',
+            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda for instant, scalable cohort analysis.',
+            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB-based rate limiting.'
+        ],
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
         img: retentionIqDashboard,
         alt: 'RetentionIQ Strategy Dashboard',
@@ -147,7 +153,13 @@ export const webEngineeringProjects = [
         type: 'web',
         title: 'RetentionIQ',
         tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
-        features: [], // Features hidden for security
+        features: [
+            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments with real-time filtering.',
+            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence (not just generic 30-day windows).',
+            'Actionable Risk Monitoring: Paginated "High Risk" tables identifying specific users to target for win-back campaigns.',
+            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda for instant, scalable cohort analysis.',
+            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB-based rate limiting.'
+        ],
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
         img: retentionIqDashboard,
         alt: 'RetentionIQ Strategy Dashboard',
