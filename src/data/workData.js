@@ -68,7 +68,7 @@ export const products = [
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
         img: retentionIqDashboard,
         alt: 'RetentionIQ Strategy Dashboard',
-        link: 'https://d304907g77517.cloudfront.net',
+        link: 'https://d27sk4wkh1k7iz.cloudfront.net',
         linkLabel: 'Launch Demo',
         featured: true,
     },
