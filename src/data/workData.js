@@ -11,7 +11,7 @@ import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
 import churnDefyPoster from '../assets/webapps/churndefy-poster.png';
 import churnDefyDashboard from '../assets/webapps/churndefy-home.png';
 
-import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
+import customerSegmentsImg from '../assets/webapps/customer-intelligence-suite.png';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.webp';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.webp';
@@ -271,15 +271,17 @@ export const dataAnalyticsProjects = [
     // Data Science
     {
         category: 'Data Science',
-        title: 'Customer Segmentation (Clustering)',
-        problem: 'Identify distinct customer groups for targeted marketing.',
-        approach: 'Applied clustering algorithms to shopping mall customer data using Python.',
-        result: 'Revealed actionable segments, enabling more effective marketing strategies.',
+        title: 'Customer Intelligence Suite',
+        problem: 'Transform raw demographics into a dynamic behavioral analytics dashboard.',
+        approach: 'Implemented a dual-model clustering engine (Multivariate & Bivariate) with an interactive glassmorphism dashboard.',
+        result: 'Real-time segmentation explorer with automated segment characterization and cloud hosting.',
         img: customerSegmentsImg,
-        link: 'https://github.com/analyticsbyted/customerSegmentation/blob/main/segmentation.ipynb',
-        linkLabel: 'View Project',
-        details: 'Tools: Python, scikit-learn, pandas. Identify optimal clusters.',
-        skills: ['Python', 'scikit-learn', 'Clustering']
+        link: 'https://github.com/analyticsbyted/customerSegmentation',
+        linkLabel: 'View Repo',
+        demoLink: 'http://ted-customer-intelligence-dashboard.s3-website-us-east-1.amazonaws.com/',
+        demoLabel: 'Launch Dashboard',
+        details: 'Tools: Python, Scikit-Learn, Vite.js, Chart.js. Deployed to AWS S3.',
+        skills: ['Python', 'Scikit-Learn', 'Vite.js', 'Chart.js', 'AWS S3']
     },
     {
         category: 'Data Science',
