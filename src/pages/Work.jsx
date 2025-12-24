@@ -75,7 +75,7 @@ function Work() {
         </section>
 
         {/* Tab Navigation */}
-        <section className="mb-16">
+        <section className="mb-16 flex justify-center">
           <TabNavigation
             tabs={tabs}
             activeTab={activeTab}
