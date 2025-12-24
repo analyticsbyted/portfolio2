@@ -376,6 +376,7 @@ export const researchOperationsProjects = [
         link: 'https://github.com/analyticsbyted/healthcare-xai',
         linkLabel: 'View Research Code',
         details: 'Tools: Python, SHAP, Scikit-Learn. Bridging the interpretability gap in medical machine learning.',
+        scrollable: true,
         skills: ['Python', 'SHAP', 'XAI', 'Healthcare']
     },
     {

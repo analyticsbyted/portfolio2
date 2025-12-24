@@ -100,14 +100,14 @@ function ProjectCard({ project, isVisual }) {
             ) : (
                 // Analysis Card Content (Data/Research)
                 <>
-                    <div className={`relative h-48 bg-muted/40 dark:bg-muted/20 overflow-hidden rounded-t-2xl flex items-center justify-center pt-8 px-4 pb-4 mt-3 mx-3`}>
+                    <div className={`relative ${project.scrollable ? 'h-64' : 'h-48'} bg-muted/40 dark:bg-muted/20 overflow-hidden rounded-t-2xl flex items-start justify-center ${project.scrollable ? 'pt-0' : 'pt-8'} px-4 pb-0 mt-3 mx-3`}>
                         <div className="absolute top-0 right-0 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-accent text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
                             {project.category}
                         </div>
                         <ImageWithSkeleton
                             src={project.img}
                             alt={project.title}
-                            className="h-full w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                            className={`${project.scrollable ? 'w-full h-auto object-cover object-top hover:-translate-y-[50%] transition-transform duration-[6000ms]' : 'h-full w-full object-contain'} ease-in-out cursor-pointer opacity-90 group-hover:opacity-100 transition-opacity`}
                         />
                     </div>
 
