@@ -292,6 +292,8 @@ export const dataAnalyticsProjects = [
         img: sentAnalysisWearablesImg,
         link: 'https://github.com/analyticsbyted/wearables-intelligence',
         linkLabel: 'View Repo',
+        demoLink: 'https://rpubs.com/dickeyt/wearabletech',
+        demoLabel: 'Original R Report',
         details: 'Tools: Python, VADER, Scikit-Learn, Statsmodels. Statistical inference + ML validation.',
         skills: ['Python', 'NLP', 'Scikit-Learn', 'Statistical Inference']
     },
