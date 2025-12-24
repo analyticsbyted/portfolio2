@@ -4,12 +4,19 @@ import Button from '../components/Button';
 import CTASection from '../components/CTASection';
 import HeadMetadata from '../components/HeadMetadata';
 import personSchema from '../seo/personSchema';
+import TabNavigation from '../components/work/TabNavigation';
 
 const educationStats = [
   { label: 'Degrees Earned', value: '3', icon: <AcademicCapIcon className="w-8 h-8 text-brand-primary" /> },
   { label: 'Currently Pursuing', value: '2', icon: <BookOpenIcon className="w-8 h-8 text-brand-secondary" /> },
   { label: 'Years of Study', value: '15+', icon: <ClockIcon className="w-8 h-8 text-brand-accent" /> },
   { label: 'Research Projects', value: '8+', icon: <BeakerIcon className="w-8 h-8 text-brand-primary" /> }
+];
+
+const tabs = [
+  { key: 'timeline', name: 'Academic Timeline' },
+  { key: 'research', name: 'Research & Projects' },
+  { key: 'presentations', name: 'Conferences' }
 ];
 
 function Education() {
@@ -27,13 +34,13 @@ function Education() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight font-headline">
             Academic
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
               Excellence
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-body">
             A continuous journey of learning and research, building the academic foundation for data science innovation and organizational leadership.
           </p>
         </section>
@@ -47,33 +54,20 @@ function Education() {
                 className="text-center p-6 bg-card dark:bg-card rounded-2xl shadow-lg border border-border dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3 flex justify-center">{stat.icon}</div>
-                <div className="text-3xl font-bold text-brand-primary dark:text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                <div className="text-3xl font-bold text-brand-primary dark:text-white mb-1 font-headline">{stat.value}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-body">{stat.label}</div>
               </div>
             ))}
           </div>
         </section>
 
         {/* Navigation Tabs */}
-        <section className="mb-16">
-          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mb-12">
-            {[
-              { key: 'timeline', label: 'Academic Timeline' },
-              { key: 'research', label: 'Research & Projects' },
-              { key: 'presentations', label: 'Conferences' }
-            ].map(tab => (
-              <button
-                key={tab.key}
-                className={`px-4 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-lg transition-all duration-300 border-2 flex-1 sm:flex-none ${activeSection === tab.key
-                    ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white border-brand-primary shadow-lg'
-                    : 'bg-card dark:bg-card text-gray-700 dark:text-gray-300 border-border dark:border-gray-700 hover:border-brand-primary hover:shadow-md'
-                  }`}
-                onClick={() => setActiveSection(tab.key)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        <section className="mb-16 flex justify-center">
+          <TabNavigation 
+            tabs={tabs}
+            activeTab={activeSection}
+            setActiveTab={setActiveSection}
+          />
         </section>
 
         {/* Content Sections */}
