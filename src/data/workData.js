@@ -375,9 +375,9 @@ export const researchOperationsProjects = [
         img: researchExplainableHealthcarePoster,
         link: 'https://github.com/analyticsbyted/healthcare-xai',
         linkLabel: 'View Research Code',
-        details: 'Tools: Python, SHAP, Scikit-Learn. Bridging the interpretability gap in medical machine learning.',
+        details: 'Tools: Python, SHAP, Scikit-Learn. Bridging the interpretability gap in medical machine learning. Includes supplemental R-Markdown report for RPubs.',
         scrollable: true,
-        skills: ['Python', 'SHAP', 'XAI', 'Healthcare']
+        skills: ['Python', 'SHAP', 'XAI', 'Healthcare', 'R']
     },
     {
         category: 'Research',
