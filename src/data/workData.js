@@ -8,8 +8,8 @@ import marisHome from '../assets/apps/maris-home.png';
 import marisIntent from '../assets/apps/maris-intent.png';
 import marisTimer from '../assets/apps/maris-timer.png';
 import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
-import retentionIqPoster from '../assets/webapps/retentioniq-poster.png';
-import retentionIqDashboard from '../assets/webapps/retentioniq-dashboard.png';
+import churnDefyPoster from '../assets/webapps/churndefy-poster.png';
+import churnDefyDashboard from '../assets/webapps/churndefy-home.png';
 
 import customerSegmentsImg from '../assets/certifications/customerSegments.webp';
 import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
@@ -62,18 +62,18 @@ export const products = [
     },
     {
         type: 'web',
-        title: 'RetentionIQ',
-        tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
+        title: 'ChurnDefy',
+        tagline: 'Defy the drop. Precision-engineered churn analysis for E-commerce.',
         features: [
-            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments with real-time filtering.',
-            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence (not just generic 30-day windows).',
-            'Actionable Risk Monitoring: Paginated "High Risk" tables identifying specific users to target for win-back campaigns.',
-            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda for instant, scalable cohort analysis.',
-            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB-based rate limiting.'
+            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments.',
+            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence.',
+            'Actionable Risk Monitoring: Paginated "High Risk" tables targeting win-back campaigns.',
+            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda.',
+            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB limits.'
         ],
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
-        img: retentionIqDashboard,
-        alt: 'RetentionIQ Strategy Dashboard',
+        img: churnDefyDashboard,
+        alt: 'ChurnDefy Strategy Dashboard',
         link: 'https://d27sk4wkh1k7iz.cloudfront.net',
         linkLabel: 'Launch Demo',
         featured: true,
@@ -151,19 +151,19 @@ export const webEngineeringProjects = [
     },
     {
         type: 'web',
-        title: 'RetentionIQ',
-        tagline: 'Precision-engineered churn analysis for E-commerce & Subscription Brands.',
+        title: 'ChurnDefy',
+        tagline: 'Defy the drop. Precision-engineered churn analysis for E-commerce.',
         features: [
-            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments with real-time filtering.',
-            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence (not just generic 30-day windows).',
-            'Actionable Risk Monitoring: Paginated "High Risk" tables identifying specific users to target for win-back campaigns.',
-            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda for instant, scalable cohort analysis.',
-            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB-based rate limiting.'
+            'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments.',
+            'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence.',
+            'Actionable Risk Monitoring: Paginated "High Risk" tables targeting win-back campaigns.',
+            'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda.',
+            'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB limits.'
         ],
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
-        img: retentionIqDashboard,
-        alt: 'RetentionIQ Strategy Dashboard',
-        link: 'https://retentioniq.com',
+        img: churnDefyDashboard,
+        alt: 'ChurnDefy Strategy Dashboard',
+        link: 'https://d27sk4wkh1k7iz.cloudfront.net',
         linkLabel: 'Launch Demo',
     },
     {
