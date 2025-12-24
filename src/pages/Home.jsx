@@ -166,9 +166,16 @@ function Home() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center space-x-2 mb-4">
-                  <span className="h-8 w-8 rounded-lg bg-brand-primary flex items-center justify-center text-white font-bold text-lg">M</span>
-                  <span className="text-brand-primary font-bold tracking-wider text-sm uppercase">Featured App</span>
+                <div className="relative inline-flex mb-6 group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="relative flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-brand-primary/10 text-brand-primary dark:text-blue-300 font-bold text-xs uppercase tracking-widest overflow-hidden">
+                    <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent -skew-x-12 animate-shimmer" style={{ animationDuration: '3s' }} />
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                    </span>
+                    <span className="relative">Featured App</span>
+                  </div>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-headline">
                   Maris: ADHD Management <br /> Reimagined.
