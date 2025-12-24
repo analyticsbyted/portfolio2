@@ -1,4 +1,5 @@
 import moviePoster from '../assets/webapps/movie-explorer-poster.png';
+import sqlEtlCleaningImg from '../assets/webapps/sql-etl-cleaning.png';
 import tvPoster from '../assets/webapps/tv-explorer-poster.png';
 import cifarPoster from '../assets/webapps/cifar10-classifier-poster.png';
 import economicPulsePoster from '../assets/webapps/economic-kpi-pulse-poster.png';
@@ -301,14 +302,14 @@ export const dataAnalyticsProjects = [
     {
         category: 'Data Analysis',
         title: 'Data Cleaning in SQL (ETL)',
-        problem: 'Ensure real estate data is clean and analysis ready.',
-        approach: 'Extracted, cleaned, and transformed data using SQL Server.',
-        result: 'Standardized formats, handled missing data, and removed duplicates.',
-        img: dataAnalysisPythonImg,
+        problem: 'Raw housing data contained inconsistent formats, missing address values, and redundant records, hindering accurate market analysis.',
+        approach: 'Engineered a robust T-SQL pipeline using self-joins for data imputation, advanced string parsing (SUBSTRING/PARSENAME), and CTEs with window functions for de-duplication.',
+        result: 'Transformed 50,000+ rows into a high-integrity, analysis-ready dataset with 100% address coverage and a standardized schema.',
+        img: sqlEtlCleaningImg,
         link: 'https://github.com/analyticsbyted/PortfolioProjects/blob/main/DataCleaninginSQL.sql',
-        linkLabel: 'View Project',
-        details: 'Tools: SQL Server. Ensuring data consistency.',
-        skills: ['SQL Server', 'ETL']
+        linkLabel: 'View SQL Script',
+        details: 'Tools: T-SQL, SQL Server (SSMS). Techniques: Data Imputation, String Manipulation, Window Functions.',
+        skills: ['T-SQL', 'ETL', 'SQL Server', 'Data Cleaning']
     },
     {
         category: 'Data Analysis',
