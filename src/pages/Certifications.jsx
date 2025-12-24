@@ -307,6 +307,26 @@ const certificationStats = [
   { label: 'Data Science Tools', value: '10+', icon: '📊' }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
 function Certifications() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -352,18 +372,25 @@ function Certifications() {
 
         {/* Stats Grid */}
         <section className="mb-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {certificationStats.map((stat, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                variants={itemVariants}
+                className="text-center p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-white/5 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
-                <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-              </div>
+                <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-body">{stat.label}</div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* Search and Filter Section */}
