@@ -123,21 +123,31 @@ function About() {
             </div>
 
             {/* Right Column - Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <motion.div 
+              className="grid grid-cols-2 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {stats.map((stat, index) => (
-                <div key={index} className="bg-card dark:bg-card p-6 rounded-xl shadow-lg border border-border dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
+                <motion.div 
+                  key={index} 
+                  variants={itemVariants}
+                  className="bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/20 dark:border-white/5 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                >
                   <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-                </div>
+                  <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 font-body">{stat.label}</div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Services Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white font-headline">
             How I Can Help Your Business
           </h2>
 
@@ -152,19 +162,20 @@ function About() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${activeService === index
-                  ? 'border-brand-primary bg-brand-primary/5 dark:bg-brand-primary/10'
-                  : 'border-border dark:border-gray-700 bg-card dark:bg-gray-800 hover:border-brand-primary/30'
-                  }`}
+                className={`p-6 rounded-2xl border transition-all duration-300 backdrop-blur-xl cursor-pointer ${
+                  activeService === index
+                  ? 'border-brand-primary/50 bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg shadow-brand-primary/10'
+                  : 'border-white/20 dark:border-white/5 bg-surface/40 dark:bg-surface-dark/40 hover:border-brand-primary/30'
+                }`}
                 onClick={() => setActiveService(index)}
                 whileHover={{ y: -5, transition: { type: "spring", stiffness: 300 } }}
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{service.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white font-headline">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm font-body leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-center text-sm text-gray-700 dark:text-gray-300 font-body">
                       <span className="text-brand-primary mr-2">✓</span>
                       {feature}
                     </li>
@@ -180,17 +191,17 @@ function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left - Skills */}
             <div>
-              <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Technical Expertise</h2>
+              <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white font-headline">Technical Expertise</h2>
               <div className="space-y-6">
                 {expertise.map((skill, index) => (
                   <div key={index}>
                     <div className="flex justify-between mb-2">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium font-body">{skill.name}</span>
+                      <span className="text-gray-500 dark:text-gray-400 font-body">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                    <div className="w-full bg-gray-200 dark:bg-gray-700/50 rounded-full h-2 overflow-hidden backdrop-blur-sm">
                       <motion.div
-                        className="bg-brand-primary h-2 rounded-full"
+                        className="bg-gradient-to-r from-brand-primary to-brand-secondary h-2 rounded-full"
                         custom={skill.level}
                         variants={progressVariants}
                         initial="hidden"
@@ -205,7 +216,7 @@ function About() {
 
             {/* Right - Story */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">My Journey</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-headline">My Journey</h2>
               <motion.div
                 className="space-y-4"
                 variants={containerVariants}
@@ -213,21 +224,21 @@ function About() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-primary">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎓 Academic Foundation</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-brand-primary">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🎓 Academic Foundation</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     MS in Customer Analytics & MBA in Business Intelligence from Xavier University. Currently pursuing PhD in Technology.
                   </p>
                 </motion.div>
-                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-green-500">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🚀 Product Development</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-green-500">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🚀 Product Development</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     Built and launched Maris, a mobile focus timer app for iOS and Android. Creating user-facing products that solve real problems and ship to app stores.
                   </p>
                 </motion.div>
-                <motion.div variants={itemVariants} className="p-4 bg-muted dark:bg-gray-800 rounded-lg border-l-4 border-brand-secondary">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🎯 Vision</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-brand-secondary">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🎯 Vision</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     Building products that matter—mobile apps and web experiences that users love. From concept to launch, I focus on shipping real products that solve real problems.
                   </p>
                 </motion.div>
