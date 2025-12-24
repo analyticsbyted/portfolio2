@@ -3,12 +3,13 @@ import Card from '../Card';
 import ImageWithSkeleton from '../ImageWithSkeleton';
 import BrowserFrame from '../BrowserFrame';
 
-function ProjectCard({ project, isVisual }) {
+function ProjectCard({ project, isVisual, onSelect }) {
     return (
         <Card
             key={`${isVisual ? 'visual' : 'data'}-${project.title}`}
             layoutId={`project-${project.title}`}
-            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col"
+            onClick={onSelect}
+            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60 hover:shadow-xl transition-shadow group h-full flex flex-col cursor-pointer"
         >
             {isVisual ? (
                 // Visual Card Content (Mobile/Web)
@@ -75,6 +76,7 @@ function ProjectCard({ project, isVisual }) {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-sm font-headline"
                                 aria-label={`Open ${project.title}`}
                             >
@@ -88,6 +90,7 @@ function ProjectCard({ project, isVisual }) {
                                     href={project.repoLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
                                     className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-600 text-foreground dark:text-white hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                                     aria-label={`View Code for ${project.title}`}
                                 >
@@ -150,6 +153,7 @@ function ProjectCard({ project, isVisual }) {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl font-semibold hover:from-brand-accent hover:to-brand-accent-alt transition-all shadow-sm text-sm font-headline"
                             >
                                 {project.linkLabel}
@@ -162,6 +166,7 @@ function ProjectCard({ project, isVisual }) {
                                     href={project.demoLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
                                     className="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-600 text-foreground dark:text-white hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-all shadow-sm font-headline"
                                 >
                                     {project.demoLabel}
