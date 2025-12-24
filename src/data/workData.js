@@ -23,7 +23,7 @@ import imdbTableauImg from '../assets/certifications/imdbTableau.webp';
 import vaderImg from '../assets/certifications/vader.webp';
 import researchDoctoralPoster from '../assets/research/research-doctoral-v2.svg';
 import researchAiEthicsPoster from '../assets/research/research-ai-ethics.svg';
-import researchExplainableHealthcarePoster from '../assets/research/research-explainable-healthcare.svg';
+import researchExplainableHealthcarePoster from '../assets/research/healthcare-xai.png';
 
 export const tabs = [
     { name: 'Products', key: 'products' },
@@ -369,14 +369,14 @@ export const researchOperationsProjects = [
     {
         category: 'Research',
         title: 'Explainable AI for Healthcare',
-        problem: 'How can we make deep learning models interpretable for clinical decision support?',
-        approach: 'Developing interpretable models for transparency and trust in medical AI.',
-        result: 'Focus on model interpretability techniques (SHAP, LIME).',
+        problem: 'Clincial decision support requires more than just accuracy; it requires interpretability for trust and safety.',
+        approach: 'Developed a high-fidelity diagnostic model with a SHAP-based interpretability layer to explain clinical drivers.',
+        result: 'Achieved 96% classification accuracy with global and local transparency for diagnostic decisions.',
         img: researchExplainableHealthcarePoster,
-        link: '#',
-        linkLabel: 'Coming Soon',
-        details: 'Tools: Python, SHAP. Challenge: Trust in AI systems.',
-        skills: ['Python', 'XAI', 'Healthcare']
+        link: 'https://github.com/analyticsbyted/healthcare-xai',
+        linkLabel: 'View Research Code',
+        details: 'Tools: Python, SHAP, Scikit-Learn. Explaining "Black Box" models for clinical trust.',
+        skills: ['Python', 'SHAP', 'XAI', 'Healthcare']
     },
     {
         category: 'Research',
