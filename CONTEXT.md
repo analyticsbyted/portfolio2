@@ -32,10 +32,12 @@ The portfolio has been **pivoted** to emphasize:
    - Button text: "Start Your Project"
 
 2. **Portfolio Page (Work.jsx)**
-   - New "Applications" tab added (first position)
-   - Maris mobile app added with 3 screenshots
-   - Tab order: Applications → Web Development → Data Science → Research
-   - Applications tab subtitle: "Native mobile applications for iOS and Android"
+   - **Tab Consolidation Complete**: Reduced from 7 tabs to 4.
+   - **Tab Order**: Products → Web Engineering → Data & Analytics → Research & Operations.
+   - **Products Tab**: Featured mobile app (Maris) and premium web platforms (ChurnDefy, Equity Screener, etc.).
+   - **Web Engineering Tab**: Full catalog of web applications with a focus on implementation.
+   - **Data & Analytics Tab**: Consolidates DS, ML, BI, and NLP projects.
+   - **Research & Operations Tab**: Consolidates academic research and process analysis.
 
 3. **About Page (About.jsx)**
    - Services cards updated:
@@ -125,7 +127,7 @@ portfolio2/
 ├── src/
 │   ├── pages/
 │   │   ├── Home.jsx          # Landing (updated)
-│   │   ├── Work.jsx          # Portfolio (Applications tab added)
+│   │   ├── Work.jsx          # Portfolio (Consolidated 4-tab layout)
 │   │   ├── About.jsx         # About (services updated)
 │   │   └── ...
 │   ├── components/           # Reusable UI components
@@ -162,7 +164,7 @@ portfolio2/
 - Screen Time API (iOS), Android Accessibility Service
 
 ### Location in Portfolio
-- **Tab:** Applications (first tab)
+- **Tab:** Products (first tab)
 - **Screenshots:** `src/assets/apps/maris-*.png`
 - **Link:** https://trymaris.com
 
@@ -179,11 +181,6 @@ portfolio2/
 - Body: `font-body` (Source Serif Pro)
 - Semantic tokens: `text-headline-1`, `text-body-large`, etc.
 
-### Component Patterns
-- Cards use `Card` component with hover effects
-- Pages wrapped in `AnimatedPage` for transitions
-- Images use `ImageWithSkeleton` for lazy loading
-
 ---
 
 ## 🔄 Development Workflow
@@ -198,24 +195,10 @@ npm test             # Run tests
 npm run lint         # Lint code
 ```
 
-### Adding a New Mobile App Project
-1. Add screenshots to `src/assets/apps/`
-2. Add project object to `mobileApps` array in `src/pages/Work.jsx`
-3. Follow Maris example structure:
-   ```javascript
-   {
-     title: 'App Name',
-     tagline: 'Description',
-     features: ['Feature 1', 'Feature 2'],
-     stack: ['React Native', 'Expo', ...],
-     images: [
-       { src: image1, alt: 'Alt text' },
-       { src: image2, alt: 'Alt text' }
-     ],
-     link: 'https://website.com',
-     linkLabel: 'Visit Website'
-   }
-   ```
+### Adding a New Project
+1. Add screenshots to `src/assets/`
+2. Add project object to appropriate array in `src/data/workData.js`
+3. Follow existing schema for `products`, `web`, `data`, or `research`
 
 ---
 

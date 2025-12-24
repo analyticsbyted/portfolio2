@@ -294,7 +294,7 @@ const element = useRoutes(routes);
 **Purpose:** Portfolio/work showcase with tabbed navigation
 
 **Structure:**
-- 6 tabs: Predictive Modeling & ML, Data Analysis / Operations, BI / Dashboards, NLP, Web Development, Research
+- 4 consolidated tabs: Products, Web Engineering, Data & Analytics, Research & Operations
 - Per-tab subtitle displayed via `PageSubtitle` component
 - Project cards in each tab using `Card` component
 - Dual CTAs: "View Repo" + "Live Demo" for some projects
