@@ -295,7 +295,7 @@ export const dataAnalyticsProjects = [
         demoLink: 'https://rpubs.com/dickeyt/wearabletech',
         demoLabel: 'Original R Report',
         details: 'Tools: Python, VADER, Scikit-Learn, Statsmodels. Statistical inference + ML validation.',
-        skills: ['Python', 'NLP', 'Scikit-Learn', 'Statistical Inference']
+        skills: ['Python', 'R', 'NLP', 'Scikit-Learn', 'Statistical Inference']
     },
     // Data Analysis
     {
