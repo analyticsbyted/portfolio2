@@ -12,7 +12,7 @@ import churnDefyPoster from '../assets/webapps/churndefy-poster.png';
 import churnDefyDashboard from '../assets/webapps/churndefy-home.png';
 
 import customerSegmentsImg from '../assets/webapps/customer-intelligence-suite.png';
-import sentAnalysisWearablesImg from '../assets/certifications/sentAnalysis_wearables.webp';
+import sentAnalysisWearablesImg from '../assets/webapps/wearables-intelligence.png';
 import dataAnalysisPythonImg from '../assets/certifications/data-analysis-python.webp';
 import weeklyDemandImg from '../assets/certifications/weeklyDemand.webp';
 import procCapacity1Img from '../assets/certifications/procCapacity1.webp';
@@ -285,15 +285,15 @@ export const dataAnalyticsProjects = [
     },
     {
         category: 'Data Science',
-        title: 'Predicting Customer Behavior (KNN)',
-        problem: 'Predict adoption of wearable tech among new customers.',
-        approach: 'Used K Nearest Neighbors to classify and predict customer behavior.',
-        result: 'Improved targeting for marketing wearable technology.',
+        title: 'Wearables Intelligence: Sentiment & Prediction',
+        problem: 'Classify and predict brand-specific sentiment in the competitive smartwatch market.',
+        approach: 'Developed a dual-path pipeline: VADER Sentiment analysis for social intelligence and a KNN classifier for brand prediction.',
+        result: 'Achieved high-fidelity brand classification with significant ANOVA separation between competitors.',
         img: sentAnalysisWearablesImg,
-        link: 'https://rpubs.com/dickeyt/wearabletech',
-        linkLabel: 'View Project',
-        details: 'Tools: R, caret. Feature selection and scaling for KNN.',
-        skills: ['R', 'caret', 'KNN']
+        link: 'https://github.com/analyticsbyted/wearables-intelligence',
+        linkLabel: 'View Repo',
+        details: 'Tools: Python, VADER, Scikit-Learn, Statsmodels. Statistical inference + ML validation.',
+        skills: ['Python', 'NLP', 'Scikit-Learn', 'Statistical Inference']
     },
     // Data Analysis
     {
