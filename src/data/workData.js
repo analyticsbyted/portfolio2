@@ -369,13 +369,13 @@ export const researchOperationsProjects = [
     {
         category: 'Research',
         title: 'Explainable AI for Healthcare',
-        problem: 'Clincial decision support requires more than just accuracy; it requires interpretability for trust and safety.',
-        approach: 'Developed a high-fidelity diagnostic model with a SHAP-based interpretability layer to explain clinical drivers.',
-        result: 'Achieved 96% classification accuracy with global and local transparency for diagnostic decisions.',
+        problem: 'Traditional oncological diagnostic models often prioritize predictive accuracy at the expense of clinical interpretability, creating a "Black Box" barrier to trust in automated decision support.',
+        approach: 'Synthesized a Random Forest ensemble model with a Game-Theoretic interpretability layer (TreeSHAP) to decompose high-dimensional feature attributions into actionable clinical insights.',
+        result: 'Achieved a 96% F1-score with substantiated global feature hierarchies and individualized patient risk profiles to support transparent clinical workflows.',
         img: researchExplainableHealthcarePoster,
         link: 'https://github.com/analyticsbyted/healthcare-xai',
         linkLabel: 'View Research Code',
-        details: 'Tools: Python, SHAP, Scikit-Learn. Explaining "Black Box" models for clinical trust.',
+        details: 'Tools: Python, SHAP, Scikit-Learn. Bridging the interpretability gap in medical machine learning.',
         skills: ['Python', 'SHAP', 'XAI', 'Healthcare']
     },
     {
