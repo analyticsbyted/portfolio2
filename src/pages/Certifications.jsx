@@ -387,7 +387,7 @@ function Certifications() {
                 className="text-center p-6 bg-white/80 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
-                <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>
+                <div className="text-3xl font-bold text-brand-primary dark:text-white mb-1 font-headline">{stat.value}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 font-body">{stat.label}</div>
               </motion.div>
             ))}
