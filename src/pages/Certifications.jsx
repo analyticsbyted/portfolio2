@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AcademicCapIcon, StarIcon, TrophyIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 import CTASection from '../components/CTASection';
 import Card from '../components/Card';
 import ImageWithSkeleton from '../components/ImageWithSkeleton';
