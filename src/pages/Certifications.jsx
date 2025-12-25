@@ -384,7 +384,7 @@ function Certifications() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-white/5 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="text-center p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>

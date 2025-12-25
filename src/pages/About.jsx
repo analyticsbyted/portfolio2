@@ -134,7 +134,7 @@ function About() {
                 <motion.div 
                   key={index} 
                   variants={itemVariants}
-                  className="bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/20 dark:border-white/5 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  className="bg-white/60 dark:bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="text-3xl mb-2">{stat.icon}</div>
                   <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>
@@ -165,7 +165,7 @@ function About() {
                 className={`p-6 rounded-2xl border transition-all duration-300 backdrop-blur-xl cursor-pointer ${
                   activeService === index
                   ? 'border-brand-primary/50 bg-brand-primary/10 dark:bg-brand-primary/20 shadow-lg shadow-brand-primary/10'
-                  : 'border-white/20 dark:border-white/5 bg-surface/40 dark:bg-surface-dark/40 hover:border-brand-primary/30'
+                  : 'border-white/20 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:border-brand-primary/30'
                 }`}
                 onClick={() => setActiveService(index)}
                 whileHover={{ y: -5, transition: { type: "spring", stiffness: 300 } }}
@@ -224,19 +224,19 @@ function About() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-brand-primary">
+                <motion.div variants={itemVariants} className="p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/10 border-l-4 border-l-brand-primary">
                   <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🎓 Academic Foundation</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     MS in Customer Analytics & MBA in Business Intelligence from Xavier University. Currently pursuing PhD in Technology.
                   </p>
                 </motion.div>
-                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-green-500">
+                <motion.div variants={itemVariants} className="p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/10 border-l-4 border-l-green-500">
                   <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🚀 Product Development</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     Built and launched Maris, a mobile focus timer app for iOS and Android. Creating user-facing products that solve real problems and ship to app stores.
                   </p>
                 </motion.div>
-                <motion.div variants={itemVariants} className="p-6 bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 border-l-4 border-l-brand-secondary">
+                <motion.div variants={itemVariants} className="p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/10 border-l-4 border-l-brand-secondary">
                   <h3 className="font-bold text-gray-900 dark:text-white mb-2 font-headline">🎯 Vision</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm font-body leading-relaxed">
                     Building products that matter—mobile apps and web experiences that users love. From concept to launch, I focus on shipping real products that solve real problems.

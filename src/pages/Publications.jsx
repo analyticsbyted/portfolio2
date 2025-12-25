@@ -70,7 +70,7 @@ function Publications() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center p-6 bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="text-center p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
