@@ -80,11 +80,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                 <div className="absolute bottom-0 left-0 p-8 w-full">
                                     <div className="flex flex-wrap gap-2 mb-3">
                                         {project.stack && project.stack.slice(0, 4).map((tech, i) => (
-                                            <span key={i} className="px-2.5 py-1 bg-white/20 backdrop-blur-md text-white rounded-md text-xs font-bold border border-white/30 flex items-center">
-                                                {typeof tech === 'object' && tech.icon ? (
-                                                    <img src={tech.icon} alt={tech.name} className="w-4 h-4 mr-1" />
-                                                ) : null}
-                                                {typeof tech === 'object' ? tech.name : tech}
+                                            <span key={i} className="px-2.5 py-1 bg-white/20 backdrop-blur-md text-white rounded-md text-xs font-bold border border-white/30">
+                                                {tech}
                                             </span>
                                         ))}
                                     </div>
@@ -141,11 +138,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                         <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4 font-body">Technology Stack</h3>
                                         <div className="flex flex-wrap gap-2">
                                             {project.stack.map((s, i) => (
-                                                <span key={i} className="px-3 py-1.5 bg-muted dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium border border-border dark:border-gray-700 flex items-center">
-                                                    {typeof s === 'object' && s.icon ? (
-                                                        <img src={s.icon} alt={s.name} className="w-4 h-4 mr-1" />
-                                                    ) : null}
-                                                    {typeof s === 'object' ? s.name : s}
+                                                <span key={i} className="px-3 py-1.5 bg-muted dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium border border-border dark:border-gray-700">
+                                                    {s}
                                                 </span>
                                             ))}
                                         </div>

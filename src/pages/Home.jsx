@@ -10,7 +10,6 @@ import marisTimer from '../assets/apps/maris-timer.png';
 import personSchema from '../seo/personSchema';
 import websiteSchema from '../seo/websiteSchema';
 import { useState, useEffect, useRef } from 'react';
-import reactSvg from '../assets/tech-icons/react.svg';
 
 
 const services = [
@@ -55,7 +54,7 @@ const testimonials = [
 ];
 
 const technologies = [
-  { name: 'React', icon: reactSvg }, 'React Native', 'TypeScript', 'JavaScript', 'Expo', 'Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Python', 'AWS', 'Docker', 'Git'
+  'React', 'React Native', 'TypeScript', 'JavaScript', 'Expo', 'Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Python', 'AWS', 'Docker', 'Git'
 ];
 
 
@@ -333,12 +332,9 @@ function Home() {
               <motion.span
                 key={index}
                 variants={itemVariants}
-                className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-border dark:border-gray-700 hover:shadow-md hover:border-brand-primary dark:hover:border-blue-600 transition-all duration-300 font-medium flex items-center"
+                className="px-6 py-3 bg-surface dark:bg-gray-800 text-gray-900 dark:text-white rounded-full border border-border dark:border-gray-700 hover:shadow-md hover:border-brand-primary dark:hover:border-blue-600 transition-all duration-300 font-medium"
               >
-                {typeof tech === 'object' && tech.icon ? (
-                  <img src={tech.icon} alt={tech.name} className="w-4 h-4 mr-2" />
-                ) : null}
-                {typeof tech === 'object' ? tech.name : tech}
+                {tech}
               </motion.span>
             ))}
           </motion.div>

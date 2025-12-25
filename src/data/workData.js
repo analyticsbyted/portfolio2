@@ -24,7 +24,6 @@ import vaderImg from '../assets/certifications/vader.webp';
 import researchDoctoralPoster from '../assets/research/research-doctoral-v2.svg';
 import researchAiEthicsPoster from '../assets/research/research-ai-ethics.svg';
 import researchExplainableHealthcarePoster from '../assets/research/healthcare-xai.png';
-import reactSvg from '../assets/tech-icons/react.svg';
 
 export const tabs = [
     { name: 'Products', key: 'products' },
@@ -73,7 +72,7 @@ export const products = [
             'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda.',
             'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB limits.'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
         img: churnDefyDashboard,
         alt: 'ChurnDefy Strategy Dashboard',
         link: 'https://d27sk4wkh1k7iz.cloudfront.net',
@@ -89,7 +88,7 @@ export const products = [
             'Educational Content Hub: Resource library for understanding adult ADHD symptoms',
             'Secure & Private: Anonymous screening with privacy-first architecture'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     },
     {
         type: 'web',
@@ -100,7 +99,7 @@ export const products = [
             'Preset screening filters and custom watchlists',
             'Automated email alerts and news aggregation'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Prisma', 'PostgreSQL', 'Finnhub API', 'Tailwind'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Finnhub API', 'Tailwind'],
         img: equityScreenerPoster,
         alt: 'Equity Screener dashboard screenshot',
         link: 'https://equity-screener.onrender.com/',
@@ -118,7 +117,7 @@ export const products = [
             'Time‑series charts with recession shading and rich tooltips',
             'Compare indicators and export PNG/CSV'
         ],
-        stack: [{ name: 'React', icon: reactSvg }, 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
+        stack: ['React', 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
     },
 ];
 
@@ -133,7 +132,7 @@ export const webEngineeringProjects = [
             'Educational Content Hub: Resource library for understanding adult ADHD symptoms',
             'Secure & Private: Anonymous screening with privacy-first architecture'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
         img: learnYourAdhdHome,
         alt: 'Learn Your ADHD website screenshot',
         link: 'https://learnyouradhd.com',
@@ -150,7 +149,7 @@ export const webEngineeringProjects = [
             'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda.',
             'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB limits.'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS Lambda', 'Python 3.11'],
         img: churnDefyDashboard,
         alt: 'ChurnDefy Strategy Dashboard',
         link: 'https://d27sk4wkh1k7iz.cloudfront.net',
@@ -165,7 +164,7 @@ export const webEngineeringProjects = [
             'Static Export Architecture: Zero-runtime deployment on AWS S3 & CloudFront',
             'Compliance Hub: Accessible Privacy Policy and Terms for App Store approval'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Tailwind CSS', 'AWS S3'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS S3'],
         img: marisWebsitePoster,
         alt: 'Maris website home screen',
         link: 'https://trymaris.com',
@@ -180,7 +179,7 @@ export const webEngineeringProjects = [
             'Preset screening filters and custom watchlists',
             'Automated email alerts and news aggregation'
         ],
-        stack: ['Next.js', { name: 'React', icon: reactSvg }, 'TypeScript', 'Prisma', 'PostgreSQL', 'Finnhub API', 'Tailwind'],
+        stack: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Finnhub API', 'Tailwind'],
         img: equityScreenerPoster,
         alt: 'Equity Screener dashboard screenshot',
         link: 'https://equity-screener.onrender.com/',
@@ -197,7 +196,7 @@ export const webEngineeringProjects = [
             'Time‑series charts with recession shading and rich tooltips',
             'Compare indicators and export PNG/CSV'
         ],
-        stack: [{ name: 'React', icon: reactSvg }, 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
+        stack: ['React', 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
         img: economicPulsePoster,
         alt: 'Economic KPI Pulse dashboard screenshot',
         link: 'https://economic-pulse.vercel.app/',
@@ -214,7 +213,7 @@ export const webEngineeringProjects = [
             'Search and discover new titles',
             'Movie details with cast and similar titles'
         ],
-        stack: [{ name: 'React', icon: reactSvg }, 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
+        stack: ['React', 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
         img: moviePoster,
         alt: 'Movie Explorer web app screenshot',
         link: 'https://moviez-explorer.netlify.app/',
@@ -231,7 +230,7 @@ export const webEngineeringProjects = [
             'Search and filter by title',
             'Series details with cast and recommendations'
         ],
-        stack: [{ name: 'React', icon: reactSvg }, 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
+        stack: ['React', 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
         img: tvPoster,
         alt: 'TV Explorer web app screenshot',
         link: 'https://tvexplorer.netlify.app/',
