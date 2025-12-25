@@ -212,6 +212,8 @@ export const webEngineeringProjects = [
         features: [
             'Browse trending and popular movies',
             'Search and discover new titles',
+            'Movie details with cast and similar titles'
+        ],
         stack: [{ name: 'React', icon: reactSvg }, 'TypeScript', 'TanStack Query', 'TMDB API', 'Tailwind'],
         img: moviePoster,
         alt: 'Movie Explorer web app screenshot',
