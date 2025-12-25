@@ -123,6 +123,13 @@ export const products = [
             'Compare indicators and export PNG/CSV'
         ],
         stack: ['React', 'TypeScript', 'TanStack Query', 'Recharts', 'Tailwind', 'FRED API'],
+        img: economicPulsePoster,
+        alt: 'Economic KPI Pulse dashboard screenshot',
+        link: 'https://economic-pulse.vercel.app/',
+        linkLabel: 'Live App',
+        repoLink: 'https://github.com/analyticsbyted/economic-pulse',
+        repoLabel: 'View Repo',
+        featured: true,
     },
 ];
 
