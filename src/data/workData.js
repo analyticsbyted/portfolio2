@@ -89,6 +89,11 @@ export const products = [
             'Secure & Private: Anonymous screening with privacy-first architecture'
         ],
         stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+        img: learnYourAdhdHome,
+        alt: 'Learn Your ADHD website screenshot',
+        link: 'https://learnyouradhd.com',
+        linkLabel: 'Visit Platform',
+        featured: true,
     },
     {
         type: 'web',
