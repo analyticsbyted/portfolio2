@@ -126,7 +126,7 @@ function Newsletter() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                className="text-center p-6 bg-white/80 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1">{stat.value}</div>
@@ -214,7 +214,7 @@ function Newsletter() {
               <motion.div
                 key={article.id}
                 variants={itemVariants}
-                className="bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-sm border border-white/20 dark:border-white/10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-white/80 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-md border border-white/20 dark:border-white/10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="p-8">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
@@ -277,7 +277,7 @@ function Newsletter() {
           <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 font-headline">Why Subscribe?</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 bg-white/80 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-accent rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-brand-primary/20">
                 <ChartBarIcon className="w-8 h-8 text-white" />
               </div>
@@ -287,7 +287,7 @@ function Newsletter() {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 bg-white/80 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-green-500/20">
                 <BookOpenIcon className="w-8 h-8 text-white" />
               </div>
@@ -297,7 +297,7 @@ function Newsletter() {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 bg-white/80 dark:bg-white/5 backdrop-blur-xl rounded-3xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-purple-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-brand-secondary/20">
                 <UsersIcon className="w-8 h-8 text-white" />
               </div>

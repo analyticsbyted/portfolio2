@@ -134,7 +134,7 @@ function About() {
                 <motion.div 
                   key={index} 
                   variants={itemVariants}
-                  className="bg-white/60 dark:bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/20 dark:border-white/10 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                  className="bg-white/80 dark:bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-md border border-white/20 dark:border-white/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="text-3xl mb-2">{stat.icon}</div>
                   <div className="text-3xl font-bold text-brand-primary dark:text-brand-accent mb-1 font-headline">{stat.value}</div>
