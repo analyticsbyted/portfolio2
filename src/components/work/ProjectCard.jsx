@@ -51,8 +51,11 @@ function ProjectCard({ project, isVisual, onSelect }) {
                         {/* Tech Stack Badges */}
                         <div className="flex flex-wrap gap-2 mb-4">
                             {project.stack.map((s, i) => (
-                                <span key={i} className="px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-md text-xs font-bold border border-blue-200 dark:border-blue-800">
-                                    {s}
+                                <span key={i} className="px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-md text-xs font-bold border border-blue-200 dark:border-blue-800 flex items-center">
+                                    {typeof s === 'object' && s.icon ? (
+                                        <img src={s.icon} alt={s.name} className="w-4 h-4 mr-1" />
+                                    ) : null}
+                                    {typeof s === 'object' ? s.name : s}
                                 </span>
                             ))}
                         </div>
