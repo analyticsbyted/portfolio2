@@ -258,7 +258,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark text-gray-900 dark:text-gray-100 font-body">
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-surface/40 dark:bg-surface-dark/40 border-b border-white/10 dark:border-white/5 shadow-sm transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 sm:py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors" aria-label="Home">
               <img src={logo} alt="Ted Dickey logo" width={40} height={40} className="mr-3" />
@@ -349,7 +349,7 @@ function AppContent() {
                   animate={{ x: 0 }}
                   exit={{ x: '100%' }}
                   transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                  className="fixed top-0 right-0 bottom-0 w-64 bg-surface dark:bg-surface-dark shadow-2xl z-50 lg:hidden overflow-y-auto"
+                  className="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-surface dark:bg-surface-dark shadow-2xl z-50 lg:hidden overflow-y-auto"
                 >
                   {/* Close button */}
                   <div className="flex justify-end p-4 border-b border-border dark:border-gray-700">
