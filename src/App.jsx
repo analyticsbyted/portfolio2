@@ -266,18 +266,46 @@ function AppContent() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
-              <NavLink to="/about" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>About</NavLink>
-              <NavLink to="/work" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Portfolio</NavLink>
-              <NavLink to="/education" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Education</NavLink>
-              <NavLink to="/certifications" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Certifications</NavLink>
-              <NavLink to="/publications" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Publications</NavLink>
-              <NavLink to="/newsletter" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Newsletter</NavLink>
-              <NavLink to="/contact" className={({ isActive }) => `px-3 py-2 rounded-lg transition-all duration-200 font-medium ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`} onClick={() => setMobileOpen(false)}>Contact</NavLink>
+            <div className="hidden lg:flex items-center space-x-1 bg-surface/50 dark:bg-white/5 backdrop-blur-sm p-1 rounded-xl border border-white/10">
+              {[
+                { path: '/about', label: 'About' },
+                { path: '/work', label: 'Portfolio' },
+                { path: '/education', label: 'Education' },
+                { path: '/certifications', label: 'Certifications' },
+                { path: '/publications', label: 'Publications' },
+                { path: '/newsletter', label: 'Newsletter' },
+                { path: '/contact', label: 'Contact' },
+              ].map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={({ isActive }) => `relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    isActive 
+                    ? 'text-brand-primary dark:text-white' 
+                    : 'text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-gray-200'
+                  }`}
+                >
+                  {({ isActive }) => (
+                    <>
+                      <span className="relative z-10">{link.label}</span>
+                      {isActive && (
+                        <motion.div
+                          layoutId="navbar-active"
+                          className="absolute inset-0 bg-white dark:bg-white/10 rounded-lg shadow-sm border border-gray-200/50 dark:border-white/5"
+                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                    </>
+                  )}
+                </NavLink>
+              ))}
+
+              <div className="w-px h-6 bg-border dark:bg-white/10 mx-2" />
 
               {/* Theme toggle */}
               <button
-                className="p-3 rounded-xl bg-muted dark:bg-muted hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 border border-border dark:border-gray-700"
+                className="p-2 rounded-lg text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white hover:bg-white/50 dark:hover:bg-white/10 transition-all duration-200"
                 aria-label={`Theme: ${currentTheme.label}`}
                 title={`Theme: ${currentTheme.label}`}
                 onClick={handleThemeToggle}
