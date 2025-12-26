@@ -85,22 +85,21 @@ portfolio2/
 
 ## Features
 
-- **Responsive Design:** Mobile-first, works on all screen sizes
+- **Fluid Navigation:** Sliding segmented controls and navbar pill with physics-based animations
+- **Interactive Depth:** 3D tilt effects on flagship project mockups (Maris)
+- **Glassmorphism 2.0:** Premium, high-contrast glass styling for cards, navigation, and modals
+- **Staggered Reveals:** Smooth, cascading entry animations for grid content
+- **Quick View Modals:** Deep-dive project details without leaving the page
+- **Responsive Design:** Mobile-first, works on all screen sizes (Enhanced: adaptive navbar height, responsive mobile menu width)
+- **Fluid Navigation:** Sliding segmented controls and navbar pill with physics-based animations
+- **Interactive Depth:** 3D tilt effects on flagship project mockups (Maris)
+- **Glassmorphism 2.0:** Premium, high-contrast glass styling for cards, navigation, and modals
+- **Staggered Reveals:** Smooth, cascading entry animations for grid content
+- **Quick View Modals:** Deep-dive project details without leaving the page
 - **Dark Mode:** Theme toggle with localStorage persistence
 - **Page Transitions:** Smooth page transitions with Framer Motion (respects reduced motion)
-- **Mobile Navigation:** Animated slide-in menu with backdrop overlay and staggered items
-- **Portfolio Showcase:** Tabbed navigation for different project categories
-- **Interactive Cards:** Hover effects, focus indicators, line clamping
-- **Route-Based Code Splitting:** All routes except Home lazy-loaded for 31% bundle reduction (557KB → 383KB)
-- **Image Optimization:** Lazy loading, WebP fallback, responsive images
-- **Error Boundaries:** Three-layer error handling (global, route-level, component-level)
-- **Automated Testing:** 53 tests covering form validation, error boundaries, and core components
-- **Modern Typography:** Inter + Source Serif Pro font pairing with optimized line heights
-- **Brand Identity System:** Semantic color tokens for maintainable theming (brand-primary, brand-secondary)
-- **Enhanced Button Interactions:** Consistent hover lift effects and active states
-- **Accessibility:** Keyboard navigation, focus indicators, semantic HTML, motion preferences
-- **Enhanced Hero Section:** Animated gradient backgrounds with floating elements for visual depth
-- **Animated Stats Cards:** Scroll-triggered number counters with icons, gradient borders, and micro-interactions
+- **Mobile Navigation:** Animated slide-in menu with backdrop overlay and staggered items (now adaptive width)
+
 
 ## Pages
 

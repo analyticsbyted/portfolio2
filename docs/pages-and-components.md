@@ -237,6 +237,9 @@ const tabs = [
 **Key Features:**
 - Route configuration using `useRoutes` hook
 - Navigation bar (desktop + mobile responsive)
+- **Fluid Desktop Navigation:** Sliding background pill for active links
+- **Responsive Navbar Height:** Reduces vertical padding on smaller screens (`sm`, `md`)
+- **Adaptive Mobile Menu:** Uses `w-3/4 max-w-xs` for responsive width
 - **Mobile Navigation Animation:**
   - Slide-in from right with Framer Motion (300ms)
   - Backdrop overlay with fade animation
@@ -286,6 +289,23 @@ const tabs = [
 - Typography: `font-headline` (Inter)
 
 ### UI Components
+
+#### ProjectModal.jsx
+**Purpose:** Glass-overlay modal for deep-diving into project details without navigation
+
+**Location:** `src/components/work/ProjectModal.jsx`
+
+**Props:**
+- `project`: Project object to display
+- `isOpen`: Boolean visibility state
+- `onClose`: Function to close modal
+
+**Features:**
+- **Hero Header:** Large cover image with overlay title and tagline
+- **Tech Stack:** Visual pills/icons for technologies
+- **Content Grid:** 3-column layout for Problem, Solution, and Impact
+- **Scroll Lock:** Prevents body scrolling when modal is open
+- **Animation:** Spring-based entrance/exit transitions
 
 #### Button.jsx
 **Purpose:** Link-styled button component

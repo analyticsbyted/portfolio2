@@ -93,8 +93,34 @@ className="from-brand-primary/20 to-brand-secondary/20"
 
 **Configuration:** `tailwind.config.js` - flattened structure with nested aliases for backward compatibility
 
+### Glassmorphism 2.0
+
+**Recipe:** `bg-white/80 dark:bg-white/5 backdrop-blur-md/xl border border-white/20 dark:border-white/10 shadow-md/lg`
+
+**Characteristics:**
+- **Higher Opacity (Light Mode):** `bg-white/80` provides better contrast against the `bg-surface` (`#F8F7F4`) background, preventing cards from blending in.
+- **Subtle Opacity (Dark Mode):** `dark:bg-white/5` offers a delicate frosted look against dark backgrounds.
+- **Stronger Border:** `border-white/20` in light mode and `dark:border-white/10` in dark mode creates a visible edge.
+- **Enhanced Shadow:** `shadow-md/lg` adds depth, making the elements "float" above the content.
+- **Adaptive Blur:** `backdrop-blur-md/xl` for a soft frosted glass effect.
+
+**Applied To:**
+- Main Navbar (with `backdrop-blur-xl`)
+- KPI Cards (across Home, Education, Certifications, Publications, Newsletter)
+- Newsletter subscription & article cards
+- Project Quick View Modal
+
+### Fluid Navigation
+
+**Implementation:**
+- Uses Framer Motion's `layoutId` for smooth, physics-based transitions.
+- **Sliding Pill Background:** An active `motion.div` (`bg-gradient-to-r from-brand-primary to-brand-secondary`) slides behind active links/tabs.
+- **Applied To:** Desktop Navbar and Work/Education page tabs.
+
 ### Responsiveness
 - Use Tailwind responsive variants (`sm:`, `md:`, `lg:`, `xl:`) for layout changes. These compile to CSS `@media` rules.
+- **Adaptive Navbar:** Reduced height on small screens (`py-2 sm:py-3 md:py-4`).
+- **Adaptive Mobile Menu:** Uses `w-3/4 max-w-xs` for flexible width on various device sizes.
 - Common patterns used:
   - Grids: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-2`
   - Containers: `max-w-7xl mx-auto px-6 sm:px-8`
