@@ -282,8 +282,8 @@ function AppContent() {
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) => `relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     isActive 
-                    ? 'text-brand-primary dark:text-white' 
-                    : 'text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-gray-200'
+                    ? 'text-white' 
+                    : 'text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white'
                   }`}
                 >
                   {({ isActive }) => (
@@ -292,7 +292,7 @@ function AppContent() {
                       {isActive && (
                         <motion.div
                           layoutId="navbar-active"
-                          className="absolute inset-0 bg-white dark:bg-white/10 rounded-lg shadow-sm border border-gray-200/50 dark:border-white/5"
+                          className="absolute inset-0 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg shadow-md"
                           transition={{ type: "spring", stiffness: 350, damping: 30 }}
                         />
                       )}
@@ -377,7 +377,7 @@ function AppContent() {
                       <NavLink
                         key={item.to}
                         to={item.to}
-                        className={({ isActive }) => `block font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? 'text-brand-primary dark:text-white bg-brand-primary/10 dark:bg-white/10' : 'text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white hover:bg-brand-primary/10 dark:hover:bg-white/10'}`}
+                        className={({ isActive }) => `block font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? 'text-white bg-gradient-to-r from-brand-primary to-brand-secondary' : 'text-gray-700 dark:text-gray-300'}`}
                         onClick={() => setMobileOpen(false)}
                       >
                         {item.label}
