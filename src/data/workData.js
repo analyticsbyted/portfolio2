@@ -11,6 +11,7 @@ import marisTimer from '../assets/apps/maris-timer.png';
 import learnYourAdhdHome from '../assets/apps/learn-your-adhd.png';
 import churnDefyPoster from '../assets/webapps/churndefy-poster.png';
 import churnDefyDashboard from '../assets/webapps/churndefy-home.png';
+import xaiCreditRiskHome from '../assets/webapps/xai-credit-risk-home.png';
 
 import customerSegmentsImg from '../assets/webapps/customer-intelligence-suite.png';
 import sentAnalysisWearablesImg from '../assets/webapps/wearables-intelligence.png';
@@ -77,6 +78,26 @@ export const products = [
         alt: 'ChurnDefy Strategy Dashboard',
         link: 'https://d27sk4wkh1k7iz.cloudfront.net',
         linkLabel: 'Launch Demo',
+        featured: true,
+    },
+    {
+        type: 'web',
+        title: 'XAI Credit Risk Assessor',
+        tagline: 'Explainable AI for loan default prediction using XGBoost and SHAP.',
+        features: [
+            'Interactive Risk Scoring: Predicts probability of default with precision-engineered XGBoost model.',
+            'Game-Theoretic Interpretability: Integrated SHAP layer providing granular, feature-level insights into every prediction.',
+            'Real-Time Explanation Dashboard: Dynamic visualizations of high-dimensional feature attributions for actionable decision support.',
+            'Production-Grade Architecture: Seamless full-stack integration with Next.js frontend and FastAPI/Python backend.',
+            'Bias Monitoring & Transparency: Bridging the \"Black Box\" gap in automated financial risk assessment.'
+        ],
+        stack: ['Next.js', 'FastAPI', 'Python', 'XGBoost', 'SHAP', 'Tailwind CSS'],
+        img: xaiCreditRiskHome,
+        alt: 'XAI Credit Risk Assessor Dashboard showing prediction results and SHAP value explanations',
+        link: 'https://huggingface.co/spaces/analyticsbyted/credit-risk-assessor',
+        linkLabel: 'Launch App',
+        repoLink: 'https://github.com/analyticsbyted/xai-credit-risk-assessor',
+        repoLabel: 'View Repo',
         featured: true,
     },
     {
@@ -157,7 +178,7 @@ export const webEngineeringProjects = [
         features: [
             'Interactive Customer Strategy Dashboard: Visualizing High Risk, Loyal, and Champion segments.',
             'Proprietary Drift Analysis: Detects when a customer deviates from their personal buying cadence.',
-            'Actionable Risk Monitoring: Paginated "High Risk" tables targeting win-back campaigns.',
+            'Actionable Risk Monitoring: Paginated \"High Risk\" tables targeting win-back campaigns.',
             'Serverless Analysis Engine: Python-based RFM processing on AWS Lambda.',
             'Secure Lead Generation: Built-in Email Gate with tokenized access and DynamoDB limits.'
         ],
@@ -166,6 +187,25 @@ export const webEngineeringProjects = [
         alt: 'ChurnDefy Strategy Dashboard',
         link: 'https://d27sk4wkh1k7iz.cloudfront.net',
         linkLabel: 'Launch Demo',
+    },
+    {
+        type: 'web',
+        title: 'XAI Credit Risk Assessor',
+        tagline: 'Explainable AI for loan default prediction using XGBoost and SHAP.',
+        features: [
+            'Interactive Risk Scoring: Predicts probability of default with precision-engineered XGBoost model.',
+            'Game-Theoretic Interpretability: Integrated SHAP layer providing granular, feature-level insights into every prediction.',
+            'Real-Time Explanation Dashboard: Dynamic visualizations of high-dimensional feature attributions for actionable decision support.',
+            'Production-Grade Architecture: Seamless full-stack integration with Next.js frontend and FastAPI/Python backend.',
+            'Bias Monitoring & Transparency: Bridging the \"Black Box\" gap in automated financial risk assessment.'
+        ],
+        stack: ['Next.js', 'FastAPI', 'Python', 'XGBoost', 'SHAP', 'Tailwind CSS'],
+        img: xaiCreditRiskHome,
+        alt: 'XAI Credit Risk Assessor Dashboard showing prediction results and SHAP value explanations',
+        link: 'https://huggingface.co/spaces/analyticsbyted/credit-risk-assessor',
+        linkLabel: 'Launch App',
+        repoLink: 'https://github.com/analyticsbyted/xai-credit-risk-assessor',
+        repoLabel: 'View Repo',
     },
     {
         type: 'web',
@@ -298,6 +338,20 @@ export const dataAnalyticsProjects = [
         details: 'Tools: Python, VADER, Scikit-Learn, Statsmodels. Statistical inference + ML validation.',
         skills: ['Python', 'R', 'NLP', 'Scikit-Learn', 'Statistical Inference']
     },
+    {
+        category: 'Data Science',
+        title: 'XAI Credit Risk Assessor',
+        problem: 'Traditional financial risk models act as \"Black Boxes,\" making it difficult for lenders to trust or explain automated loan denials.',
+        approach: 'Developed an XGBoost ensemble classifier paired with a TreeSHAP interpretability layer to decompose complex feature interactions into human-readable local explanations.',
+        result: 'Achieved high predictive accuracy (~88% AUC) while providing real-time \"What-If\" simulation and feature attribution visualizations for every prediction.',
+        img: xaiCreditRiskHome,
+        link: 'https://github.com/analyticsbyted/xai-credit-risk-assessor',
+        linkLabel: 'View Repo',
+        demoLink: 'https://huggingface.co/spaces/analyticsbyted/credit-risk-assessor',
+        demoLabel: 'Live Demo',
+        details: 'Full-stack ML implementation using FastAPI and Next.js. Focuses on bridging the gap between accuracy and transparency in Fintech.',
+        skills: ['Python', 'XGBoost', 'SHAP', 'FastAPI', 'Machine Learning']
+    },
     // Data Analysis
     {
         category: 'Data Analysis',
@@ -369,7 +423,7 @@ export const researchOperationsProjects = [
     {
         category: 'Research',
         title: 'Explainable AI for Healthcare',
-        problem: 'Traditional oncological diagnostic models often prioritize predictive accuracy at the expense of clinical interpretability, creating a "Black Box" barrier to trust in automated decision support.',
+        problem: 'Traditional oncological diagnostic models often prioritize predictive accuracy at the expense of clinical interpretability, creating a \"Black Box\" barrier to trust in automated decision support.',
         approach: 'Synthesized a Random Forest ensemble model with a Game-Theoretic interpretability layer (TreeSHAP) to decompose high-dimensional feature attributions into actionable clinical insights.',
         result: 'Achieved a 96% F1-score with substantiated global feature hierarchies and individualized patient risk profiles to support transparent clinical workflows.',
         img: researchExplainableHealthcarePoster,
